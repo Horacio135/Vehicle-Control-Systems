@@ -1,0 +1,1 @@
+Definition of the vehicle basic physical parameters, longitudinal dynamics and simple PI speed controller to simulate acceleration from standstill up to 75 meters and braking to a stop before reaching 100 meters.
