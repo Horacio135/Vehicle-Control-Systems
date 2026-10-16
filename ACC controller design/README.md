@@ -1,0 +1,1 @@
+Design of an ACC (adaptative cruise control) controller, modifications in the longitudinal axis of the dynamic defined in the previous part keeping the bicycle configuration and simulating the encounter of our vehicle (ego) with another vehicle upfront (leader) 
