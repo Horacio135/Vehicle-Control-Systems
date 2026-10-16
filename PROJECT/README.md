@@ -1,0 +1,1 @@
+This directory will be used to upload all the progress on the main project of the course, which will consist on the design and development of an ESC module for the Formula Student aiming to increase the performance and stability of the vehicle.
