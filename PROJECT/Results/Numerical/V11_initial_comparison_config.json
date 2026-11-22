@@ -1,0 +1,37 @@
+{
+  "dataset": "V11_initial_comparison",
+  "source_mat": "mapeo_limite/comparacion_resultados.mat",
+  "telemetry_export": "original rows at approximately 20 Hz, including last sample; summary from full resolution",
+  "plan": {
+    "ayMax": 11,
+    "axAcel": 6,
+    "axFreno": 12,
+    "anticipacionPI": 0
+  },
+  "planBase": {
+    "ayMax": 8,
+    "axAcel": 6,
+    "axFreno": 8,
+    "anticipacionPI": 0.1
+  },
+  "ensayo": {
+    "ancho": 3,
+    "pasoTrayectoria": 0.25,
+    "pasoConos": 3,
+    "velocidades": [
+      15,
+      20,
+      25,
+      30,
+      35
+    ],
+    "errorAbandono": 10,
+    "conductor": {
+      "tauAcel": 0.03,
+      "tauFreno": 0.02,
+      "errorActivar": 0.35,
+      "errorSoltar": 0.05
+    },
+    "animar": false
+  }
+}

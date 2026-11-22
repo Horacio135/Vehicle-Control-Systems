@@ -1,0 +1,11 @@
+path,duration_s,fps,width,height
+PROJECT/Results/Hybrid_Tests/Seguimiento_V10_15_20_25_30_35_20261117.mp4,56.2666666,15,1500,1026
+PROJECT/Results/Hybrid_Tests/Seguimiento_V10_Estres_14_curvas.mp4,103.6666666,15,1500,1026
+PROJECT/Results/Hybrid_Tests/Seguimiento_V11_35ms_3D.mp4,47.7332666,30,1600,976
+PROJECT/Results/Hybrid_Tests/Seguimiento_V11_Mapeo_limite.mp4,48.6666666,15,1500,994
+PROJECT/Results/Hybrid_Tests/Seguimiento_V12_35ms_3D_Aceleracion_agresiva.mp4,149.1334,15,1280,780
+PROJECT/Results/Hybrid_Tests/Seguimiento_V9_planificador_5_velocidades.mp4,44.2666666,15,1124,768
+PROJECT/Results/Hybrid_Tests/Seguimiento_hibrido_animado.mp4,44.2666666,15,1124,768
+PROJECT/Results/V5_Slip_Tests/Animacion_Eslalon.mp4,23.9999666,30,1250,814
+PROJECT/Results/V5_Slip_Tests/Animacion_derrape_skidpad.mp4,8,25,1250,814
+PROJECT/Results/V5_Slip_Tests/Derrape.mp4,3.4666333,30,700,420

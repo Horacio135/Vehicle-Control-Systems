@@ -1,0 +1,10 @@
+{
+  "local_links_checked": 186,
+  "archived_files_hash_checked": 77,
+  "archived_git_blobs_checked": 77,
+  "source_exports_checked": 19,
+  "version_readmes_checked": 12,
+  "historical_result_rows": 50,
+  "errors": [],
+  "scope": "Artifact integrity, documentation and export checks; not experimental physical validation."
+}

@@ -1,0 +1,5 @@
+{
+  "dataset": "V08_braking_turn",
+  "source_mat": "v8_giros/resultados_giros.mat",
+  "telemetry_export": "original rows at approximately 20 Hz, including last sample; summary from full resolution"
+}

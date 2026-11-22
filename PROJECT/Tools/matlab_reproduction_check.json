@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-22",
+  "environment": "MATLAB R2026a",
+  "source_snapshot": "PROJECT/Results/Run_Sources/V11_35_3D.m",
+  "source_sha256": "9b70c4a40641138c9a70bdd95676b905570c1955d19f4decd2447d9af3bc873a",
+  "reproduction_tool": "PROJECT/Tools/reproduce_run.m",
+  "lap_complete": true,
+  "duration_s": 47.68,
+  "max_lateral_error_m": 0.775981717641171,
+  "all_states_finite": true,
+  "animation_timer_cleaned": true,
+  "original_sources_unchanged": true,
+  "scope": "Reproduction check for this single case, not a validation of all historical versions."
+}

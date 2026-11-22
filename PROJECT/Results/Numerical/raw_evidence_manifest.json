@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-22",
+  "note": "Local raw evidence; not all of these files were exported. Dataset config names identify the selected files.",
+  "files": [
+    {
+      "origin": "revision_contexto/aceleracion_agresiva/validacion.mat",
+      "bytes": 36851039,
+      "sha256": "14e6828e937ae6f2ebe689d0aa954e32cb1c21dc6b79f7ae4867bd15b1e65fd7"
+    },
+    {
+      "origin": "revision_contexto/animacion_3d/resultado_3d.mat",
+      "bytes": 9382141,
+      "sha256": "882844f7cccb8fdc1e8a0c9d65319c26d25f92a27aa0c6e1b4b2eaa70a0296c3"
+    },
+    {
+      "origin": "revision_contexto/animacion_planificador/resultados_cinco_casos.mat",
+      "bytes": 29406221,
+      "sha256": "565ce315ec489964a902a3b1df5a138808fd81d7412b3218d9ffa16208f4904a"
+    },
+    {
+      "origin": "revision_contexto/estres14/resultados_estres.mat",
+      "bytes": 59550497,
+      "sha256": "9c37d4e0e314735673ccd4b0b20ec8ce694e653f997918b2e8d37ea23ba696e6"
+    },
+    {
+      "origin": "revision_contexto/hibrida/resultados_hibridos.mat",
+      "bytes": 9281984,
+      "sha256": "16dec1cd397d61c8c25c2b0518b251ffb60165f6acdab5961d3da181a4aef53a"
+    },
+    {
+      "origin": "revision_contexto/mapeo_limite/comparacion_resultados.mat",
+      "bytes": 100273945,
+      "sha256": "0ef1a71329f1677ef7aae79cd30ac05446a5db57135f7d6fe07d7c3111c47cfd"
+    },
+    {
+      "origin": "revision_contexto/planificador/resultados_planificador.mat",
+      "bytes": 22204410,
+      "sha256": "c5e56a2496fd263c952c4528574eb6de030d7f52350f4d8bfc461f381c12d018"
+    },
+    {
+      "origin": "revision_contexto/resultado_recta.mat",
+      "bytes": 304486,
+      "sha256": "149df4cf1109858ecab321536b2da84af7d17edad80f08971518ef20deccb6bb"
+    },
+    {
+      "origin": "revision_contexto/v8_corregida/validacion_v8.mat",
+      "bytes": 1002881,
+      "sha256": "d30e44d9b21fdda4d25aaf5bb847ad2f2385ba3c7b67c704149c499a70492830"
+    },
+    {
+      "origin": "revision_contexto/v8_estado/resultados.mat",
+      "bytes": 15659241,
+      "sha256": "feda26cd519ec7dd4dc68b075816bc8cbfc1aa8859039dd7fe4afb6058387ebe"
+    },
+    {
+      "origin": "revision_contexto/v8_giros/resultados_giros.mat",
+      "bytes": 1917939,
+      "sha256": "8996715b9fa6b89d412c5ffec230da2d59743afadbde96763ff90e1e9857b4de"
+    },
+    {
+      "origin": "revision_contexto/v8_modos/validacion_modos.mat",
+      "bytes": 701745,
+      "sha256": "f9c0fd82a14d13de3064ed99f173b6020727356a9a998b19eed8402afed67ece"
+    },
+    {
+      "origin": "revision_contexto/video_v10/resultados_video.mat",
+      "bytes": 59456330,
+      "sha256": "ee56d9ba76d39f2dddf394bb4bf150985142ad9c3231bdaff8e2ecdf1e43821c"
+    },
+    {
+      "origin": "revision_contexto/video_v10_actual/resultados_V10_actual.mat",
+      "bytes": 53067770,
+      "sha256": "2c7e11cb09623c30076495379f34366752b8715287059b77e3b779d73ea76c64"
+    },
+    {
+      "origin": "revision_contexto/video_v11/resultados_video.mat",
+      "bytes": 46571506,
+      "sha256": "c416c60f664502f8824ea3f93f50f4fbf1a54a72708116726663ffbc1b9a0003"
+    }
+  ]
+}

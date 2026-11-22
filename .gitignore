@@ -1,0 +1,14 @@
+# MATLAB/editor temporary files
+*.asv
+*.bak
+*.bak.*
+~$*
+**/Respaldo_*/
+slprj/
+*.slxc
+# Local machine and credentials
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

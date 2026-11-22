@@ -1,0 +1,98 @@
+{
+  "dataset": "V11_single_3D",
+  "source_mat": "animacion_3d/resultado_3d.mat",
+  "telemetry_export": "original rows at approximately 20 Hz, including last sample; summary from full resolution",
+  "p": {
+    "m": 230,
+    "g": 9.81,
+    "rho": 1.225,
+    "Cd": 1,
+    "Af": 1.1,
+    "fr": 0.022,
+    "Fx_drive_max": 2500,
+    "Fx_brake_max": 5000,
+    "theta": 0,
+    "ld": 0.765,
+    "lt": 0.765,
+    "lyd": 0.6,
+    "lyt": 0.6,
+    "hcg": 0.23,
+    "xw": [
+      0.765,
+      0.765,
+      -0.765,
+      -0.765
+    ],
+    "L": 1.53,
+    "yw": [
+      0.6,
+      -0.6,
+      0.6,
+      -0.6
+    ],
+    "td": 1.2,
+    "tt": 1.2,
+    "Iz": 130,
+    "Cad": 35000,
+    "Cat": 50000,
+    "Caw": [
+      17500,
+      17500,
+      25000,
+      25000
+    ],
+    "nCa": 0.8,
+    "mu_t": 1.5,
+    "mu_d": 1.4249999999999998,
+    "muw": [
+      1.4249999999999998,
+      1.4249999999999998,
+      1.5,
+      1.5
+    ],
+    "Kslip": 3,
+    "tau_slip_loss": 0.03,
+    "tau_slip_rec": 0.5,
+    "brake_slide_ratio": 0.68,
+    "v_brake_slide": 15,
+    "brake_lock_on": 1.02,
+    "brake_lock_off": 0.9,
+    "tau_brake_loss": 0.03,
+    "tau_brake_rec": 0.1,
+    "tau_brake_release": 0.01,
+    "Fzd0": 1128.15,
+    "Fzt0": 1128.15,
+    "Fzw0": [
+      564.075,
+      564.075,
+      564.075,
+      564.075
+    ],
+    "drive_w": [
+      0,
+      0,
+      0.5,
+      0.5
+    ],
+    "brake_w": [
+      0.3,
+      0.3,
+      0.2,
+      0.2
+    ],
+    "kRoll": 0.5,
+    "Kp_v": 800,
+    "Ki_v": 200,
+    "Ld0": 2,
+    "kLd": 0.3,
+    "delta_max": 0.5,
+    "dt": 0.002,
+    "v_set": 35
+  },
+  "plan": {
+    "ayMax": 11,
+    "axAcel": 6,
+    "axFreno": 12,
+    "anticipacionPI": 0
+  }
+}

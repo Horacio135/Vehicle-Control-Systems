@@ -1,0 +1,467 @@
+{
+  "snapshot_date": "2026-11-22",
+  "files": [
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV1_simulacion.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV1_simulacion.mlx",
+      "bytes": 45855,
+      "sha256": "2f93379fbcca6337046c58e1fcd1c723dc69c74118f1a1671562fe8a1d244395"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV2_simulacion_4ruedas.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV2_simulacion_4ruedas.mlx",
+      "bytes": 73716,
+      "sha256": "97cb2f82e4d9deb7793e78cef1cdf64c065e74bbe4f50b674eebe4aaaa66e4ef"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV3_simulacion_circulo_adherencia.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV3_simulacion_circulo_adherencia.mlx",
+      "bytes": 113332,
+      "sha256": "bf78d96ba08e4a49b14958fa1829c59f4963625ef5cfeb334fe6561ddccd86bc"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV4_simulacion_transferencia_pesos.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV4_simulacion_transferencia_pesos.mlx",
+      "bytes": 167995,
+      "sha256": "71b4c453c8e3be19d67fd1b059fa93b04c0e79fc056d01562f414d53fbbb814e"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV5_simulacion_deslizamiento_longitudinal.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV5_simulacion_deslizamiento_longitudinal.mlx",
+      "bytes": 896041,
+      "sha256": "ae23b62f7833a34b1d9c14c34d2b040ca993f1b28c0684dcf2cd8e6637159104"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV6_dinamica_indiv_rueda.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV6_dinamica_indiv_rueda.mlx",
+      "bytes": 619739,
+      "sha256": "208d5ef27ebe0c7eda408d107b64fa25eedfe4c2e48d671dfd6543262febbe1e"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV7_estructurado.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV7_estructurado.mlx",
+      "bytes": 547750,
+      "sha256": "f1ade45de217e7a51a727edfc3527bf4d0e7139ef431bac0b31eeeb9d545d6d2"
+    },
+    {
+      "origin": "Proyecto/Dinamica/CuatroruedasV8_bloqueo_ruedas.mlx",
+      "path": "PROJECT/Dynamic Model/CuatroruedasV8_bloqueo_ruedas.mlx",
+      "bytes": 905629,
+      "sha256": "5502b64c9336f6cbfcc394f0d39e986e2266b3d37636013bea30260a9f8ffa1c"
+    },
+    {
+      "origin": "Proyecto/Dinamica/Modelo_cuatroruedasV1.mlx",
+      "path": "PROJECT/Dynamic Model/Modelo_cuatroruedasV1.mlx",
+      "bytes": 4836,
+      "sha256": "8ef26406578d5c9304f1c3cbb5c76354345b9b9100cfb61b9fddaca171212e6b"
+    },
+    {
+      "origin": "Proyecto/Dinamica/Modelo_cuatroruedasV2.mlx",
+      "path": "PROJECT/Dynamic Model/Modelo_cuatroruedasV2.mlx",
+      "bytes": 4952,
+      "sha256": "07d17806dbd0b17892ef3d119e5afe17a93783cc8e0a8358426060c78ff269b7"
+    },
+    {
+      "origin": "Proyecto/Ensayos/Simulacion_aceleracion_frenada.m",
+      "path": "PROJECT/Dynamic Model/Ensayos/Simulacion_aceleracion_frenada.m",
+      "bytes": 6902,
+      "sha256": "fe878c0745ab827aa6a8998e263f1d54c3f45a284808baa67cd6a92c8cbe49b5"
+    },
+    {
+      "origin": "Proyecto/Ensayos/Simulacion_eslalon.m",
+      "path": "PROJECT/Dynamic Model/Ensayos/Simulacion_eslalon.m",
+      "bytes": 459,
+      "sha256": "aeec7cb0d6c4f5c66c4c1936d76e794d82661a7c12fd9379c3568c586ebb9bbb"
+    },
+    {
+      "origin": "Proyecto/Ensayos/Simulacion_eslalon_parado.m",
+      "path": "PROJECT/Dynamic Model/Ensayos/Simulacion_eslalon_parado.m",
+      "bytes": 684,
+      "sha256": "72d2c158a2099ef257222d3143bac9512f8f2d98573284d6ca773e5ffe88609f"
+    },
+    {
+      "origin": "Proyecto/Ensayos/Simulacion_frenada_giro.m",
+      "path": "PROJECT/Dynamic Model/Ensayos/Simulacion_frenada_giro.m",
+      "bytes": 7514,
+      "sha256": "97d36680ffc15c0ceb29d49bb99f32335152df6fe41eaba897a1f403622648b8"
+    },
+    {
+      "origin": "Proyecto/Ensayos/Simulacion_skidpad.m",
+      "path": "PROJECT/Dynamic Model/Ensayos/Simulacion_skidpad.m",
+      "bytes": 5082,
+      "sha256": "21d8920aabcca944577882d1103616536192efade22c713aa185f9fa9e0050b2"
+    },
+    {
+      "origin": "Proyecto/Ensayos/Simulacion_skidpad_parado.m",
+      "path": "PROJECT/Dynamic Model/Ensayos/Simulacion_skidpad_parado.m",
+      "bytes": 1712,
+      "sha256": "6b839e9c741d98e6a9758a9b0af7d5b07b0d3e2eb19008c12905307ca68ffb4d"
+    },
+    {
+      "origin": "Proyecto/Pruebas círculo límite adherencia (4ruedasV3)/Skidpad a 30ms.png",
+      "path": "PROJECT/Results/V3_Friction_Circle/Skidpad a 30ms.png",
+      "bytes": 107820,
+      "sha256": "4986770933db44b31e615fa5d3348a18857ee061bf8b98cd4f9c34c9391fe6ce"
+    },
+    {
+      "origin": "Proyecto/Pruebas círculo límite adherencia (4ruedasV3)/Skidpad a 5ms.png",
+      "path": "PROJECT/Results/V3_Friction_Circle/Skidpad a 5ms.png",
+      "bytes": 119162,
+      "sha256": "aba16850789335f5773cc654314ff513548239a57eff120ba37fe01fc63e56ea"
+    },
+    {
+      "origin": "Proyecto/Pruebas círculo límite adherencia (4ruedasV3)/Telemetria ruedas 30ms.png",
+      "path": "PROJECT/Results/V3_Friction_Circle/Telemetria ruedas 30ms.png",
+      "bytes": 130902,
+      "sha256": "b8f081b717adc2f9b2c893d6c0025382956fa6699dff46166eab38723edbd18a"
+    },
+    {
+      "origin": "Proyecto/Pruebas círculo límite adherencia (4ruedasV3)/Telemetria ruedas 5ms.png",
+      "path": "PROJECT/Results/V3_Friction_Circle/Telemetria ruedas 5ms.png",
+      "bytes": 88616,
+      "sha256": "23772050f0e6a2664c9be4d271d5572b5b9650b987e814367b99f3a2f524e7b9"
+    },
+    {
+      "origin": "Proyecto/Pruebas círculo límite adherencia (4ruedasV3)/Uso del círculo de adherencia.png",
+      "path": "PROJECT/Results/V3_Friction_Circle/Uso del círculo de adherencia.png",
+      "bytes": 69552,
+      "sha256": "69b5f51ef2ad0ac9bc201f3d405f6cdbe052bb265ce3b171ed70810556ca6e03"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Animar_planificador_hibrido.m",
+      "path": "PROJECT/Hybrid Tests/Animar_planificador_hibrido.m",
+      "bytes": 8288,
+      "sha256": "306047251e43fb8405792ef0b47fcf95d83036f302acab2dca94fad13699cc41"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Animar_seguimiento_hibrido.m",
+      "path": "PROJECT/Hybrid Tests/Animar_seguimiento_hibrido.m",
+      "bytes": 8030,
+      "sha256": "73668d25b9c15ee89b1cda93f2146789f01919eff0b65b8eee464b92a1e11625"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V10_Estres_14_curvas.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V10_Estres_14_curvas.mlx",
+      "bytes": 18662,
+      "sha256": "4a64692f074e969800ac10a6d63d414100ed37f62f9279b6b9cd2497474c50df"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V11_35ms_3D.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V11_35ms_3D.mlx",
+      "bytes": 79183,
+      "sha256": "576b2ef00ec0ff9c3d904505f82a8fd43551b7be3013776df05f8a7152f2319a"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V11_Mapeo_limite.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V11_Mapeo_limite.mlx",
+      "bytes": 1558073,
+      "sha256": "45b7cb3ced70999559c5520ed345fa578f7965c85934b3fa0cb18bc6546eb20a"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx",
+      "bytes": 108240,
+      "sha256": "1dba4851f6b6786677643180d9768e0d0b12c7cee1316859d86aaa63deed246e"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V8_PurePursuit.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V8_PurePursuit.mlx",
+      "bytes": 440882,
+      "sha256": "610a604983f07eb8e815defdd908027c03195cc4e98e2e03dd169fc92f5fb288"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V8_PurePursuit_animada.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V8_PurePursuit_animada.mlx",
+      "bytes": 443550,
+      "sha256": "708e411f979b5bfba1824f8f397f139652c8f669ea07c1de6996001c42e2a48e"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V9_PurePursuit.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V9_PurePursuit.mlx",
+      "bytes": 1332966,
+      "sha256": "8fb15f84f36824d9f58f84ddde1e7e4f8c1ff3bdc0a1794bcfb9af0eecdae9e4"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Prueba_hibrida_V9_PurePursuit_animada.mlx",
+      "path": "PROJECT/Hybrid Tests/Prueba_hibrida_V9_PurePursuit_animada.mlx",
+      "bytes": 16030,
+      "sha256": "5e524a346ec19202a522da357bc5017156c9f3099b432ca798373a154dba2aa2"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_hibrido_animado.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_hibrido_animado.mp4",
+      "bytes": 3564441,
+      "sha256": "c9f8540e9467aa8ab7eeffa111bbf701a223b60b628035fb0c22065df766df57"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_V10_15_20_25_30_35_20261117.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V10_15_20_25_30_35_20261117.mp4",
+      "bytes": 10018361,
+      "sha256": "e5391027f7ceef682b524150cd9792d96a662d2d11f8a59f4d0cbe9944d78b35"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_V10_Estres_14_curvas.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V10_Estres_14_curvas.mp4",
+      "bytes": 15568288,
+      "sha256": "b6adeaa01c9507d897bdef78a865e3fd96b3716904d9a6a4fd19ec0937b01429"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_V11_35ms_3D.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V11_35ms_3D.mp4",
+      "bytes": 22608263,
+      "sha256": "ee21b2eee37c984f2a657895b341f10ece3d38585a83d585f40648cd0a13313f"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_V11_Mapeo_limite.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V11_Mapeo_limite.mp4",
+      "bytes": 8700483,
+      "sha256": "a5f87aebe5654efec239ac36f3646e5f5dd279f7f6371fd6bab2245287963517"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_V12_35ms_3D_Aceleracion_agresiva.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V12_35ms_3D_Aceleracion_agresiva.mp4",
+      "bytes": 44080540,
+      "sha256": "dd6e83ea016bfe268e7cab2006cd864be965e5d93830fb7e29bc86fbf727a699"
+    },
+    {
+      "origin": "Proyecto/Pruebas híbridas/Seguimiento_V9_planificador_5_velocidades.mp4",
+      "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V9_planificador_5_velocidades.mp4",
+      "bytes": 4795462,
+      "sha256": "9e2c4363bb8ee289a2c1b98140a99e57bd4385cb5cdeca0f0d91b38d91e859c2"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Carga vertical por rueda.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Carga vertical por rueda.png",
+      "bytes": 54905,
+      "sha256": "fe07e1565e6c28e104c9258289f00148b4c22b4570ae30b22ff2e305bf671305"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Eslalon 5ms dirección y rigidez.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Eslalon 5ms dirección y rigidez.png",
+      "bytes": 150208,
+      "sha256": "1dbb3631bc8cdc7d48c0c3f7f7b5373edb95917cba6dd0d4f3aa14f242b24c22"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Eslalon 5ms.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Eslalon 5ms.png",
+      "bytes": 181057,
+      "sha256": "301f5d8913629a4abc9b6923b511588c3d99521c9ccec7f6ea5311bdc75f6e6f"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Resultados 2 skid 14 ms-1.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Resultados 2 skid 14 ms-1.png",
+      "bytes": 102239,
+      "sha256": "291cca3dbc80562030ca5ca37afed56a17b031a7d2a0efd3bd0f909284e7fe4b"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Resultados skid 14 ms-1.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Resultados skid 14 ms-1.png",
+      "bytes": 105579,
+      "sha256": "584dfbc564fb1f990e51bf5c9bd9ee83923c3af1d240489f2a4606936972a7d0"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Resultados slalon 14 ms-1.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Resultados slalon 14 ms-1.png",
+      "bytes": 305702,
+      "sha256": "dcb12011600416a94d2f3bf1f5673b096e8722487f2242acad717a3cc3003ad7"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Skidpad a 5ms.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Skidpad a 5ms.png",
+      "bytes": 172746,
+      "sha256": "67d4c070007967bbdad87d89a3e4c42632263c115f63da069c404883dc54121e"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Telemetria ruedas 5ms.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Telemetria ruedas 5ms.png",
+      "bytes": 112000,
+      "sha256": "79456ed8c7bb8c24272b703525ec1da72cf8690278779647f4efc133b25c56fb"
+    },
+    {
+      "origin": "Proyecto/Pruebas V4_transferencia de pesos/Uso del círculo de adherencia.png",
+      "path": "PROJECT/Results/V4_Load_Transfer/Uso del círculo de adherencia.png",
+      "bytes": 84102,
+      "sha256": "e1a069bd7cee9ce87bfcb06e104f12db18ada9e516e673be992b14a9322dcd67"
+    },
+    {
+      "origin": "Proyecto/Pruevas V5/Animacion_derrape_skidpad.mp4",
+      "path": "PROJECT/Results/V5_Slip_Tests/Animacion_derrape_skidpad.mp4",
+      "bytes": 427412,
+      "sha256": "5c70612d1b33a5fdda5d1153bf35c04f99442f188e03aa165245c98111e34827"
+    },
+    {
+      "origin": "Proyecto/Pruevas V5/Animacion_Eslalon.mp4",
+      "path": "PROJECT/Results/V5_Slip_Tests/Animacion_Eslalon.mp4",
+      "bytes": 1684805,
+      "sha256": "d5e15fe648ba36f724764c5950af90a8365282cdccda6e4a5b1498c68dab3599"
+    },
+    {
+      "origin": "Proyecto/Pruevas V5/Derrape.mp4",
+      "path": "PROJECT/Results/V5_Slip_Tests/Derrape.mp4",
+      "bytes": 195995,
+      "sha256": "d143d6ed1d1a2638a8a27ddeaf0fbfec66f91f488d3f677162dfc94acfddd67b"
+    },
+    {
+      "origin": "Proyecto/Pruevas V5/slalon.png",
+      "path": "PROJECT/Results/V5_Slip_Tests/slalon.png",
+      "bytes": 13021,
+      "sha256": "f45d276cdea6fad31f9e74dab15f4c6329b7f72f7912b21a475a45ad9e5f5f10"
+    },
+    {
+      "origin": "Proyecto/SCV_Evaluación_Intermedia_Proyecto_HHRB.pptx",
+      "path": "PROJECT/Documentation/SCV_Evaluación_Intermedia_Proyecto_HHRB.pptx",
+      "bytes": 4558489,
+      "sha256": "bbbee208d2f554abddaeee9cad9a71e22ec76fff6ffe17eec60455e3f463e7ab"
+    },
+    {
+      "origin": "workspace/revision_contexto/v8_modos/liberacion_50ms.png",
+      "path": "PROJECT/Results/V8_Braking/liberacion_50ms.png",
+      "bytes": 80934,
+      "sha256": "b034879e8211c087f89200f816762a540d49fa3072ea9a2031295566e93dbe5b"
+    },
+    {
+      "origin": "workspace/revision_contexto/v8_modos/capacidad_recta.png",
+      "path": "PROJECT/Results/V8_Braking/capacidad_recta.png",
+      "bytes": 43876,
+      "sha256": "d7f3f651be24858963824eab46aba52ee8ebe59ddebb23d8e024e7f5658a7296"
+    },
+    {
+      "origin": "workspace/revision_contexto/v8_corregida/recta_v8.png",
+      "path": "PROJECT/Results/V8_Braking/recta_v8.png",
+      "bytes": 64011,
+      "sha256": "940e622312b8406963175c85cf92df0c385d2fde48be27cca54d1cb36da9c89d"
+    },
+    {
+      "origin": "workspace/revision_contexto/v8_giros/giro_leve.png",
+      "path": "PROJECT/Results/V8_Braking/giro_leve.png",
+      "bytes": 130685,
+      "sha256": "414db3b0b2df0e5732a05c26758f202c385c0a1f00e7a3809265c46731f4e6d4"
+    },
+    {
+      "origin": "workspace/revision_contexto/v8_giros/giro_acusado.png",
+      "path": "PROJECT/Results/V8_Braking/giro_acusado.png",
+      "bytes": 136784,
+      "sha256": "300b68200b8585a8be1b3be4d91187a7df359c1fd5b690e119d486dd9749dcf9"
+    },
+    {
+      "origin": "workspace/revision_contexto/planificador/Hibrido___circuito_y_trayectorias.png",
+      "path": "PROJECT/Results/V9_Speed_Planner/circuito_y_trayectorias.png",
+      "bytes": 75367,
+      "sha256": "5dbe8e70d1316aa1319608625f08ab79a4ac1bc678c479a2688052271d824782"
+    },
+    {
+      "origin": "workspace/revision_contexto/planificador/Planificador___aceleracion_y_frenado.png",
+      "path": "PROJECT/Results/V9_Speed_Planner/aceleracion_y_frenado.png",
+      "bytes": 110041,
+      "sha256": "e6e8c8540a03b96f4644aa18e8a563d9d90fc6285a2775c5ad890290a8e94f19"
+    },
+    {
+      "origin": "workspace/revision_contexto/planificador/Planificador___perfiles_de_velocidad.png",
+      "path": "PROJECT/Results/V9_Speed_Planner/perfiles_de_velocidad.png",
+      "bytes": 65846,
+      "sha256": "0d97584316e0815365d6d73744067a37aef7bcf26a930202434a635476d699ab"
+    },
+    {
+      "origin": "workspace/revision_contexto/planificador/Planificador___referencia_y_respuesta_del_PI.png",
+      "path": "PROJECT/Results/V9_Speed_Planner/referencia_y_respuesta.png",
+      "bytes": 123695,
+      "sha256": "276341b8a98d54ab709e79d5de1349d4215e6d0d38333e206fbc4a6516f47383"
+    },
+    {
+      "origin": "workspace/revision_contexto/estres14/Hibrido___circuito_y_trayectorias.png",
+      "path": "PROJECT/Results/V10_Stress/circuito_y_trayectorias.png",
+      "bytes": 87457,
+      "sha256": "bb00b04ca21d395888b30987ba66ff2bced091a5a57bcd23df0dc13108395bdc"
+    },
+    {
+      "origin": "workspace/revision_contexto/estres14/Conductor_agresivo___rapidez_de_las_transiciones.png",
+      "path": "PROJECT/Results/V10_Stress/transiciones.png",
+      "bytes": 34005,
+      "sha256": "6c7fbd258e98d10ecf39a69d9a7bf7f7144f4d0eeaf723f7fc83ae502656dae2"
+    },
+    {
+      "origin": "workspace/revision_contexto/estres14/Conductor_agresivo___objetivos_y_fuerza_aplicada.png",
+      "path": "PROJECT/Results/V10_Stress/fuerzas.png",
+      "bytes": 116065,
+      "sha256": "c0a3caf17bcce48a4f693bdf330a1dfc5f4dbee9cb45eae2ae5153b2030c56ea"
+    },
+    {
+      "origin": "workspace/revision_contexto/mapeo_limite/error_comparado.png",
+      "path": "PROJECT/Results/V11_Speed_Mapping/error_comparado.png",
+      "bytes": 116393,
+      "sha256": "0acd11cbbbdc65655d84a5adff8b755e4fa88dce0880d1ee7f9bf8b2ec29d10b"
+    },
+    {
+      "origin": "workspace/revision_contexto/video_v10_actual/vista_previa_actual.png",
+      "path": "PROJECT/Results/V10_Stress/vista_previa_15_35.png",
+      "bytes": 262352,
+      "sha256": "d6614f40ebcceb97a1e74ee9eebe7f830ae2e50bdf52f37fa28b91c06158a971"
+    },
+    {
+      "origin": "workspace/revision_contexto/video_v11/vista_previa_v11.png",
+      "path": "PROJECT/Results/V11_Speed_Mapping/vista_previa_25_40.png",
+      "bytes": 272269,
+      "sha256": "65d2a14b46e3d841a763ac721f5556ba0529c94c4945755c7022b9669a81713f"
+    },
+    {
+      "origin": "workspace/revision_contexto/animacion_3d/vista_video_3d.png",
+      "path": "PROJECT/Results/V11_3D/vista_previa.png",
+      "bytes": 185823,
+      "sha256": "08efd371048e1940e4bacdd8eef31694cb8ac504b1b93e14f84d4ca5eee5f0e5"
+    },
+    {
+      "origin": "workspace/revision_contexto/aceleracion_agresiva/vista_video_3d.png",
+      "path": "PROJECT/Results/V12_Aggressive_Acceleration/vista_previa.png",
+      "bytes": 188987,
+      "sha256": "e1b0ee96b1bd8318186c4556270b5b360b46905a6b95cdff7eef5669dcaa6eb5"
+    },
+    {
+      "origin": "workspace/revision_contexto/planificador/Planificador_copia_codigo.m",
+      "path": "PROJECT/Results/Run_Sources/V09_14_18_22_26.m",
+      "bytes": 30268,
+      "sha256": "54562fe5c43c9253bbbf0b0e6fabf5a27fb87ef37b509a42215598396eb61ad5"
+    },
+    {
+      "origin": "workspace/revision_contexto/animacion_planificador/Planificador_cinco_casos_codigo.m",
+      "path": "PROJECT/Results/Run_Sources/V09_6_10_14_18_22.m",
+      "bytes": 30338,
+      "sha256": "acc3221fce2ccb5fa49910f1e9446b6a07de2096319cf551ab96082554239cfd"
+    },
+    {
+      "origin": "workspace/revision_contexto/estres14/Estres14_codigo.m",
+      "path": "PROJECT/Results/Run_Sources/V10_6_10_14_18_22.m",
+      "bytes": 42559,
+      "sha256": "d5f32b8a521b3339399e41a8e0489a085ed4a2fcb76f7a299ff923307549c021"
+    },
+    {
+      "origin": "workspace/revision_contexto/video_v10_actual/V10_ejecucion_video.m",
+      "path": "PROJECT/Results/Run_Sources/V10_15_20_25_30_35.m",
+      "bytes": 42644,
+      "sha256": "85f08526ca7687f705dca11547efc1935e6627df7ce5e8673a07e898dfab775e"
+    },
+    {
+      "origin": "workspace/revision_contexto/video_v11/V11_video_codigo.m",
+      "path": "PROJECT/Results/Run_Sources/V11_25_30_32_35_40.m",
+      "bytes": 46037,
+      "sha256": "4b0c33f94cebfd287ebdd40f8941784341265d1a2eb02df6e7de9961aa8609ed"
+    },
+    {
+      "origin": "workspace/revision_contexto/animacion_3d/ejecucion_prueba.m",
+      "path": "PROJECT/Results/Run_Sources/V11_35_3D.m",
+      "bytes": 50699,
+      "sha256": "9b70c4a40641138c9a70bdd95676b905570c1955d19f4decd2447d9af3bc873a"
+    },
+    {
+      "origin": "workspace/revision_contexto/aceleracion_agresiva/codigo_agresivo.m",
+      "path": "PROJECT/Results/Run_Sources/V12_35_3D.m",
+      "bytes": 52103,
+      "sha256": "3ee5f461bbcbfe0fbdbb9a5d36a8b88c98b00784696154f5a650908bf665dc02"
+    },
+    {
+      "origin": "Prácticas/P4_seguimiento_trayectoria_ALUMNO.mlx",
+      "path": "Trajectory Tracking/P4_seguimiento_trayectoria_ALUMNO.mlx",
+      "bytes": 143552,
+      "sha256": "58965f692cf38b8a1928c7ddcf16276dcb8aee7fd3a043acc123b057dd832679"
+    }
+  ]
+}
