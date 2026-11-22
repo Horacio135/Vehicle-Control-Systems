@@ -78,5 +78,5 @@ report={'local_links_checked':checked_links,'archived_files_hash_checked':len(ma
         'source_exports_checked':exports,'version_readmes_checked':12,'historical_result_rows':len(rows),
         'errors':errors,'scope':'Artifact integrity, documentation and export checks; not experimental physical validation.'}
 print(json.dumps(report,ensure_ascii=False,indent=2))
-(ROOT/'PROJECT/Tools/publication_checks.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(ROOT/'PROJECT/Tools/publication_checks.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 if errors:raise SystemExit(1)
