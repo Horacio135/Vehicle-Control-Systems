@@ -71,5 +71,6 @@ The original coursework/project separation is retained.
 - [Design decisions and remaining limitations](PROJECT/Documentation/Design_Decisions/README.md)
 - [50 recorded histories and telemetry](PROJECT/Results/Numerical/README.md)
 - [Reproducing a recorded run](PROJECT/Tools/README.md)
+- [New modular project: standalone dynamics and simulation template](PROJECT/Modular%20Architecture/README.md)
 
 Documentation is maintained in English. Historical filenames, MATLAB identifiers and original recorded graphics retain their established names so that existing scripts, links and result provenance remain traceable.

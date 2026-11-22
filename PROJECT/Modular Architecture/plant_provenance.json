@@ -1,0 +1,22 @@
+{
+  "source_live_script": "PROJECT/Dynamic Model/CuatroruedasV8_bloqueo_ruedas.mlx",
+  "source_export": "PROJECT/Dynamic Model/Source Exports/CuatroruedasV8_bloqueo_ruedas.m",
+  "source_export_sha256": "9f6ca5b14147ec10483d8db7837a2fd2e47c768394f8105ecd1b90cb712089be",
+  "local_original_sha256": "5502b64c9336f6cbfcc394f0d39e986e2266b3d37636013bea30260a9f8ffa1c",
+  "plant_sha256": "2d289d5226736a7bbf5d371a466b4e5112cc9b80eaa9e2796806fe270833e369",
+  "initializer_sha256": "4d0444b0f11417191f87f8a6ab4ffbf10269ca4d94672ba6066f0e5311e9cd24",
+  "extraction": "Exact function text from the English V8 export; executable non-text tokens also match the current local original.",
+  "interface": {
+    "inputs": [
+      "z",
+      "u",
+      "p",
+      "dt"
+    ],
+    "outputs": [
+      "z_next",
+      "tele"
+    ],
+    "u": "[total longitudinal force in N; front-wheel steering angle in rad]"
+  }
+}

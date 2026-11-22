@@ -25,6 +25,7 @@ PROJECT/
 | [Hybrid Tests](Hybrid%20Tests/README.md) | V8 tracking and V9–V12 planning/stress scenarios |
 | [Results](Results/README.md) | Ten videos, figures and data from 50 recorded histories |
 | [Documentation](Documentation/README.md) | Twelve stages, design decisions and known limitations |
+| [Modular Architecture](Modular%20Architecture/README.md) | New integration stage: standalone frozen dynamic block and editable simulation harness |
 
 ## Run a scenario
 
@@ -82,6 +83,8 @@ V11 changes planning assumptions, not plant adhesion limits. V12 doubles the max
 Abrupt demands consume adhesion and can severely degrade tracking. Completing a lap does not establish track containment or physical validity. Track-exit statistics use the centre of gravity, not the body envelope; lock statistics refer to the model's phenomenological mode. A configured maximum speed is a cap and may never be reached.
 
 Next, assemble the block architecture without changing `pasoDinamico`. Independent wheel-force commands, yaw control and ABS/TCS coordination remain pending. A future controller must either add the physics needed for actual wheel slip or explicitly remain a force-based controller for the approximate model.
+
+The first implementation step is now available in [Modular Architecture](Modular%20Architecture/README.md): `pasoDinamico.m`, its state initializer and `runSimulation.m`. The standalone function is an exact extraction; its states and telemetry match the unchanged local V8 across 3736 default-test steps and 700 additional steering/braking/release steps.
 
 ## History and compatibility
 

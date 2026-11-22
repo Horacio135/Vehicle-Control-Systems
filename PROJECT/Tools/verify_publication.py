@@ -55,6 +55,16 @@ for p in ROOT.rglob('*.mlx'):
 
 for n in range(1,13):
     if not (ROOT/f'PROJECT/Documentation/Versions/V{n:02}/README.md').exists():errors.append(f'Missing version V{n}')
+
+module=ROOT/'PROJECT/Modular Architecture'
+if module.exists():
+    provenance=json.loads((module/'plant_provenance.json').read_text(encoding='utf-8'))
+    for name,key in [('pasoDinamico.m','plant_sha256'),('inicializarEstadoDinamico.m','initializer_sha256')]:
+        if hashlib.sha256((module/name).read_bytes()).hexdigest()!=provenance[key]:
+            errors.append('Standalone plant changed after extraction: '+name)
+    source=ROOT/provenance['source_export']
+    if hashlib.sha256(source.read_bytes()).hexdigest()!=provenance['source_export_sha256']:
+        errors.append('Standalone extraction source has changed')
 for p in ROOT.rglob('*'):
     if '.git' in p.parts or not p.is_file():continue
     if p.stat().st_size>=100_000_000:errors.append('File exceeds GitHub 100 MB: '+str(p.relative_to(ROOT)))
