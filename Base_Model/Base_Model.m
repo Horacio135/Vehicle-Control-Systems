@@ -1,145 +1,145 @@
-%% P1. Dinámica Longitudinal del Vehículo
-% Sistemas de Control de Vehículos
-% 
-% Grado en Ingeniería Electrónica, Robótica y Mecátronica
-% 
-% Universidad de Málaga
-% 
-% Creado por: David Rodríguez Martínez
-% 
-% Última actualización: 18 Septiembre 2026
-% Introducción y objetivos
-% Este archivo contiene a su vez el guión de la práctica y los bloques de código 
-% a completar. En esta primera práctica definiremos las propiedades, los parámetros 
-% de diseño de nuestro monoplaza de competición FSDriverless y diseñaremos el 
-% primer modelo dinámica longitudinal. 
-% 
-% Para completar esta práctica se necesita conocer la ecuación fundamental de 
-% movimiento longitudinal de un vehículo desarrollada en el Bloque 2. 
-% 
-% Al terminar esta práctica deberás ser capaz de:
-%% 
-% # Escribir y simular la ecuación de movimiento longitudinal de un vehículo.
-% # Cerrar un lazo sencillo de control de velocidad. 
-% # Reconocer la estructura de simulación que reutilizaremos y ampliaremos en 
-% las siguientes prácticas.
-%% 
-% 🚧 *Importante*: _este es el primer bloque de tu proyecto individual. El archivo 
-% que completes hoy se convertirá en la base longitudinal del simulador del sistema 
-% de control de tu monoplaza que utilizarás durante todo el curso. Guárdalo._ 
-% Qué vas a implementar
-% A) La aceleración longitudinal (función |pasoLongitudinal|)
-% 
-% B) La ley de control PI saturada (función |controlLongitudinal|)
-% Parametros del vehículo
-% 💡 *Tip*: _Vamos a utilizar un_ |struct| _(o estructura). En Matlab las estructuras 
-% son un tipo de datos que agrupa información relacionada mediante contenedores 
-% llamados campos. Cada campo puede almacenar cualquier tipo de dato (números, 
-% texto, vectores, u otras matrices)._ 
+%% P1. Vehicle Longitudinal Dynamics
+% Vehicle Control Systems
+%
+% Degree in Electronics, Robotics and Mechatronics Engineering
+%
+% University of Malaga
+%
+% Created by: David Rodríguez Martínez
+%
+% Last updated: 18 September 2026
+% Introduction and objectives
+% This file contains both the coursework instructions and the code blocks
+% to complete. In this first exercise, we define the properties and design
+% parameters of our FSDriverless race car and develop the first
+% longitudinal dynamic model.
+%
+% This exercise requires the fundamental equation of longitudinal
+% vehicle motion developed in Block 2.
+%
+% After completing this exercise, you should be able to:
+%%
+% # Write and simulate a vehicle's longitudinal equation of motion.
+% # Close a simple speed-control loop.
+% # Recognize the simulation structure that will be reused and expanded
+% in the following exercises.
+%%
+% Important: this is the first block of your individual project. The file
+% completed today becomes the longitudinal basis of the vehicle-control
+% simulator used throughout the course. Keep it.
+% What you will implement
+% A) Longitudinal acceleration (function |pasoLongitudinal|)
+%
+% B) The saturated PI control law (function |controlLongitudinal|)
+% Vehicle parameters
+% Tip: we will use a |struct|. MATLAB structures group related
+% information into containers called fields.
+% Each field can store any data type, including numbers,
+% text, vectors and other arrays.
 
 p = struct();
-p.m = 230; % masas e kg
-p.g = 9.81; % fuerza de la gravedad
-p.rho = 1.225; % densidad del aire
-p.Cd = 1.0; % aerodinámica
-p.Af = 1.1; % área frontal
+p.m = 230; % mass in kg
+p.g = 9.81; % gravitational acceleration
+p.rho = 1.225; % air density
+p.Cd = 1.0; % aerodynamics
+p.Af = 1.1; % frontal area
 p.fr = 0.022;
-p.Fx_trac_max = 2500; % fuerza motriz máxima
-p.Fx_fren_max = 5000; % fuerza de frenado máxima
+p.Fx_trac_max = 2500; % maximum driving force
+p.Fx_fren_max = 5000; % maximum braking force
 p.theta = 0; %rad
-%% 
-% 🧠 *Recordatorio*: la fuerza motriz máxima viene definida por el límite de 
-% adherencia del neumático y el límite de potencia/par del tren motriz. En el 
-% caso de la fuerza de frenado máxima, esta suele estar igualmente limitada por 
-% la adherencia pero con la ventaja del frenado de las cuatro ruedas (frente a 
-% un tracción trasera), lo que permite aprovechar el 100% de la masa del vehículo 
-% y la carga aerodinámica disponible.
-% Modelo del vehículo
-% Aquí se debe definir la física del movimiento del vehículo en sentido longitudinal. 
-% Más adelante esta sección incluirá el modelo de nuestro vehículo al completo. 
-% 
-% Dada la posición del vehículo y la fuerza tractiva aplicada, deberemos calcular 
-% dónde se encuentra el vehículo en el siguiente paso temporal:
+%%
+% Reminder: maximum driving force is determined by the tyre
+% adhesion limit and the powertrain power/torque limit.
+% Maximum braking force is also typically constrained by
+% adhesion, with the advantage of braking all four wheels
+% rather than driving only the rear wheels, making use of
+% the full vehicle mass and available aerodynamic load.
+% Vehicle model
+% Define the physics of longitudinal vehicle motion here.
+% This section will later contain the complete vehicle model.
+%
+% Given vehicle position and applied driving force, calculate
+% vehicle position at the next time step.
 
-% Integración de la dinámica longitudinal
-z0 = [0;0]; % vector de estados del vehículo [x,v_x]
+% Longitudinal-dynamics integration
+z0 = [0;0]; % vehicle state vector [x,v_x]
 
 function z_next = pasoLongitudinal(z, u, p, dt)
     Fx=u;
     v_x=z(2);
 
-    %resistencias
-    Ra = 0.5*p.rho*p.Cd*p.Af*v_x^2; % resistencia aerodinámica
-    Rr = p.fr*p.m*p.g*cos(p.theta); % rodadura
-    Rg = p.m*p.g*sin(p.theta); % gravitatoria
+    % resistance forces
+    Ra = 0.5*p.rho*p.Cd*p.Af*v_x^2; % aerodynamic resistance
+    Rr = p.fr*p.m*p.g*cos(p.theta); % rolling resistance
+    Rg = p.m*p.g*sin(p.theta); % gravitational resistance
 
-    %aceleración
+    % acceleration
     ax = (Fx - Ra - sign(v_x)*Rr - Rg)/p.m;
-   
-    %velocidad
-    vx_next = max(v_x + ax*dt,0); %velocidad en el siguiente instante de tiempo
+
+    % speed
+    vx_next = max(v_x + ax*dt,0); % speed at the next time instant
     x_next = z(1)+v_x*dt;
     z_next = z;
     z_next(1) = x_next;
     z_next(2) = vx_next;
 end
-% Controlador velocidad 
-% Vamos a definir aquí nuestro controlador de velocidad en base al siguiente 
-% diagrama:
-% 
-% 
-% 
-% 
-% Recordatorio sobre controladores PI
-% Vamos a implementar un controlador PI de velocidad. Queremos que $v_x$ siga 
-% una referencia $v_{ref}$. El error, por tanto, vendrá definido por 
-% 
+% Speed controller
+% Define the speed controller using the following
+% diagram:
+%
+%
+%
+%
+% Reminder about PI controllers
+% Implement a PI speed controller so that $v_x$ follows
+% the reference $v_{ref}$. The error is defined as
+%
 % $$e = v_{ref} - v_x$$
-% 
-% y pedimos una fuerza de tracción proporcional a este error mas un termino 
-% integral que elimina el error en regimen permanente:
-% 
+%
+% Request driving force proportional to this error plus an
+% integral term that removes steady-state error:
+%
 % $$F_x = K_p \cdot e + K_i \int{e \cdot dt}$$
-% 
-% La fuerza real que se puede ejercer estará limitada por la adherencia y la 
-% capacidad de nuestro motor. $F_x$ saturará entre máximo de frenado y el máximo 
-% de aceleración. 
-% 
-% *🧠Recordatorio*: _La saturación de un controlador ocurre cuando la señal 
-% de salida que calcula el controlador supera los límites físicos, eléctricos 
-% o de software del actuador que debe ejecutar la orden._
-% 
-% 💡_¿Por qué fuerza de tracción como variable de control?_ Esta es una decisión 
-% que facilita la integración con la ecuación que gobierna el movimiento longitudinal. 
-% Es una manera de abstraer todo el tren de potencia (real) colapsándolo en una 
-% sola variable. En la realidad necesitaríamos modelar todo el tren de potencia 
-% (pedal del acelerador → par motor → fuerza tractiva) utilizando los mapas proprios 
-% del motor (no lineales para motores de combustion interna). 
+%
+% Actual force is limited by adhesion and motor
+% capacity. $F_x$ saturates between maximum braking
+% and maximum driving force.
+%
+% Reminder: controller saturation occurs when its calculated
+% output exceeds the physical, electrical or software limits
+% of the actuator responsible for applying the command.
+%
+% Why use driving force as the control variable? This choice
+% simplifies integration with the longitudinal equation of motion.
+% It abstracts the real powertrain into a single
+% variable. A more detailed implementation would model the full powertrain,
+% from accelerator pedal to motor torque to driving force, using
+% the motor maps, which are nonlinear for combustion engines.
 
-% Controlador PI de velocidad
-ctrl.v_cru = 25; % velocidad de crucero objetivo [m/s]
-ctrl.x_fren = 78; % distancia a la que se ordena frenar [m]
-ctrl.Kp = 800; % ganancia proporcional
-ctrl.Ki = 200; % ganancia integral
+% PI speed controller
+ctrl.v_cru = 25; % target cruise speed [m/s]
+ctrl.x_fren = 78; % distance at which braking is requested [m]
+ctrl.Kp = 800; % proportional gain
+ctrl.Ki = 200; % integral gain
 
 function [Fx,e_int] = controlLongitudinal(v_ref, v_x, e_int, dt, ctrl, p)
     e = v_ref - v_x;
-    %integral del error
+    % integral of the error
     e_int = e_int + e*dt;
     Fx = ctrl.Kp*e+ctrl.Ki*e_int;
 
-    % límite de saturación de mi conrtolador
+    % controller saturation limit
     Fx = min(max(Fx,  -p.Fx_fren_max), p.Fx_trac_max);
 end
-% Geometría del circuito de pruebas
-% Vamos a simular una aceleración máxima durante 75 m seguida de una frenada 
-% en caja que deberá completarse en menos de 25 m (límite máximo de frenada a 
-% los 100 m). 
+% Test-track geometry
+% Simulate maximum acceleration over 75 m followed by
+% braking within a box shorter than 25 m, reaching a stop
+% before the 100 m boundary.
 
-p.x_meta = 75;     % línea de cronometraje [m]
-p.x_box  = 100;    % final de la caja de frenada [m]
+p.x_meta = 75;     % timing line [m]
+p.x_box  = 100;    % end of braking box [m]
 
-%% SIMULADOR DE PRUEBA ACELERACIÓN Y FRENADA [NO MODIFICAR]
+%% ACCELERATION AND BRAKING TEST SIMULATOR [DO NOT MODIFY]
 function [hist, t_evento] = simularE1(z0, p, ctrl, dt, Tmax)
     N = round(Tmax/dt);
     z = z0;
@@ -150,7 +150,7 @@ function [hist, t_evento] = simularE1(z0, p, ctrl, dt, Tmax)
         t = (k-1)*dt;
         if z(1) < ctrl.x_fren,  v_ref = ctrl.v_cru;  else,  v_ref = 0;  end
         [Fx, e_int] = controlLongitudinal(v_ref, z(2), e_int, dt, ctrl, p);
-        z = pasoLongitudinal(z, Fx, p, dt);   % mando u = [Fx; delta]; delta = 0 en L1
+        z = pasoLongitudinal(z, Fx, p, dt);   % input u = [Fx; delta]; delta = 0 in L1
         hist.t(k)=t; hist.X(k)=z(1); hist.vx(k)=z(2); hist.Fx(k)=Fx; hist.vr(k)=v_ref;
         if ~cruzada && z(1) >= p.x_meta,  cruzada = true;  t_evento = t;  end
         if cruzada && z(2) <= 0.05,  k_fin = k;  break;  end
@@ -159,31 +159,31 @@ function [hist, t_evento] = simularE1(z0, p, ctrl, dt, Tmax)
     hist.t=hist.t(f); hist.x=hist.X(f); hist.vx=hist.vx(f);
     hist.Fx=hist.Fx(f); hist.vr=hist.vr(f);
 end
-% Simulación
+% Simulation
 
 dt   = 0.005;
-Tmax = 20; 
+Tmax = 20;
 
 [hist, t_evento] = simularE1(z0, p, ctrl, dt, Tmax);
-% Resultados 
-% *Qué esperar*: Deberíamos observar como el monoplaza acelera desde parado 
-% hasta la velocidad de crucero establecida (90 km/h) y la mantiene hasa cruzar 
-% la linea de 75m donde hemos establecido el comienzo de la frenada. Tras cruzar 
-% esta línea frena y se detiene dentro de la caja (antes de 100 m aprox).
+% Results
+% Expected response: the car accelerates from rest to
+% the configured cruise speed (90 km/h), maintaining it until
+% the 75 m line where braking starts. After crossing this
+% line, it brakes to a stop inside the box, before approximately 100 m.
 
-fprintf('E1 — cruza %.0f m en  t = %.2f s\n', p.x_meta, t_evento);
-fprintf('     se detiene en  X = %.1f m  (t = %.2f s)\n', hist.x(end), hist.t(end));
+fprintf('E1 — crosses %.0f m at t = %.2f s\n', p.x_meta, t_evento);
+fprintf('     stops at X = %.1f m (t = %.2f s)\n', hist.x(end), hist.t(end));
 fprintf('     v_max = %.1f m/s = %.0f km/h\n', max(hist.vx), max(hist.vx)*3.6);
-figure('Name','L1 · E1 — resultados','Color','w');
+figure('Name','L1 · E1 — results','Color','w');
 subplot(3,1,1);
   plot(hist.t, hist.vx*3.6,'b', hist.t, hist.vr*3.6,'r--','LineWidth',1.2);
   ylabel('v_x [km/h]'); grid on; legend('v_x','v_{ref}','Location','best');
-  title('Dinámica longitudinal — evento E1 (aceleración)');
+  title('Longitudinal dynamics — E1 acceleration event');
 subplot(3,1,2);
   plot(hist.t, hist.x,'k','LineWidth',1.2); yline(p.x_meta,'--');
   ylabel('X [m]'); grid on;
 subplot(3,1,3);
   plot(hist.t, hist.Fx,'m','LineWidth',1.2);
   ylabel('F_x [N]'); xlabel('t [s]'); grid on;
-%% 
+%%
 %%

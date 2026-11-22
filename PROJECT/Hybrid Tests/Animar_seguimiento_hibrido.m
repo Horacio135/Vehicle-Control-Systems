@@ -1,14 +1,14 @@
 function fig = Animar_seguimiento_hibrido(resultados,pista,opciones)
-% Reproduce historicos ya calculados; no integra ni modifica la fisica.
-% Uso: Animar_seguimiento_hibrido(resultados,pista)
+% Replay recorded histories; do not integrate or change the physics.
+% Usage: Animar_seguimiento_hibrido(resultados,pista)
 % Video: opciones.video='seguimiento.mp4'; opciones.reproducir=false;
-% El video se renderiza desde la figura de MATLAB, sin capturar el escritorio.
+% Video is rendered from the MATLAB figure, without recording the desktop.
 if nargin<3, opciones=struct(); end
 if ~isfield(opciones,'fps'), opciones.fps=20; end
 if ~isfield(opciones,'reproducir'), opciones.reproducir=true; end
 if ~isfield(opciones,'video'), opciones.video=''; end
 validateattributes(opciones.fps,{'numeric'},{'scalar','positive','finite'});
-n=numel(resultados); assert(n>0,'No hay historicos para animar.');
+n=numel(resultados); assert(n>0,'No recorded histories to animate.');
 T=max(cellfun(@(h) h.t(end),resultados));
 tiempos=(0:1/opciones.fps:T)';
 if tiempos(end)<T, tiempos(end+1)=T; end
@@ -19,7 +19,7 @@ for i=1:n
     datos{i}=interp1(h.t,[h.z(:,1:2),unwrap(h.z(:,3)),h.z(:,4:5)],consulta,'linear');
 end
 exportando=~isempty(opciones.video);
-fig=figure('Name','Animacion - dinamica V8 y Pure Pursuit','Color','w', ...
+fig=figure('Name','Animation - V8 dynamics and Pure Pursuit','Color','w', ...
     'Position',[100 80 1200 820],'NumberTitle','off');
 if exportando, fig.Visible='off'; end
 ax=axes(fig,'Position',[0.055 0.18 0.74 0.75]); hold(ax,'on');
@@ -39,10 +39,10 @@ ylim(ax,[min(xy(:,2))-5 max(xy(:,2))+5]);
 coche=gobjects(n,1); estela=coche; flecha=coche; estadoTexto=coche;
 infoAx=axes(fig,'Position',[0.81 0.20 0.18 0.70], ...
     'XLim',[0 1],'YLim',[0 1],'Visible','off');
-text(infoAx,0,0.98,'Seguimiento de trayectoria','FontWeight','bold','FontSize',11);
-text(infoAx,0,0.91,{'Rectangulo: orientacion psi';'Flecha: velocidad real'; ...
-    'Tamano visual: 2.7 x 1.2 m'},'FontSize',9,'VerticalAlignment','top');
-% Geometria exclusivamente visual, centrada en el CG.
+text(infoAx,0,0.98,'Trajectory tracking','FontWeight','bold','FontSize',11);
+text(infoAx,0,0.91,{'Rectangle: yaw orientation psi';'Arrow: actual velocity'; ...
+    'Visual dimensions: 2.7 x 1.2 m'},'FontSize',9,'VerticalAlignment','top');
+% Geometry is purely visual and centred on the CG.
 L=2.7; W=1.2;
 for i=1:n
     c=colores(mod(i-1,size(colores,1))+1,:);
@@ -61,7 +61,7 @@ end
 reloj=annotation(fig,'textbox',[0.06 0.94 0.9 0.04], ...
     'String','','EdgeColor','none','FontSize',14,'FontWeight','bold');
 annotation(fig,'textbox',[0.06 0.11 0.91 0.04], ...
-    'String','Cada coche termina donde acaba su historico; no se extrapola su movimiento.', ...
+    'String','Each car stops where its history ends; motion is not extrapolated.', ...
     'EdgeColor','none','FontSize',10);
 tiempoActual=0; velocidad=1; ultimoTic=tic; temporizador=[];
 boton=[]; deslizador=[]; lista=[];
@@ -72,24 +72,24 @@ if exportando
     open(escritor); cierre=onCleanup(@() close(escritor));
     for k=1:numel(tiempos)
         actualizar(tiempos(k)); drawnow;
-        % Render propio de MATLAB: no usa captura de pantalla de Windows.
+        % Native MATLAB rendering; no Windows desktop capture.
         rgb=print(fig,'-RGBImage','-r90');
         rgb=rgb(1:2*floor(size(rgb,1)/2),1:2*floor(size(rgb,2)/2),:);
         writeVideo(escritor,rgb);
     end
     clear cierre;
     delete(fig);
-    fprintf('Video generado: %s (%d fotogramas)\n',opciones.video,numel(tiempos));
+    fprintf('Video generated: %s (%d frames)\n',opciones.video,numel(tiempos));
     fig=[];
     return
 end
 
 boton=uicontrol(fig,'Style','pushbutton','Units','normalized', ...
-    'Position',[.06 .045 .10 .045],'String','Reproducir','Callback',@alternar);
+    'Position',[.06 .045 .10 .045],'String','Play','Callback',@alternar);
 uicontrol(fig,'Style','pushbutton','Units','normalized', ...
-    'Position',[.17 .045 .09 .045],'String','Reiniciar','Callback',@reiniciar);
+    'Position',[.17 .045 .09 .045],'String','Restart','Callback',@reiniciar);
 uicontrol(fig,'Style','text','Units','normalized','Position',[.28 .055 .07 .025], ...
-    'String','Velocidad','BackgroundColor','w');
+    'String','Speed','BackgroundColor','w');
 lista=uicontrol(fig,'Style','popupmenu','Units','normalized', ...
     'Position',[.35 .048 .08 .04],'String',{'0.25x','0.5x','1x','2x','4x'}, ...
     'Value',3,'Callback',@cambiarVelocidad);
@@ -102,13 +102,13 @@ fig.CloseRequestFcn=@cerrar;
 fig.DeleteFcn=@liberarTimer;
 actualizar(0);
 if opciones.reproducir
-    boton.String='Pausar'; ultimoTic=tic; start(temporizador);
+    boton.String='Pause'; ultimoTic=tic; start(temporizador);
 end
 
     function actualizar(t)
         if ~isgraphics(fig), return; end
         [~,k]=min(abs(tiempos-t));
-        reloj.String=sprintf('Dinamica V8 + Pure Pursuit     t = %.2f / %.2f s',t,T);
+        reloj.String=sprintf('V8 dynamics + Pure Pursuit     t = %.2f / %.2f s',t,T);
         for ii=1:n
             h=resultados{ii}; d=datos{ii}(k,:);
             coche(ii).Matrix=makehgtform('translate',[d(1) d(2) 0])*makehgtform('zrotate',d(3));
@@ -119,11 +119,11 @@ end
             flecha(ii).XData=d(1); flecha(ii).YData=d(2);
             if finalizado
                 flecha(ii).UData=0; flecha(ii).VData=0;
-                texto=sprintf('Referencia: %.0f m/s\nENSAYO FINALIZADO\n%s\nUltima rapidez: %.2f m/s', ...
+                texto=sprintf('Reference: %.0f m/s\nTEST FINISHED\n%s\nLast speed: %.2f m/s', ...
                     h.v_set,h.motivo,hypot(d(4),d(5)));
             else
                 flecha(ii).UData=0.35*vxGlobal; flecha(ii).VData=0.35*vyGlobal;
-                texto=sprintf('Referencia: %.0f m/s\nRapidez: %.2f m/s\nRumbo: %.1f grados', ...
+                texto=sprintf('Reference: %.0f m/s\nSpeed: %.2f m/s\nHeading: %.1f degrees', ...
                     h.v_set,hypot(d(4),d(5)),rad2deg(d(3)));
             end
             estadoTexto(ii).String=texto;
@@ -136,15 +136,15 @@ end
         tiempoActual=min(T,tiempoActual+paso*velocidad);
         actualizar(tiempoActual); drawnow limitrate;
         if tiempoActual>=T
-            stop(temporizador); boton.String='Reproducir';
+            stop(temporizador); boton.String='Play';
         end
     end
     function alternar(~,~)
         if strcmp(temporizador.Running,'on')
-            stop(temporizador); boton.String='Reproducir';
+            stop(temporizador); boton.String='Play';
         else
             if tiempoActual>=T, tiempoActual=0; actualizar(0); end
-            ultimoTic=tic; start(temporizador); boton.String='Pausar';
+            ultimoTic=tic; start(temporizador); boton.String='Pause';
         end
     end
     function reiniciar(~,~)
@@ -157,7 +157,7 @@ end
         tiempoActual=deslizador.Value; ultimoTic=tic; actualizar(tiempoActual);
     end
     function errorAnimacion(~,~)
-        if isgraphics(boton), boton.String='Reproducir'; end
+        if isgraphics(boton), boton.String='Play'; end
         liberarTimer();
     end
     function liberarTimer(varargin)

@@ -1,17 +1,19 @@
-# V12 — aceleración extrema
+# V12 · Extreme acceleration
 
-Se conserva el caso desfavorable: tracción solicitada máxima 5000 N y tauAcel=0.010 s. Frenada y ecuaciones físicas permanecen iguales. El exceso longitudinal trasero durante aceleración pasa del 49.664 al 98.556 % y el factor lateral mínimo de 0.153 a 0.078.
+[← Results](../README.md) · [Metrics and telemetry](../Numerical/README.md)
 
-| Caso | Vmax [m/s] | Tiempo [s] | Vuelta/parada | Error máx. [m] | CG fuera [%] | Bloqueo [%] |
+The adverse case is retained: 5000 N maximum drive demand and tauAcel=0.010 s. Braking and physical equations are unchanged. Rear longitudinal excess during acceleration rises from 49.664% to 98.556%, and minimum lateral factor falls from 0.153 to 0.078.
+
+| Case | Speed cap [m/s] | Time [s] | Lap/stop reached | Max. error [m] | CG outside [%] | Lock mode [%] |
 |---|---:|---:|---|---:|---:|---:|
-| hist35 | 35 | 149.036 | Sí | 4.347 | 18.103 | 3.225 |
+| hist35 | 35 | 149.036 | Yes | 4.347 | 18.103 | 3.225 |
 
-La vuelta completa no es una vuelta dentro de pista: el CG pasa un 18.103 % del tiempo fuera. Esta configuración sirve para comprobar la futura intervención de estabilidad, no para afirmar que ya se ha diseñado un ESC.
+Completing the lap does not mean staying on track: the CG is outside for 18.103% of recorded time. This is a future stability-intervention test, not evidence of an already-designed ESC.
 
-## Artefactos
+## Recorded artifacts
 
-- [vista_previa.png](vista_previa.png)
+- [Simulation preview](vista_previa.png)
 
-![Vista de la simulación](vista_previa.png)
+## Preview
 
-[Métricas y telemetría](../Numerical/README.md) · [Índice general](../README.md)
+![English interface using the recorded V12 trajectory](english_preview.png)

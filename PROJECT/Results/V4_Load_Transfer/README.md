@@ -1,19 +1,21 @@
-# V4 — transferencia de carga
+# V4 · Load transfer
 
-Las figuras muestran carga por rueda, variación de rigidez lateral, skidpad y eslalon. Las etiquetas a 5 y 14 m/s corresponden a esas ejecuciones. Son evidencia del reparto cuasiestático, no de una suspensión dinámica validada.
+[← Results](../README.md) · [Metrics and telemetry](../Numerical/README.md)
 
-## Artefactos
+Figures show wheel loads, lateral-stiffness variation, skidpad and slalom responses. Labels at 5 and 14 m/s identify those runs. They illustrate quasi-static redistribution, not a validated dynamic suspension.
 
-- [Carga vertical por rueda.png](Carga%20vertical%20por%20rueda.png)
-- [Eslalon 5ms dirección y rigidez.png](Eslalon%205ms%20direcci%C3%B3n%20y%20rigidez.png)
-- [Eslalon 5ms.png](Eslalon%205ms.png)
-- [Resultados 2 skid 14 ms-1.png](Resultados%202%20skid%2014%20ms-1.png)
-- [Resultados skid 14 ms-1.png](Resultados%20skid%2014%20ms-1.png)
-- [Resultados slalon 14 ms-1.png](Resultados%20slalon%2014%20ms-1.png)
-- [Skidpad a 5ms.png](Skidpad%20a%205ms.png)
-- [Telemetria ruedas 5ms.png](Telemetria%20ruedas%205ms.png)
-- [Uso del círculo de adherencia.png](Uso%20del%20c%C3%ADrculo%20de%20adherencia.png)
+## Recorded artifacts
 
-[Métricas y telemetría](../Numerical/README.md) · [Índice general](../README.md)
+- [Vertical wheel loads](Carga%20vertical%20por%20rueda.png)
+- [Slalom: steering and stiffness at 5 m/s](Eslalon%205ms%20direcci%C3%B3n%20y%20rigidez.png)
+- [Slalom at 5 m/s](Eslalon%205ms.png)
+- [Skidpad at 14 m/s — additional results](Resultados%202%20skid%2014%20ms-1.png)
+- [Skidpad at 14 m/s](Resultados%20skid%2014%20ms-1.png)
+- [Slalom at 14 m/s](Resultados%20slalon%2014%20ms-1.png)
+- [Skidpad at 5 m/s](Skidpad%20a%205ms.png)
+- [Wheel telemetry at 5 m/s](Telemetria%20ruedas%205ms.png)
+- [Friction-circle utilization](Uso%20del%20c%C3%ADrculo%20de%20adherencia.png)
 
-![Resultado de la simulación](Carga%20vertical%20por%20rueda.png)
+## Preview
+
+![Recorded simulation result](Carga%20vertical%20por%20rueda.png)

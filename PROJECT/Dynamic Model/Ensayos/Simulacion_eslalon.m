@@ -1,7 +1,7 @@
 function [histEslalonCin, histEslalonDin] = Simulacion_eslalon(p, ctrl, fnSimularManiobra, fnMostrarManiobra)
 
 dtEnsayo = 0.002;
-caso.nombre = 'Eslalon';
+caso.nombre = 'Slalom';
 caso.T = 24;
 caso.v0 = 14;
 caso.amplitud = deg2rad(14);

@@ -1,23 +1,25 @@
-# V05 — Pérdida lateral por exceso de tracción
+# V05 · Lateral loss under excess traction demand
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Mostrar cómo una solicitud motriz excesiva deteriora la capacidad de guiar el eje trasero.
+## Problem and decision
 
-## Implementación
+Show how excessive driving demand degrades rear-axle guidance capacity.
 
-Se introduce eta_slip como memoria por rueda y una pérdida adicional en las traseras cuando se supera la capacidad. La recuperación es progresiva.
+## Implementation
 
-Fuente: [CuatroruedasV5_simulacion_deslizamiento_longitudinal.mlx](../../../Dynamic%20Model/CuatroruedasV5_simulacion_deslizamiento_longitudinal.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+eta_slip provides per-wheel memory and additional rear lateral loss when demand exceeds capacity. Recovery is progressive.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV5_simulacion_deslizamiento_longitudinal.mlx](../../../Dynamic%20Model/CuatroruedasV5_simulacion_deslizamiento_longitudinal.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-La carpeta V5_Slip_Tests conserva una figura y tres vídeos de derrape/skidpad/eslalon. Son evidencia visual del modelo aproximado.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+V5_Slip_Tests retains one figure and three drift/skidpad/slalom videos. They are visual evidence of the approximate model.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-El nombre del archivo no implica que haya un slip ratio físico: no hay omega de rueda ni inercia rotacional.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+The historical filename does not imply physical slip ratio: wheel omega and rotational inertia are absent.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

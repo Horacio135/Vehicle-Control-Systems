@@ -1,23 +1,25 @@
-# V01 — Modelo dinámico inicial
+# V01 · Initial dynamic model
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Comparar las respuestas cinemática y dinámica manteniendo un chasis plano.
+## Problem and decision
 
-## Implementación
+Compare kinematic and dynamic responses while retaining a planar chassis.
 
-Se calculan fuerzas por contacto, transformaciones al chasis y momento de guiñada, con resistencias aerodinámica y de rodadura. Fx y Fy aún se limitan separadamente.
+## Implementation
 
-Fuente: [CuatroruedasV1_simulacion.mlx](../../../Dynamic%20Model/CuatroruedasV1_simulacion.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+Per-contact forces, chassis transformations and yaw moments are calculated alongside aerodynamic and rolling resistance. Fx and Fy still have independent limits.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV1_simulacion.mlx](../../../Dynamic%20Model/CuatroruedasV1_simulacion.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-El código y las salidas incrustadas del MLX son la evidencia conservada; no hay una campaña numérica tabulada independiente de V1. No se asignan valores de error inventados.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+The code and embedded MLX outputs are the retained evidence. No independent V1 numerical campaign is available; no error measurements are invented.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-Los límites independientes no representan correctamente el uso simultáneo de adherencia; esta observación conduce a V3.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+Independent force limits do not correctly share adhesion under combined demands. This motivates V3.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

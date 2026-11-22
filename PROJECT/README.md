@@ -1,66 +1,88 @@
-# PROJECT — Vehicle dynamics and stability control
+# Project overview
 
-Proyecto de un vehículo Formula Student Driverless. El objetivo final es coordinar ESC, ABS y TCS para mejorar la estabilidad mediante corrección de dirección y frenado selectivo. **La publicación actual reúne la evolución de la planta y los bancos de ensayo hasta V12; esos tres controladores aún no están implementados.**
+[← Repository](../README.md) · [Plant](Dynamic%20Model/README.md) · [Hybrid tests](Hybrid%20Tests/README.md) · [Results](Results/README.md) · [Design history](Documentation/README.md)
 
-## Organización
+**Develop a Formula Student Driverless vehicle model and prepare coordinated stability control around it.**
 
-Se respeta la separación original entre las prácticas de la raíz y este proyecto. Los nombres nuevos de carpetas siguen el estilo inglés existente; los archivos MATLAB conservan sus nombres originales.
+The long-term objective is an ESC coordinating selective braking, traction management and steering correction. This snapshot contains the plant evolution and test environments through **V12**. ESC, ABS and TCS have not yet been implemented.
 
-| Carpeta | Uso |
+## Project layout
+
+The original separation between root-level coursework and the main project is retained. New directories follow the repository's existing English naming style; historical MATLAB filenames are kept for compatibility.
+
+```text
+PROJECT/
+├── Dynamic Model/    Four-wheel plant V1–V8 and manoeuvre scripts
+├── Hybrid Tests/     Tracking, planning, stress tests and animation
+├── Results/          Figures, videos, metrics and telemetry
+├── Documentation/    Decisions, version history and intermediate slides
+└── Tools/            Reproduction and publication checks
+```
+
+| Directory | Start here |
 |---|---|
-| [Dynamic Model](Dynamic%20Model/README.md) | Prototipos y modelos V1–V8; subcarpeta Ensayos |
-| [Hybrid Tests](Hybrid%20Tests/README.md) | Planta V8 con seguimiento, planificación, estrés V9–V12 y animación |
-| [Results](Results/README.md) | Figuras, diez vídeos y datos de 50 ejecuciones |
-| [Documentation](Documentation/README.md) | Decisiones, doce etapas, límites e informe intermedio |
+| [Dynamic Model](Dynamic%20Model/README.md) | Prototypes, V1–V8 and the Ensayos subdirectory |
+| [Hybrid Tests](Hybrid%20Tests/README.md) | V8 tracking and V9–V12 planning/stress scenarios |
+| [Results](Results/README.md) | Ten videos, figures and data from 50 recorded histories |
+| [Documentation](Documentation/README.md) | Twelve stages, design decisions and known limitations |
 
-## Qué ejecutar
+## Run a scenario
 
-MATLAB R2026a fue el entorno utilizado para verificar las simulaciones recientes y generar los vídeos. No se necesita una biblioteca 3D adicional para la animación con `patch`, `hgtransform` y cámara. No se ha certificado compatibilidad con versiones anteriores.
+MATLAB **R2026a** was used to verify recent simulations and generate the videos. Native `patch`, `hgtransform` and camera functions provide the 3D display without an additional visualization library. Earlier MATLAB releases have not been certified.
 
-1. Clonar el repositorio y abrir MATLAB.
-2. Para estudiar la planta, seleccionar **PROJECT/Dynamic Model** como Current Folder y ejecutar `CuatroruedasV8_bloqueo_ruedas.mlx`. Sus scripts se buscan en `Ensayos` mediante `pwd`.
-3. Para seguimiento y planificación, usar `Prueba_hibrida_V9_PurePursuit_animada.mlx` en **PROJECT/Hybrid Tests**.
-4. Para el ensayo actual de un coche, usar `Prueba_hibrida_V11_35ms_3D.mlx`; para la demanda extrema, `Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx`.
-5. Ejecutar el `.mlx` completo. La animación dispone de pausa, reinicio, deslizador temporal y selección de cámara; al cerrar elimina su temporizador.
+| Objective | MATLAB Current Folder | Live Script |
+|---|---|---|
+| Inspect the reference plant | `PROJECT/Dynamic Model` | `CuatroruedasV8_bloqueo_ruedas.mlx` |
+| Track a path with a speed plan | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V9_PurePursuit_animada.mlx` |
+| Follow one car in 3D | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V11_35ms_3D.mlx` |
+| Stress acceleration adhesion | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx` |
 
-Los Live Scripts son los originales archivados. Las carpetas **Source Exports** contienen versiones de texto para inspección y diff, separadas para evitar que un `.m` oculte a un `.mlx` del mismo nombre. No añadir recursivamente todas las exportaciones al path.
+Run each `.mlx` in full. The plant script finds its manoeuvre helpers through `fullfile(pwd,'Ensayos')`. The interactive player provides pause, restart, a time slider and camera selection; closing it deletes its timer.
 
-## Conexión actual de bloques
+**Source Exports** contains readable `.m` copies, separate from the original `.mlx` files to prevent same-name script shadowing. Do not recursively add every historical export to the MATLAB path.
+
+## Architecture
 
 ```mermaid
 flowchart LR
-    P[Circuito y curvatura] --> V[Planificador de velocidad]
+    P[Track and curvature] --> V[Speed planner]
     P --> L[Pure Pursuit]
-    V --> D[Control de velocidad / conductor]
-    L --> U[Demanda u: Fx total y delta]
+    V --> D[Speed control / driver]
+    L --> U[Input u: total Fx and steering delta]
     D --> U
     U --> F[pasoDinamico z,u,p,dt]
-    F --> Z[Estado siguiente y telemetría]
+    F --> Z[Next state and telemetry]
     Z --> L
     Z --> D
-    Z --> A[Resultados y animación]
+    Z --> A[Results and animation]
 ```
 
-Este esquema describe el código existente; no sustituye el futuro diagrama de integración ESC. La planta se mantiene congelada durante la siguiente fase. Su contrato es `[z_next,tele]=pasoDinamico(z,u,p,dt)`; `z_next` incluye todas las memorias, no solo la posición.
+This diagram describes the existing implementation, not the future ESC integration diagram. The plant remains frozen during the next architecture phase:
 
-## Resultados de referencia
+```matlab
+[z_next, tele] = pasoDinamico(z, u, p, dt);
+```
 
-Mismo circuito de estrés de 631.56 m y techo de 35 m/s:
+`z_next` is the entire next state, including adhesion and lock-mode memories, rather than position alone. [Full interface contract →](Dynamic%20Model/README.md#plant-interface)
 
-| Configuración | Tiempo de vuelta [s] | Error lateral máximo [m] | Tiempo CG fuera del carril [%] |
+## Reference results
+
+Same 631.56 m stress circuit and 35 m/s speed cap:
+
+| Configuration | Lap time [s] | Maximum lateral error [m] | CG outside track [%] |
 |---|---:|---:|---:|
-| V10, mapeo base | 51.384 | 1.263 | 0 |
-| V11, mapeo exigente | 47.680 | 0.776 | 0 |
-| V12, aceleración extrema | 149.036 | 4.347 | 18.103 |
+| V10 — baseline mapping | 51.384 | 1.263 | 0 |
+| V11 — demanding mapping | 47.680 | 0.776 | 0 |
+| V12 — extreme acceleration | 149.036 | 4.347 | 18.103 |
 
-V11 cambia las hipótesis de planificación, no los límites de adherencia de la planta. V12 duplica la fuerza motriz solicitada (2500 → 5000 N) y reduce la constante de aplicación (0.030 → 0.010 s), conservando frenada y dinámica. Véanse [los resultados](Results/README.md) para porcentajes de bloqueo y saturación.
+V11 changes planning assumptions, not plant adhesion limits. V12 doubles the maximum requested driving force from 2500 to 5000 N and reduces its application time constant from 0.030 to 0.010 s; braking and plant equations remain unchanged. [Detailed comparison →](Results/README.md)
 
-## Qué concluyen y qué no concluyen las pruebas
+## Interpretation and next steps
 
-Las demandas bruscas consumen adherencia y pueden deteriorar mucho el seguimiento. Completar una vuelta no equivale a permanecer en pista ni a validar la física. El criterio de carril usa el centro de gravedad, no toda la carrocería; los porcentajes de bloqueo pertenecen al modo fenomenológico del modelo. La velocidad máxima configurada es un techo y puede no alcanzarse.
+Abrupt demands consume adhesion and can severely degrade tracking. Completing a lap does not establish track containment or physical validity. Track-exit statistics use the centre of gravity, not the body envelope; lock statistics refer to the model's phenomenological mode. A configured maximum speed is a cap and may never be reached.
 
-La siguiente fase es montar la arquitectura por bloques sin modificar de momento `pasoDinamico`. Las fuerzas independientes por rueda, el controlador de guiñada y la coordinación ABS/TCS siguen pendientes. La futura implementación debe decidir si amplía la física para calcular deslizamiento real o explicita que regula fuerzas con el modelo aproximado.
+Next, assemble the block architecture without changing `pasoDinamico`. Independent wheel-force commands, yaw control and ABS/TCS coordination remain pending. A future controller must either add the physics needed for actual wheel slip or explicitly remain a force-based controller for the approximate model.
 
-## Historia y trazabilidad
+## History and compatibility
 
-Consultar [Documentation](Documentation/README.md) para el proceso de diseño, las doce etapas y los problemas de compatibilidad conocidos de los archivos históricos V7 y V9 no animado. Los nombres V1–V8 describen la evolución de la planta; V9–V12 son bancos híbridos que reutilizan esa planta. Los dos archivos `Modelo_cuatroruedasV1/V2` son prototipos paralelos, no versiones adicionales.
+[Documentation](Documentation/README.md) explains the decisions and the known compatibility issues in historical V7 and non-animated V9. V1–V8 describe plant development; V9–V12 are hybrid test environments reusing that plant. `Modelo_cuatroruedasV1/V2` are parallel prototypes, not two additional numbered stages.

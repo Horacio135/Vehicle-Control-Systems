@@ -2,7 +2,7 @@
   "date": "2026-11-22",
   "environment": "MATLAB R2026a",
   "source_snapshot": "PROJECT/Results/Run_Sources/V11_35_3D.m",
-  "source_sha256": "9b70c4a40641138c9a70bdd95676b905570c1955d19f4decd2447d9af3bc873a",
+  "source_sha256": "b3b5c5ce89f94f16837a96595a64145af603e7cd9c77af2c11f5fed335d1f1fb",
   "reproduction_tool": "PROJECT/Tools/reproduce_run.m",
   "lap_complete": true,
   "duration_s": 47.68,
@@ -10,5 +10,7 @@
   "all_states_finite": true,
   "animation_timer_cleaned": true,
   "original_sources_unchanged": true,
-  "scope": "Reproduction check for this single case, not a validation of all historical versions."
+  "scope": "Reproduction check for this single case, not a validation of all historical versions.",
+  "pre_localization_source_sha256": "9b70c4a40641138c9a70bdd95676b905570c1955d19f4decd2447d9af3bc873a",
+  "localization_regression_report": "PROJECT/Tools/english_localization_checks.json"
 }

@@ -1,23 +1,25 @@
-# V12 — Solicitud de aceleración extrema
+# V12 · Extreme acceleration demand
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Exigir más fuerza y más rápidamente incluso si se deteriora la salida de curva.
+## Problem and decision
 
-## Implementación
+Request more driving force more rapidly even if corner-exit tracking deteriorates.
 
-Fuerza motriz solicitada máxima 2500→5000 N y tauAcel 0.030→0.010 s (95 % en 30 ms). Se conservan frenada, mapeo, circuito, seguimiento y ecuaciones de la planta.
+## Implementation
 
-Fuente: [Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx](../../../Hybrid%20Tests/Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+Maximum driving-force request rises from 2500 to 5000 N and tauAcel drops from 0.030 to 0.010 s, reaching 95% in about 30 ms. Braking, mapping, circuit, tracking and plant equations are unchanged.
 
-## Simulaciones y resultados
+**Source:** [Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx](../../../Hybrid%20Tests/Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-Vuelta 149.036 s, error máximo 4.347 m, RMS 1.258 m y CG fuera del carril 18.103 %. El factor lateral trasero mínimo baja de 0.153 a 0.078. El exceso longitudinal trasero durante aceleración sube de 49.664 a 98.556 %. El MP4 completo dura 149.133 s a 15 fps.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+Lap time is 149.036 s; maximum error 4.347 m; RMS 1.258 m; CG outside 18.103%. Minimum rear lateral factor drops from 0.153 to 0.078. Rear longitudinal excess during acceleration rises from 49.664% to 98.556%. The complete MP4 lasts 149.133 s at 15 fps.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-No es una mejora de prestaciones. Se trata de un caso extremo de pérdida de adherencia útil para evaluar el futuro control; la salida de carril no se oculta ni corrige con cambios físicos.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+This is not a performance improvement. It is an extreme adhesion-loss scenario for future stability-control evaluation. Track exits are neither hidden nor corrected through physical-model changes.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

@@ -1,59 +1,61 @@
-# Decisiones de diseño
+# Design decisions
 
-## Del movimiento del chasis al contacto por rueda
+[← Documentation](../README.md) · [Version history](../Versions/README.md) · [Results](../../Results/README.md)
 
-Se mantuvo un chasis plano con X, Y y guiñada y sus velocidades para poder comparar un modelo cinemático con otro dinámico. Calcular fuerzas, cargas y momentos por rueda permitió preparar el frenado diferencial futuro sin confundir cuatro contactos con cuatro velocidades angulares simuladas. La telemetría se añadió para observar la saturación que un único estado de posición ocultaría.
+## From chassis motion to individual contacts
 
-## Sustituir límites independientes por adherencia combinada
+A planar chassis with X, Y, yaw and corresponding velocities was retained to compare kinematic and dynamic responses. Per-wheel forces, loads and moments prepare future differential braking without confusing four contacts with four simulated wheel angular velocities. Telemetry makes saturation observable beyond a position trace.
 
-Limitar Fx y Fy por separado permite gastar el mismo presupuesto de adherencia dos veces. V3 aplica un círculo compartido. La demanda de fuerza y la fuerza transmitida se guardan como conceptos distintos: subir la primera no garantiza subir la segunda. V4 añadió transferencia cuasiestática y rigidez dependiente de Fz para que cada rueda tenga una capacidad distinta durante las maniobras.
+## Replace independent limits with combined adhesion
 
-## Exceso de acelerador y pérdida lateral
+Limiting Fx and Fy independently can spend the same contact capacity twice. V3 introduces a shared friction circle. Requested and transmitted forces are recorded separately: increasing the former does not guarantee an increase in the latter. V4 adds quasi-static load transfer and load-dependent stiffness so that wheel capacities differ during manoeuvres.
 
-V5 añadió pérdida de capacidad lateral en las ruedas traseras motrices cuando la demanda longitudinal supera la capacidad disponible. Se usaron memorias y transiciones exponenciales para representar pérdida rápida y recuperación más lenta, sin introducir velocidad angular ni pares de rueda. V6 pasó a trabajar con las velocidades proyectadas en los ejes de cada rueda. Esta simplificación permite ensayar inestabilidad, pero no equivale a un neumático calibrado ni a un TCS físico.
+## Excess throttle and lateral-capacity loss
 
-## Frenado: saturación, bloqueo aproximado y recuperación
+V5 reduces rear driven-wheel lateral capacity when longitudinal demand exceeds available capacity. Memory states and exponential transitions represent rapid loss and slower recovery, without adding angular velocities or wheel torques. V6 projects velocities into individual wheel coordinates. This supports instability tests but does not establish a calibrated tyre or a physical traction controller.
 
-La primera recta de aceleración/frenado mostró que la saturación sola podía producir una deceleración casi constante. Una curva de velocidad más curvada no demuestra por sí sola realismo: con fuerza aproximadamente constante, una frenada lineal puede tener sentido. El límite tampoco es siempre g; depende de mu, cargas y resistencias.
+## Braking: saturation, approximate lock and recovery
 
-Para estudiar pérdida de eficacia bajo una demanda excesiva se acordó un segundo modo, disparado por demanda/capacidad nominal y separado del funcionamiento normal mediante histéresis. La capacidad en ese modo cae con la velocidad a través de una exponencial con límite inferior. Se reescribe como `mu_eff=mu_base-[mu_base*(1-eta)]`, equivalente a restar una pérdida creciente que se satura. No se adoptó como una ley universal del neumático.
+The first acceleration/braking straight showed that saturation alone could produce nearly constant deceleration. A more curved velocity trace is not itself proof of realism: nearly constant braking force can reasonably produce a linear velocity segment. The limit is not always g; mu, loads and resistance matter.
 
-Se distinguió aliviar de **soltar completamente** el freno. Al soltar, la demanda de frenado es cero, sale el modo y la memoria recupera rápidamente la capacidad. Con tau=0.01 s se recupera el 95 % en unos 30 ms y el 99.3 % en 50 ms según esta ecuación. La prueba de liberación comprueba esa recuperación matemática; no simula el tiempo mecánico de rearranque de una rueda bloqueada.
+A second mode was introduced to study reduced braking effectiveness under excessive demand. Demand relative to nominal capacity triggers it, with hysteresis separating it from normal operation. Capacity decreases with speed through an exponential function with a lower bound. Written as `mu_eff=mu_base-[mu_base*(1-eta)]`, it subtracts a growing, bounded loss. It was not adopted as a universal tyre law.
 
-## Pérdida de dirección al bloquear
+Partial relief was distinguished from **fully releasing the brake**. Full release sets braking demand to zero, leaves the mode and rapidly restores the capacity memory. With tau=0.01 s, the equation recovers about 95% in 30 ms and 99.3% in 50 ms. The release test checks this mathematical recovery; it does not model the mechanical spin-up time of a locked wheel.
 
-El círculo ya reduce Fy al consumir capacidad longitudinal, pero no impone necesariamente Fy=0. Se extendió el modo especial con factor lateral cero y longitudinal unitario sobre el límite ya reducido. También se anuló la rotación de la fuerza longitudinal con la dirección dentro de ese modo. Así se evita generar una fuerza lateral residual mediante Fx*sin(delta). El resultado es una aproximación deliberada, no un modelo completo de la fricción durante un deslizamiento arbitrario.
+## Loss of steering in lock mode
 
-## Una interfaz reproducible
+The shared circle reduces Fy as longitudinal demand consumes capacity, but does not necessarily force Fy to zero. The special mode therefore uses a zero lateral factor and a unit longitudinal factor applied to the already-reduced capacity. Steering rotation of longitudinal force is also suppressed in that mode, avoiding a residual lateral force from `Fx*sin(delta)`. This is a deliberate approximation, not a complete model of friction under arbitrary sliding.
 
-Las aceleraciones anteriores y las memorias de adherencia/bloqueo inicialmente entraban como argumentos adicionales. Pasarlas a z dejó cuatro entradas `z,u,p,dt` y dos salidas `z_next,tele`. La comparación guardada verificó que la reorganización no cambiaba las trayectorias de cinco familias de ensayos. Los dos componentes de u siguen siendo fuerza total y dirección; todavía no hay vector de actuación independiente por rueda.
+## A reproducible interface
 
-## Del ensayo aislado a un circuito
+Previous accelerations and adhesion/lock memories initially entered through additional arguments. Moving them into z produces four inputs `z,u,p,dt` and two outputs `z_next,tele`. The saved comparison verified unchanged trajectories across five manoeuvre families after this reorganization. u still contains total force and steering; independent per-wheel commands are not available yet.
 
-La integración con Pure Pursuit de la práctica 4 permitió someter la planta a curvas interiores, exteriores y rectas sin reescribir su física. Se guardaron copias independientes para no alterar los originales. Las animaciones usan posiciones y guiñada simuladas, y la flecha de velocidad transforma vx/vy al marco global.
+## From isolated manoeuvres to a circuit
 
-## Planificar antes de controlar velocidad
+Pure Pursuit from coursework practice 4 exposed the plant to inside/outside corners and straights without rewriting its physics. Independent copies protected the originals. Animations use simulated positions and yaw; the velocity arrow transforms vx/vy into global coordinates.
 
-Una velocidad constante era inadecuada para comparar rectas con curvas. V9 construyó un perfil por curvatura y propagó límites de aceleración/frenado alrededor de un circuito cerrado. El PI recibe ese perfil. El techo de velocidad y la velocidad alcanzada son distintos: varios techos altos de V9 producen prácticamente la misma vuelta porque domina la curvatura.
+## Plan speed before controlling it
 
-## Crear una demanda que exponga los límites
+A constant speed reference was unsuitable for comparing straights and corners. V9 constructs a curvature-based profile and propagates acceleration/braking bounds around a closed circuit. The PI follows that profile. A speed cap differs from achieved speed: several high V9 caps yield nearly identical laps because curvature dominates.
 
-V10 amplió el circuito de 8 a 14 curvas, introdujo chicane y curvas cerradas de 90° y 70°, y colocó una recta de 172 m antes de la primera frenada fuerte. El conductor pasa a objetivos de fuerza máxima con aplicación exponencial rápida; no se añadió un escalón ideal. La saturación y el bloqueo aproximado se conservan en los resultados, sin ocultarlos mediante un controlador de estabilidad.
+## Make the demand expose the limits
 
-## Frenar más tarde sin alterar la planta
+V10 expands the track from eight to fourteen corners, adds a chicane and tight 90°/70° corners, and places a 172 m straight before the first major braking event. The driver requests maximum force with rapid exponential application rather than an ideal step. Saturation and approximate locking remain visible instead of being hidden by a stability controller.
 
-V11 elevó ayMax de 8 a 11 y axFreno de 8 a 12 m/s², y retiró 0.10 s de anticipo adicional. “Frenar menos” se concretó en reducir menos la velocidad al llegar a las curvas, no en bajar la fuerza máxima del freno. A 35 m/s el mapeo retrasa el inicio planificado en 25.5 m en la primera recta. La vuelta mejora de 51.384 a 47.680 s, mientras el tiempo de bloqueo aproximado aumenta de 12.276 a 19.869 %. Un plan más optimista puede funcionar en este circuito sin ser universalmente realizable.
+## Brake later without changing the plant
 
-## Separar visualización 3D de física 3D
+V11 raises ayMax from 8 to 11 and axFreno from 8 to 12 m/s², removing 0.10 s of extra anticipation. “Brake less” means a smaller speed reduction approaching corners, not lower maximum brake force. At 35 m/s, planned braking starts 25.5 m later on the first straight. Lap time improves from 51.384 to 47.680 s while approximate lock time rises from 12.276% to 19.869%. A more optimistic plan can work here without being universally feasible.
 
-Se eligieron herramientas gráficas nativas, sin añadir una biblioteca ni un vehículo mecánico distinto. La carrocería tiene volumen visual y la cámara sigue la guiñada, pero no se inventan balanceo, cabeceo ni giro de rueda. Los MP4 son renderizados de las historias, con duración dependiente de su fps; el último fotograma puede añadir una fracción de segundo.
+## Separate 3D visualization from 3D physics
 
-El proceso de vídeo fue: calcular/guardar la historia, desactivar el temporizador interactivo, actualizar la escena en instantes regulares, obtener fotogramas de la figura con `getframe`, codificar con `VideoWriter` en MPEG-4 y verificar lectura/duración con `VideoReader`. Se cierra la figura y se elimina el temporizador al terminar. Es un renderizado de la figura propia, no una captura continua del escritorio. Para acelerar exportaciones, los conos pueden agruparse en un único objeto gráfico por color manteniendo su geometría; esto no cambia los estados simulados. V11 3D se guardó a 30 fps y V12 a 15 fps, con reproducción a tiempo real en ambos casos.
+Native graphics were chosen instead of adding a library or a mechanically different vehicle. The body has visual volume and the camera follows yaw, but roll, pitch and wheel rotation are not invented. MP4s render recorded histories; frame rate and the final frame can add a small fraction of a second to their duration.
 
-## Aceleración extrema V12
+The video workflow was: calculate/save history, disable the interactive timer, update the scene at regular instants, obtain figure frames with `getframe`, encode MPEG-4 using `VideoWriter`, and check duration/readability with `VideoReader`. The figure and timer are closed afterwards. This renders the application's own figure rather than continuously recording the desktop. Cones can be grouped by colour into fewer graphics objects while preserving geometry; this does not alter simulated states. V11 3D uses 30 fps and V12 uses 15 fps, both at real-time playback speed.
 
-La demanda de tracción subió de 2500 a 5000 N y tauAcel bajó de 0.030 a 0.010 s. Frenada, mapeo, circuito y ecuaciones de la planta se mantuvieron. La vuelta empeoró a 149.036 s y el error máximo creció a 4.347 m. La demanda excede el límite longitudinal trasero durante el 98.556 % de las muestras acelerando, frente al 49.664 % de su base. Es una condición de estrés útil para la coordinación futura, no una mejora de prestaciones.
+## Extreme acceleration in V12
 
-## Decisiones pendientes
+Maximum driving-force demand rises from 2500 to 5000 N and tauAcel drops from 0.030 to 0.010 s. Braking, mapping, circuit and plant equations remain unchanged. Lap time deteriorates to 149.036 s and maximum error grows to 4.347 m. Rear longitudinal demand exceeds capacity in 98.556% of accelerating samples, versus 49.664% in the baseline. This is a stress condition for future coordination, not a performance improvement.
 
-La siguiente fase mantiene congelada la planta y monta la arquitectura por bloques. Deben definirse referencia de guiñada, señales de estimación, asignación por rueda, saturaciones de actuadores y coordinación. Para ABS/TCS basados en slip físico faltan velocidad angular, radio e inercia de rueda y una ley fuerza–deslizamiento. La convención de deriva, el modo de bloqueo y los parámetros de adherencia requieren revisión/calibración antes de conclusiones sobre un vehículo real.
+## Decisions still pending
+
+The next phase keeps the plant frozen and assembles the block architecture. Yaw reference, estimation signals, wheel-force allocation, actuator limits and coordination must be defined. Slip-based ABS/TCS still require wheel angular speed, radius/inertia and a force–slip law. Slip-angle convention, lock-mode assumptions and adhesion parameters need review/calibration before conclusions are extended to a real vehicle.

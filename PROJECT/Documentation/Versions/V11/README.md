@@ -1,23 +1,25 @@
-# V11 — Mapeo al límite y visualización 3D
+# V11 · Demanding speed mapping and 3D visualization
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Reducir menos la velocidad en curva y retrasar el frenado sin cambiar la planta.
+## Problem and decision
 
-## Implementación
+Reduce corner-entry speed less and start braking later without changing the plant.
 
-ayMax=11, axFreno=12 m/s², anticipacionPI=0; se conserva axAcel=6. Se guarda comparación con V10 y una variante de un coche de 35 m/s en 3D.
+## Implementation
 
-Fuente: [Prueba_hibrida_V11_Mapeo_limite.mlx](../../../Hybrid%20Tests/Prueba_hibrida_V11_Mapeo_limite.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+ayMax=11, axFreno=12 m/s² and anticipacionPI=0; axAcel remains 6. A V10 baseline comparison and a single-car 35 m/s 3D variant are retained.
 
-## Simulaciones y resultados
+**Source:** [Prueba_hibrida_V11_Mapeo_limite.mlx](../../../Hybrid%20Tests/Prueba_hibrida_V11_Mapeo_limite.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-A 35 m/s: 47.680 s, error máximo 0.776 m, bloqueo 19.869 %, CG fuera 0 %. En la recta inicial se planifica frenar 25.5 m más tarde que la base. La campaña actual incluye 25/30/32/35/40 m/s; el caso 40 solo alcanza un pico vx de 37.405 m/s.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+At 35 m/s: 47.680 s, 0.776 m maximum error, 19.869% lock time and 0% CG outside. Planned braking starts 25.5 m later on the initial straight. Current caps are 25/30/32/35/40 m/s; the 40 case reaches only 37.405 m/s peak vx.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-La mejora observada es específica de estas condiciones y aumenta el bloqueo aproximado. La visualización 3D conserva la dinámica plana y no añade rotación de ruedas.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+The improvement is scenario-specific and increases approximate locking. The 3D display retains planar physics and does not add wheel rotation.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

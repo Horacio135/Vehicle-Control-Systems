@@ -1,14 +1,32 @@
-# Tools
+# Reproduction and verification tools
 
-`reproduce_run.m` vuelve a ejecutar una instantánea de [Run_Sources](../Results/Run_Sources/README.md) y guarda resultados a resolución completa. Requiere MATLAB; no requiere Python ni un vídeo previo.
+[← Project](../README.md) · [Run sources](../Results/Run_Sources/README.md)
+
+## Reproduce a simulation
+
+`reproduce_run.m` executes an archived source snapshot and saves full-resolution results. It requires MATLAB, not Python or an existing video.
+
+From the repository root:
 
 ```matlab
 addpath('PROJECT/Tools');
 outputFile = reproduce_run('V12_35_3D.m', fullfile(tempdir,'vehicle_v12'));
 ```
 
-El ejemplo parte de la raíz del repositorio. Se desactiva el arranque automático de la animación en una copia temporal; las ecuaciones y los parámetros del ensayo no se cambian. Los Live Scripts originales y las instantáneas permanecen intactos. Se generan las gráficas del ensayo sin mostrarlas y se guarda un MAT completo; no se vuelve a renderizar un MP4. La copia temporal se conserva para trazabilidad.
+Autoplay is disabled in a temporary copy only; equations and scenario parameters are unchanged. Original Live Scripts and snapshots remain intact. Scenario figures are created without display, and a complete MAT file is saved. No MP4 is automatically rerendered. The temporary copy remains available for traceability.
 
-Los archivos `verify_publication.py` y `publication_checks.json` comprueban el archivo publicado: enlaces Markdown locales, hashes, doce etapas, configuración de datos y conservación de las prácticas existentes. No son una validación experimental de la física.
+## Verify the published archive
 
-[Registro de reproducción en MATLAB](matlab_reproduction_check.json): el caso V11 de 35 m/s se regeneró desde la instantánea organizada, con vuelta de 47.680 s y error máximo de 0.775982 m. Se comprobaron estados finitos, conservación de las fuentes y eliminación del temporizador. No se han vuelto a ejecutar todas las versiones históricas.
+```bash
+python PROJECT/Tools/verify_publication.py
+```
+
+The script and `publication_checks.json` verify local Markdown links, archived hashes, twelve stage pages, source exports and result-data coverage. These are publication checks, not experimental physical validation.
+
+The [MATLAB reproduction record](matlab_reproduction_check.json) confirms that the organized V11 35 m/s snapshot reproduced a 47.680 s lap and 0.775982 m maximum error. Finite states, unchanged sources and timer cleanup were checked. The entire historical collection has not been rerun.
+
+## English-localization checks
+
+The [source-integrity report](localization_source_integrity.json) checks 58 MATLAB source representations against the pre-localization Git revision. Executable non-text tokens are unchanged, and all 22 MLXs retain their cached outputs and media. Comments, explanatory prose and display messages are translated; historical identifiers are retained.
+
+The [MATLAB regression report](english_localization_checks.json) records successful native conversion of all 22 MLXs and exact numerical equality for both V11 and V12 after translation. States, forces, steering, speed references, lateral error, adhesion factors and lock flags match the previous results; timers are cleaned up.

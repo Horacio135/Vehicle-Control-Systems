@@ -1,18 +1,20 @@
-# Versions V1–V12
+# Development history: V1–V12
 
-V1–V8 son etapas de la planta; V9–V12 añaden seguimiento, planificación, estrés y visualización sobre ella. Los archivos no se renombran para aparentar una secuencia diferente.
+[← Documentation](../README.md) · [Design decisions](../Design_Decisions/README.md) · [Results](../../Results/README.md)
 
-| Etapa | Tema |
+V1–V8 describe the plant; V9–V12 add tracking, planning, stress testing and visualization around it. Historical files are not renamed to suggest a different development sequence.
+
+| Stage | Focus |
 |---|---|
-| [V01](V01/README.md) | Modelo dinámico inicial |
-| [V02](V02/README.md) | Telemetría de cuatro ruedas |
-| [V03](V03/README.md) | Círculo de adherencia |
-| [V04](V04/README.md) | Transferencia de pesos |
-| [V05](V05/README.md) | Pérdida lateral por exceso de tracción |
-| [V06](V06/README.md) | Cálculo individual en ejes de rueda |
-| [V07](V07/README.md) | Separación de ensayos |
-| [V08](V08/README.md) | Bloqueo aproximado, recuperación e interfaz |
-| [V09](V09/README.md) | Planificador de velocidad por curvatura |
-| [V10](V10/README.md) | Circuito de estrés y conductor brusco |
-| [V11](V11/README.md) | Mapeo al límite y visualización 3D |
-| [V12](V12/README.md) | Solicitud de aceleración extrema |
+| [V01](V01/README.md) | Initial dynamic model |
+| [V02](V02/README.md) | Four-wheel telemetry |
+| [V03](V03/README.md) | Friction circle |
+| [V04](V04/README.md) | Load transfer |
+| [V05](V05/README.md) | Lateral loss under excess traction demand |
+| [V06](V06/README.md) | Individual wheel-frame calculations |
+| [V07](V07/README.md) | Separate manoeuvre scripts |
+| [V08](V08/README.md) | Approximate lock, recovery and plant interface |
+| [V09](V09/README.md) | Curvature-based speed planner |
+| [V10](V10/README.md) | Stress circuit and abrupt driver demands |
+| [V11](V11/README.md) | Demanding speed mapping and 3D visualization |
+| [V12](V12/README.md) | Extreme acceleration demand |

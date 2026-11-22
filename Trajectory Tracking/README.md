@@ -1,8 +1,10 @@
-# Trajectory Tracking
+# Trajectory tracking
 
-Práctica 4 de seguimiento de trayectoria, conservada como referencia del Pure Pursuit y del control de velocidad utilizados en los ensayos híbridos del proyecto. Se añade como carpeta académica independiente, siguiendo la organización de Base_Model, Bicicle_Dynamic_Model y ACC controller design.
+[← Repository](../README.md) · [Project hybrid tests](../PROJECT/Hybrid%20Tests/README.md)
 
-- `P4_seguimiento_trayectoria_ALUMNO.mlx`: archivo de referencia tal como está en la carpeta Prácticas.
-- `Source Exports/P4_seguimiento_trayectoria_ALUMNO.m`: bloques de código para lectura en GitHub; no contiene el texto docente ni todas las salidas del MLX.
+Coursework practice 4, retained as the reference for Pure Pursuit and the speed controller used in the project's hybrid tests. This independent coursework directory follows the structure of Base_Model, Bicicle_Dynamic_Model and ACC controller design.
 
-Es una práctica de alumno, no una versión del modelo de cuatro ruedas ni un módulo ESC. No se ha ejecutado ni corregido como parte de esta publicación. Los híbridos de [PROJECT](../PROJECT/Hybrid%20Tests/README.md) incorporan sus funciones locales y no necesitan este archivo en el path.
+- `P4_seguimiento_trayectoria_ALUMNO.mlx`: the reference file as supplied in the coursework directory.
+- `Source Exports/P4_seguimiento_trayectoria_ALUMNO.m`: readable code blocks; the instructional prose and all embedded MLX outputs are not included in this export.
+
+This is a student exercise, not a four-wheel plant version or an ESC module. It was not executed or corrected as part of archival publication. Hybrid tests include their required local functions and do not need this file on the path.

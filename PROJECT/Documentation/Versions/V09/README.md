@@ -1,23 +1,25 @@
-# V09 — Planificador de velocidad por curvatura
+# V09 · Curvature-based speed planner
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Acelerar en rectas y reducir velocidad antes de curvas, frente a la referencia constante del primer híbrido.
+## Problem and decision
 
-## Implementación
+Accelerate on straights and slow before corners instead of following the first hybrid's constant speed reference.
 
-Se combinan límites por curvatura, barridos de v², consulta periódica de perfil y PI longitudinal. Se ensayan 14/18/22/26 y después 6/10/14/18/22 m/s.
+## Implementation
 
-Fuente: [Prueba_hibrida_V9_PurePursuit_animada.mlx](../../../Hybrid%20Tests/Prueba_hibrida_V9_PurePursuit_animada.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+Curvature limits, v² sweeps, periodic profile queries and a longitudinal PI are combined. Campaigns use 14/18/22/26, then 6/10/14/18/22 m/s.
 
-## Simulaciones y resultados
+**Source:** [Prueba_hibrida_V9_PurePursuit_animada.mlx](../../../Hybrid%20Tests/Prueba_hibrida_V9_PurePursuit_animada.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-Los cinco casos animados completan vueltas. Tiempos de 44.164, 31.628, 30.436, 30.432 y 30.432 s. Aumentar el techo por encima de 14 m/s aporta poco en ese circuito porque limita el perfil por curvatura.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+All five animated cases complete laps in 44.164, 31.628, 30.436, 30.432 and 30.432 s. Raising the cap above 14 m/s adds little here because curvature constrains the profile.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-El V9 no animado actual tiene seis casos y figuras 2x2; se conserva con advertencia. El archivo animado de cinco casos es el punto de entrada recomendado.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+Current non-animated V9 has six cases but 2×2 plot layouts; the limitation is documented. Animated five-case V9 is the recommended entry point.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

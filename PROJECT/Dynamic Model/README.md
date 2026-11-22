@@ -1,68 +1,80 @@
-# Dynamic Model
+# Dynamic model
 
-La referencia actual es **CuatroruedasV8_bloqueo_ruedas.mlx**. Los prototipos y V1–V7 se conservan para reconstruir las decisiones, sin alterar sus ecuaciones ni adaptar sus interfaces durante esta publicación.
+[← Project](../README.md) · [Manoeuvres](Ensayos/README.md) · [Design decisions](../Documentation/Design_Decisions/README.md)
 
-## Evolución de la planta
+**Reference plant:** `CuatroruedasV8_bloqueo_ruedas.mlx`.
 
-| Etapa | Incorporación | Evidencia disponible |
+The prototypes and V1–V7 are retained to explain the design history. Their equations and historical interfaces were not silently adapted during archival publication.
+
+## Plant evolution
+
+| Stage | Main addition | Available evidence |
 |---|---|---|
-| V1 | Movimiento plano, fuerzas en cuatro contactos, comparación cinemática/dinámica; límites Fx/Fy separados | Código y salidas incrustadas del MLX |
-| V2 | Telemetría individual de las ruedas | Código y salidas del MLX |
-| V3 | Círculo compartido de adherencia longitudinal/lateral | [Figuras](../Results/V3_Friction_Circle/README.md) |
-| V4 | Transferencias longitudinal/lateral y rigidez dependiente de carga | [Figuras](../Results/V4_Load_Transfer/README.md) |
-| V5 | Pérdida/recuperación lateral trasera por exceso de tracción | [Figuras y vídeos](../Results/V5_Slip_Tests/README.md) |
-| V6 | Proyección de velocidades al marco de cada rueda | Código y salidas del MLX |
-| V7 | Separación de ensayos y organización de funciones | Código histórico, con dependencia de interfaces anteriores |
-| V8 | Frenado con modo de bloqueo aproximado, recuperación y estado completo | [Pruebas de frenado](../Results/V8_Braking/README.md) |
+| V1 | Planar motion, four contact forces, kinematic/dynamic comparison; separate Fx/Fy limits | Code and embedded MLX outputs |
+| V2 | Per-wheel telemetry | Code and embedded MLX outputs |
+| V3 | Shared longitudinal/lateral adhesion circle | [Figures](../Results/V3_Friction_Circle/README.md) |
+| V4 | Longitudinal/lateral load transfer and load-dependent stiffness | [Figures](../Results/V4_Load_Transfer/README.md) |
+| V5 | Rear lateral-capacity loss/recovery under excess traction demand | [Figures and videos](../Results/V5_Slip_Tests/README.md) |
+| V6 | Velocity projection into individual wheel coordinates | Code and embedded MLX outputs |
+| V7 | Manoeuvre extraction and function organization | Historical code with older interface dependencies |
+| V8 | Approximate braking-lock mode, recovery and complete state | [Braking tests](../Results/V8_Braking/README.md) |
 
-La explicación de cada decisión está en [Documentation/Versions](../Documentation/Versions/README.md).
+See [Versions](../Documentation/Versions/README.md) for each stage's motivation and outcome.
 
-## Interfaz congelada
+## Plant interface
 
 ```matlab
 [z_next, tele] = pasoDinamico(z, u, p, dt);
-u = [Fx_total_solicitada; delta_rueda];
+u = [requested_total_Fx; wheel_steering_delta];
 ```
 
-`Fx` es **fuerza [N]**, no potencia; es positiva al acelerar y negativa al frenar. `delta` está en radianes y corresponde a las ruedas delanteras, no al volante convertido por una relación de dirección. `p` contiene parámetros de masa, geometría, neumáticos, límites y constantes de tiempo. `dt` se expresa en segundos.
+`Fx` is **force [N]**, not power. It is positive for driving and negative for braking. `delta` is the front-wheel steering angle [rad], not a steering-wheel angle converted through a steering ratio. `p` stores vehicle, geometry, tyre, limit and time-constant parameters; `dt` is in seconds.
 
-Orden de ruedas: **DI, DD, TI, TD**. Reparto actual de tracción `[0 0 .5 .5]`; frenada `[.3 .3 .2 .2]`. No existe todavía una orden de frenado independiente por rueda.
+Wheel order is **DI, DD, TI, TD** in the source: front left, front right, rear left, rear right. Current drive allocation is `[0 0 .5 .5]`; braking allocation is `[.3 .3 .2 .2]`. Independent per-wheel braking commands are not yet provided.
 
-| Índices de z | Significado |
+| z indices | Meaning |
 |---|---|
 | 1:6 | X [m], Y [m], psi [rad], vx [m/s], vy [m/s], r [rad/s] |
-| 7:8 | Aceleraciones físicas del paso anterior para transferencia de carga |
-| 9:12 | Memoria `eta_slip` por rueda |
-| 13:16 | Memoria `eta_brake` por rueda |
-| 17:20 | Modo de bloqueo aproximado por rueda, 0/1 |
+| 7:8 | Previous-step physical accelerations used for load transfer |
+| 9:12 | Per-wheel `eta_slip` memory |
+| 13:16 | Per-wheel `eta_brake` memory |
+| 17:20 | Approximate per-wheel lock mode, 0/1 |
 
-Son seis variables de movimiento y catorce memorias, no veinte grados de libertad mecánicos. La inicialización de seis componentes añade aceleraciones cero, factores de adherencia uno y bloqueo cero. Las llamadas directas a `pasoDinamico` requieren el vector completo de veinte componentes.
+There are six motion variables and fourteen memory components, not twenty mechanical degrees of freedom. Initialization from six motion components adds zero accelerations, unit adhesion factors and zero lock flags. Direct calls to `pasoDinamico` require the complete 20-component vector.
 
-`tele` devuelve, entre otros campos, `Fxw`, `Fyw`, `Fzw`, `Fmax_w`, `Fmax_peak_w`, `lambda_w`, `alpha_w`, `Caw`, `eta_slip`, `eta_brake`, `bloqueo_w`, fuerzas en el chasis y aceleraciones. Las fuerzas `Fxw/Fyw` están en ejes de rueda; para balances globales hay que usar su transformación al chasis. Telemetría de un paso y estado siguiente no deben confundirse temporalmente.
+`tele` includes `Fxw`, `Fyw`, `Fzw`, `Fmax_w`, `Fmax_peak_w`, `lambda_w`, `alpha_w`, `Caw`, `eta_slip`, `eta_brake`, `bloqueo_w`, chassis-frame forces and accelerations. `Fxw/Fyw` use wheel coordinates: chassis-frame transformations are required for vehicle force balances. Step telemetry and next-state values must not be confused in time.
 
-## Fuerzas y adherencia
+## Force and adhesion model
 
-La carga vertical se redistribuye cuasiestáticamente con las aceleraciones anteriores. La rigidez lateral escala con carga mediante `Caw=Caw0.*(Fzw./Fzw0).^nCa`. El círculo aplica un factor común `lambda=min(1,Fmax/hypot(Fx_sol,Fy))`, y la pérdida lateral trasera usa una memoria adicional dependiente del exceso de demanda motriz.
-
-En frenado, la entrada/salida del modo de bloqueo se decide mediante la relación entre demanda y capacidad **nominal**, con histéresis. El objetivo de capacidad reducida es:
+Vertical loads are redistributed quasi-statically using previous accelerations. Lateral stiffness scales with load:
 
 ```matlab
-eta_obj = brake_slide_ratio + (1-brake_slide_ratio)*exp(-abs(vx_local)/v_brake_slide);
+Caw = Caw0 .* (Fzw ./ Fzw0).^nCa;
+lambda = min(1, Fmax ./ hypot(Fx_requested, Fy));
+```
+
+The common circle factor constrains combined force. An additional rear lateral-capacity memory depends on excess requested drive force.
+
+During braking, demand relative to **nominal** capacity determines entry/exit from the lock mode, with hysteresis. Its reduced-capacity target is:
+
+```matlab
+eta_obj = brake_slide_ratio + ...
+    (1-brake_slide_ratio)*exp(-abs(vx_local)/v_brake_slide);
 mu_eff = mu_base * eta_brake;
 ```
 
-`eta_brake` converge exponencialmente al objetivo; la constante es distinta al perder adherencia, aliviar parcialmente o soltar completamente. Valores de ensayo: ratio mínimo 0.68, escala de velocidad 15 m/s, pérdida 0.03 s, recuperación parcial 0.10 s y liberación completa 0.01 s. Son parámetros ilustrativos pendientes de calibración.
+`eta_brake` approaches this target exponentially, with separate time constants for loss, partial relief and full brake release. Test parameters are a 0.68 minimum ratio, 15 m/s speed scale, 0.03 s loss, 0.10 s partial recovery and 0.01 s full-release recovery. These are illustrative parameters awaiting calibration.
 
-En el modo especial de bloqueo se anula `Fy` y no se rota la fuerza longitudinal con la dirección: el frenado actúa según X del chasis. Esto evita conservar artificialmente dirección por `Fx*sin(delta)`. El factor longitudinal unitario conserva el límite de frenado reducido; **no significa que Fx sea 1 N ni que desaparezca la saturación**. Es una decisión deliberadamente simplificada del ensayo.
+In the special lock mode, `Fy` is zero and longitudinal braking force is not rotated with steering; braking acts along chassis X. This prevents artificial steering through `Fx*sin(delta)`. A unit longitudinal factor preserves the already-reduced braking limit: **it does not mean Fx=1 N or removal of saturation**. This is a deliberately simplified test assumption.
 
-## Ejecución y compatibilidad
+## Running and compatibility
 
-Seleccionar esta carpeta como Current Folder y ejecutar el V8 `.mlx`. Los seis scripts de [Ensayos](Ensayos/README.md) corresponden a la interfaz actual de V8. No ejecutar V7 con estos scripts como si sus firmas fueran intercambiables: su `pasoDinamico` aún exige memorias separadas y el ensayo de recta actual espera cuatro entradas.
+Set this directory as MATLAB's Current Folder and run the V8 `.mlx`. The six [manoeuvre scripts](Ensayos/README.md) target the current V8 interface. Do not assume V7 is interchangeable: its dynamic step still requires separate memory arguments, while the current straight-line test expects four inputs.
 
-Los modelos V1–V6 son archivos históricos autocontenidos. Sus parámetros y firmas difieren. No se han vuelto a ejecutar todos en esta publicación ni se promete que todas las figuras antiguas se regeneren con las versiones actuales de los scripts.
+V1–V6 are self-contained historical files with differing parameters and signatures. They were not all rerun during publication, and current helpers are not guaranteed to regenerate every historical figure.
 
-## Límites físicos que se mantienen
+## Physical limitations retained
 
-No hay velocidades angulares, pares ni inercia de rueda; por tanto, `bloqueo_w` no demuestra bloqueo mecánico y `eta_slip` no es un slip ratio real. No hay suspensión dinámica, balanceo, cabeceo ni modelo experimental de neumático. La suma vertical mg y el círculo son comprobaciones internas, no calibración experimental. Una frenada no tiene un límite universal de 1 g: depende de adherencia, carga y resistencias.
+Wheel angular velocities, torque and rotational inertia are absent. Thus `bloqueo_w` does not establish mechanical wheel locking and `eta_slip` is not a physical slip ratio. Dynamic suspension, roll, pitch and experimentally calibrated tyre forces are not included. Vertical equilibrium and the friction circle are internal consistency checks, not experimental calibration. Braking is not universally limited to 1 g: adhesion, load and resistance matter.
 
-La convención de deriva merece una revisión futura: V6–V8 proyectan velocidades al marco girado de rueda y calculan `delta-atan2(vy_local,vx_local)`. Esa expresión puede volver a introducir el ángulo de dirección; se conserva por la decisión de congelar la planta y debe contrastarse antes de atribuir validez física a los resultados.
+The slip-angle convention needs future review: V6–V8 project velocities into the steered wheel frame and then calculate `delta-atan2(vy_local,vx_local)`. This may introduce steering twice. It is retained under the decision to freeze the plant and should be checked before claiming physical validity.

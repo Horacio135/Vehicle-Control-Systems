@@ -1,23 +1,25 @@
-# V07 — Separación de ensayos
+# V07 · Separate manoeuvre scripts
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Separar maniobras y presentación del núcleo para preparar una arquitectura modular.
+## Problem and decision
 
-## Implementación
+Separate manoeuvres and presentation from the core in preparation for modular architecture.
 
-Se incorporan scripts externos en Ensayos y se mantienen las memorias anteriores como entradas adicionales del paso dinámico.
+## Implementation
 
-Fuente: [CuatroruedasV7_estructurado.mlx](../../../Dynamic%20Model/CuatroruedasV7_estructurado.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+External helpers are placed in Ensayos; previous-step memories still enter the dynamic step as additional arguments.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV7_estructurado.mlx](../../../Dynamic%20Model/CuatroruedasV7_estructurado.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-El archivo documenta el estado anterior a la normalización. Los ensayos actuales corresponden a V8 y no son un entorno histórico V7 completo.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+The file records the pre-normalization interface. Current helpers target V8 and do not provide a complete historical V7 environment.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-Su pasoDinamico exige ax_prev, ay_prev y eta_prev; la recta actual espera solo z,u,p,dt. Se archiva sin prometer ejecución integral con dependencias actuales.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+Its dynamic step requires ax_prev, ay_prev and eta_prev; the current straight-line test expects only z,u,p,dt. Full execution against current dependencies is not promised.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

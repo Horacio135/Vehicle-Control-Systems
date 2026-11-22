@@ -1,1 +1,7 @@
-Definition of a simple bicicle-style dynamic model, its new aditional physical parameters and simulation and comparison of the cinematic moddle and dynamic model in a loop circuit.
+# Bicycle dynamic model
+
+[← Repository](../README.md)
+
+A simple bicycle-model formulation, additional physical parameters, and comparison of kinematic and dynamic vehicle responses on a loop circuit.
+
+Open `P2_modelo_bicicleta_RESUELTO.mlx` in MATLAB. The original directory name is retained for compatibility. The project's subsequent four-wheel evolution is documented separately in [PROJECT](../PROJECT/README.md).

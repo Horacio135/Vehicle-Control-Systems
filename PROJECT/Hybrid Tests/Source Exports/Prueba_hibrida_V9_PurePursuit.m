@@ -1,96 +1,96 @@
-% Fuente: CuatroruedasV8_bloqueo_ruedas.mlx | SHA256: 5502b64c9336f6cbfcc394f0d39e986e2266b3d37636013bea30260a9f8ffa1c
-% Fuente: P4_seguimiento_trayectoria_ALUMNO.mlx | SHA256: 58965f692cf38b8a1928c7ddcf16276dcb8aee7fd3a043acc123b057dd832679
-%% Dinamica V8 y seguimiento Pure Pursuit de la practica 4
-% Archivo independiente. Las funciones fisicas de V8 y los controladores
-% de P4 se incorporan sin modificar sus ecuaciones. No lee ni escribe los
-% originales, ni necesita los scripts externos de Ensayos.
-% La geometria, el integrador del ensayo y sus graficas son nuevos.
-% Incorpora planificacion de velocidad por curvatura. No incorpora ESC, ABS ni TCS.
+% Source: CuatroruedasV8_bloqueo_ruedas.mlx | SHA256: 5502b64c9336f6cbfcc394f0d39e986e2266b3d37636013bea30260a9f8ffa1c
+% Source: P4_seguimiento_trayectoria_ALUMNO.mlx | SHA256: 58965f692cf38b8a1928c7ddcf16276dcb8aee7fd3a043acc123b057dd832679
+%% V8 dynamics and Pure Pursuit from practice 4
+% Standalone file. V8 physical functions and P4 controllers
+% are included without changing their equations. It neither reads nor writes
+% the originals and does not need external Ensayos helpers.
+% Track geometry, the test integrator and plots are new.
+% Includes curvature-based speed planning. Does not include ESC, ABS or TCS.
 
-%% Parametros originales de V8
+%% Original V8 parameters
 p = struct(); 
 
-p.m    = 230;      % masa [kg]                              
-p.g    = 9.81;     % gravedad [m/s^2]
-p.rho  = 1.225;    % densidad del aire [kg/m^3]
-p.Cd   = 1.0;      % coef. aerodinámico                       
-p.Af   = 1.1;      % área frontal [m^2]                        
-p.fr  = 0.022;    % coef. de resistencia a la rodadura       
-p.Fx_drive_max = 2500;   % fuerza motriz máxima [N]           
-p.Fx_brake_max = 5000;   % fuerza de frenado máxima [N]       
-p.theta = 0;      % inclinación de la calzada [rad]
+p.m    = 230;      % mass [kg]
+p.g    = 9.81;     % gravity [m/s^2]
+p.rho  = 1.225;    % air density [kg/m^3]
+p.Cd   = 1.0;      % aerodynamic coefficient
+p.Af   = 1.1;      % frontal area [m^2]
+p.fr  = 0.022;    % rolling-resistance coefficient
+p.Fx_drive_max = 2500;   % maximum driving force [N]
+p.Fx_brake_max = 5000;   % maximum braking force [N]
+p.theta = 0;      % road inclination [rad]
 
-% Define aquí los parámetros necesarios para describir la dinámica lateral
-% del vehículo
-p.ld = 0.765; % [m] distancia del CG al eje delantero en x
-p.lt = 0.765; % [m] distancia del CG al eje trasero en x
-p.lyd = 0.600; % [m] distancia del CG a las ruedas del eje delantero en y
-p.lyt = 0.600; % [m] distancia del CG a las ruedas del eje trasero en y
-p.hcg = 0.230; % [m] altura del centro de gravedad
-% Coordenadas de cada rueda respecto al CG
-% Orden: DI, DD, TI, TD
+% Define the parameters needed to describe the vehicle's
+% lateral dynamics here.
+p.ld = 0.765; % [m] CG to front axle, longitudinal distance
+p.lt = 0.765; % [m] CG to rear axle, longitudinal distance
+p.lyd = 0.600; % [m] CG to front wheels, lateral distance
+p.lyt = 0.600; % [m] CG to rear wheels, lateral distance
+p.hcg = 0.230; % [m] centre-of-gravity height
+% Wheel coordinates relative to the CG
+% Order: DI, DD, TI, TD
 p.xw = [p.ld,p.ld,-p.lt,-p.lt];
 p.L = p.ld+p.lt; 
 p.yw = [p.lyd, -p.lyd, p.lyt, -p.lyt];
 p.td = p.lyd + p.lyt;
 p.tt = p.td; 
-p.Iz = 130; % [kg m^2] inercia de guiñada
-p.Cad = 35000; % [N/rad] rigidez deriva delantera
-p.Cat = 50000; % [N/rad] rigidez deriva trasero --> vehículo subvirador! 
+p.Iz = 130; % [kg m^2] yaw inertia
+p.Cad = 35000; % [N/rad] front cornering stiffness
+p.Cat = 50000; % [N/rad] rear cornering stiffness --> understeering vehicle
 p.Caw = [p.Cad/2, p.Cad/2, p.Cat/2, p.Cat/2];
 p.nCa = 0.8; 
-p.mu_t = 1.5; % rozamiento neumático trasero
-p.mu_d = 0.95*p.mu_t; % rozamiento neumático delantero
+p.mu_t = 1.5; % rear tyre friction
+p.mu_d = 0.95*p.mu_t; % front tyre friction
 p.muw = [p.mu_d, p.mu_d, p.mu_t, p.mu_t];
-% Perdida de adherencia lateral por exceso de traccion
-p.Kslip = 3; % Intensidad de perdida lateral en ruedas traseras
-% Dinamica temporal de perdida y recuperacion lateral
-p.tau_slip_loss = 0.03; % Tiempo de perdida [s]
-p.tau_slip_rec  = 0.50; % Tiempo de recuperacion [s]
-% Perdida de adherencia por exceso de demanda de frenado.
-% Valores iniciales de ensayo, pendientes de calibracion.
-% Dos modos de frenado: normal y bloqueo aproximado.
-% Parametros ilustrativos; pendientes de calibracion experimental.
-p.brake_slide_ratio = 0.68; % mu_min / mu_base (limite a alta velocidad)
-p.v_brake_slide = 15;      % Escala de velocidad [m/s]
-p.brake_lock_on = 1.02;    % Entrada: demanda / capacidad nominal
-p.brake_lock_off = 0.90;   % Salida con histeresis
-p.tau_brake_loss = 0.03;   % Transicion al objetivo en bloqueo [s]
-p.tau_brake_rec = 0.10;    % Recuperacion al aliviar parcialmente [s]
-p.tau_brake_release = 0.01;% Recuperacion rapida al soltar: 95% en 30 ms
+% Lateral adhesion loss under excess traction demand
+p.Kslip = 3; % Rear-wheel lateral-loss intensity
+% Time dynamics of lateral loss and recovery
+p.tau_slip_loss = 0.03; % loss time constant [s]
+p.tau_slip_rec  = 0.50; % recovery time constant [s]
+% Adhesion loss under excess braking demand.
+% Initial test values, awaiting calibration.
+% Two braking modes: normal and approximate lock.
+% Illustrative parameters awaiting experimental calibration.
+p.brake_slide_ratio = 0.68; % mu_min / mu_base (high-speed limit)
+p.v_brake_slide = 15;      % Speed scale [m/s]
+p.brake_lock_on = 1.02;    % Entry: demand / nominal capacity
+p.brake_lock_off = 0.90;   % Hysteretic exit
+p.tau_brake_loss = 0.03;   % Transition to lock-mode target [s]
+p.tau_brake_rec = 0.10;    % Recovery under partial brake relief [s]
+p.tau_brake_release = 0.01;% Rapid full-release recovery: 95% in 30 ms
 
-% Reparto de fuerzas
-p.Fzd0 = p.m*p.g*p.lt/p.L; % [N] Reparto de fuerzas inicial eje delantero
-p.Fzt0 = p.m*p.g*p.ld/p.L; % [N] Reparto de fuerzas inicial eje trasero
-p.Fzw0 = [p.Fzd0/2, p.Fzd0/2, p.Fzt0/2, p.Fzt0/2]; % [N] Reparto de fuerzas inicial rueda por rueda
-p.drive_w = [0, 0, 0.5, 0.5]; % Reparto de tracción longitudinal en aceleración
-p.brake_w = [0.3, 0.3, 0.2, 0.2]; % Reparto de tracción longitudinal en frenada
-p.kRoll = 0.5; % fraccion del momento de balanceo soportada delante (Cambiar haciendo modelo de suspensión)
+% Force allocation
+p.Fzd0 = p.m*p.g*p.lt/p.L; % [N] initial front-axle vertical load
+p.Fzt0 = p.m*p.g*p.ld/p.L; % [N] initial rear-axle vertical load
+p.Fzw0 = [p.Fzd0/2, p.Fzd0/2, p.Fzt0/2, p.Fzt0/2]; % [N] initial vertical load per wheel
+p.drive_w = [0, 0, 0.5, 0.5]; % Driving-force allocation during acceleration
+p.brake_w = [0.3, 0.3, 0.2, 0.2]; % Longitudinal-force allocation during braking
+p.kRoll = 0.5; % front share of roll moment (replace with a suspension model later)
 
 
 
-%% Controladores de P4 y configuracion del ensayo
+%% P4 controllers and test configuration
 p.Kp_v=800; p.Ki_v=200;
 p.Ld0=2.0; p.kLd=0.3; p.delta_max=0.5;
 p.dt=0.002;
-ensayo.ancho=3.0;             % Distancia entre bordes [m]
-ensayo.pasoTrayectoria=0.25;  % Resolucion geometrica maxima [m]
-ensayo.pasoConos=3.0;         % Separacion aproximada de conos [m]
-ensayo.velocidades=[6 10 14 18 22 26]; % Techos de velocidad [m/s], no consignas constantes
-% Limites de planificacion conservadores, no limites nuevos de la planta.
-plan.ayMax=6.0;             % Aceleracion lateral objetivo [m/s^2]
-plan.axAcel=2.5;            % Aceleracion longitudinal planificada [m/s^2]
-plan.axFreno=3.5;           % Deceleracion planificada positiva [m/s^2]
-plan.anticipacionPI=0.30;   % Anticipacion temporal de referencia [s]
-ensayo.errorAbandono=10;      % Detener si se pierde ampliamente la pista [m]
+ensayo.ancho=3.0;             % distance between track boundaries [m]
+ensayo.pasoTrayectoria=0.25;  % maximum geometric spacing [m]
+ensayo.pasoConos=3.0;         % approximate cone spacing [m]
+ensayo.velocidades=[6 10 14 18 22 26]; % speed caps [m/s], not constant references
+% Conservative planning limits, not new plant limits.
+plan.ayMax=6.0;             % target lateral acceleration [m/s^2]
+plan.axAcel=2.5;            % planned longitudinal acceleration [m/s^2]
+plan.axFreno=3.5;           % positive planned deceleration [m/s^2]
+plan.anticipacionPI=0.30;   % temporal reference anticipation [s]
+ensayo.errorAbandono=10;      % stop if tracking leaves the reference widely [m]
 
-%% Circuito con rectas, curvas exteriores e interiores
+%% Circuit with straights, outside and inside corners
 pista=generarCircuitoHibrido(ensayo);
 centro=pista.centro; cono_izq=pista.conoIzq; cono_der=pista.conoDer;
-fprintf('\nCircuito: %.2f m; ancho %.1f m; %d rectas y %d curvas.\n', pista.longitud,ensayo.ancho,height(pista.curvas),height(pista.curvas));
+fprintf('\nCircuit: %.2f m; width %.1f m; %d straights and %d corners.\n', pista.longitud,ensayo.ancho,height(pista.curvas),height(pista.curvas));
 disp(pista.curvas);
 
-%% Cuatro simulaciones con planificacion longitudinal independiente
+%% Four simulations with independent longitudinal planning
 resultados=cell(numel(ensayo.velocidades),1);
 perfiles=cell(numel(ensayo.velocidades),1);
 for caso=1:numel(ensayo.velocidades)
@@ -101,26 +101,26 @@ end
 hist14=resultados{1}; hist18=resultados{2};
 hist22=resultados{3}; hist26=resultados{4};
 
-%% Resumen y graficas
+%% Summary and plots
 resumen=resumirHibrido(resultados,ensayo);
 disp(resumen);
 mostrarHibrido(resultados,pista,ensayo,p);
 mostrarPlanificacion(resultados,perfiles,pista);
-fprintf(['\nInterpretacion: completar la vuelta no garantiza permanecer en el carril.\n' ...
-    'El criterio de carril corresponde al centro de gravedad, sin envolvente de carroceria.\n' ...
-    'Las curvas de bloqueo representan la aproximacion fenomenologica de V8.\n' ...
-    'Vmax es un techo del plan: las rectas pueden ser demasiado cortas para alcanzarlo.\n']);
+fprintf(['\nInterpretation: completing a lap does not guarantee staying on track.\n' ...
+    'The track-boundary criterion uses the CG, not the body envelope.\n' ...
+    'Lock curves represent the V8 phenomenological approximation.\n' ...
+    'Vmax is a planning cap; short straights may not reach it.\n']);
 
-%% Funciones fisicas y controladores copiados de los originales
+%% Physical functions and controllers copied from the originals
 function [z_next, tele] = pasoDinamico(z, u, p, dt)
-    % Estado completo (20x1), orden por rueda DI, DD, TI, TD:
-    % 1:6   X, Y, psi, vx, vy, r (movimiento)
-    % 7:8   ax, ay del paso anterior (transferencia cuasiestatica)
-    % 9:12  eta_slip (memoria de adherencia lateral)
-    % 13:16 eta_brake (memoria de capacidad de frenado)
-    % 17:20 bloqueo_w (modo discreto, 0 o 1)
+    % Complete state (20x1), wheel order DI, DD, TI, TD:
+    % 1:6   X, Y, psi, vx, vy, r (motion)
+    % 7:8   previous ax, ay (quasi-static transfer)
+    % 9:12  eta_slip (lateral adhesion memory)
+    % 13:16 eta_brake (braking-capacity memory)
+    % 17:20 bloqueo_w (discrete mode, 0 or 1)
     if ~isvector(z) || numel(z) ~= 20
-        error('pasoDinamico:EstadoInvalido', 'El estado dinamico debe tener 20 componentes; inicializa su memoria.');
+        error('pasoDinamico:EstadoInvalido', 'The dynamic state requires 20 components; initialize its memory.');
     end
     z = z(:);
     ax_prev = z(7);
@@ -141,62 +141,62 @@ function [z_next, tele] = pasoDinamico(z, u, p, dt)
     yw = p.yw;
 
 
-    % vx_c = max(vx, 1.0); % velocidad corregida para no dividir por 0,
-    % desactivada ahora que el modelo usa atan2
+    % vx_c = max(vx, 1.0); % corrected speed to avoid division by zero,
+    % disabled now that the model uses atan2
 
     
-    %% 1. Cinematica individual de las ruedas
+    %% 1. Individual wheel kinematics
 
     delta_w = [delta, delta, 0, 0];
 
-    % Velocidades del centro de cada rueda en ejes del chasis
+    % Wheel-centre velocities in chassis coordinates
     vxw = vx - r .* p.yw;
     vyw = vy + r .* p.xw;
 
-    % Velocidades proyectadas en los ejes de cada rueda
+    % Velocities projected into individual wheel coordinates
     vxw_local =  vxw .* cos(delta_w) + vyw .* sin(delta_w);
     vyw_local = -vxw .* sin(delta_w) + vyw .* cos(delta_w);
 
-    % Angulos de deriva individuales
+    % Individual slip angles
     alpha_w = delta_w-atan2(vyw_local, vxw_local);
 
-    %% Definimos límites de adherencia
-    % Transferencia longitudinal entre ejes
+    %% Define adhesion limits
+    % Longitudinal transfer between axles
     dFzx = p.m*ax_prev*p.hcg/p.L;
 
-    % Transferencia lateral dentro de cada eje
+    % Lateral transfer within each axle
     dFzyd = p.kRoll*p.m*ay_prev*p.hcg/p.td;
     dFzyt = (1-p.kRoll)*p.m*ay_prev*p.hcg/p.tt;
 
-    % Orden: DI, DD, TI, TD
+    % Order: DI, DD, TI, TD
     Fzw = p.Fzw0 + [-dFzx/2, -dFzx/2, dFzx/2, dFzx/2] + [-dFzyd, dFzyd, -dFzyt,dFzyt];
-    % Agarre longitudinal
-    % Fuerzas laterales por rueda
+    % Longitudinal grip
+    % Lateral forces per wheel
     Caw = p.Caw .* (Fzw ./ p.Fzw0).^p.nCa;
     Fyw = Caw .* alpha_w;
 
-    % Reparto longitudinal de tracción por rueda
+    % Longitudinal driving-force allocation per wheel
     if Fx >= 0
         Fxw_sol = Fx .* p.drive_w;
     else
         Fxw_sol = Fx .* p.brake_w;
     end
 
-    %% Frenado normal y bloqueo aproximado con memoria
+    %% Normal braking and approximate locking with memory
     Fmax_peak_w = p.muw .* Fzw;
     demanda_freno_w = max(0,-Fxw_sol);
     ratio_freno_w = demanda_freno_w ./ max(Fmax_peak_w,eps);
     s_brake_w = max(0,ratio_freno_w-1);
 
-    % Histeresis respecto al limite NOMINAL, no al reducido.
+    % Hysteresis relative to the NOMINAL limit, not the reduced limit.
     bloqueo_w = logical(bloqueo_prev);
     bloqueo_w(ratio_freno_w > p.brake_lock_on) = true;
     bloqueo_w(ratio_freno_w < p.brake_lock_off) = false;
     freno_suelto_w = (demanda_freno_w == 0);
     bloqueo_w(freno_suelto_w) = false;
 
-    % Rueda supuesta bloqueada: velocidad de deslizamiento = avance local.
-    % La capacidad tiende a mu_base al bajar v y a mu_min al subir v.
+    % Assumed locked wheel: sliding speed equals local forward speed.
+    % Capacity approaches mu_base at low v and mu_min at high v.
     eta_bloq_vel = p.brake_slide_ratio + (1-p.brake_slide_ratio).*exp(-abs(vxw_local)/p.v_brake_slide);
     eta_brake_obj = ones(1,4);
     eta_brake_obj(bloqueo_w) = eta_bloq_vel(bloqueo_w);
@@ -215,14 +215,14 @@ function [z_next, tele] = pasoDinamico(z, u, p, dt)
     end
     eta_brake = max(p.brake_slide_ratio,min(1,eta_brake));
 
-%% Circulo de adherencia con capacidad efectiva
+%% Friction circle with effective capacity
 
-% La perdida modifica el limite combinado Fx/Fy una sola vez.
+% The loss modifies the combined Fx/Fy limit only once.
 Fmax_w = eta_brake .* Fmax_peak_w;
 
-% Extension del modo de bloqueo existente (modelo simplificado):
-% factor longitudinal unitario: conserva el limite mu_eff*Fz ya calculado.
-% factor lateral nulo: elimina la demanda Fy ANTES de saturar el circulo.
+% Extension of the existing lock mode (simplified model):
+% unit longitudinal factor: preserves the calculated mu_eff*Fz limit.
+% zero lateral factor: removes Fy demand BEFORE circle saturation.
 factor_x_bloqueo = ones(1,4);
 factor_y_bloqueo = double(~bloqueo_w);
 Fyw = factor_y_bloqueo .* Fyw;
@@ -235,60 +235,60 @@ Fxw = lambda_w .* Fxw_sol;
 Fyw = lambda_w .* Fyw;
 
     
-    %% Pérdida y recuperacion progresiva de adherencia lateral
+    %% Progressive lateral adhesion loss and recovery
 
-    % Exceso de demanda longitudinal respecto a la adherencia
+    % Excess longitudinal demand relative to adhesion
     s_w = max(0, abs(Fxw_sol) ./ max(Fmax_w,eps) - 1);
 
-    % Factor objetivo de capacidad lateral
+    % Target lateral-capacity factor
     eta_obj = ones(1,4);
 
-    % Solo se provoca perdida adicional durante la traccion
+    % Additional loss is only triggered during driving
     if Fx > 0
         eta_obj(3:4) = 1 ./ (1 + p.Kslip .* s_w(3:4));
     end
 
-    % Estado de adherencia heredado del paso anterior
+    % Adhesion state inherited from the previous step
     eta_slip = eta_prev;
 
-    % Actualizacion temporal de las ruedas traseras
+    % Rear-wheel time update
     for i = 3:4
 
-        % Perdida rapida o recuperacion lenta
+        % Rapid loss or slow recovery
         if eta_obj(i) < eta_prev(i)
             tau = p.tau_slip_loss;
         else
             tau = p.tau_slip_rec;
         end
 
-        % Integracion exponencial estable
+        % Stable exponential integration
         factor = 1 - exp(-dt/tau);
 
         eta_slip(i) = eta_prev(i) + factor * (eta_obj(i) - eta_prev(i));
 
     end
 
-    % Limitar el factor al intervalo fisicamente definido
+    % Bound the factor to its physically defined interval
     eta_slip = max(0,min(1,eta_slip));
 
-    % Reduccion de la fuerza lateral trasera
+    % Rear lateral-force reduction
     Fyw(3:4) = eta_slip(3:4) .* Fyw(3:4);
 
-    % En bloqueo se impone frenado exclusivamente en X del CHASIS.
-    % Si solo se anulara Fy local, Fx*sin(delta) aun produciria direccion.
-    % Fuera de bloqueo se conserva la transformacion original.
-    % Es una restriccion simplificada, no friccion isotropa de rueda bloqueada.
+    % In lock mode, braking acts exclusively along CHASSIS X.
+    % Removing only local Fy would still allow steering through Fx*sin(delta).
+    % Outside lock mode, retain the original transformation.
+    % This is a simplified restriction, not isotropic locked-wheel friction.
     delta_fuerza_w = delta_w;
     delta_fuerza_w(bloqueo_w) = 0;
     Fxw_chasis = Fxw .* cos(delta_fuerza_w) - Fyw .* sin(delta_fuerza_w);
     Fyw_chasis = Fxw .* sin(delta_fuerza_w) + Fyw .* cos(delta_fuerza_w);
 
-    % Fuerzas y momento resultantes
-    SumFx = sum(Fxw_chasis); % Fuerza longitudinal total
-    SumFy = sum(Fyw_chasis); % Fuerza lateral total
-    SumMz = sum(p.xw .* Fyw_chasis - p.yw .* Fxw_chasis); % Momento de guiñada respecto al CG
+    % Resultant forces and moment
+    SumFx = sum(Fxw_chasis); % Total longitudinal force
+    SumFy = sum(Fyw_chasis); % Total lateral force
+    SumMz = sum(p.xw .* Fyw_chasis - p.yw .* Fxw_chasis); % Yaw moment about the CG
 
-    % Telemetria: datos del paso actual, sin modificar las fuerzas ni la dinamica
+    % Telemetry: current-step data without changing forces or dynamics
     tele.alpha_w = alpha_w;
     tele.Fxw = Fxw;
     tele.Fyw = Fyw;
@@ -314,15 +314,15 @@ Fyw = lambda_w .* Fyw;
     tele.Fxw_chasis = Fxw_chasis;
     tele.Fyw_chasis = Fyw_chasis;
 
-    % Dinámica longitudinal (P1)
+    % Longitudinal dynamics (P1)
     Ra = 0.5*p.rho*p.Cd*p.Af*vx^2; 
     Rr = p.fr*p.m*p.g*cos(p.theta);
     Rg = p.m*p.g*sin(p.theta);
     
-    % ecuaciones del movimiento 
+    % equations of motion
     ax_fis = (SumFx - Ra - sign(vx)*Rr - Rg)/p.m;
     ay_fis = SumFy/p.m;
-    ax  = ax_fis + vy*r; % ojo no olvidar el acoplamiento de la centripeta 
+    ax  = ax_fis + vy*r; % retain centripetal coupling
     ay = ay_fis - vx*r; 
     dr = SumMz/p.Iz;   
     tele.ax = ax_fis;
@@ -340,12 +340,12 @@ Fyw = lambda_w .* Fyw;
 end
 
 function z = inicializarEstadoDinamico(z)
-    % Preserva la memoria si se proporciona un estado completo.
+    % Preserve memory when a complete state is supplied.
     z = z(:);
     if numel(z) == 6
         z = [z; zeros(2,1); ones(4,1); ones(4,1); zeros(4,1)];
     elseif numel(z) ~= 20
-        error('Estado dinamico: se requieren 6 o 20 componentes.');
+        error('Dynamic state: 6 or 20 components are required.');
     end
 end
 
@@ -360,38 +360,38 @@ function [delta, mem] = controlLateral(est, path, p, mem)
     L = p.ld + p.lt;
     Ld = p.Ld0 + p.kLd*max(vx, 0);
 
-    % Extraer el punto objetivo (cruce de la distancia de anticipación y la
-    % trayectoria de referencia)
+    % Extract the target point where the lookahead distance intersects
+    % the reference path.
     [tx, ty, mem.idx] = buscarPuntoAdelante(path, x, y, Ld, mem.idx);
 
-    %calcuñar geometría
+    % calculate geometry
 
     alpha = atan2(ty-y,tx-x) -psi;
-    alpha = atan2(sin(alpha), cos(alpha)); % normaliza a [-pi,pi] el volante
+    alpha = atan2(sin(alpha), cos(alpha)); % normalize steering to [-pi,pi]
     delta = atan2(2*L*sin(alpha),Ld);
 
     delta = max(min(delta, p.delta_max), -p.delta_max);
 end
 
 function [tx, ty, idx] = buscarPuntoAdelante(path, x, y, Ld, idx)
-% Devuelve el punto objetivo y el índice actualizado.
+% Return the target point and updated index.
     N = size(path,1);
     
-    d2 = (path(:,1)-x).^2 + (path(:,2)-y).^2; % en caso de desvio, reanclar el indice al punto más cercano
+    d2 = (path(:,1)-x).^2 + (path(:,2)-y).^2; % after deviation, re-anchor the index to the nearest point
     [~, icerca] = min(d2);
     idx = icerca;
 
-    for step = 0:N % avanza por el path hasta acumular Ld
+    for step = 0:N % advance along the path until reaching Ld
         j = mod(idx-1+step,N) +1;
         if hypot(path(j,1)-x, path(j,2)-y) >= Ld
             tx = path(j,1);  ty = path(j,2);  idx = j;  return;
         end
     end
-    j = mod(idx-1+round(N/10), N) + 1; % si ningún punto está tan lejos, usa el más adelantado disponible
+    j = mod(idx-1+round(N/10), N) + 1; % if no point is far enough, use the furthest available point ahead
     tx = path(j,1);  ty = path(j,2);  idx = j;
 end
 
-function e_ct = errorLateral(x, y, path) % ojo e>0 a la izq de la trayectoria
+function e_ct = errorLateral(x, y, path) % positive e means left of the reference path
     d2 = (path(:,1)-x).^2 + (path(:,2)-y).^2;
     [~,i] = min(d2);  j = mod(i, size(path,1)) + 1;
     tang = atan2(path(j,2)-path(i,2), path(j,1)-path(i,1));
@@ -399,7 +399,7 @@ function e_ct = errorLateral(x, y, path) % ojo e>0 a la izq de la trayectoria
     e_ct = -sin(tang)*dx + cos(tang)*dy;
 end
 
-%% Geometria nueva: poligono con esquinas redondeadas y entrante interior
+%% New geometry: rounded polygon with an inward section
 function pista=generarCircuitoHibrido(cfg)
 vertices=[0 0;70 0;70 50;45 50;45 28;25 28;25 60;0 60];
 radios=[10 14 10 6 6 7 9 12]';
@@ -420,7 +420,7 @@ for iter=1:n
     i=mod(iter,n)+1; ant=mod(i-2,n)+1;
     desde=salida(ant,:); hasta=entrada(i,:);
     tramo=hasta-desde; longitud=norm(tramo); direccion=tramo/longitud;
-    assert(dot(tramo,vertices(i,:)-vertices(ant,:))>0,'Los radios invaden una recta.');
+    assert(dot(tramo,vertices(i,:)-vertices(ant,:))>0,'Corner radii encroach on a straight segment.');
     np=max(1,ceil(longitud/cfg.pasoTrayectoria));
     q=(1:np)'/np;
     xy=[xy;desde+q.*tramo]; %#ok<AGROW>
@@ -432,7 +432,7 @@ for iter=1:n
     tangente=[tangente;sign(giros(i))*[-sin(theta) cos(theta)]]; %#ok<AGROW>
     curvatura=[curvatura;repmat(sign(giros(i))/radios(i),np,1)]; %#ok<AGROW>
 end
-assert(norm(xy(end,:)-xy(1,:))<1e-9,'El circuito no cierra.');
+assert(norm(xy(end,:)-xy(1,:))<1e-9,'The circuit does not close.');
 xy(end,:)=[]; tangente(end,:)=[]; curvatura(end)=[];
 normal=[-tangente(:,2) tangente(:,1)];
 s=[0;cumsum(vecnorm(diff(xy),2,2))];
@@ -447,8 +447,8 @@ pista.conoDer=interp1([s;longitud],[der;der(1,:)],sConos);
 pista.segmentoA=xy; pista.segmentoB=circshift(xy,-1,1);
 pista.segmentoD=pista.segmentoB-pista.segmentoA;
 pista.segmentoL=vecnorm(pista.segmentoD,2,2);
-sentido=repmat("izquierda",n,1); sentido(giros<0)="derecha";
-tipo=repmat("exterior",n,1); tipo(giros<0)="interior";
+sentido=repmat("left",n,1); sentido(giros<0)="right";
+tipo=repmat("outside",n,1); tipo(giros<0)="inside";
 pista.curvas=table((1:n)',radios,sentido,tipo,centros(:,1),centros(:,2), ...
     'VariableNames',{'Curva','Radio_m','Sentido','Tipo','CentroX_m','CentroY_m'});
 end
@@ -456,7 +456,7 @@ end
 function h=simularHibrido(p,pista,cfg,perfil,plan)
 dt=p.dt; Tmax=max(90,2*pista.longitud/min(perfil.v)); N=ceil(Tmax/dt);
 psi0=atan2(pista.tangente(1,2),pista.tangente(1,1));
-vInicial=consultarPerfil(perfil,0); % Salida lanzada coherente con el perfil
+vInicial=consultarPerfil(perfil,0); % Flying start consistent with the profile
 z=inicializarEstadoDinamico([pista.centro(1,:)';psi0;vInicial;0;0]);
 mem.idx=1; e_int=0; avance=0; sPrev=0; distancia=0;
 h.t=zeros(N,1); h.z=zeros(N,20); h.delta=zeros(N,1); h.Fx_sol=zeros(N,1);
@@ -465,7 +465,7 @@ h.r_ref=zeros(N,1); h.ax=zeros(N,1); h.ay=zeros(N,1);
 h.vref=zeros(N,1); h.vperfil=zeros(N,1);
 campos={'Fxw','Fyw','Fzw','Fmax_w','Fmax_peak_w','lambda_w','eta_brake','eta_slip','Caw','bloqueo_w'};
 for j=1:numel(campos), h.(campos{j})=zeros(N,4); end
-h.completa=false; h.motivo="tiempo limite";
+h.completa=false; h.motivo="time limit";
 for k=1:N
     [ect,sActual,idx]=proyectarCircuito(z(1:2)',pista);
     ds=sActual-sPrev;
@@ -474,15 +474,15 @@ for k=1:N
     avance=avance+ds; sPrev=sActual;
     est.X=z(1); est.Y=z(2); est.psi=z(3); est.vx=z(4); est.vy=z(5); est.r=z(6);
     [delta,mem]=controlLateral(est,pista.centro,p,mem);
-    % Anticipar ligeramente la referencia compensa el retardo del PI.
-    % La anticipacion geometrica de Pure Pursuit permanece independiente.
+    % Slight reference anticipation compensates PI delay.
+    % Pure Pursuit geometric lookahead remains independent.
     vPerfil=consultarPerfil(perfil,sActual);
     sConsulta=sActual+max(z(4),0)*plan.anticipacionPI;
     vRef=min(p.v_set,consultarPerfil(perfil,sConsulta));
     [Fx,e_int]=controlVelocidadSimple(vRef,z(4),e_int,dt,p);
     [zNext,tele]=pasoDinamico(z,[Fx;delta],p,dt);
     if ~isreal(zNext) || any(~isfinite(zNext)) || ~isreal(tele.Fzw) || any(tele.Fzw<0)
-        error('Estado o cargas no validos: caso %.1f m/s, t=%.3f s.',p.v_set,(k-1)*dt);
+        error('Invalid state or loads: case %.1f m/s, t=%.3f s.',p.v_set,(k-1)*dt);
     end
     h.t(k)=(k-1)*dt; h.z(k,:)=z'; h.delta(k)=delta; h.Fx_sol(k)=Fx;
     h.ect(k)=ect; h.ect_P4(k)=errorLateral(z(1),z(2),pista.centro);
@@ -492,10 +492,10 @@ for k=1:N
     h.vref(k)=vRef; h.vperfil(k)=vPerfil;
     for j=1:numel(campos), h.(campos{j})(k,:)=tele.(campos{j}); end
     if avance>=pista.longitud && distancia>0.9*pista.longitud
-        h.completa=true; h.motivo="vuelta completada"; break
+        h.completa=true; h.motivo="lap completed"; break
     end
     if abs(ect)>cfg.errorAbandono
-        h.motivo="perdida de seguimiento mayor de 10 m"; break
+        h.motivo="tracking error exceeded 10 m"; break
     end
     distancia=distancia+norm(zNext(1:2)-z(1:2)); z=zNext;
 end
@@ -507,7 +507,7 @@ h.aprov_long=abs(h.Fxw)./max(h.Fmax_peak_w,eps);
 h.aprov_lat=abs(h.Fyw)./max(h.Fmax_peak_w,eps);
 h.aprov_total=hypot(h.Fxw,h.Fyw)./max(h.Fmax_w,eps);
 h.fueraCarril=abs(h.ect)>cfg.ancho/2;
-fprintf('Caso Vmax %.1f m/s: %s, t=%.2f s, max |e|=%.3f m.\n', ...
+fprintf('Case Vmax %.1f m/s: %s, t=%.2f s, max |e|=%.3f m.\n', ...
     p.v_set,h.motivo,h.t(end),max(abs(h.ect)));
 end
 
@@ -543,11 +543,11 @@ end
 
 function mostrarHibrido(resultados,pista,cfg,p)
 colores=lines(numel(resultados)); ruedas={'DI','DD','TI','TD'};
-figure('Name','Hibrido - circuito y trayectorias','Color','w','Position',[80 80 1200 800]);
+figure('Name','Hybrid - circuit and trajectories','Color','w','Position',[80 80 1200 800]);
 hold on; axis equal; grid on;
-plot(pista.conoIzq(:,1),pista.conoIzq(:,2),'o','Color',[0 .3 .8],'MarkerSize',4,'DisplayName','Conos izquierdos');
-plot(pista.conoDer(:,1),pista.conoDer(:,2),'o','Color',[.9 .7 0],'MarkerSize',4,'DisplayName','Conos derechos');
-plot([pista.centro(:,1);pista.centro(1,1)],[pista.centro(:,2);pista.centro(1,2)],'k:','DisplayName','Referencia');
+plot(pista.conoIzq(:,1),pista.conoIzq(:,2),'o','Color',[0 .3 .8],'MarkerSize',4,'DisplayName','Left cones');
+plot(pista.conoDer(:,1),pista.conoDer(:,2),'o','Color',[.9 .7 0],'MarkerSize',4,'DisplayName','Right cones');
+plot([pista.centro(:,1);pista.centro(1,1)],[pista.centro(:,2);pista.centro(1,2)],'k:','DisplayName','Reference');
 for i=1:numel(resultados)
     h=resultados{i}; plot(h.z(:,1),h.z(:,2),'Color',colores(i,:),'LineWidth',1.5, ...
         'DisplayName',sprintf('Vmax %.0f m/s: %s',h.v_set,h.motivo));
@@ -556,11 +556,11 @@ for i=1:height(pista.curvas)
     text(pista.curvas.CentroX_m(i),pista.curvas.CentroY_m(i), ...
         sprintf('R%d=%g m',i,pista.curvas.Radio_m(i)),'FontSize',9);
 end
-plot(pista.centro(1,1),pista.centro(1,2),'ks','MarkerFaceColor','g','DisplayName','Salida / meta');
-xlabel('X [m]'); ylabel('Y [m]'); title('Circuito nuevo: 8 curvas y 8 rectas');
+plot(pista.centro(1,1),pista.centro(1,2),'ks','MarkerFaceColor','g','DisplayName','Start / finish');
+xlabel('X [m]'); ylabel('Y [m]'); title('New circuit: 8 corners and 8 straights');
 legend('Location','bestoutside');
 
-figure('Name','Hibrido - seguimiento y controles','Color','w','Position',[90 90 1250 800]);
+figure('Name','Hybrid - tracking and controls','Color','w','Position',[90 90 1250 800]);
 tiledlayout(2,2,'TileSpacing','compact');
 for panel=1:4
     nexttile; hold on; grid on;
@@ -570,36 +570,36 @@ for panel=1:4
         elseif panel==3, y=rad2deg(h.delta); else, y=h.z(:,6); end
         plot(h.t,y,'Color',colores(i,:),'LineWidth',1.1,'DisplayName',etiqueta);
     end
-    xlabel('Tiempo [s]'); legend('Location','best');
-    if panel==1, title('Velocidad longitudinal'); ylabel('v_x [m/s]');
+    xlabel('Time [s]'); legend('Location','best');
+    if panel==1, title('Longitudinal speed'); ylabel('v_x [m/s]');
     elseif panel==2
-        yline(cfg.ancho/2,'k--','Borde CG','HandleVisibility','off');
-        yline(-cfg.ancho/2,'k--','HandleVisibility','off'); title('Error lateral'); ylabel('e [m]');
+        yline(cfg.ancho/2,'k--','CG boundary','HandleVisibility','off');
+        yline(-cfg.ancho/2,'k--','HandleVisibility','off'); title('Lateral error'); ylabel('e [m]');
     elseif panel==3
-        yline(rad2deg(p.delta_max),'k:','Limite','HandleVisibility','off');
-        yline(-rad2deg(p.delta_max),'k:','HandleVisibility','off'); title('Direccion solicitada'); ylabel('delta [grados]');
-    else, title('Velocidad de guinada'); ylabel('r [rad/s]'); end
+        yline(rad2deg(p.delta_max),'k:','Limit','HandleVisibility','off');
+        yline(-rad2deg(p.delta_max),'k:','HandleVisibility','off'); title('Requested steering'); ylabel('delta [degrees]');
+    else, title('Yaw rate'); ylabel('r [rad/s]'); end
 end
 
 for i=1:numel(resultados)
     h=resultados{i};
-    figure('Name',sprintf('Hibrido - neumaticos %.0f m/s',h.v_set),'Color','w','Position',[100 100 1250 850]);
+    figure('Name',sprintf('Hybrid - tyres %.0f m/s',h.v_set),'Color','w','Position',[100 100 1250 850]);
     tiledlayout(3,2,'TileSpacing','compact');
-    nexttile; plot(h.t,h.Fzw,'LineWidth',1); grid on; ylabel('F_z [N]'); title('Carga vertical'); legend(ruedas,'Location','best');
-    nexttile; plot(h.t,h.aprov_long,'LineWidth',1); grid on; ylabel('|F_x| / (mu_{base}F_z)'); title('Aprovechamiento longitudinal');
-    nexttile; plot(h.t,h.aprov_lat,'LineWidth',1); grid on; ylabel('|F_y| / (mu_{base}F_z)'); title('Aprovechamiento lateral');
-    nexttile; plot(h.t,h.eta_brake,'LineWidth',1); grid on; ylabel('mu_{ef} / mu_{base}'); ylim([0 1.05]); title('Capacidad por frenado');
-    nexttile; plot(h.t,h.eta_slip,'LineWidth',1); grid on; ylabel('eta_{slip}'); ylim([0 1.05]); title('Factor lateral por traccion');
-    nexttile; stairs(h.t,h.bloqueo_w,'LineWidth',1); grid on; ylabel('Modo 0 / 1'); ylim([-0.05 1.05]); title('Bloqueo aproximado');
-    for ax=findall(gcf,'Type','axes')', xlabel(ax,'Tiempo [s]'); end
+    nexttile; plot(h.t,h.Fzw,'LineWidth',1); grid on; ylabel('F_z [N]'); title('Vertical load'); legend(ruedas,'Location','best');
+    nexttile; plot(h.t,h.aprov_long,'LineWidth',1); grid on; ylabel('|F_x| / (mu_{base}F_z)'); title('Longitudinal utilization');
+    nexttile; plot(h.t,h.aprov_lat,'LineWidth',1); grid on; ylabel('|F_y| / (mu_{base}F_z)'); title('Lateral utilization');
+    nexttile; plot(h.t,h.eta_brake,'LineWidth',1); grid on; ylabel('mu_{ef} / mu_{base}'); ylim([0 1.05]); title('Braking capacity');
+    nexttile; plot(h.t,h.eta_slip,'LineWidth',1); grid on; ylabel('eta_{slip}'); ylim([0 1.05]); title('Lateral factor under traction');
+    nexttile; stairs(h.t,h.bloqueo_w,'LineWidth',1); grid on; ylabel('Modo 0 / 1'); ylim([-0.05 1.05]); title('Approximate lock mode');
+    for ax=findall(gcf,'Type','axes')', xlabel(ax,'Time [s]'); end
     sgtitle(sprintf('Vmax %.0f m/s: %s',h.v_set,h.motivo));
 end
 end
 
 
-%% Planificador de velocidad y resultados adicionales
+%% Speed planner and additional results
 function perfil=planificarVelocidad(pista,vMax,cfg)
-% Perfil periodico: limite de curvatura y pasadas atras/adelante.
+% Periodic profile: curvature limit with backward/forward passes.
 validateattributes(vMax,{'numeric'},{'scalar','positive','finite'});
 validateattributes(cfg.ayMax,{'numeric'},{'scalar','positive','finite'});
 validateattributes(cfg.axAcel,{'numeric'},{'scalar','positive','finite'});
@@ -611,19 +611,19 @@ v2=vLim.^2;
 converge=false;
 for iter=1:200
     anterior=v2;
-    % Atras: poder llegar al siguiente punto sin superar la deceleracion.
+    % Backward: reach the next point within the deceleration bound.
     for i=n:-1:1
         j=mod(i,n)+1;
         v2(i)=min(v2(i),v2(j)+2*cfg.axFreno*ds(i));
     end
-    % Adelante: acelerar dentro del limite, incluido el cierre N -> 1.
+    % Forward: accelerate within the limit, including closure N -> 1.
     for i=1:n
         j=mod(i,n)+1;
         v2(j)=min(v2(j),v2(i)+2*cfg.axAcel*ds(i));
     end
     if max(abs(v2-anterior))<1e-10, converge=true; break; end
 end
-assert(converge,'El perfil periodico no ha convergido.');
+assert(converge,'The periodic speed profile did not converge.');
 perfil.v=sqrt(max(v2,0)); perfil.vLimCurvatura=vLim;
 perfil.vMax=vMax; perfil.iteraciones=iter;
 perfil.axTramo=(circshift(v2,-1)-v2)./(2*ds);
@@ -632,7 +632,7 @@ perfil.s=pista.s; perfil.longitud=pista.longitud;
 end
 
 function v=consultarPerfil(perfil,s)
-% Interpolacion de v^2: respeta la aceleracion constante por segmento.
+% Interpolate v^2 to respect constant acceleration within each segment.
 s=mod(s,perfil.longitud);
 v=sqrt(max(0,interp1([perfil.s;perfil.longitud], ...
     [perfil.v.^2;perfil.v(1)^2],s,'linear')));
@@ -640,7 +640,7 @@ end
 
 function mostrarPlanificacion(resultados,perfiles,pista)
 colores=lines(numel(resultados));
-figure('Name','Planificador - perfiles de velocidad','Color','w','Position',[80 80 1250 800]);
+figure('Name','Planner - speed profiles','Color','w','Position',[80 80 1250 800]);
 tiledlayout(2,1,'TileSpacing','compact');
 nexttile; hold on; grid on;
 for i=1:numel(perfiles)
@@ -648,29 +648,29 @@ for i=1:numel(perfiles)
         'Color',colores(i,:),'LineWidth',1.4, ...
         'DisplayName',sprintf('Vmax %.0f m/s',perfiles{i}.vMax));
 end
-xlabel('Posicion sobre la referencia [m]'); ylabel('Velocidad planificada [m/s]');
-title('Perfiles periodicos con anticipacion de frenado'); legend('Location','best');
+xlabel('Position along reference [m]'); ylabel('Planned speed [m/s]');
+title('Periodic profiles with braking anticipation'); legend('Location','best');
 nexttile; plot(pista.s,pista.curvatura,'k','LineWidth',1.1); grid on;
-xlabel('Posicion sobre la referencia [m]'); ylabel('Curvatura [1/m]');
-title('Curvatura del circuito: signo distinto en curvas interiores');
+xlabel('Position along reference [m]'); ylabel('Curvature [1/m]');
+title('Circuit curvature: opposite sign for inside corners');
 
-figure('Name','Planificador - referencia y respuesta del PI','Color','w','Position',[90 90 1300 850]);
+figure('Name','Planner - reference and PI response','Color','w','Position',[90 90 1300 850]);
 tiledlayout(2,2,'TileSpacing','compact');
 for i=1:numel(resultados)
     h=resultados{i}; nexttile; hold on; grid on;
-    plot(h.t,h.vref,'k--','LineWidth',1.2,'DisplayName','Referencia al PI');
-    plot(h.t,h.z(:,4),'Color',colores(i,:),'LineWidth',1.3,'DisplayName','Velocidad real');
-    xlabel('Tiempo [s]'); ylabel('Velocidad [m/s]');
-    title(sprintf('Vmax %.0f m/s; pico real %.2f m/s',h.v_set,max(h.z(:,4))));
+    plot(h.t,h.vref,'k--','LineWidth',1.2,'DisplayName','PI reference');
+    plot(h.t,h.z(:,4),'Color',colores(i,:),'LineWidth',1.3,'DisplayName','Actual speed');
+    xlabel('Time [s]'); ylabel('Speed [m/s]');
+    title(sprintf('Vmax %.0f m/s; actual peak %.2f m/s',h.v_set,max(h.z(:,4))));
     legend('Location','best');
 end
 
-figure('Name','Planificador - aceleracion y frenado','Color','w','Position',[100 100 1300 850]);
+figure('Name','Planner - acceleration and braking','Color','w','Position',[100 100 1300 850]);
 tiledlayout(2,2,'TileSpacing','compact');
 for i=1:numel(resultados)
     h=resultados{i}; nexttile; hold on; grid on;
     plot(h.t,h.Fx_sol,'Color',colores(i,:),'LineWidth',1.1);
-    yline(0,'k:'); xlabel('Tiempo [s]'); ylabel('Fx solicitado [N]');
-    title(sprintf('Vmax %.0f m/s: traccion positiva, frenado negativo',h.v_set));
+    yline(0,'k:'); xlabel('Time [s]'); ylabel('Requested Fx [N]');
+    title(sprintf('Vmax %.0f m/s: positive driving, negative braking',h.v_set));
 end
 end

@@ -1,15 +1,17 @@
-# V11 — un coche en 3D
+# V11 · One car in 3D
 
-Mismo resultado que el caso 35 m/s del mapeo exigente; únicamente cambia la presentación. El coche tiene volumen visual, dirección delantera y cámara de seguimiento. No se modela suspensión ni giro de rueda.
+[← Results](../README.md) · [Metrics and telemetry](../Numerical/README.md)
 
-| Caso | Vmax [m/s] | Tiempo [s] | Vuelta/parada | Error máx. [m] | CG fuera [%] | Bloqueo [%] |
+This is the demanding-map 35 m/s result with a different presentation only. The car has visual volume, front-wheel steering and a chase camera. Suspension and wheel rotation are not simulated.
+
+| Case | Speed cap [m/s] | Time [s] | Lap/stop reached | Max. error [m] | CG outside [%] | Lock mode [%] |
 |---|---:|---:|---|---:|---:|---:|
-| hist35 | 35 | 47.680 | Sí | 0.776 | 0.000 | 19.869 |
+| hist35 | 35 | 47.680 | Yes | 0.776 | 0.000 | 19.869 |
 
-## Artefactos
+## Recorded artifacts
 
-- [vista_previa.png](vista_previa.png)
+- [Simulation preview](vista_previa.png)
 
-![Vista de la simulación](vista_previa.png)
+## Preview
 
-[Métricas y telemetría](../Numerical/README.md) · [Índice general](../README.md)
+![English interface using the recorded V11 trajectory](english_preview.png)

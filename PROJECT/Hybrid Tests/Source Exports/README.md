@@ -1,5 +1,5 @@
-# Source Exports
+# Source exports
 
-Texto de los bloques de código de cada `.mlx`, extraído sin modificar sus ecuaciones. Facilita lectura, búsqueda y revisión de diferencias en GitHub; el archivo `.mlx` situado en la carpeta superior conserva el formato original y sus salidas.
+Readable code blocks extracted from each `.mlx`, without changing its equations. They support search and code review on GitHub; the `.mlx` in the parent directory retains its original layout and embedded outputs.
 
-No ejecutar un archivo exportado sin revisar su Current Folder y dependencias. En particular, V8 busca `Ensayos` desde `pwd`. No añadir esta carpeta y todas las versiones históricas al path recursivamente. Para ejecutar, preferir el `.mlx` de la carpeta superior.
+Before running an export, check its Current Folder and dependencies. In particular, V8 looks for `Ensayos` relative to `pwd`. Do not recursively add this directory and every historical version to the path. Prefer the parent directory's `.mlx` for execution.

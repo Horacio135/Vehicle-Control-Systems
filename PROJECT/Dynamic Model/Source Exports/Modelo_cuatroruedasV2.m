@@ -1,47 +1,47 @@
 p = struct(); 
 
-p.m    = 230;      % masa [kg]                              
-p.g    = 9.81;     % gravedad [m/s^2]
-p.rho  = 1.225;    % densidad del aire [kg/m^3]
-p.Cd   = 1.0;      % coef. aerodinámico                       
-p.Af   = 1.1;      % área frontal [m^2]                        
-p.fr  = 0.022;    % coef. de resistencia a la rodadura       
-p.Fx_drive_max = 2500;   % fuerza motriz máxima [N]           
-p.Fx_brake_max = 5000;   % fuerza de frenado máxima [N]       
-p.theta = 0;      % inclinación de la calzada [rad]
+p.m    = 230;      % mass [kg]
+p.g    = 9.81;     % gravity [m/s^2]
+p.rho  = 1.225;    % air density [kg/m^3]
+p.Cd   = 1.0;      % aerodynamic coefficient
+p.Af   = 1.1;      % frontal area [m^2]
+p.fr  = 0.022;    % rolling-resistance coefficient
+p.Fx_drive_max = 2500;   % maximum driving force [N]
+p.Fx_brake_max = 5000;   % maximum braking force [N]
+p.theta = 0;      % road inclination [rad]
 
-% Define aquí los parámetros necesarios para describir la dinámica lateral
-% del vehículo
-p.ld = 0.765; % [m] distancia del CG al eje delantero en x
-p.lt = 0.765; % [m] distancia del CG al eje trasero en x
-p.lyd = 0.600; % [m] distancia del CG a las ruedas del eje delantero en y
-p.lyt = 0.600; % [m] distancia del CG a las ruedas del eje trasero en y
-% Coordenadas de cada rueda respecto al CG
-% Orden: DI, DD, TI, TD
+% Define the parameters needed to describe the vehicle's
+% lateral dynamics here.
+p.ld = 0.765; % [m] CG to front axle, longitudinal distance
+p.lt = 0.765; % [m] CG to rear axle, longitudinal distance
+p.lyd = 0.600; % [m] CG to front wheels, lateral distance
+p.lyt = 0.600; % [m] CG to rear wheels, lateral distance
+% Wheel coordinates relative to the CG
+% Order: DI, DD, TI, TD
 p.xw = [p.ld,p.ld,-p.lt,-p.lt];
 p.yw = [p.lyd, -p.lyd, p.lyt, -p.lyt];
-p.Iz = 130; % [kg m^2] inercia de guiñada
-p.Cad = 35000; % [N/rad] rigidez deriva delantera
-p.Cat = 50000; % [N/rad] rigidez deriva trasero --> vehículo subvirador! 
+p.Iz = 130; % [kg m^2] yaw inertia
+p.Cad = 35000; % [N/rad] front cornering stiffness
+p.Cat = 50000; % [N/rad] rear cornering stiffness --> understeering vehicle
 p.Caw = [p.Cad/2, p.Cad/2, p.Cat/2, p.Cat/2];
-p.mu_t = 1.5; % rozamiento neumático trasero
-p.mu_d = 0.95*p.mu_t; % rozamiento neumático delantero
+p.mu_t = 1.5; % rear tyre friction
+p.mu_d = 0.95*p.mu_t; % front tyre friction
 p.muw = [p.mu_d, p.mu_d, p.mu_t, p.mu_t];
 
-% Reparto de fuerzas longitudinales
+% Longitudinal force allocation
 p.drive_w = [0, 0, 0.5, 0.5];
 p.brake_w = [0.3,0.3,0.2,0.2];
 
-% Integración de la dinámica longitudinal y lateral
+% Longitudinal and lateral dynamics integration
 
-% u: variable de control = [Fx; delta] 
-% z: vector de estados del vehículo [X; Y; psi; vx; vy; r]
-% X, Y = posicion del CG global
-% psi = rumbo, ángulo de guiñada
-% vx, vy = velocidades en eje del chasis
-% r = velocidad de guiñada
+% u: control variable = [Fx; delta]
+% z: vehicle state vector [X; Y; psi; vx; vy; r]
+% X, Y = global CG position
+% psi = heading / yaw angle
+% vx, vy = chassis-frame velocities
+% r = yaw rate
 
-z0 = [0; -geom.R; 0; ctrl.v_skid; 0; 0]; % estado inicial del monoplaza
+z0 = [0; -geom.R; 0; ctrl.v_skid; 0; 0]; % initial race-car state
 
 function z_next = pasoCinematico(z, u, p, dt)
     Fx = u(1);
@@ -52,24 +52,24 @@ function z_next = pasoCinematico(z, u, p, dt)
     vx = z(4);
     L = p.ld + p.lt;
 
-    % Dinámica longitudinal (P1)
+    % Longitudinal dynamics (P1)
     Ra = 0.5*p.rho*p.Cd*p.Af*vx^2; 
     Rr = p.fr*p.m*p.g*cos(p.theta);
     Rg = p.m*p.g*sin(p.theta);
-    ax = (Fx - Ra - sign(vx)*Rr - Rg)/p.m; % ecuación del movimiento longitudinal
+    ax = (Fx - Ra - sign(vx)*Rr - Rg)/p.m; % longitudinal equation of motion
     vx_next = max(vx + ax*dt,0);
 
-    %% Dinámica lateral [cinemático]
-    beta = atan((p.lt/L)*tan(delta)); % ángulo de deriva cinemática
+    %% Lateral dynamics [kinematic]
+    beta = atan((p.lt/L)*tan(delta)); % kinematic sideslip angle
     r = (vx/p.lt)*tan(beta);
     vy = vx*tan(beta);
 
-    % cambio al sistema global
+    % transform to global coordinates
     X_next = X + (vx*cos(psi)-vy*sin(psi))*dt;
     Y_next = Y + (vx*sin(psi)+vy*cos(psi))*dt;
     psi_next = psi + r*dt; 
 
-    z_next = [X_next; Y_next; psi_next; vx_next; vy; r]; % vector de estados en el siguiente paso temporal
+    z_next = [X_next; Y_next; psi_next; vx_next; vy; r]; % state vector at the next time step
 
 end
 
@@ -87,31 +87,31 @@ function [z_next, tele] = pasoDinamico(z, u, p, dt)
     yw = p.yw;
 
 
-    % vx_c = max(vx, 1.0); % velocidad corregida para no dividir por 0,
-    % desactivada ahora que el modelo usa atan2
+    % vx_c = max(vx, 1.0); % corrected speed to avoid division by zero,
+    % disabled now that the model uses atan2
 
-    % Velocidades locales de las cuatro ruedas
+    % Local velocities of the four wheels
     vxw = vx - r.*yw;
     vyw = vy + r.*xw;
 
-    % ángulos de deriva y fuerzas laterales por rueda
+    % per-wheel slip angles and lateral forces
     delta_w = [delta, delta, 0, 0];
     alpha_w = delta_w - atan2(vyw,vxw);
     
-    % Fuerzas laterales por rueda
+    % Lateral forces per wheel
     Fyw = p.Caw.*alpha_w;
 
-    %% Definimos límites de adherencia
+    %% Define adhesion limits
     Fzd = p.m*p.g*p.lt/L; 
     Fzt = p.m*p.g*p.ld/L; 
-    Fzw = [Fzd/2, Fzd/2, Fzt/2, Fzt/2]; % fuerza en z por cada rueda DI, DD, TI, TD
+    Fzw = [Fzd/2, Fzd/2, Fzt/2, Fzt/2]; % vertical force for each wheel DI, DD, TI, TD
 
-    % Saturación lateral individual de las cuatro ruedas
+    % Individual lateral saturation of all four wheels
     Fymax_w = p.muw.*Fzw;
     Fyw = max(min(Fyw, Fymax_w), -Fymax_w); 
 
-    % Agarre longitudinal
-    % Reparto longitudinal por rueda
+    % Longitudinal grip
+    % Longitudinal allocation per wheel
 
     if Fx >= 0
         Fxw = Fx .* p.drive_w;
@@ -119,21 +119,21 @@ function [z_next, tele] = pasoDinamico(z, u, p, dt)
         Fxw = Fx .* p.brake_w;
     end
 
-    % Saturacion longitudinal individual
+    % Individual longitudinal saturation
     Fxmax_w = p.muw .* Fzw;
     Fxw = max(min(Fxw, Fxmax_w), -Fxmax_w);
 
-    % Componentes de las fuerzas laterales en el chasis
+    % Chassis-frame components of lateral forces
     Fxw_chasis = Fxw .* cos(delta_w) - Fyw .* sin(delta_w);
 
     Fyw_chasis = Fxw .* sin(delta_w) + Fyw .* cos(delta_w);
 
-    % Fuerzas y momento resultantes
-    SumFx = sum(Fxw_chasis); % Fuerza longitudinal total
-    SumFy = sum(Fyw_chasis); % Fuerza lateral total
-    SumMz = sum(p.xw .* Fyw_chasis - p.yw .* Fxw_chasis); % Momento de guiñada respecto al CG
+    % Resultant forces and moment
+    SumFx = sum(Fxw_chasis); % Total longitudinal force
+    SumFy = sum(Fyw_chasis); % Total lateral force
+    SumMz = sum(p.xw .* Fyw_chasis - p.yw .* Fxw_chasis); % Yaw moment about the CG
 
-    % Telemetria: datos del paso actual, sin modificar las fuerzas ni la dinamica
+    % Telemetry: current-step data without changing forces or dynamics
     tele.alpha_w = alpha_w;
     tele.Fxw = Fxw;
     tele.Fyw = Fyw;
@@ -143,13 +143,13 @@ function [z_next, tele] = pasoDinamico(z, u, p, dt)
                      - p.yw .* (Fxw .* cos(delta_w)));
     tele.Mz_lat = SumMz - tele.Mz_long;
 
-    % Dinámica longitudinal (P1)
+    % Longitudinal dynamics (P1)
     Ra = 0.5*p.rho*p.Cd*p.Af*vx^2; 
     Rr = p.fr*p.m*p.g*cos(p.theta);
     Rg = p.m*p.g*sin(p.theta);
     
-    % ecuaciones del movimiento 
-    ax = (SumFx - Ra - sign(vx)*Rr - Rg)/p.m + vy*r; % ojo no olvidar el acoplamiento de la centripeta 
+    % equations of motion
+    ax = (SumFx - Ra - sign(vx)*Rr - Rg)/p.m + vy*r; % retain centripetal coupling
     ay = SumFy/p.m - vx*r; 
     dr = SumMz/p.Iz;   
    

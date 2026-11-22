@@ -1,37 +1,43 @@
 # Numerical evidence
 
-Se han exportado **50 historias** de los archivos MAT ya guardados, sin volver a simular ni modificar la planta. Una historia es una ejecución registrada: incluye casos base repetidos entre campañas, ensayos cinemáticos y dinámicos y pruebas de frenado; no son 50 experimentos independientes.
+[← Results](../README.md) · [All-run summary](summary_all_runs.csv) · [Video inventory](video_inventory.csv) · [Run sources](../Run_Sources/README.md)
 
-- [summary_all_runs.csv](summary_all_runs.csv): métricas calculadas sobre **todas** las muestras originales.
-- [video_inventory.csv](video_inventory.csv): duración, fps y dimensiones comprobados con VideoReader.
-- `V*_case*.csv` / `V*_hist*.csv`: estado y telemetría temporal con selección de muestras aproximadamente a **20 Hz**, siempre incluyendo la última.
-- `V*_config.json`: parámetros de vehículo/plan/ensayo cuando estaban presentes en el MAT original. La ausencia de un parámetro no se rellena con el de otra campaña.
-- [raw_evidence_manifest.json](raw_evidence_manifest.json): tamaño y SHA256 de los MAT de procedencia, que no se duplican aquí.
+**50 recorded histories**, exported from previously saved MAT files without rerunning simulations or modifying the plant. A history is a recorded execution: repeated baseline cases, kinematic/dynamic manoeuvres and braking tests are included. These are not 50 independent experiments.
 
-La integración original usa aproximadamente 0.002 s; los CSV temporales son una reducción de datos para inspección. No usar su muestreo para medir picos de 10–30 ms: los extremos y porcentajes del resumen se calcularon antes de reducir. Los archivos MAT originales, grandes y parcialmente duplicados, se conservan localmente; los MLX archivados, instantáneas y parámetros permiten regenerar campañas.
+## Files and sampling
 
-## Columnas y unidades
-
-`t_s`, `X_m`, `Y_m`, `psi_rad`, `vx_ms`, `vy_ms`, `r_rads` y memorias de z. `Fx_sol` y `Fxw/Fyw/Fzw/Fmax_*` están en N; `delta` en rad; `ax/ay` en m/s²; `eta_*`, `lambda_w` y utilización son adimensionales. Los sufijos de cuatro ruedas siguen DI, DD, TI, TD. `vref` es la referencia del controlador, no la velocidad real.
-
-`peak_vx_ms` es el pico longitudinal; `peak_speed_ms` usa hypot(vx,vy). `max_lateral_error_m` y RMS usan ect; `CG_outside_pct` usa el criterio registrado para el centro de gravedad. `lock_pct` cuenta muestras con alguna rueda en modo de bloqueo. `saturated_pct` cuenta alguna lambda<1-1e-6. No es un porcentaje de deslizamiento físico.
-
-`complete=1` significa vuelta completada si existe `completa`, o parada alcanzada en las pruebas que registran `paradaAlcanzada`. `complete=0` es un criterio registrado no alcanzado. **NaN significa no registrado**, no fallo. Las maniobras antiguas no tienen siempre un criterio de vuelta comparable al circuito híbrido. `stop_reason` conserva el motivo disponible.
-
-## Campañas
-
-| Dataset | Configuración |
+| Files | Contents |
 |---|---|
-| V08_standard | Skidpad, eslalon, arranques y recta; comparación de interfaz |
-| V08_braking_turn | Giro de 2°/10° tras 4 m de frenada |
-| V08_hybrid | Primera prueba: 6 y 14 m/s; el caso 14 pierde seguimiento |
+| [summary_all_runs.csv](summary_all_runs.csv) | Metrics calculated over **all original samples** |
+| [video_inventory.csv](video_inventory.csv) | Duration, fps and dimensions checked with VideoReader |
+| `V*_case*.csv` / `V*_hist*.csv` | Temporal state/telemetry, selected at approximately **20 Hz**, always including the last sample |
+| `V*_config.json` | Available vehicle, planner and test parameters; missing parameters are not borrowed from another campaign |
+| [raw_evidence_manifest.json](raw_evidence_manifest.json) | Size and SHA256 of source MAT files, not duplicated here |
+
+Original integration uses approximately 0.002 s steps. Temporal CSVs are reduced for inspection. Do not use their sampling to estimate 10–30 ms peaks: summary extrema and percentages are calculated **before** downsampling. Large, partly duplicate raw MAT files remain in the local evidence archive; archived MLXs, snapshots and parameters allow campaigns to be regenerated.
+
+## Columns and units
+
+`t_s`, `X_m`, `Y_m`, `psi_rad`, `vx_ms`, `vy_ms`, `r_rads` and z-memory fields. `Fx_sol` and `Fxw/Fyw/Fzw/Fmax_*` use N; `delta` uses rad; `ax/ay` use m/s². `eta_*`, `lambda_w` and utilization are dimensionless. Four-wheel suffixes follow DI, DD, TI, TD: front left, front right, rear left, rear right. `vref` is the controller reference, not actual speed.
+
+`peak_vx_ms` is peak longitudinal speed; `peak_speed_ms` uses hypot(vx,vy). Maximum/RMS lateral error uses ect. `CG_outside_pct` follows the recorded CG criterion. `lock_pct` counts samples with any wheel in lock mode; `saturated_pct` counts any lambda<1-1e-6. Neither is a physical slip ratio.
+
+`complete=1` means lap completion where `completa` exists, or reaching the stop criterion in tests recording `paradaAlcanzada`. `complete=0` means a recorded criterion was not reached. **NaN means not recorded**, not failure. Older manoeuvres do not always have a completion criterion comparable with the hybrid circuit. `stop_reason` records the available reason, translated into English without changing numeric data.
+
+## Campaigns
+
+| Dataset | Configuration |
+|---|---|
+| V08_standard | Skidpad, slalom, standstill runs and straight-line test; interface comparison |
+| V08_braking_turn | 2°/10° steering after 4 m of braking |
+| V08_hybrid | Initial 6/14 m/s test; 14 m/s loses tracking |
 | V09_four_caps | 14, 18, 22, 26 m/s |
 | V09_five_caps | 6, 10, 14, 18, 22 m/s |
 | V10_five_caps | 6, 10, 14, 18, 22 m/s |
 | V10_current_caps | 15, 20, 25, 30, 35 m/s |
-| V11_initial_comparison | 15, 20, 25, 30, 35 m/s; base y límite |
-| V11_current_caps | 25, 30, 32, 35, 40 m/s; historias guardadas del mapeo exigente |
-| V11_single_3D | Un coche, techo de 35 m/s |
-| V12_aggressive_3D | Un coche de 35 m/s, demanda extrema y su base |
+| V11_initial_comparison | 15, 20, 25, 30, 35 m/s; baseline and demanding map |
+| V11_current_caps | 25, 30, 32, 35, 40 m/s; saved demanding-map histories |
+| V11_single_3D | One car, 35 m/s cap |
+| V12_aggressive_3D | One 35 m/s extreme-demand car and its baseline |
 
-La primera prueba híbrida guardada (6/14) no coincide con el archivo V8 actual (6/10). Se mantiene esa diferencia y no se atribuye el fallo de 14 m/s al caso de 10 m/s. Las gráficas y vídeos tienen sus propios conjuntos en sus README.
+The first saved hybrid test, at 6/14, differs from the current V8 file, at 6/10. That difference is preserved: the failure at 14 m/s is not attributed to the 10 m/s case. Figures and videos have their own campaign configurations in their README files.

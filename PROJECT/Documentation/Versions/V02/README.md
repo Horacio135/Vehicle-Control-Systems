@@ -1,23 +1,25 @@
-# V02 — Telemetría de cuatro ruedas
+# V02 · Four-wheel telemetry
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Poder observar las fuerzas de cada rueda y relacionarlas con la trayectoria.
+## Problem and decision
 
-## Implementación
+Observe each wheel's forces and relate them to the vehicle trajectory.
 
-pasoDinamico devuelve telemetría además del estado; se amplían registros y gráficas del ensayo circular.
+## Implementation
 
-Fuente: [CuatroruedasV2_simulacion_4ruedas.mlx](../../../Dynamic%20Model/CuatroruedasV2_simulacion_4ruedas.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+pasoDinamico returns telemetry as well as the state. Logging and circular-manoeuvre plots are expanded.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV2_simulacion_4ruedas.mlx](../../../Dynamic%20Model/CuatroruedasV2_simulacion_4ruedas.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-Se preservan el MLX y su código exportado. El archivo configura un skidpad de 18 m/s; ese valor no debe atribuirse a todas las figuras históricas.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+The MLX and readable code export are retained. The file configures an 18 m/s skidpad; this value must not be attributed to every historical figure.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-Aún se necesita compartir el límite entre fuerza longitudinal y lateral. No se han calculado velocidades angulares de rueda.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+Longitudinal and lateral forces still need a shared capacity constraint. Wheel angular velocities are not calculated.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

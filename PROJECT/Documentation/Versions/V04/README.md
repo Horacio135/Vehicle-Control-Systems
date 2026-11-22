@@ -1,23 +1,25 @@
-# V04 — Transferencia de pesos
+# V04 · Load transfer
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Repartir la capacidad del vehículo de forma distinta durante aceleración, frenada y giro.
+## Problem and decision
 
-## Implementación
+Distribute contact capacity differently during acceleration, braking and cornering.
 
-Se añaden transferencia longitudinal/lateral a partir de aceleraciones anteriores y rigidez lateral dependiente de Fz. Se amplían eslalon y arranque.
+## Implementation
 
-Fuente: [CuatroruedasV4_simulacion_transferencia_pesos.mlx](../../../Dynamic%20Model/CuatroruedasV4_simulacion_transferencia_pesos.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+Longitudinal/lateral transfer uses previous accelerations, and lateral stiffness depends on Fz. Slalom and standstill scenarios are expanded.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV4_simulacion_transferencia_pesos.mlx](../../../Dynamic%20Model/CuatroruedasV4_simulacion_transferencia_pesos.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-Nueve figuras conservan cargas, rigidez, aprovechamiento, skidpad y eslalon. Hay ensayos rotulados a 5 y 14 m/s. El equilibrio vertical y la respuesta de cargas son controles internos del modelo.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+Nine figures retain wheel loads, stiffness, utilization, skidpad and slalom. Tests are labelled at 5 and 14 m/s. Vertical equilibrium and load response are internal consistency checks.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-Transferencia cuasiestática: no se introduce suspensión, balanceo ni cabeceo dinámico.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+Load transfer is quasi-static: dynamic suspension, roll and pitch are not introduced.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

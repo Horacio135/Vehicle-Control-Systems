@@ -1,23 +1,25 @@
-# V03 — Círculo de adherencia
+# V03 · Friction circle
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Evitar que Fx y Fy utilicen por separado toda la misma capacidad de contacto.
+## Problem and decision
 
-## Implementación
+Prevent Fx and Fy from independently consuming the entire same contact capacity.
 
-Un factor común limita la resultante. La telemetría permite observar uso de adherencia y saturación en giro.
+## Implementation
 
-Fuente: [CuatroruedasV3_simulacion_circulo_adherencia.mlx](../../../Dynamic%20Model/CuatroruedasV3_simulacion_circulo_adherencia.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+A common factor limits resultant force. Telemetry shows adhesion utilization and saturation during turning.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV3_simulacion_circulo_adherencia.mlx](../../../Dynamic%20Model/CuatroruedasV3_simulacion_circulo_adherencia.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-Se conservan cinco figuras: skidpad y telemetría a 5 y 30 m/s, y el círculo de adherencia. Sus etiquetas describen esas ejecuciones, no el único valor del MLX actual.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+Five figures are retained: skidpad and telemetry at 5/30 m/s, plus friction-circle utilization. Their labels describe those runs, not the single setting in the current MLX.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-La saturación por sí sola no representa ni bloqueo mecánico ni la caída pospico de un neumático real.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+Saturation alone models neither mechanical wheel lock nor a real tyre's post-peak force drop.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

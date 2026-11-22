@@ -1,12 +1,12 @@
-# V5 — pérdida de tracción lateral
+# V5 · Lateral-capacity loss
 
-Vídeos y figura de derrape, skidpad y eslalon. La pérdida lateral trasera depende del exceso de fuerza solicitada y de una memoria, no de velocidades angulares de rueda.
+[← Results](../README.md) · [Metrics and telemetry](../Numerical/README.md)
 
-## Artefactos
+Drift, skidpad and slalom recordings show rear lateral-capacity loss. The loss depends on excess requested force and memory, not calculated wheel angular speeds.
 
-- [Animacion_derrape_skidpad.mp4](Animacion_derrape_skidpad.mp4)
-- [Animacion_Eslalon.mp4](Animacion_Eslalon.mp4)
-- [Derrape.mp4](Derrape.mp4)
-- [slalon.png](slalon.png)
+## Recorded artifacts
 
-[Métricas y telemetría](../Numerical/README.md) · [Índice general](../README.md)
+- [Skidpad drift animation](Animacion_derrape_skidpad.mp4)
+- [Slalom animation](Animacion_Eslalon.mp4)
+- [Drift recording](Derrape.mp4)
+- [Slalom result](slalon.png)

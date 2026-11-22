@@ -1,23 +1,25 @@
-# V06 — Cálculo individual en ejes de rueda
+# V06 · Individual wheel-frame calculations
 
-## Problema y decisión
+[← All stages](../README.md) · [Design decisions](../../Design_Decisions/README.md) · [Results](../../../Results/README.md)
 
-Expresar velocidades y fuerzas del contacto en el marco orientado de cada rueda.
+## Problem and decision
 
-## Implementación
+Express contact velocities and forces in each wheel's oriented frame.
 
-Se proyectan vxw y vyw al marco local, conservando fuerzas individuales, saturación, cargas y pérdida lateral.
+## Implementation
 
-Fuente: [CuatroruedasV6_dinamica_indiv_rueda.mlx](../../../Dynamic%20Model/CuatroruedasV6_dinamica_indiv_rueda.mlx). La copia `.m` legible está en Source Exports, junto a los otros modelos de la misma familia.
+vxw and vyw are projected into wheel coordinates while retaining per-wheel forces, saturation, loads and lateral-capacity loss.
 
-## Simulaciones y resultados
+**Source:** [CuatroruedasV6_dinamica_indiv_rueda.mlx](../../../Dynamic%20Model/CuatroruedasV6_dinamica_indiv_rueda.mlx). Readable `.m` code is available in that family's Source Exports directory.
 
-Código y salidas del MLX conservados. No se publicó un juego independiente de métricas V6; no se extrapolan las de V5 o V8.
+## Simulations and results
 
-Los artefactos están indexados en [Results](../../../Results/README.md). Las métricas numéricas recientes proceden de [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculadas sobre los registros completos; los CSV temporales se conservan aproximadamente a 20 Hz.
+Code and embedded MLX outputs are retained. There is no independent V6 metrics dataset; V5/V8 values are not reassigned to it.
 
-## Interpretación y límites
+Artifacts are indexed in [Results](../../../Results/README.md). Recent metrics come from [summary_all_runs.csv](../../../Results/Numerical/summary_all_runs.csv), calculated over full-resolution records; exported temporal CSVs retain samples at approximately 20 Hz.
 
-Revisar en una fase futura la convención delta-atan2(vy_local,vx_local), por posible doble introducción de delta. La publicación no altera la física.
+## Interpretation and limitations
 
-La evidencia de cada etapa se conserva con su configuración. No se ha ejecutado de nuevo toda la historia ni se atribuyen las cifras de una versión a otra. Véanse [las decisiones transversales](../../Design_Decisions/README.md).
+The delta-atan2(vy_local,vx_local) convention needs future review for possible double introduction of delta. Publication does not alter the physics.
+
+Each stage's evidence retains its own configuration. The entire history has not been rerun, and measurements are not transferred between versions.

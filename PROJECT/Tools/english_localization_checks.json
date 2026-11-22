@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-22",
+  "native_mlx_conversions": 22,
+  "exact_numeric_regression_cases": [
+    "V11 35 m/s",
+    "V12 35 m/s"
+  ],
+  "numeric_fields_compared": [
+    "t",
+    "z",
+    "delta",
+    "Fx_sol",
+    "vref",
+    "ect",
+    "Fxw",
+    "Fyw",
+    "Fzw",
+    "lambda_w",
+    "eta_slip",
+    "eta_brake",
+    "bloqueo_w"
+  ],
+  "all_fields_exactly_equal": true,
+  "timers_cleaned": true
+}
