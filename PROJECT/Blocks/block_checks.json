@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-23",
+  "environment": "MATLAB R2026a",
+  "longitudinal_V12_exact_steps": 1200,
+  "lateral_V12_exact_cases": 200,
+  "estimator_P5_exact_steps": 1000,
+  "emergency_P5_latch_and_steering_passed": true,
+  "sensor_truth_and_outage_passed": true,
+  "noise_statistics_samples": 10000,
+  "relocated_plant_states_and_telemetry_unchanged": true
+}

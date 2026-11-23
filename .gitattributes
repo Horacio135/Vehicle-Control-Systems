@@ -13,6 +13,7 @@
 "PROJECT/Tools/*.m" text eol=lf
 # Keep the verified standalone extraction byte-exact, including source whitespace.
 "PROJECT/Modular Architecture/*.m" -text whitespace=-trailing-space,-blank-at-eof
+"PROJECT/Blocks/*.m" -text whitespace=-trailing-space,-blank-at-eof
 Base_Model/Base_Model.m text eol=lf
 *.md text eol=lf
 *.json text eol=lf

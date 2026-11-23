@@ -2,17 +2,17 @@
 
 [← Project](../README.md) · [Frozen plant specification](../Dynamic%20Model/README.md#plant-interface)
 
-**This first stage isolates the existing dynamic block and connects a simulation harness to it.** The original Live Scripts are retained. Sensor noise, state estimation, combined motion control, emergency arbitration, TC and ABS are deliberately not implemented at this stage.
+**This template currently runs the frozen dynamic plant only.** The original Live Scripts are retained. Five separate sensing, estimation, lateral, longitudinal and emergency functions are now available in [Blocks](../Blocks/README.md), alongside the relocated plant and initializer. They are not yet connected in this simulation loop; TC, ABS and ESC are not implemented.
 
 ## Files
 
 | File | Role |
 |---|---|
-| [pasoDinamico.m](pasoDinamico.m) | Standalone dynamic plant, extracted without changing its equations |
-| [inicializarEstadoDinamico.m](inicializarEstadoDinamico.m) | Existing initializer for six motion variables or the complete state |
+| [pasoDinamico.m](../Blocks/pasoDinamico.m) | Standalone dynamic plant, relocated without changing its equations |
+| [inicializarEstadoDinamico.m](../Blocks/inicializarEstadoDinamico.m) | Existing initializer for six motion variables or the complete state |
 | [runSimulation.m](runSimulation.m) | Editable parameters, initial conditions, scenario inputs, integration loop and basic plots |
-| [plant_provenance.json](plant_provenance.json) | Extraction source, hashes and input/output contract |
-| [extraction_checks.json](extraction_checks.json) | MATLAB checks against the unchanged current local V8 |
+| [plant_provenance.json](../Blocks/plant_provenance.json) | Extraction source, hashes and input/output contract |
+| [extraction_checks.json](../Blocks/extraction_checks.json) | MATLAB checks against the unchanged current local V8 |
 
 ## Run
 
@@ -22,7 +22,7 @@ From the repository root in MATLAB:
 run(fullfile('PROJECT','Modular Architecture','runSimulation.m'));
 ```
 
-The script adds its own directory to the path and checks that another function with the same name does not shadow this plant. If that check fails, set Current Folder to this directory before running.
+The script adds the sibling Blocks directory to the path and checks that another function with the same name does not shadow this plant. If that check fails, set Current Folder to Blocks before running.
 
 Verified default result: 7.472 s including acceleration and braking, peak vx 35.002 m/s and total travelled distance 140.014 m. All next states and telemetry fields exactly match the original over 3736 steps. Another 700 steps exercise steering, traction loss, lock mode and full-release recovery with the same exact match.
 

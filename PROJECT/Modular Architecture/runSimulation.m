@@ -3,11 +3,12 @@
 % Only the dynamic block is connected at this stage. Sensor, estimator,
 % combined motion control, emergency, TC and ABS blocks are not implemented here.
 templateDirectory = fileparts(mfilename('fullpath'));
-addpath(templateDirectory);
+blocksDirectory = fullfile(fileparts(templateDirectory),'Blocks');
+addpath(blocksDirectory);
 plant = @pasoDinamico;
 plantInfo = functions(plant);
-assert(strcmpi(plantInfo.file,fullfile(templateDirectory,'pasoDinamico.m')), ...
-    'Another pasoDinamico shadows this block. Set Current Folder to this script directory.');
+assert(strcmpi(plantInfo.file,fullfile(blocksDirectory,'pasoDinamico.m')), ...
+    'Another pasoDinamico shadows this block. Set Current Folder to the Blocks directory.');
 
 %% Simulation settings and initial motion state
 cfg.dt = 0.002;                      % Integration step [s]
@@ -77,6 +78,19 @@ p.Fzw0 = [p.Fzd0/2, p.Fzd0/2, p.Fzt0/2, p.Fzt0/2]; % [N] initial vertical load p
 p.drive_w = [0, 0, 0.5, 0.5]; % Driving-force allocation during acceleration
 p.brake_w = [0.3, 0.3, 0.2, 0.2]; % Longitudinal-force allocation during braking
 p.kRoll = 0.5; % front share of roll moment (replace with a suspension model later)
+
+%% Settings for the separated blocks (not connected in this plant-only test)
+p.dt = cfg.dt;
+p.Kp_v = 800; p.Ki_v = 200;
+p.Ld0 = 2.0; p.kLd = 0.3; p.delta_max = 0.5;
+p.conductor.tauAcel = 0.010; p.conductor.tauFreno = 0.020;
+p.conductor.errorActivar = 0.35; p.conductor.errorSoltar = 0.05;
+p.gps_sigma = 0.5; p.acc_sigma = 0.2; p.gyro_sigma = 0.01;
+p.gps_cada = 25; p.gps_corte = []; p.gyro_bias = 0;
+p.Q = diag([0.02 0.02 0.005 0.10].^2);
+p.R = diag([p.gps_sigma p.gps_sigma].^2);
+p.ttc_umbral = 2.0;
+
 
 %% Initialize the complete physical state and storage
 validateattributes(cfg.dt,{'numeric'},{'scalar','real','finite','positive'});

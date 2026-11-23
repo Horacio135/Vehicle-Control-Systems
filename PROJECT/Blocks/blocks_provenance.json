@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-23",
+  "longitudinal_and_lateral_source": "PROJECT/Hybrid Tests/Source Exports/Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.m",
+  "V12_sha256": "4f841eef0adc4f23985c4832d2ec70f1b67b6da0293fe0ab13438da3d3fe81ea",
+  "P5_source": "P5_estimacion_estado_RESUELTO.mlx",
+  "P5_sha256": "b0215b1ff7fffe3ac13b3454eed641d559f7f3a16f232d3fa05344b9b04ab0ec",
+  "sensor_adaptation": "Use tele.ax from the actual four-wheel plant instead of recalculating bicycle acceleration.",
+  "emergency_adaptation": "Expose maximum braking force and preserve the nominal steering angle; no evasive steering law is added.",
+  "longitudinal_output": "Scalar total requested longitudinal force; per-wheel actuation, ESC, ABS and TC are not implemented."
+}

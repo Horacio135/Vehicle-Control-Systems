@@ -26,6 +26,7 @@ PROJECT/
 | [Results](Results/README.md) | Ten videos, figures and data from 50 recorded histories |
 | [Documentation](Documentation/README.md) | Twelve stages, design decisions and known limitations |
 | [Modular Architecture](Modular%20Architecture/README.md) | New integration stage: standalone frozen dynamic block and editable simulation harness |
+| [Blocks](Blocks/README.md) | Callable sensing, estimation, lateral/longitudinal control, emergency and frozen dynamics functions |
 
 ## Run a scenario
 
@@ -84,7 +85,7 @@ Abrupt demands consume adhesion and can severely degrade tracking. Completing a 
 
 Next, assemble the block architecture without changing `pasoDinamico`. Independent wheel-force commands, yaw control and ABS/TCS coordination remain pending. A future controller must either add the physics needed for actual wheel slip or explicitly remain a force-based controller for the approximate model.
 
-The first implementation step is now available in [Modular Architecture](Modular%20Architecture/README.md): `pasoDinamico.m`, its state initializer and `runSimulation.m`. The standalone function is an exact extraction; its states and telemetry match the unchanged local V8 across 3736 default-test steps and 700 additional steering/braking/release steps.
+The plant and initializer now live in [Blocks](Blocks/README.md), together with five separated functions for sensing, P5 estimation/emergency, and V12 lateral/longitudinal control. The existing `runSimulation.m` remains in [Modular Architecture](Modular%20Architecture/README.md) and points to that directory. Its default loop still runs only the plant scenario. The relocated function remains an exact extraction, and all original plant states and telemetry are unchanged.
 
 ## History and compatibility
 
