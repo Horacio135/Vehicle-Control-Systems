@@ -21,7 +21,7 @@ MATLAB coursework and project development for Vehicle Control Systems. The repos
 | Pure Pursuit and curvature-based speed planning | Coordinated ESC, ABS and traction control |
 | Aggressive-driver tests and 2D/3D animations | Physical wheel-slip modelling and experimental calibration |
 
-**The speed and path controllers are implemented; ESC, ABS and TCS are not.** Wheel angular velocities and rotational inertia are not simulated. The 3D scene displays planar dynamics.
+**The speed/path controllers and a force-based rear traction-demand limiter are implemented.** ESC and slip-based ABS/TCS remain pending. Wheel angular velocities and rotational inertia are not simulated. The 3D scene displays planar dynamics.
 
 ## Quick start
 

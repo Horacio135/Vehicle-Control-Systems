@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-23",
+  "default_factor": 0.98,
+  "exact_match_to_plant_capacity": true,
+  "braking_and_zero_bypass_unchanged": true,
+  "mixed_sign_and_column_inputs_passed": true,
+  "adjustable_factor_above_one_passed": true,
+  "load_transfer_and_post_brake_recovery_passed": true,
+  "trajectory_capacity_checks": 500,
+  "plant_state_not_modified": true
+}

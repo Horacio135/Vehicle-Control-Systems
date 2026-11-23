@@ -2,7 +2,7 @@
 
 [← Project](../README.md) · [Frozen plant specification](../Dynamic%20Model/README.md#plant-interface)
 
-**This template currently runs the frozen dynamic plant only.** The original Live Scripts are retained. Five separate sensing, estimation, lateral, longitudinal and emergency functions are now available in [Blocks](../Blocks/README.md), alongside the relocated plant and initializer. They are not yet connected in this simulation loop; TC, ABS and ESC are not implemented.
+**This template currently runs the frozen dynamic plant only.** The original Live Scripts are retained. Sensing, estimation, lateral, longitudinal and emergency functions are available in [Blocks](../Blocks/README.md), alongside the relocated plant, initializer and a new force-based rear traction limiter. These are not yet connected in this simulation loop; ABS and ESC are not implemented.
 
 ## Files
 

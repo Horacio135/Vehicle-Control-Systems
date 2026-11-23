@@ -2,7 +2,7 @@
 
 [← Project](../README.md) · [Plant-only simulation template](../Modular%20Architecture/README.md)
 
-Five new callable blocks are exposed alongside the unchanged dynamic plant and its initializer. Longitudinal/lateral control comes from V12; sensing, the EKF and TTC emergency logic come from solved practice 5. This step separates the functions; it does not yet connect the complete closed-loop architecture or implement ESC, TC or ABS.
+Callable blocks are exposed alongside the unchanged dynamic plant and its initializer. Longitudinal/lateral control comes from V12; sensing, the EKF and TTC emergency logic come from solved practice 5. A force-based rear traction-demand limiter is now included. The complete closed-loop architecture, ESC and ABS are not yet connected or implemented.
 
 ## Inputs and outputs
 
@@ -11,6 +11,7 @@ Five new callable blocks are exposed alongside the unchanged dynamic plant and i
 | [controlEmergencia.m](controlEmergencia.m) | `[FxE,deltaE,active,memE]=controlEmergencia(est,obst,delta,p,memE)` | Emergency braking demand and steering to retain |
 | [controlLateral.m](controlLateral.m) | `[delta,memA]=controlLateral(est,path,p,memA)` | Requested front-wheel angle [rad] |
 | [controlLongitudinal.m](controlLongitudinal.m) | `[Fx,memL]=controlLongitudinal(est,ref,p,memL,dt)` | Requested total longitudinal force [N] |
+| [controlTraccion.m](controlTraccion.m) | `[FxRear,info]=controlTraccion(FxRearRequested,z,p,dt)` | Corrected rear-wheel traction requests [N] |
 | [estimadorEstado.m](estimadorEstado.m) | `[est,memK]=estimadorEstado(med,uPrevious,p,memK,dt)` | P5 estimated state |
 | [sensores.m](sensores.m) | `med=sensores(z,tele,p,k)` | Noisy GPS/IMU measurements |
 | [pasoDinamico.m](pasoDinamico.m) | `[zNext,tele]=pasoDinamico(z,u,p,dt)` | Complete next physical state and telemetry |
@@ -35,7 +36,33 @@ else
 end
 ```
 
-This illustrates command arbitration, not a complete sensing/estimation simulation loop. ESC/TC/ABS corrections are still absent.
+This illustrates command arbitration, not a complete sensing/estimation simulation loop. It does not invoke the new traction limiter; ESC and ABS remain absent.
+
+## Rear traction-demand limiter
+
+```matlab
+% Rear order: [TI TD] = [rear left, rear right].
+p.tc_factor = 0.98;  % Optional override; the function defaults to 0.98.
+[FxRearCorrected,info] = controlTraccion([FxTI FxTD],z,p,dt);
+```
+
+The block recomputes the same wheel-load transfer as the plant using the previous physical accelerations in z. It then uses `Fmax_peak_w = p.muw.*Fzw` and `Fmax_w = eta_brake.*Fmax_peak_w`. For traction, braking-capacity recovery over the current dt matches the plant's full-release update. The prediction is not written back to z: the physical block still updates its memory exactly once.
+
+For each positive rear request, the rule is:
+
+```matlab
+FxCorrected = min(FxRequested, p.tc_factor * FmaxAvailable);
+```
+
+Zero and negative requests pass unchanged. A request containing only braking/zero values bypasses capacity calculation; its inactive diagnostics contain NaN capacities. Mixed-sign inputs limit only the positive component. A row or column input keeps its orientation. `info` exposes rear loads, nominal/effective capacities, thresholds and limitation flags.
+
+The factor can be increased above one to deliberately permit demand beyond the calculated capacity. That can expose the existing loss-of-adhesion behaviour, but does not prescribe a particular oversteer angle or guarantee a faster lap. Zero suppresses positive demand entirely.
+
+**Capacity definition:** the requested rule uses the plant's **combined-force radius**, not `sqrt(Fmax^2-Fy^2)`. Therefore 0.98 does not reserve a separately calculated lateral-force budget or guarantee no combined saturation in a corner.
+
+**Current integration limits:** z is the complete physical state, so this first block is a model-based/ideal-information limiter. The P5 estimator alone does not supply all its required capacity information. The output is independently limited per rear wheel, but the frozen plant still accepts a total force with fixed allocation. The limiter is not automatically connected, and summing unequal corrected requests does not reproduce their individual limits after the plant redistributes that total.
+
+[Traction-limiter checks](traction_control_checks.json) verify exact capacity agreement with the plant, transfer asymmetry, post-brake recovery, threshold behaviour and unchanged braking requests.
 
 ## Measurements and estimates
 

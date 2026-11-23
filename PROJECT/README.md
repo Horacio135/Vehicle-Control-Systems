@@ -4,7 +4,7 @@
 
 **Develop a Formula Student Driverless vehicle model and prepare coordinated stability control around it.**
 
-The long-term objective is an ESC coordinating selective braking, traction management and steering correction. This snapshot contains the plant evolution and test environments through **V12**. ESC, ABS and TCS have not yet been implemented.
+The long-term objective is an ESC coordinating selective braking, traction management and steering correction. This snapshot contains the plant evolution and test environments through **V12**, separated callable blocks and a new force-based rear traction-demand limiter. ESC and physical-slip ABS/TCS have not yet been implemented.
 
 ## Project layout
 
