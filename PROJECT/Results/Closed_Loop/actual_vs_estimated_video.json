@@ -1,0 +1,14 @@
+{
+  "datos_origen": "Original project/resultados/07_Lazo_completo_2026-11-26/lazo_completo.mat",
+  "caso": "Lazo completo con ABS/TC después del ajuste",
+  "velocidad_reproduccion": 1,
+  "duracion_video_s": 47.45,
+  "fps": 20,
+  "tiempo_vuelta_s": 47.37,
+  "error_seguimiento_max_m": 0.3495568145691819,
+  "rmse_posicion_EKF_m": 0.1422354594433058,
+  "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+  "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+  "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+  "bloques_modificados": false
+}

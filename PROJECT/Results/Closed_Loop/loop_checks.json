@@ -1,0 +1,13 @@
+{
+  "fecha": "2026-11-26",
+  "control_sin_estado_real": true,
+  "memorias_sin_ruido_directo": true,
+  "equivalencia_limitadores_referencia": true,
+  "prioridad_emergencia_y_exclusion_ABS_TC": true,
+  "motor_igual_traseras": true,
+  "planificador_usa_posicion_estimada": true,
+  "referencia_perfecta_reproducida": true,
+  "estado_perfecto_tiempo_s": 47.132,
+  "lazo_estimado_finalizacion": "Vuelta completada",
+  "lazo_estimado_tiempo_s": 47.37
+}

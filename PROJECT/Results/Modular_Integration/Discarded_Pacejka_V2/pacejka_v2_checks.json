@@ -1,0 +1,13 @@
+{
+  "slip_pico_longitudinal": 0.1802,
+  "deriva_pico_rad": 0.1275486617357456,
+  "error_relativo_pendiente_lateral": 1.2574385976904523e-12,
+  "maximo_uso_elipse": 1.0000000000000002,
+  "puntos_malla": 80601,
+  "parametros_frenada_independientes": true,
+  "bloqueo_sin_direccion_artificial": true,
+  "patinamiento_longitudinal_reduce_capacidad_lateral": true,
+  "recuperacion_giro_al_soltar_freno": true,
+  "error_relativo_energia_en_giro": 2.8151460517579093e-05,
+  "error_refinamiento_estado_movimiento": 0.00032382060379188005
+}

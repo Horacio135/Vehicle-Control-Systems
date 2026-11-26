@@ -1,0 +1,16 @@
+{
+  "snapshot_date": "2026-11-26",
+  "manifest_files_checked": 117,
+  "active_sources_checked": 19,
+  "deduplicated_references_checked": 3,
+  "selected_text_files_checked": 71,
+  "selected_live_scripts_checked": 1,
+  "markdown_files_checked": 65,
+  "local_links_checked": 510,
+  "required_videos_checked": 3,
+  "controlled_lap_time_s": 47.37,
+  "controlled_maximum_path_error_m": 0.349556814569182,
+  "success": true,
+  "errors": [],
+  "scope": "Artifact hashes, byte-exact active-source provenance, file sizes, deduplication references, local Markdown link targets, selected text/MLX privacy patterns and recorded headline metrics. Does not execute MATLAB, inspect binary MAT metadata, validate remote links or certify experimental vehicle-model accuracy."
+}

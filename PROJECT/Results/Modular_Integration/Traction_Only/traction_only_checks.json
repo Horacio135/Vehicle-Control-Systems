@@ -1,0 +1,7 @@
+{
+  "pasos_frenado_identicos_al_historico": 250,
+  "parametros_pacejka_no_afectan_frenado": true,
+  "pacejka_longitudinal_solo_en_ruedas_motrices": true,
+  "velocidad_sin_TC_3s_ms": 11.551493021261628,
+  "velocidad_con_TC_3s_ms": 21.997061957143817
+}

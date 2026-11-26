@@ -1,0 +1,995 @@
+{
+  "snapshot_date": "2026-11-26",
+  "source_language": "Spanish MATLAB identifiers and comments by user request",
+  "documentation_language": "English",
+  "files": [
+    {
+      "path": "PROJECT/Current State/adaptarEntradaControl.m",
+      "source": "estado actual/adaptarEntradaControl.m",
+      "sha256": "40b158eb9096ecf786f651ae11ca64879758eab52316cd4a3111b198a44467c1",
+      "source_sha256": "40b158eb9096ecf786f651ae11ca64879758eab52316cd4a3111b198a44467c1",
+      "bytes": 835,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/estimarCapacidadControl.m",
+      "source": "estado actual/estimarCapacidadControl.m",
+      "sha256": "579b49130897498816cf89ed4319c6e97fcfbffc74ce1a697b856ca80bd78949",
+      "source_sha256": "579b49130897498816cf89ed4319c6e97fcfbffc74ce1a697b856ca80bd78949",
+      "bytes": 2638,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/configuracionIntegracion.m",
+      "source": "estado actual/Configuracion/configuracionIntegracion.m",
+      "sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c",
+      "source_sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c",
+      "bytes": 1668,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/configuracionSoloTraccion.m",
+      "source": "estado actual/Configuracion/configuracionSoloTraccion.m",
+      "sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492",
+      "source_sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492",
+      "bytes": 1697,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/parametrosSoloTraccion.m",
+      "source": "estado actual/Configuracion/parametrosSoloTraccion.m",
+      "sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab",
+      "source_sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab",
+      "bytes": 938,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlABS.m",
+      "source": "estado actual/Control/controlABS.m",
+      "sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f",
+      "source_sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f",
+      "bytes": 2434,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlEmergencia.m",
+      "source": "estado actual/Control/controlEmergencia.m",
+      "sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea",
+      "source_sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea",
+      "bytes": 960,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlLateral.m",
+      "source": "estado actual/Control/controlLateral.m",
+      "sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c",
+      "source_sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c",
+      "bytes": 1451,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlLongitudinal.m",
+      "source": "estado actual/Control/controlLongitudinal.m",
+      "sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a",
+      "source_sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a",
+      "bytes": 1793,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlTotal.m",
+      "source": "estado actual/Control/controlTotal.m",
+      "sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8",
+      "source_sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8",
+      "bytes": 3685,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlTraccion.m",
+      "source": "estado actual/Control/controlTraccion.m",
+      "sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a",
+      "source_sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a",
+      "bytes": 3132,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/angulosAckermann.m",
+      "source": "estado actual/Dinamica/angulosAckermann.m",
+      "sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c",
+      "source_sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c",
+      "bytes": 1487,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/fuerzaTractoraPacejka.m",
+      "source": "estado actual/Dinamica/fuerzaTractoraPacejka.m",
+      "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "source_sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "bytes": 395,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/inicializarEstadoSoloTraccion.m",
+      "source": "estado actual/Dinamica/inicializarEstadoSoloTraccion.m",
+      "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "source_sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "bytes": 489,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/pasoDinamicoSoloTraccion.m",
+      "source": "estado actual/Dinamica/pasoDinamicoSoloTraccion.m",
+      "sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f",
+      "source_sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f",
+      "bytes": 6462,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/pasoFrenadoAnterior.m",
+      "source": "estado actual/Dinamica/pasoFrenadoAnterior.m",
+      "sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05",
+      "source_sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05",
+      "bytes": 7674,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Estimacion/estimadorEstado.m",
+      "source": "estado actual/Estimacion/estimadorEstado.m",
+      "sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d",
+      "source_sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d",
+      "bytes": 5179,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Sensores/sensores.m",
+      "source": "estado actual/Sensores/sensores.m",
+      "sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692",
+      "source_sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692",
+      "bytes": 4277,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Integracion_estado_actual.mlx",
+      "source": "estado actual/Integracion_estado_actual.mlx",
+      "sha256": "4a39bda689ffccb647ae735afc4f7ee789fefc2d1111b819c030e2a97a19d1ff",
+      "source_sha256": "4a39bda689ffccb647ae735afc4f7ee789fefc2d1111b819c030e2a97a19d1ff",
+      "bytes": 8077,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Source Exports/Integracion_estado_actual.m",
+      "source": "Native MATLAB export of the active Live Script",
+      "sha256": "e7544837f677e0c17db1b001a84494389358c0ab4bee3a9c319734322c9df301",
+      "bytes": 14854,
+      "kind": "source_export"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Pacejka_V1/fuerzaPacejka.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/03_Pacejka_V1/fuerzaPacejka.m",
+      "sha256": "f2471b8eb4ed41f53660c4aad6806fc2ad9cd35ab228532d5da610810a8930b6",
+      "source_sha256": "f2471b8eb4ed41f53660c4aad6806fc2ad9cd35ab228532d5da610810a8930b6",
+      "bytes": 380,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Pacejka_V1/inicializarEstadoPacejka.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/03_Pacejka_V1/inicializarEstadoPacejka.m",
+      "sha256": "3ea532972256183c905fd12ff90e9ae394f6160ab4386712f9e8368cf13b513b",
+      "source_sha256": "3ea532972256183c905fd12ff90e9ae394f6160ab4386712f9e8368cf13b513b",
+      "bytes": 475,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Pacejka_V1/parametrosPacejka.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/03_Pacejka_V1/parametrosPacejka.m",
+      "sha256": "9da4d5d0d07dcc22e423e3d3a0de4adb11bf708ba0069e1fa53076036ec2bdf7",
+      "source_sha256": "9da4d5d0d07dcc22e423e3d3a0de4adb11bf708ba0069e1fa53076036ec2bdf7",
+      "bytes": 841,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Pacejka_V1/pasoDinamicoPacejka.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/03_Pacejka_V1/pasoDinamicoPacejka.m",
+      "sha256": "8b89e4eef3c97f6cc92c7c51ef30d584c0192776839521d3d62ea19ac0439fd8",
+      "source_sha256": "8b89e4eef3c97f6cc92c7c51ef30d584c0192776839521d3d62ea19ac0439fd8",
+      "bytes": 4279,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/fuerzaBloqueoPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/fuerzaBloqueoPacejkaV2.m",
+      "sha256": "491d9cc32606ac3e3fd1779c9e5c8b820c6c98210dba0eb2daf4fbb2b73e2923",
+      "source_sha256": "491d9cc32606ac3e3fd1779c9e5c8b820c6c98210dba0eb2daf4fbb2b73e2923",
+      "bytes": 629,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/fuerzaLateralPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/fuerzaLateralPacejkaV2.m",
+      "sha256": "8a60159002dd09ddcfbe170d2ad8e2a556a026880b11000326abea4eda2d96d5",
+      "source_sha256": "8a60159002dd09ddcfbe170d2ad8e2a556a026880b11000326abea4eda2d96d5",
+      "bytes": 455,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/fuerzaLongitudinalPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/fuerzaLongitudinalPacejkaV2.m",
+      "sha256": "b53cf240d82712c4db03d2300509cc63e959b8df1c577c864fd7c302c36a6504",
+      "source_sha256": "b53cf240d82712c4db03d2300509cc63e959b8df1c577c864fd7c302c36a6504",
+      "bytes": 581,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/fuerzasCombinadasPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/fuerzasCombinadasPacejkaV2.m",
+      "sha256": "5fd1993a290f9b38faf5ce5887607d807db9cfced4ea2b238d2acd18f88ec2f3",
+      "source_sha256": "5fd1993a290f9b38faf5ce5887607d807db9cfced4ea2b238d2acd18f88ec2f3",
+      "bytes": 1180,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/inicializarEstadoPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/inicializarEstadoPacejkaV2.m",
+      "sha256": "9444d6df4a8899d565a1ad61d45cfe12df87bac82793accfdc994bbe564da3f3",
+      "source_sha256": "9444d6df4a8899d565a1ad61d45cfe12df87bac82793accfdc994bbe564da3f3",
+      "bytes": 486,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/parametrosPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/parametrosPacejkaV2.m",
+      "sha256": "867f67667c2566c8c20472ca9b929071a39b24c04dfd56315e9e39012d8b1fa4",
+      "source_sha256": "867f67667c2566c8c20472ca9b929071a39b24c04dfd56315e9e39012d8b1fa4",
+      "bytes": 1225,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Discarded_Pacejka_V2/pasoDinamicoPacejkaV2.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/04_Pacejka_V2_descartada/pasoDinamicoPacejkaV2.m",
+      "sha256": "a9765437d6df747ad48364e85343f12a48a77d86354f030fa47cb0cc098220a2",
+      "source_sha256": "a9765437d6df747ad48364e85343f12a48a77d86354f030fa47cb0cc098220a2",
+      "bytes": 4175,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Traction_Only_Before_Ackermann/fuerzaTractoraPacejka.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/05_Pacejka_solo_traccion/fuerzaTractoraPacejka.m",
+      "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "source_sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "bytes": 395,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Traction_Only_Before_Ackermann/inicializarEstadoSoloTraccion.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/05_Pacejka_solo_traccion/inicializarEstadoSoloTraccion.m",
+      "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "source_sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "bytes": 489,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Traction_Only_Before_Ackermann/parametrosSoloTraccion.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/05_Pacejka_solo_traccion/parametrosSoloTraccion.m",
+      "sha256": "e8ce5a0a1f86c19e974ce0fbfae8eef2a3af1e743b5a613e2679a0f2d9f36713",
+      "source_sha256": "e8ce5a0a1f86c19e974ce0fbfae8eef2a3af1e743b5a613e2679a0f2d9f36713",
+      "bytes": 859,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Traction_Only_Before_Ackermann/pasoDinamicoSoloTraccion.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/05_Pacejka_solo_traccion/pasoDinamicoSoloTraccion.m",
+      "sha256": "14a2dbe679b35a22b06868471b4b24f432cfa02f6761307d74a382d94be3f773",
+      "source_sha256": "14a2dbe679b35a22b06868471b4b24f432cfa02f6761307d74a382d94be3f773",
+      "bytes": 6371,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Traction_Only_Before_Ackermann/pasoFrenadoAnterior.m",
+      "source": "histórico/04_Arquitectura_modular_2026-11-22_23/Bloques/05_Pacejka_solo_traccion/pasoFrenadoAnterior.m",
+      "sha256": "05f0229862e35f8008875c2301e82ddaf25d266b80f6563af7656be2cea034a3",
+      "source_sha256": "05f0229862e35f8008875c2301e82ddaf25d266b80f6563af7656be2cea034a3",
+      "bytes": 7526,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Before_Ackermann/fuerzaTractoraPacejka.m",
+      "source": "histórico/05_2026-11-23_Ackermann/00_Antes_Ackermann/Dinamica/fuerzaTractoraPacejka.m",
+      "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "source_sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "bytes": 395,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Before_Ackermann/inicializarEstadoSoloTraccion.m",
+      "source": "histórico/05_2026-11-23_Ackermann/00_Antes_Ackermann/Dinamica/inicializarEstadoSoloTraccion.m",
+      "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "source_sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "bytes": 489,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Before_Ackermann/pasoDinamicoSoloTraccion.m",
+      "source": "histórico/05_2026-11-23_Ackermann/00_Antes_Ackermann/Dinamica/pasoDinamicoSoloTraccion.m",
+      "sha256": "14a2dbe679b35a22b06868471b4b24f432cfa02f6761307d74a382d94be3f773",
+      "source_sha256": "14a2dbe679b35a22b06868471b4b24f432cfa02f6761307d74a382d94be3f773",
+      "bytes": 6371,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Before_Ackermann/pasoFrenadoAnterior.m",
+      "source": "histórico/05_2026-11-23_Ackermann/00_Antes_Ackermann/Dinamica/pasoFrenadoAnterior.m",
+      "sha256": "05f0229862e35f8008875c2301e82ddaf25d266b80f6563af7656be2cea034a3",
+      "source_sha256": "05f0229862e35f8008875c2301e82ddaf25d266b80f6563af7656be2cea034a3",
+      "bytes": 7526,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Before_Sensor_Extension/sensores.m",
+      "source": "histórico/06_2026-11-26_Sensores/00_Antes_ampliacion_sensores/Sensores/sensores.m",
+      "sha256": "330ea7da8a6f1ee703ce5be5f99f7a29904cec88c3443d7b711a5588ac688f4b",
+      "source_sha256": "330ea7da8a6f1ee703ce5be5f99f7a29904cec88c3443d7b711a5588ac688f4b",
+      "bytes": 831,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Dynamic Model/Archived Models/Before_EKF_Extension/estimadorEstado.m",
+      "source": "histórico/07_2026-11-26_Estimador/00_Antes_ampliacion_estimador/Estimacion/estimadorEstado.m",
+      "sha256": "f2ea7044171b82c89b83cff5c29cad0d3eae39f986a4e64aa33de1d43637e72c",
+      "source_sha256": "f2ea7044171b82c89b83cff5c29cad0d3eae39f986a4e64aa33de1d43637e72c",
+      "bytes": 1166,
+      "kind": "archived_source"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_2D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/ABS_TC_2D_previa.png",
+      "sha256": "bb0c4d61a2f1e861da1357236b6fab693dc2a44efa6d4bcfbf5286b60bad76de",
+      "source_sha256": "bb0c4d61a2f1e861da1357236b6fab693dc2a44efa6d4bcfbf5286b60bad76de",
+      "bytes": 69701,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_2D.mp4",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/ABS_TC_2D_velocidad_real.mp4",
+      "sha256": "b010b45431978c9be408801a0224761677aa0cf32ed0f3064c44cad6bccec4a0",
+      "source_sha256": "b010b45431978c9be408801a0224761677aa0cf32ed0f3064c44cad6bccec4a0",
+      "bytes": 20064640,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_3D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/ABS_TC_3D_previa.png",
+      "sha256": "347937ead7eba09021326202265aa1a866376b34d670c72b2a25c93e2c039afe",
+      "source_sha256": "347937ead7eba09021326202265aa1a866376b34d670c72b2a25c93e2c039afe",
+      "bytes": 116690,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_3D.mp4",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/ABS_TC_3D_velocidad_real.mp4",
+      "sha256": "e7b99975d6c9055298b98a6d9df026bdcb74f6707d1fafc97f93c8cd85a967ca",
+      "source_sha256": "e7b99975d6c9055298b98a6d9df026bdcb74f6707d1fafc97f93c8cd85a967ca",
+      "bytes": 42530964,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/comparison.png",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/comparacion.png",
+      "sha256": "8afeecb734cc9d02d9513e0256ef14bb111d388a493f1c14dc6343a34c23f0ff",
+      "source_sha256": "8afeecb734cc9d02d9513e0256ef14bb111d388a493f1c14dc6343a34c23f0ff",
+      "bytes": 79207,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_comparison_2D.mp4",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Comparacion_ABS_TC_2D.mp4",
+      "sha256": "b6db9001d75f7dece15fce2be48d0ee221a7b55b3e614527b085946da6db5c5c",
+      "source_sha256": "b6db9001d75f7dece15fce2be48d0ee221a7b55b3e614527b085946da6db5c5c",
+      "bytes": 5163085,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/Comparacion_ABS_TC_2D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Comparacion_ABS_TC_2D_previa.png",
+      "sha256": "b5beff264ba83161eaa79918dd344570e26acaadbe199ed3abeece78748c8deb",
+      "source_sha256": "b5beff264ba83161eaa79918dd344570e26acaadbe199ed3abeece78748c8deb",
+      "bytes": 114730,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/histories.mat",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/comparacion_bloques.mat",
+      "sha256": "b5d23937f5df0d17bc6150dad7c582125c8b78871f5c5b3b20749b171e4452aa",
+      "source_sha256": "b5d23937f5df0d17bc6150dad7c582125c8b78871f5c5b3b20749b171e4452aa",
+      "bytes": 17192609,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/diagnostics.png",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/diagnostico.png",
+      "sha256": "347bb8e2848cac559e4f363a7462f04b84ef8b29f1df12f93fd1212944dbf6cc",
+      "source_sha256": "347bb8e2848cac559e4f363a7462f04b84ef8b29f1df12f93fd1212944dbf6cc",
+      "bytes": 88004,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/Demanda.png",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Graficas_manuales/Demanda.png",
+      "sha256": "dc735daf6f21e1ac20517c4cfbdd972575c57435b2ade9920db9244866f723c8",
+      "source_sha256": "dc735daf6f21e1ac20517c4cfbdd972575c57435b2ade9920db9244866f723c8",
+      "bytes": 50669,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/summary.csv",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/resumen.csv",
+      "sha256": "b657ed9484446af3c6f37d561ecc533df0c7096a29940d930b0ce21ff42972e1",
+      "source_sha256": "02b5ae795e4cb288b338842954959df795375d72428db6ffe1f3199509881877",
+      "bytes": 228,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/abs_control_checks.json",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Verificaciones/abs_control_checks.json",
+      "sha256": "fd4b57350c8f0a6ed546ae750ddcca47d2468612564784d8a67a5ecaf6ebdbf6",
+      "source_sha256": "fd4b57350c8f0a6ed546ae750ddcca47d2468612564784d8a67a5ecaf6ebdbf6",
+      "bytes": 509,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/block_checks.json",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Verificaciones/block_checks.json",
+      "sha256": "561709bd5127dce5059ccd88e7549f6c82381257c7107f707c985b544df1828a",
+      "source_sha256": "561709bd5127dce5059ccd88e7549f6c82381257c7107f707c985b544df1828a",
+      "bytes": 358,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/extraction_checks.json",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Verificaciones/extraction_checks.json",
+      "sha256": "32d5468f53e87e91f9240f6ce19ba9650e8c33ed915cf20ebf5132258ffa5c75",
+      "source_sha256": "853d939d6392ea64d553729a3173d5d10cf109ec59b207b1acedeb1c3cd1562a",
+      "bytes": 412,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Initial/traction_control_checks.json",
+      "source": "resultados/03_Arquitectura_modular/01_Integracion_inicial/Verificaciones/traction_control_checks.json",
+      "sha256": "51992f7783c709835ff739075dc0c2af9f9ace2ca4f76e19b62043b52fd095e1",
+      "source_sha256": "51992f7783c709835ff739075dc0c2af9f9ace2ca4f76e19b62043b52fd095e1",
+      "bytes": 361,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/ABS_TC_2D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/ABS_TC_2D_previa.png",
+      "sha256": "3c74475653041b967a326011cd1587ef8342c257ff9f194aa95d9c92fa741728",
+      "source_sha256": "3c74475653041b967a326011cd1587ef8342c257ff9f194aa95d9c92fa741728",
+      "bytes": 69801,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/ABS_TC_3D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/ABS_TC_3D_previa.png",
+      "sha256": "bdab1b3ad770e9592cba0f77d266dc41c1f31deff44a1f252faad6ac3f802723",
+      "source_sha256": "bdab1b3ad770e9592cba0f77d266dc41c1f31deff44a1f252faad6ac3f802723",
+      "bytes": 130246,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/fine_tuning.csv",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/calibracion_fina.csv",
+      "sha256": "438242a43fd1481aab5a08f6211da04ee8da255c3ffecd4b9d36e378ec26e09b",
+      "source_sha256": "4e03522cb93eb53ce98fe23f0ef858a0d38a2066c8f501505d56e775303c6e3e",
+      "bytes": 217,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/initial_tuning.csv",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/calibracion_inicial.csv",
+      "sha256": "01ce3a94e2540c335187090f407d43ea720ef69fff5170784f08dfc90deb7e1c",
+      "source_sha256": "c0bc9a587c2a8bc407a92db41a72191264581ead444e524d01279a518bed0d27",
+      "bytes": 271,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/comparison.png",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/comparacion.png",
+      "sha256": "8bb122bafba58c73fa6a99191ce9ec483b767db42ea6f1c7bcadd506e8a3c5c4",
+      "source_sha256": "8bb122bafba58c73fa6a99191ce9ec483b767db42ea6f1c7bcadd506e8a3c5c4",
+      "bytes": 65351,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/ABS_TC_comparison_2D.mp4",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/Comparacion_ABS_TC_2D.mp4",
+      "sha256": "0cedf87f6c62b7e9ff51b714d7669bfea9fc5d3fbc2806f2d98fd497540bde83",
+      "source_sha256": "0cedf87f6c62b7e9ff51b714d7669bfea9fc5d3fbc2806f2d98fd497540bde83",
+      "bytes": 5412745,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/Comparacion_ABS_TC_2D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/Comparacion_ABS_TC_2D_previa.png",
+      "sha256": "61f357da27f357caa8c5719a840324c48e9b2a5448cc4319c12cb93ba41f401c",
+      "source_sha256": "61f357da27f357caa8c5719a840324c48e9b2a5448cc4319c12cb93ba41f401c",
+      "bytes": 112927,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/histories.mat",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/comparacion_bloques.mat",
+      "sha256": "b1cf02bb12e294db4e11d1c934f06322308939bcb4bfe9366bb8a738380ac86e",
+      "source_sha256": "b1cf02bb12e294db4e11d1c934f06322308939bcb4bfe9366bb8a738380ac86e",
+      "bytes": 18811601,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/diagnostics.png",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/diagnostico.png",
+      "sha256": "d7ab95598c23e620830ca515b6ca73919f1075b554b10c62ad6940e6769e3bb8",
+      "source_sha256": "d7ab95598c23e620830ca515b6ca73919f1075b554b10c62ad6940e6769e3bb8",
+      "bytes": 83921,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/summary.csv",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/resumen.csv",
+      "sha256": "86598e8cc6dac4a62315aecdfe593189e59c6c457da72acade668afeedf85371",
+      "source_sha256": "a940a015261af77652f3a3440acfe6e2fb1dd7ebc419b02862218d6cbef1fdb6",
+      "bytes": 244,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/cone_checks.csv",
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/validacion_conos.csv",
+      "sha256": "14a4cb13ae16b1aa0e8fb78d5a64841617ff5e9ce72cbf2f87c5b2bb65242e2a",
+      "source_sha256": "d316153c1cf1b9be97c73296d29bff902611ee59d9be40e44f0e2f2bf0109bf3",
+      "bytes": 77,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Longitudinal_Eta/longitudinal_eta_checks.json",
+      "source": "resultados/03_Arquitectura_modular/03_Experimento_eta_longitudinal_descartado/verificacion_perdida_longitudinal.json",
+      "sha256": "02938bac2ba4cca87f98a692850d710cf8d9a8a450b5b60f65f7eeb59acd62ce",
+      "source_sha256": "02938bac2ba4cca87f98a692850d710cf8d9a8a450b5b60f65f7eeb59acd62ce",
+      "bytes": 205,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Characterization/traction_characterization.pdf",
+      "source": "resultados/03_Arquitectura_modular/04_Caracterizacion_traccion/curvas_caracterizacion.pdf",
+      "sha256": "9b1b21d9fb006c7ebddb7055195bb37a2ac381f49734f093e6c49091cb065434",
+      "source_sha256": "9b1b21d9fb006c7ebddb7055195bb37a2ac381f49734f093e6c49091cb065434",
+      "bytes": 154602,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Characterization/traction_characterization.png",
+      "source": "resultados/03_Arquitectura_modular/04_Caracterizacion_traccion/curvas_caracterizacion.png",
+      "sha256": "67bf9be051f6570af80e21e1bd73b6e79fbcac1230b9a56f3cbe85d9fbd69682",
+      "source_sha256": "67bf9be051f6570af80e21e1bd73b6e79fbcac1230b9a56f3cbe85d9fbd69682",
+      "bytes": 130675,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Characterization/illustrative_histories.csv",
+      "source": "resultados/03_Arquitectura_modular/04_Caracterizacion_traccion/historias_ilustrativas.csv",
+      "sha256": "0a15dd6e6b0e69a6f5807a0e2a3969f0e9ad43ef88316b083a1c87e5e5e8f0b8",
+      "source_sha256": "a7a885680dc430813eb1fd28008cc91899bb00effbe53cf7fbca0af878bafd29",
+      "bytes": 220315,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Characterization/illustrative_dry_tarmac_pacejka.csv",
+      "source": "resultados/03_Arquitectura_modular/04_Caracterizacion_traccion/pacejka_asfalto_seco_tipico.csv",
+      "sha256": "21da90d9e840f734e2b1f5587241cf418085377b3038212889b361525a82fd6b",
+      "source_sha256": "7822dafa2e48d785f0147f36bcdbea1a824c03a1d3501810ad52819b84e4ae19",
+      "bytes": 48670,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/comparison.png",
+      "source": "resultados/03_Arquitectura_modular/05_Pacejka_V1/comparacion.png",
+      "sha256": "553fb07ac2851ea7893b21875077bcb93dcd4e0bc2d761660289cd9e94e4c697",
+      "source_sha256": "553fb07ac2851ea7893b21875077bcb93dcd4e0bc2d761660289cd9e94e4c697",
+      "bytes": 184702,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/histories.mat",
+      "source": "resultados/03_Arquitectura_modular/05_Pacejka_V1/comparacion_bloques.mat",
+      "sha256": "83cca5e63c7b310d5b7b51a3f36ff901ec47d473ea5d129dbd247639d171ffa1",
+      "source_sha256": "83cca5e63c7b310d5b7b51a3f36ff901ec47d473ea5d129dbd247639d171ffa1",
+      "bytes": 19476450,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/Pacejka_V1_ABS_TC_2D.mp4",
+      "source": "resultados/03_Arquitectura_modular/05_Pacejka_V1/Comparacion_Pacejka_ABS_TC_2D.mp4",
+      "sha256": "7356330fe534eee38bca25c4b5e2be92efba66a21dc8462539b59b81bd6064f7",
+      "source_sha256": "7356330fe534eee38bca25c4b5e2be92efba66a21dc8462539b59b81bd6064f7",
+      "bytes": 3297566,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/Comparacion_Pacejka_ABS_TC_2D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/05_Pacejka_V1/Comparacion_Pacejka_ABS_TC_2D_previa.png",
+      "sha256": "d10d69918aab294122f984b43a54b0303401bf371d5b37599785bf309d12b366",
+      "source_sha256": "d10d69918aab294122f984b43a54b0303401bf371d5b37599785bf309d12b366",
+      "bytes": 106419,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/summary.csv",
+      "source": "resultados/03_Arquitectura_modular/05_Pacejka_V1/resumen.csv",
+      "sha256": "704a117ae2ac57c1cf10f9361c57e355e7b380d53287fcde0d1158b5c19b393d",
+      "source_sha256": "68dbb35a7400a50633d1eebcc85b124bfd8ed1a7af513c1aa04af5713f5d301d",
+      "bytes": 237,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/pacejka_v1_checks.json",
+      "source": "resultados/03_Arquitectura_modular/05_Pacejka_V1/verificacion_pacejka.json",
+      "sha256": "0c0d491ee9f9fb055374de6fdcecee0707e06c20929b79690e086252a1d2e440",
+      "source_sha256": "375c56f2386bf965150011227e4a7181ac9f6f1ab49ae27f3e6ae891e871279b",
+      "bytes": 381,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/comparison.png",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/comparacion.png",
+      "sha256": "5043a498cdabbd4da75a8811eafe3abff698889b71519504256e8173c5828856",
+      "source_sha256": "5043a498cdabbd4da75a8811eafe3abff698889b71519504256e8173c5828856",
+      "bytes": 142070,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/histories.mat",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/comparacion_bloques.mat",
+      "sha256": "560b24437996bc74e13cc55661db3732a8150642a4050a73530d95e1cbcad032",
+      "source_sha256": "560b24437996bc74e13cc55661db3732a8150642a4050a73530d95e1cbcad032",
+      "bytes": 8871684,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Discarded_Pacejka_V2_ABS_TC_2D.mp4",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/Comparacion_Pacejka_V2_ABS_TC_2D.mp4",
+      "sha256": "16e0db6820ef560e54631290b6cb19c40402c8e35f5c92f18dfcd73ad0e50829",
+      "source_sha256": "16e0db6820ef560e54631290b6cb19c40402c8e35f5c92f18dfcd73ad0e50829",
+      "bytes": 1844575,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Comparacion_Pacejka_V2_ABS_TC_2D_previa.png",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/Comparacion_Pacejka_V2_ABS_TC_2D_previa.png",
+      "sha256": "f048af60a0427216b0f89ebd5c9660759d692d76c3f72dbaadf4bb88158a6acf",
+      "source_sha256": "f048af60a0427216b0f89ebd5c9660759d692d76c3f72dbaadf4bb88158a6acf",
+      "bytes": 117089,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/discarded_v2_tire_curves.png",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/curvas_pacejka_v2.png",
+      "sha256": "699669c1bda9ada6849557f92411bd98976c013fa5a830f3208e1d3a428baa6d",
+      "source_sha256": "699669c1bda9ada6849557f92411bd98976c013fa5a830f3208e1d3a428baa6d",
+      "bytes": 116337,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/summary.csv",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/resumen.csv",
+      "sha256": "65b1b3b9d618522c9741ecfbf41977b32588ff242345ab6a21edae30ddb53033",
+      "source_sha256": "26e7ea5d5e75cd33c30dd7d4b733c5e7cc3ba1667f335c02e72a341543966a20",
+      "bytes": 273,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/pacejka_v2_checks.json",
+      "source": "resultados/03_Arquitectura_modular/06_Pacejka_V2_descartada/verificacion_pacejka_v2.json",
+      "sha256": "d8e5a5bc3f9b51f2131fafb5a57e25414ee3df1deb5878b17432a93f29f44a92",
+      "source_sha256": "1eafa7762fb7efa0c58dc5e9a626a52ae78a11ab89e2940728e001e57ce938d1",
+      "bytes": 532,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Only/comparison.png",
+      "source": "resultados/03_Arquitectura_modular/07_Pacejka_solo_traccion_actual/comparacion.png",
+      "sha256": "1ebdcc133061553cfd4f9e43ab3c32ff10a1be110f1a32bccd44e3b51509d4d1",
+      "source_sha256": "1ebdcc133061553cfd4f9e43ab3c32ff10a1be110f1a32bccd44e3b51509d4d1",
+      "bytes": 179781,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Only/histories.mat",
+      "source": "resultados/03_Arquitectura_modular/07_Pacejka_solo_traccion_actual/comparacion_bloques.mat",
+      "sha256": "c32fa12156eb2b0a3df748282f974fff67f407e07205d042b992ac9489ec144d",
+      "source_sha256": "c32fa12156eb2b0a3df748282f974fff67f407e07205d042b992ac9489ec144d",
+      "bytes": 16641925,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Only/summary.csv",
+      "source": "resultados/03_Arquitectura_modular/07_Pacejka_solo_traccion_actual/resumen.csv",
+      "sha256": "0b608cc19fd1b54dba7e7728d81e49de9a26def0d77d0acf46b0d594ce0b5ed6",
+      "source_sha256": "b8e33b8afa4678e25172eb2373d162800a2a25e9900360280995b21af44af451",
+      "bytes": 248,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Modular_Integration/Traction_Only/traction_only_checks.json",
+      "source": "resultados/03_Arquitectura_modular/07_Pacejka_solo_traccion_actual/verificacion_solo_traccion.json",
+      "sha256": "26c22b7046f69277dc9e1d1b49a1750f9e085a3f735ba2744bbf14d295be61b5",
+      "source_sha256": "26c22b7046f69277dc9e1d1b49a1750f9e085a3f735ba2744bbf14d295be61b5",
+      "bytes": 251,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged."
+    },
+    {
+      "path": "PROJECT/Results/Tire_Model_Study/ablation_study.csv",
+      "source": "resultados/03_Arquitectura_modular/08_Estudio_deslizamiento/auditoria.csv",
+      "sha256": "8fac31640b21d662c69b36f9c839c7b757f5088cd9fbf928cd06100212a33837",
+      "source_sha256": "a0a8fc5c5909e803b43de072d7b557255732ec86196ceb3a19a8c9884a2038a3",
+      "bytes": 1396,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Tire_Model_Study/ablation_study.png",
+      "source": "resultados/03_Arquitectura_modular/08_Estudio_deslizamiento/auditoria_modelos.png",
+      "sha256": "3f06f699ac83f84a8801f7219b119171d864a0ea41255d43b3dc3dd04467d59f",
+      "source_sha256": "3f06f699ac83f84a8801f7219b119171d864a0ea41255d43b3dc3dd04467d59f",
+      "bytes": 232904,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Tire_Model_Study/discarded_v2_timeline.csv",
+      "source": "resultados/03_Arquitectura_modular/08_Estudio_deslizamiento/cronologia_v2.csv",
+      "sha256": "67eedbda3fb76fcfe84f9d6a464a6d73850d2cff3a749c9906e28eca5fb8b7b8",
+      "source_sha256": "2274bb2dff892fe9f6beac2a51f90d522c142c13d78089700d72fe76519f836d",
+      "bytes": 1700,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Tire_Model_Study/discarded_v2_first_corner.png",
+      "source": "resultados/03_Arquitectura_modular/08_Estudio_deslizamiento/primera_curva_v2.png",
+      "sha256": "0130fda517536d2f3681d009d1dbbec0eb5f9ca957706277d7429cf0f33adcfc",
+      "source_sha256": "0130fda517536d2f3681d009d1dbbec0eb5f9ca957706277d7429cf0f33adcfc",
+      "bytes": 156507,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Ackermann/comparison.png",
+      "source": "resultados/04_Ackermann_2026-11-23/01_Integracion_actual/comparacion.png",
+      "sha256": "1c61651e5894efc92192dac1070a06c942f6d5eefeb5efb0a1ab129d97a1495b",
+      "source_sha256": "1c61651e5894efc92192dac1070a06c942f6d5eefeb5efb0a1ab129d97a1495b",
+      "bytes": 183105,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Ackermann/histories.mat",
+      "source": "resultados/04_Ackermann_2026-11-23/01_Integracion_actual/comparacion_bloques.mat",
+      "sha256": "80237158113c6d0c784a9029c7accdb46f33a03b43dcae02df1001a0bcbc3653",
+      "source_sha256": "c5385b1d83db24b23bef689ea53a26b6ce6c656f1b501fcfb20ad7c2f0afaba3",
+      "bytes": 18166363,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Workstation path strings removed using MATLAB; all other fields preserved and verified with isequaln."
+    },
+    {
+      "path": "PROJECT/Results/Ackermann/summary.csv",
+      "source": "resultados/04_Ackermann_2026-11-23/01_Integracion_actual/resumen.csv",
+      "sha256": "caa17648ad263aa0accf146e591ad4d28cc57641bbbf7e71e25ef067266c4906",
+      "source_sha256": "7300ba647ec5caaf0043d18acb9a99d2b28651ffba7bce9b88c8eb7d8b25e504",
+      "bytes": 250,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Ackermann/ackermann_checks.json",
+      "source": "resultados/04_Ackermann_2026-11-23/01_Integracion_actual/verificacion_ackermann.json",
+      "sha256": "a2ba6a331508370ed6f457eaae9c4af876eec6c73995c42795dc61fb490c4b9e",
+      "source_sha256": "202a77cfccc712e947199a4a5c8d3bc2725c437d8a94861d7034e90e7b9c3bac",
+      "bytes": 419,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Sensors/sensor_checks.json",
+      "source": "resultados/05_Sensores_2026-11-26/verificacion_sensores.json",
+      "sha256": "0aecc20aa22ff19bd3d2b5d28f048516811e073bd26896333b522d14868cdfdb",
+      "source_sha256": "fe55fd85794476a28fd744b625efb0bd3bb727fb4ee36012611cdf0f89f7ca46",
+      "bytes": 995,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Estimator/estimator_benchmark.mat",
+      "source": "resultados/06_Estimador_2026-11-26/benchmark_estimador.mat",
+      "sha256": "6447ffb23e180c8f33f471bd14c455f9a247c0954eb8e5e2627ae251a652458d",
+      "source_sha256": "6447ffb23e180c8f33f471bd14c455f9a247c0954eb8e5e2627ae251a652458d",
+      "bytes": 761595,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Estimator/estimator_checks.json",
+      "source": "resultados/06_Estimador_2026-11-26/verificacion_estimador.json",
+      "sha256": "1456a1f7847adca65995e16f2db77dd1f6bb4ab335a6975f1ff5325683467928",
+      "source_sha256": "6b9c6ee778121e2a36b5ba9f0a19ea6e18534d00019da380ac9ab1a29edec149",
+      "bytes": 1024,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/histories.mat",
+      "source": "resultados/07_Lazo_completo_2026-11-26/analisis_primer_intento/lazo_completo.mat",
+      "sha256": "7de1b101ed49a16f5812d7237cee9cedf91d0ede63c0cafda4acfab7f56c2993",
+      "source_sha256": "caf67843dc4ea22a79276b08a2e4c29f0954859fda30c5b2c7295b77dbfa4cfc",
+      "bytes": 37747481,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Workstation path strings removed using MATLAB; all other fields preserved and verified with isequaln."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_2D.mp4",
+      "source": "resultados/07_Lazo_completo_2026-11-26/analisis_primer_intento/Lazo_completo_primer_intento_fallido_2D.mp4",
+      "sha256": "7d18e7ef99dd82e168406e0950d79fef866467a407cf07d0de948867fee0210d",
+      "source_sha256": "7d18e7ef99dd82e168406e0950d79fef866467a407cf07d0de948867fee0210d",
+      "bytes": 2347349,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
+      "source": "resultados/07_Lazo_completo_2026-11-26/analisis_primer_intento/previa_fallo_2D.png",
+      "sha256": "51c4fa00a82b78bc460a518de003ca547a1c9d192832b62f0ba2086f5ee9ae2d",
+      "source_sha256": "51c4fa00a82b78bc460a518de003ca547a1c9d192832b62f0ba2086f5ee9ae2d",
+      "bytes": 180569,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/summary.csv",
+      "source": "resultados/07_Lazo_completo_2026-11-26/analisis_primer_intento/resumen.csv",
+      "sha256": "01f261a82672e8e208a6eaf3d331c2c6dbe4dff3c31de99d54c297eb94e4e646",
+      "source_sha256": "eb9acbd048c6857e31499b161544e739263a7881c343c825b2afa58513697aa2",
+      "bytes": 627,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/closed_loop_comparison.png",
+      "source": "resultados/07_Lazo_completo_2026-11-26/comparacion_lazo.png",
+      "sha256": "19fde4380243fad7ecf6fd997fe1f8e568285df733c4514f37e447dd26959044",
+      "source_sha256": "19fde4380243fad7ecf6fd997fe1f8e568285df733c4514f37e447dd26959044",
+      "bytes": 210014,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/Closed_loop_ABS_TC_comparison_2D_x4.mp4",
+      "source": "resultados/07_Lazo_completo_2026-11-26/Comparacion_lazo_completo_actual_2D_x4.mp4",
+      "sha256": "57f8b6f1d2a44e5932d022cd1b907ffbb8f6d00fc7de3cad32a4cedf82ac6efc",
+      "source_sha256": "57f8b6f1d2a44e5932d022cd1b907ffbb8f6d00fc7de3cad32a4cedf82ac6efc",
+      "bytes": 3732643,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
+      "source": "resultados/07_Lazo_completo_2026-11-26/Comparacion_lazo_completo_actual_2D_x4_previa.png",
+      "sha256": "6af09fc4699d33531d1132f548520ce02763c7d779aca0f59d10e4e225a0b7bb",
+      "source_sha256": "6af09fc4699d33531d1132f548520ce02763c7d779aca0f59d10e4e225a0b7bb",
+      "bytes": 114671,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/estimation_and_capacity.png",
+      "source": "resultados/07_Lazo_completo_2026-11-26/estimacion_y_capacidad.png",
+      "sha256": "892c109488c4f756799b4ec100ecb873e1b64183e00cfe8e49dd691e2707b483",
+      "source_sha256": "892c109488c4f756799b4ec100ecb873e1b64183e00cfe8e49dd691e2707b483",
+      "bytes": 230430,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/histories.mat",
+      "source": "resultados/07_Lazo_completo_2026-11-26/lazo_completo.mat",
+      "sha256": "1ec3ed671c4420de4c4e177eb44b5a5e2685b95b10d572210136ca37d795b5f4",
+      "source_sha256": "34dc47ca1a6a77a74c098e53729c9bf3764f35b065360286ea13840021d2e9f5",
+      "bytes": 44753109,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Workstation path strings removed using MATLAB; all other fields preserved and verified with isequaln."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/summary.csv",
+      "source": "resultados/07_Lazo_completo_2026-11-26/resumen.csv",
+      "sha256": "d2988111d083d60f84b78c61967300af6da25d4d16f407b67f1c08452fa4b3b4",
+      "source_sha256": "dbe879b5481db997403ea73dd9f70519cee4fc9022634d903f31cc24a1bc17ba",
+      "bytes": 609,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/loop_checks.json",
+      "source": "resultados/07_Lazo_completo_2026-11-26/verificacion_lazo.json",
+      "sha256": "49a2a96ab9baa2292709d8f16e4075e5e49e30f059c45c9a3b526512ce0497e8",
+      "source_sha256": "49a2a96ab9baa2292709d8f16e4075e5e49e30f059c45c9a3b526512ce0497e8",
+      "bytes": 446,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/actual_vs_estimated_video.json",
+      "source": "estado actual/Resultados/Lazo_actual_ABS_TC_real_estimado_2D.json",
+      "sha256": "d9d450eb1f8c358bc996962bdac189fb083623d723c27c52e7e7c4ca79876ce7",
+      "source_sha256": "fd4919884d8073255e2c4a7a4ff4d6a6eb97670e2576926cc433e5abd05c5f6c",
+      "bytes": 672,
+      "kind": "recorded_evidence",
+      "metadata_edit": "Removed workstation-specific path prefixes; numeric evidence unchanged. Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_ABS_TC_2D.mp4",
+      "source": "estado actual/Resultados/Lazo_actual_ABS_TC_real_estimado_2D.mp4",
+      "sha256": "7b23ecec6fac4616c7c47a627561cd1843f7928d8d18a2a1704c470a3f0aa87a",
+      "source_sha256": "7b23ecec6fac4616c7c47a627561cd1843f7928d8d18a2a1704c470a3f0aa87a",
+      "bytes": 29960907,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
+      "source": "estado actual/Resultados/Lazo_actual_ABS_TC_real_estimado_2D_previa.png",
+      "sha256": "4bf03be16b856647329a38dbe9b6c4172dc0713f20d7169046f21a32acb8f27e",
+      "source_sha256": "4bf03be16b856647329a38dbe9b6c4172dc0713f20d7169046f21a32acb8f27e",
+      "bytes": 340847,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/same_measurement_Q_replay.csv",
+      "source": "Saved-record diagnostic replay",
+      "sha256": "8fdefd062e6a54fd86123447118699a05ceb2ed6be695975805d139a8a0985b4",
+      "bytes": 288,
+      "kind": "diagnostic_replay",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Results/Closed_Loop/straight_line_departure.csv",
+      "source": "Saved-record diagnostic replay",
+      "sha256": "e5971d9e5ac94b190a3edaeddf92bb8b43baa869cf1737bb8d77578aa864298a",
+      "bytes": 2310,
+      "kind": "diagnostic_replay",
+      "metadata_edit": "Recorded values retained; portable LF line endings."
+    }
+  ],
+  "deduplicated_files": [
+    {
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/ABS_TC_2D_velocidad_real.mp4",
+      "published_as": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_2D.mp4"
+    },
+    {
+      "source": "resultados/03_Arquitectura_modular/02_PurePursuit_ajustado_y_experimento_eta/ABS_TC_3D_velocidad_real.mp4",
+      "published_as": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_3D.mp4"
+    },
+    {
+      "source": "estado actual/Resultados/Lazo_completo_primer_intento_fallido_2D.mp4",
+      "published_as": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_2D.mp4"
+    }
+  ],
+  "excluded_large_audit_mat": "CSV, figures and study source published instead of the 53 MB audit MAT.",
+  "local_blocks_modified": false,
+  "reproduction_tools": [
+    "PROJECT/Tools/verificarLazoPublicado.m",
+    "PROJECT/Tools/repetirEstimacionQ.m",
+    "PROJECT/Tools/diagnosticarSalidaRecta.m"
+  ],
+  "mat_metadata_validation": "Native MATLAB removed workstation paths in copied structs/cells. isequaln confirmed round-trip preservation of every sanitized payload; originals untouched."
+}

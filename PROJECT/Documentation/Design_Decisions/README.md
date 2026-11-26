@@ -1,5 +1,11 @@
 # Design decisions
 
+This page records the **historical V1–V12 decisions**. For subsequent tyre-model
+experiments, Ackermann, sensing, estimation and complete-loop integration, read
+the [post-V12 decision ledger](Post_V12_Decisions.md),
+[technical report](../Dynamics_Development.md) and
+[Q/failure analysis](../Estimator_Q_and_Failure_Analysis.md).
+
 [← Documentation](../README.md) · [Version history](../Versions/README.md) · [Results](../../Results/README.md)
 
 ## From chassis motion to individual contacts

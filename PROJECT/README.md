@@ -1,75 +1,86 @@
 # Project overview
 
-[← Repository](../README.md) · [Plant](Dynamic%20Model/README.md) · [Hybrid tests](Hybrid%20Tests/README.md) · [Results](Results/README.md) · [Design history](Documentation/README.md)
+[← Repository](../README.md) · [Current package](Current%20State/README.md) · [Results](Results/README.md) · [Theory](Documentation/Dynamics_Development.md) · [Design history](Documentation/README.md)
 
-**Develop a Formula Student Driverless vehicle model and prepare coordinated stability control around it.**
+**A four-wheel vehicle model connected to noisy sensors, state estimation and force-based control.**
 
-The long-term objective is an ESC coordinating selective braking, traction management and steering correction. This snapshot contains the plant evolution and test environments through **V12**, separated callable blocks and a new force-based rear traction-demand limiter. ESC and physical-slip ABS/TCS have not yet been implemented.
+The snapshot dated **26 November 2026** includes the complete sensing–estimation loop, rear traction-only Pacejka, historical braking, Ackermann geometry and force-based ABS/TC. The long-term objective remains coordinated stability control: an ESC yaw controller and physical-slip ABS/TCS are not yet implemented. V1–V12 remain historical development stages, with later milestones documented separately.
 
 ## Project layout
 
-The original separation between root-level coursework and the main project is retained. New directories follow the repository's existing English naming style; historical MATLAB filenames are kept for compatibility.
+The original coursework/project separation is retained. Directory headings and documentation are English; active MATLAB identifiers and comments remain Spanish as requested.
 
 ```text
 PROJECT/
-├── Dynamic Model/    Four-wheel plant V1–V8 and manoeuvre scripts
-├── Hybrid Tests/     Tracking, planning, stress tests and animation
-├── Results/          Figures, videos, metrics and telemetry
-├── Documentation/    Decisions, version history and intermediate slides
+├── Current State/    Active complete-loop package and local output folder
+├── Dynamic Model/    V1–V8 plant and archived later alternatives
+├── Hybrid Tests/     Tracking, planning and V8–V12 stress scenarios
+├── Results/          Recorded figures, videos, metrics and telemetry
+├── Documentation/    Theory, decisions, chronology and limitations
 └── Tools/            Reproduction and publication checks
 ```
 
 | Directory | Start here |
 |---|---|
-| [Dynamic Model](Dynamic%20Model/README.md) | Prototypes, V1–V8 and the Ensayos subdirectory |
+| [Current State](Current%20State/README.md) | Active dynamics, sensors, EKF, control and complete-loop Live Script |
+| [Dynamic Model](Dynamic%20Model/README.md) | Historical prototypes, V1–V8 and archived later physical alternatives |
 | [Hybrid Tests](Hybrid%20Tests/README.md) | V8 tracking and V9–V12 planning/stress scenarios |
-| [Results](Results/README.md) | Ten videos, figures and data from 50 recorded histories |
-| [Documentation](Documentation/README.md) | Twelve stages, design decisions and known limitations |
-| [Modular Architecture](Modular%20Architecture/README.md) | New integration stage: standalone frozen dynamic block and editable simulation harness |
-| [Blocks](Blocks/README.md) | Callable sensing, estimation, lateral/longitudinal control, emergency and frozen dynamics functions |
+| [Results](Results/README.md) | Current complete-loop evidence, tyre-model experiments and historical campaigns |
+| [Documentation](Documentation/README.md) | Theory, decisions, Q analysis and milestones |
+| [Modular Architecture](Modular%20Architecture/README.md) | Historical plant-only extraction and simulation harness |
+| [Blocks](Blocks/README.md) | Historical callable-block extraction, superseded by Current State |
 
 ## Run a scenario
 
-MATLAB **R2026a** was used to verify recent simulations and generate the videos. Native `patch`, `hgtransform` and camera functions provide the 3D display without an additional visualization library. Earlier MATLAB releases have not been certified.
+MATLAB **R2026a** was used for verification and rendering. Earlier releases have not been certified. Native graphics provide the historical 3D scenes without an additional visualization library; the vehicle physics remains planar.
 
 | Objective | MATLAB Current Folder | Live Script |
 |---|---|---|
-| Inspect the reference plant | `PROJECT/Dynamic Model` | `CuatroruedasV8_bloqueo_ruedas.mlx` |
-| Track a path with a speed plan | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V9_PurePursuit_animada.mlx` |
-| Follow one car in 3D | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V11_35ms_3D.mlx` |
-| Stress acceleration adhesion | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx` |
+| Run the complete estimated loop | `PROJECT/Current State` | `Integracion_estado_actual.mlx` |
+| Inspect historical V8 | `PROJECT/Dynamic Model` | `CuatroruedasV8_bloqueo_ruedas.mlx` |
+| Track a path with the earlier speed plan | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V9_PurePursuit_animada.mlx` |
+| Follow the earlier single car in 3D | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V11_35ms_3D.mlx` |
+| Inspect the V12 acceleration stress test | `PROJECT/Hybrid Tests` | `Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx` |
 
-Run each `.mlx` in full. The plant script finds its manoeuvre helpers through `fullfile(pwd,'Ensayos')`. The interactive player provides pause, restart, a time slider and camera selection; closing it deletes its timer.
-
-**Source Exports** contains readable `.m` copies, separate from the original `.mlx` files to prevent same-name script shadowing. Do not recursively add every historical export to the MATLAB path.
+Run each `.mlx` in full. The current entry point loads only its package functions and writes future output to `Current State/Resultados`. Historical V8 helpers use `Ensayos`; the older interactive players do not automatically use the current EKF. **Source Exports** are kept separately to avoid same-name script shadowing. Do not recursively add historical model/export folders to the path.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    P[Track and curvature] --> V[Speed planner]
-    P --> L[Pure Pursuit]
-    V --> D[Speed control / driver]
-    L --> U[Input u: total Fx and steering delta]
-    D --> U
-    U --> F[pasoDinamico z,u,p,dt]
-    F --> Z[Next state and telemetry]
-    Z --> L
-    Z --> D
-    Z --> A[Results and animation]
+    F[Hybrid four-wheel plant] --> S[Noisy GPS IMU and steering]
+    S --> E[Seven-state EKF]
+    E --> R[Estimated path position and speed reference]
+    E --> A[External capacity prediction and adapter]
+    R --> C[Pure Pursuit and longitudinal driver]
+    A --> C
+    C --> L[ABS or TC with emergency priority]
+    L --> F
+    F --> V[Truth-based evaluation and rendering]
 ```
 
-This diagram describes the existing implementation, not the future ESC integration diagram. The plant remains frozen during the next architecture phase:
+The estimated loop never silently substitutes the true tyre state. Controller-owned braking memories are deterministic calculations, not fictitious sensor channels. The thirteen existing block functions were preserved when the loop was connected; its integration uses external adapters. The current plant contract is:
 
 ```matlab
-[z_next, tele] = pasoDinamico(z, u, p, dt);
+[z_next, tele] = pasoDinamicoSoloTraccion(z, u, p, dt);
+u = [FxDI; FxDD; FxTI; FxTD; delta];
 ```
 
-`z_next` is the entire next state, including adhesion and lock-mode memories, rather than position alone. [Full interface contract →](Dynamic%20Model/README.md#plant-interface)
+`z_next` has 24 components, including motion, historical memories and four wheel-speed values. Rear rotation is dynamic in traction; braking uses reconstructed wheel-speed diagnostics. The input also accepts `[FxTotal;delta]`, and mixed positive/negative wheel demands are rejected. [Current contract and limitations →](Current%20State/README.md)
 
-## Reference results
+## Current complete-loop results
 
-Same 631.56 m stress circuit and 35 m/s speed cap:
+| Configuration | Lap time [s] | Maximum path error [m] | Position-estimator RMSE [m] |
+|---|---:|---:|---:|
+| Estimated loop, ABS/TC on | 47.370 | 0.350 | 0.142 |
+| Estimated loop, ABS/TC off | 101.228 | 7.258 | 3.145 |
+| Perfect-state reference, ABS/TC on | 47.132 | 0.329 | — |
+
+The uncontrolled route completion includes corridor departures. The first controlled attempt with inherited Q failed at 6.046 s; its video and histories are retained. The later Q adjustment is provisional, and the plant's `vx >= 0` clamp is not reproduced by the EKF during extreme motion. [Evidence and definitions →](Results/Closed_Loop/README.md) · [Q and failure analysis →](Documentation/Estimator_Q_and_Failure_Analysis.md)
+
+## Historical V10–V12 results
+
+Same 631.56 m stress circuit and 35 m/s speed cap, before the current tyre/estimator changes:
 
 | Configuration | Lap time [s] | Maximum lateral error [m] | CG outside track [%] |
 |---|---:|---:|---:|
@@ -77,16 +88,12 @@ Same 631.56 m stress circuit and 35 m/s speed cap:
 | V11 — demanding mapping | 47.680 | 0.776 | 0 |
 | V12 — extreme acceleration | 149.036 | 4.347 | 18.103 |
 
-V11 changes planning assumptions, not plant adhesion limits. V12 doubles the maximum requested driving force from 2500 to 5000 N and reduces its application time constant from 0.030 to 0.010 s; braking and plant equations remain unchanged. [Detailed comparison →](Results/README.md)
+V11 changed planning assumptions. V12 doubled the maximum requested driving force from 2500 to 5000 N and reduced its application time constant from 0.030 to 0.010 s, without changing that stage's plant equations. [Historical comparison →](Results/README.md)
 
 ## Interpretation and next steps
 
-Abrupt demands consume adhesion and can severely degrade tracking. Completing a lap does not establish track containment or physical validity. Track-exit statistics use the centre of gravity, not the body envelope; lock statistics refer to the model's phenomenological mode. A configured maximum speed is a cap and may never be reached.
+Completing a lap does not establish track containment or physical validity. Historical track-exit statistics use the centre of gravity, not the body envelope; lock statistics refer to the relevant model's approximation. A speed cap may never be reached.
 
-Next, assemble the block architecture without changing `pasoDinamico`. Independent wheel-force commands, yaw control and ABS/TCS coordination remain pending. A future controller must either add the physics needed for actual wheel slip or explicitly remain a force-based controller for the approximate model.
+Next, review extreme-motion plant/estimator consistency, test ABS and TC separately and across additional noise seeds, and design the missing ESC yaw controller. Lower Q cannot repair missing dynamics or unestimated bias. Internal block changes require review; the current loop was connected externally.
 
-The plant and initializer now live in [Blocks](Blocks/README.md), together with five separated functions for sensing, P5 estimation/emergency, and V12 lateral/longitudinal control. The existing `runSimulation.m` remains in [Modular Architecture](Modular%20Architecture/README.md) and points to that directory. Its default loop still runs only the plant scenario. The relocated function remains an exact extraction, and all original plant states and telemetry are unchanged.
-
-## History and compatibility
-
-[Documentation](Documentation/README.md) explains the decisions and the known compatibility issues in historical V7 and non-animated V9. V1–V8 describe plant development; V9–V12 are hybrid test environments reusing that plant. `Modelo_cuatroruedasV1/V2` are parallel prototypes, not two additional numbered stages.
+The [earlier Blocks package](Blocks/README.md) and [plant-only Modular Architecture template](Modular%20Architecture/README.md) remain historical snapshots. Their four-state EKF and total-force plant do not describe the current runnable package. [History](Documentation/Versions/README.md) preserves V1–V12 and [later milestones](Documentation/Versions/After_V12/README.md) without inventing additional version numbers.

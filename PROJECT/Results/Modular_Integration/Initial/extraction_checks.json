@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-22",
+  "environment": "MATLAB R2026a",
+  "inputs": 4,
+  "outputs": 2,
+  "state_components": 20,
+  "default_steps": 3736,
+  "duration_s": 7.472,
+  "peak_vx_ms": 35.00150340202997,
+  "distance_m": 140.0144939444009,
+  "exact_default_state_and_telemetry_match": true,
+  "extra_mode_comparison_steps": 700,
+  "exact_mode_state_and_telemetry_match": true,
+  "lock_loss_release_exercised": true
+}

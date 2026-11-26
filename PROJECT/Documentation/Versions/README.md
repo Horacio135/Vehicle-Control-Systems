@@ -1,8 +1,10 @@
-# Development history: V1–V12
+# Development history
 
 [← Documentation](../README.md) · [Design decisions](../Design_Decisions/README.md) · [Results](../../Results/README.md)
 
 V1–V8 describe the plant; V9–V12 add tracking, planning, stress testing and visualization around it. Historical files are not renamed to suggest a different development sequence.
+
+The active project has progressed to traction-only Pacejka, Ackermann, expanded sensors/EKF and a complete estimated loop. These are recorded as [post-V12 milestones](After_V12/README.md), not invented additional numbered releases. Use [Current State](../../Current%20State/README.md) to run the latest package.
 
 | Stage | Focus |
 |---|---|

@@ -1,8 +1,10 @@
-# Callable project blocks
+# Historical callable-block extraction
 
 [← Project](../README.md) · [Plant-only simulation template](../Modular%20Architecture/README.md)
 
-Callable blocks are exposed alongside the unchanged dynamic plant and its initializer. Longitudinal/lateral control comes from V12; sensing, the EKF and TTC emergency logic come from solved practice 5. A force-based rear traction-demand limiter is now included. The complete closed-loop architecture, ESC and ABS are not yet connected or implemented.
+**This page describes the earlier extraction stage, not the active complete loop.** Use [Current State](../Current%20State/README.md) for the seven-state EKF, Ackermann hybrid plant, connected force-based ABS/TC and external adapters. [Current evidence](../Results/Closed_Loop/README.md) includes the successful estimated loop and the retained failed attempt.
+
+The historical stage exposed callable blocks alongside its unchanged plant and initializer. Longitudinal/lateral control came from V12; sensing, the four-state EKF and TTC emergency logic came from practice 5. Its original contracts and limitations are retained below. Statements that integration or ABS were pending refer to this extraction stage. No ESC yaw law has been added in the current package either.
 
 ## Inputs and outputs
 
@@ -60,7 +62,7 @@ The factor can be increased above one to deliberately permit demand beyond the c
 
 **Capacity definition:** the requested rule uses the plant's **combined-force radius**, not `sqrt(Fmax^2-Fy^2)`. Therefore 0.98 does not reserve a separately calculated lateral-force budget or guarantee no combined saturation in a corner.
 
-**Current integration limits:** z is the complete physical state, so this first block is a model-based/ideal-information limiter. The P5 estimator alone does not supply all its required capacity information. The output is independently limited per rear wheel, but the frozen plant still accepts a total force with fixed allocation. The limiter is not automatically connected, and summing unequal corrected requests does not reproduce their individual limits after the plant redistributes that total.
+**Historical integration limits:** z is the complete physical state, so this first block is a model-based/ideal-information limiter. The P5 estimator alone does not supply all its required capacity information. The output is independently limited per rear wheel, but the frozen plant still accepts a total force with fixed allocation. The limiter is not automatically connected, and summing unequal corrected requests does not reproduce their individual limits after the plant redistributes that total.
 
 [Traction-limiter checks](traction_control_checks.json) verify exact capacity agreement with the plant, transfer asymmetry, post-brake recovery, threshold behaviour and unchanged braking requests.
 

@@ -12,3 +12,7 @@ slprj/
 !.env.example
 .DS_Store
 Thumbs.db
+
+# Keep future local runs separate from the published evidence.
+PROJECT/Current State/Resultados/*
+!PROJECT/Current State/Resultados/README.md

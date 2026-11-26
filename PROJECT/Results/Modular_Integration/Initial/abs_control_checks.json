@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-23",
+  "wheel_order": [
+    "DI",
+    "DD",
+    "TI",
+    "TD"
+  ],
+  "only_negative_requests_limited": true,
+  "positive_and_zero_bypass_unchanged": true,
+  "mixed_sign_and_column_inputs_passed": true,
+  "threshold_equality_unchanged": true,
+  "current_adhesion_loss_preserved": true,
+  "zero_friction_passed": true,
+  "sampled_braking_capacity_checks": 500,
+  "plant_state_not_modified": true,
+  "capacity_timing": "Current z memory; no prediction or plant-memory update inside ABS."
+}

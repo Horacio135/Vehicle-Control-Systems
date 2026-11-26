@@ -2,30 +2,37 @@
 
 [← Project](../README.md) · [Versions](Versions/README.md) · [Design decisions](Design_Decisions/README.md) · [Results](../Results/README.md)
 
-**Design rationale, development stages and evidence through V12.** This record is reconstructed from code, saved artifacts and the working-session decisions. It does not invent intermediate dates, measurements or commits. The archival snapshot is dated **22 November 2026**; figures and runs retain their historical configurations.
+**Design rationale, theory and evidence from V1 through the complete estimated loop.** The current milestone is dated **26 November 2026**; the original V1–V12 archival snapshot remains dated 22 November. Figures and runs retain their own model/configuration rather than being relabelled as current evidence.
 
 ## Reading paths
 
 | If you want to… | Read… |
 |---|---|
-| Follow the evolution from V1 to V12 | [Version history](Versions/README.md) |
-| Understand why a modelling choice was made | [Design decisions](Design_Decisions/README.md) |
-| Connect a controller to the plant | [Plant contract](../Dynamic%20Model/README.md#plant-interface) |
+| Run the current complete loop | [Current State](../Current%20State/README.md) |
+| Read the physical derivation and rejected alternatives | [Dynamics development](Dynamics_Development.md) |
+| Understand the Q adjustment and straight-line departure | [Estimator and failure analysis](Estimator_Q_and_Failure_Analysis.md) |
+| Review recent design decisions and rejected alternatives | [Post-V12 decision ledger](Design_Decisions/Post_V12_Decisions.md) |
+| Follow V1–V12 | [Version history](Versions/README.md) |
+| Continue beyond V12 | [Later milestones](Versions/After_V12/README.md) |
+| Understand the earlier decisions | [Design decisions](Design_Decisions/README.md) |
 | Check numerical conclusions | [Results](../Results/README.md) |
-| Trace an archived artifact | [Artifact manifest and hashes](artifact_manifest.json) |
-| Understand result provenance | [Numerical evidence](../Results/Numerical/README.md) |
+| Trace original V1–V12 artifacts | [Original manifest](artifact_manifest.json) |
+| Trace current source and new evidence | [Closed-loop manifest](closed_loop_artifact_manifest.json) |
+| Understand historical result provenance | [Numerical evidence](../Results/Numerical/README.md) |
 | Review documentation presentation choices | [README design references](README_References.md) |
 
 ## Intermediate presentation
 
-Read the [English presentation transcript](Intermediate_Presentation_English.md) for all thirteen slides. The [original intermediate presentation](SCV_Evaluaci%C3%B3n_Intermedia_Proyecto_HHRB.pptx) is retained as the recorded milestone. It describes understeer/oversteer, the ESC choice, future ABS/TCS coordination, tyre forces and load transfer. It represents an **intermediate milestone**, not the final V12 state.
+The [English presentation transcript](Intermediate_Presentation_English.md) covers all thirteen slides. The [original presentation](SCV_Evaluaci%C3%B3n_Intermedia_Proyecto_HHRB.pptx) retains the intermediate milestone: understeer/oversteer, ESC choice, future ABS/TCS coordination, tyre forces and transfer of load. Its pending-work list is historical, not a description of the current package.
 
-ABS/TCS, basic ESC and integration are listed as pending. Improvements in stability and performance are hypotheses to be measured, not demonstrated benefits of an implemented ESC. Recent videos and tables extend the evidence but still do not establish experimental validity.
+The current loop includes force-based ABS/TC and seven-state estimation; an ESC yaw law and physical-slip regulators remain pending. Neither the old slides nor the current successful lap establish experimental validity.
 
-## Archive policy
+## Archive and language policy
 
-Files retain their historical names. Source comments, instructions and display messages have been localized into English; identifiers, parameters and executable equations are unchanged. The manifest records original-source hashes as well as current localized hashes. Recorded figures, videos and the intermediate presentation retain their original bytes. Exclusions are `.asv` autosaves, `.bak` backups, `Respaldo_*` directories, an `untitled.m` scratch file and a duplicate skidpad helper. Credentials, machine configuration and absolute user paths are not published in the manifests.
+Earlier V1–V12 publication localized explanatory source text into English without changing executable equations; that history is preserved. **Current MATLAB identifiers and comments remain Spanish as requested, while the surrounding documentation is English.** Original filenames and recorded graphic/video labels are retained where needed for provenance.
 
-**Source Exports** provides readable representations of MLX code. **Run_Sources** preserves the configurations that generated historical results, which can differ from current files. V7/V9 compatibility limitations are documented rather than silently fixed. The plant remains frozen for the next block-architecture phase.
+The manifests record source and published hashes. Identical media are stored once and mapped in the newer manifest. Autosaves, backups, credentials and machine configuration are excluded. Source/metadata localization must never be presented as a new physical simulation.
 
-The documentation, MATLAB explanatory text and newly generated plot labels are in English. Previously recorded plots, videos and presentation slides remain historical artifacts; their English explanations and measurement definitions are provided alongside them. The original pre-localization source is available in [the archived Git revision](https://github.com/Horacio135/Vehicle-Control-Systems/tree/b52aeef7d87d04282984e22a5ac1cce60275f92e).
+**Source Exports** provides readable MLX code without creating same-name script shadowing. **Run_Sources** preserves older configurations. V7/V9 compatibility limits remain documented rather than silently fixed. The [current package](../Current%20State/README.md) supplies the active hybrid plant, sensors, EKF and external integration adapters.
+
+The original pre-localization V1–V12 source remains available in [the archived Git revision](https://github.com/Horacio135/Vehicle-Control-Systems/tree/b52aeef7d87d04282984e22a5ac1cce60275f92e).

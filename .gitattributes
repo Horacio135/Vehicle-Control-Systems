@@ -19,3 +19,9 @@ Base_Model/Base_Model.m text eol=lf
 *.json text eol=lf
 *.csv text eol=lf
 *.py text eol=lf
+
+# Current package mirrors the verified local MATLAB source byte-for-byte.
+"PROJECT/Current State/**/*.m" -text whitespace=-trailing-space,-blank-at-eof
+"PROJECT/Current State/*.m" -text whitespace=-trailing-space,-blank-at-eof
+"PROJECT/Dynamic Model/Archived Models/**/*.m" -text whitespace=-trailing-space,-blank-at-eof
+*.mat binary

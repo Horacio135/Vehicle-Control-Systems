@@ -2,6 +2,28 @@
 
 [← Project](../README.md) · [Run sources](../Results/Run_Sources/README.md)
 
+## Verify the current complete loop
+
+```bash
+python PROJECT/Tools/verify_closed_loop_publication.py
+```
+
+The [publication report](closed_loop_publication_checks.json) checks current
+artifact hashes, original-source equality, links, recorded metrics and video
+coverage. The [MATLAB smoke record](closed_loop_matlab_checks.json) exercises
+1,000 steps with both traction and braking modes using the published package.
+
+From MATLAB, run `PROJECT/Tools/verificarLazoPublicado.m` for that short interface
+test. Run `PROJECT/Tools/repetirEstimacionQ.m` to replay both Q settings on the
+same saved measurements, or `PROJECT/Tools/diagnosticarSalidaRecta.m` to inspect
+the straight-line departure chronology. These scripts read the published
+histories and write diagnostic reports; they do not modify block internals.
+
+Use [the active Live Script](../Current%20State/Integracion_estado_actual.mlx)
+for a complete circuit run. Its generated output is separate from the recorded
+evidence. Documentation is English; the current MATLAB source keeps Spanish
+identifiers and comments. The localization records below concern older stages.
+
 ## Reproduce a simulation
 
 `reproduce_run.m` executes an archived source snapshot and saves full-resolution results. It requires MATLAB, not Python or an existing video.

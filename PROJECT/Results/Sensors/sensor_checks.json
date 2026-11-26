@@ -1,0 +1,51 @@
+{
+  "fecha": "2026-11-26",
+  "muestras_estadisticas": 20000,
+  "canales": [
+    "ax",
+    "ay",
+    "r",
+    "gps_X",
+    "gps_Y",
+    "delta_equivalente"
+  ],
+  "sesgos_configurados": [
+    0.1,
+    -0.15,
+    0.007,
+    0,
+    0,
+    0.002
+  ],
+  "medias_error": [
+    0.0991883965378787,
+    -0.1495007746714022,
+    0.006835871188312487,
+    -4.993486624294805e-05,
+    -0.002119410470035199,
+    0.002013066858285912
+  ],
+  "sigmas_configuradas": [
+    0.2,
+    0.2,
+    0.01,
+    0.5,
+    0.5,
+    0.0017453292519943296
+  ],
+  "sigmas_observadas": [
+    0.19856771090827113,
+    0.20003778607011477,
+    0.009979850508540358,
+    0.5007510871322628,
+    0.5013468891217026,
+    0.001740867592903931
+  ],
+  "correlacion_cruzada_maxima": 0.011821930440334017,
+  "muestreo_y_corte_gps": true,
+  "direccion_ausente_NaN": true,
+  "compatibilidad_EKF_anterior": true,
+  "alias_acc_x_sin_segunda_medida": true,
+  "maniobra_dinamica_200_pasos": true,
+  "dinamica_y_estimador_modificados": false
+}

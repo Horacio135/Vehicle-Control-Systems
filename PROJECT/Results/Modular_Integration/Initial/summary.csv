@@ -1,0 +1,3 @@
+Caso,Tiempo_s,ErrorMax_m,VelocidadMax_ms,Vueltas,Finalizacion
+Sin ABS/TC,149.036,4.34746619602745,35.0813400334322,1,Vuelta completada
+Con controlTotal,44.956,1.43116519934682,35.0715089664716,1.00003693676309,Vuelta completada

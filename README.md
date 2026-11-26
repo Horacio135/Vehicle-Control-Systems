@@ -3,25 +3,26 @@
 ![Vehicle Control Systems: four-wheel dynamics, trajectory tracking and stability-control development](PROJECT/Documentation/assets/project_overview.svg)
 
 ![MATLAB R2026a](https://img.shields.io/badge/MATLAB-R2026a-0076A8)
-![Project stage: V12](https://img.shields.io/badge/Project-V12-148F77)
+![Project stage: closed loop](https://img.shields.io/badge/Project-closed_loop-148F77)
 ![ESC: planned](https://img.shields.io/badge/ESC-planned-D99A21)
 
-**A Formula Student Driverless vehicle model, from four-wheel dynamics to trajectory tracking and demanding stability tests.**
+**A Formula Student Driverless vehicle model with a complete sensing, estimation and force-control simulation loop.**
 
 MATLAB coursework and project development for Vehicle Control Systems. The repository records how the physical model evolved, why design decisions were made, and what each simulation actually demonstrated.
 
-[Quick start](#quick-start) · [Architecture](PROJECT/README.md#architecture) · [V1–V12 history](PROJECT/Documentation/Versions/README.md) · [Results](PROJECT/Results/README.md) · [Videos](PROJECT/Results/Hybrid_Tests/README.md)
+[Quick start](#quick-start) · [Current package](PROJECT/Current%20State/README.md) · [Theory](PROJECT/Documentation/Dynamics_Development.md) · [History](PROJECT/Documentation/Versions/README.md) · [Current videos](PROJECT/Results/Closed_Loop/README.md)
 
 ## At a glance
 
 | Implemented | Next development phase |
 |---|---|
-| Four-wheel forces, combined adhesion and quasi-static load transfer | Assemble the control architecture around the frozen plant |
-| Phenomenological loss and recovery of braking/lateral capacity | Independent wheel-force allocation |
-| Pure Pursuit and curvature-based speed planning | Coordinated ESC, ABS and traction control |
-| Aggressive-driver tests and 2D/3D animations | Physical wheel-slip modelling and experimental calibration |
+| Four-wheel plant, load transfer and ideal Ackermann steering | Experimental identification and operating-range validation |
+| Rear traction-only Pacejka with wheel rotation; historical braking | Review extreme-motion plant/estimator consistency |
+| GPS/IMU/steering measurements and seven-state EKF | Bias estimation, covariance consistency and robustness tests |
+| Pure Pursuit, speed planning and force-based ABS/TC | ESC yaw control and combined-capacity planning |
+| Current 2D full-loop videos and historical 2D/3D evidence | A current full-loop 3D rendering |
 
-**The speed/path controllers and a force-based rear traction-demand limiter are implemented.** ESC and slip-based ABS/TCS remain pending. Wheel angular velocities and rotational inertia are not simulated. The 3D scene displays planar dynamics.
+**The complete loop is connected.** Its controlled run completes the circuit in **47.370 s** with **0.350 m** maximum path error. ABS/TC remain force limiters, not physical-slip feedback regulators, and no ESC yaw controller has been added. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
 
 ## Quick start
 
@@ -33,13 +34,23 @@ cd Vehicle-Control-Systems
 In MATLAB, open the repository root and run:
 
 ```matlab
-cd(fullfile('PROJECT','Hybrid Tests'))
-open('Prueba_hibrida_V11_35ms_3D.mlx')
+cd(fullfile('PROJECT','Current State'))
+open('Integracion_estado_actual.mlx')
 ```
 
-Run the entire Live Script for the single-car 35 m/s scenario. To explore the extreme acceleration case, open `Prueba_hibrida_V12_35ms_3D_Aceleracion_agresiva.mlx` instead. MATLAB **R2026a** was used for verification; the native 3D graphics require no additional visualization library. Earlier releases have not been certified.
+Run the entire Live Script. It compares estimated-state cases with ABS/TC off and on, plus an explicitly separate perfect-state reference. New local results go to the package's `Resultados` folder. MATLAB **R2026a** was used for verification; earlier releases have not been certified. Historical V11/V12 3D scenarios remain available in [Hybrid Tests](PROJECT/Hybrid%20Tests/README.md), but do not represent the current estimated loop.
 
-## Key result: more requested force can mean a worse lap
+## Current full-loop results
+
+| Case | Lap time [s] | Maximum path error [m] | Position-estimator RMSE [m] |
+|---|---:|---:|---:|
+| Estimated loop, ABS/TC on | 47.370 | 0.350 | 0.142 |
+| Estimated loop, ABS/TC off | 101.228 | 7.258 | 3.145 |
+| Perfect-state reference, ABS/TC on | 47.132 | 0.329 | — |
+
+The uncontrolled case completes the route but leaves the corridor. A failed first attempt, the provisional Q adjustment and same-measurement estimator replays are retained in [the results](PROJECT/Results/Closed_Loop/README.md) and [failure analysis](PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md). A successful lap is not experimental validation or proof of robustness during severe spins.
+
+## Historical result: more requested force can mean a worse lap
 
 Same 631.56 m circuit, same 35 m/s speed cap:
 
@@ -65,12 +76,15 @@ The original coursework/project separation is retained.
 
 ## Explore the project
 
-- [Plant interface and physical assumptions](PROJECT/Dynamic%20Model/README.md)
+- [Current complete-loop package](PROJECT/Current%20State/README.md)
+- [Dynamics theory and post-V12 decisions](PROJECT/Documentation/Dynamics_Development.md)
+- [Estimator Q and straight-line departure analysis](PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md)
+- [Historical plant interface and physical assumptions](PROJECT/Dynamic%20Model/README.md)
 - [Running and configuring the hybrid tests](PROJECT/Hybrid%20Tests/README.md)
 - [Twelve development stages](PROJECT/Documentation/Versions/README.md)
 - [Design decisions and remaining limitations](PROJECT/Documentation/Design_Decisions/README.md)
 - [50 recorded histories and telemetry](PROJECT/Results/Numerical/README.md)
 - [Reproducing a recorded run](PROJECT/Tools/README.md)
-- [New modular project: standalone dynamics and simulation template](PROJECT/Modular%20Architecture/README.md)
+- [Historical modular extraction and plant-only template](PROJECT/Modular%20Architecture/README.md)
 
-Documentation is maintained in English. Historical filenames, MATLAB identifiers and original recorded graphics retain their established names so that existing scripts, links and result provenance remain traceable.
+Documentation is maintained in English. Current MATLAB identifiers and comments remain in Spanish as requested; historical names and recorded graphics retain their provenance. The published current source mirrors the verified local package without changing its block equations.

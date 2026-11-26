@@ -1,8 +1,10 @@
-# Dynamic model
+# Historical dynamic-model development
 
 [← Project](../README.md) · [Manoeuvres](Ensayos/README.md) · [Design decisions](../Documentation/Design_Decisions/README.md)
 
-**Reference plant:** `CuatroruedasV8_bloqueo_ruedas.mlx`.
+**Historical V8 reference:** `CuatroruedasV8_bloqueo_ruedas.mlx`. The active plant is now in [Current State](../Current%20State/README.md): rear traction-only Pacejka with rotational dynamics, restored historical braking and ideal Ackermann. The interface and limitations below describe V8, not the later hybrid selection.
+
+Read [the full theoretical development](../Documentation/Dynamics_Development.md), [post-V12 milestones](../Documentation/Versions/After_V12/README.md) and [archived model alternatives](Archived%20Models/README.md) for the subsequent decisions and rejected combined-slip model.
 
 The prototypes and V1–V7 are retained to explain the design history. Their equations and historical interfaces were not silently adapted during archival publication.
 
@@ -78,3 +80,6 @@ V1–V6 are self-contained historical files with differing parameters and signat
 Wheel angular velocities, torque and rotational inertia are absent. Thus `bloqueo_w` does not establish mechanical wheel locking and `eta_slip` is not a physical slip ratio. Dynamic suspension, roll, pitch and experimentally calibrated tyre forces are not included. Vertical equilibrium and the friction circle are internal consistency checks, not experimental calibration. Braking is not universally limited to 1 g: adhesion, load and resistance matter.
 
 The slip-angle convention needs future review: V6–V8 project velocities into the steered wheel frame and then calculate `delta-atan2(vy_local,vx_local)`. This may introduce steering twice. It is retained under the decision to freeze the plant and should be checked before claiming physical validity.
+
+
+That historical slip-angle inconsistency was subsequently corrected in the active braking branch when Ackermann was added: the wheel-frame angle is `-atan2(vy_local,vx_local)`, without introducing steering twice. The original V6–V8 files remain unchanged for traceability. [Ackermann checks →](../Results/Ackermann/README.md)

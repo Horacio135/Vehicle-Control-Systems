@@ -1,0 +1,9 @@
+{
+  "matlab": "26.1.0.3346908 (R2026a) Update 5",
+  "pasos": 1000,
+  "interfaz_completa": true,
+  "TC_ejercitado": true,
+  "ABS_ejercitado": true,
+  "ruta_resultados_relativa_al_paquete": true,
+  "archivos_locales_originales_modificados": false
+}

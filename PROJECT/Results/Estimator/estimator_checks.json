@@ -1,0 +1,39 @@
+{
+  "fecha": "2026-11-26",
+  "pasos": 6000,
+  "duracion_s": 11.998000000000001,
+  "orden_estado": [
+    "X",
+    "Y",
+    "psi",
+    "vx",
+    "vy",
+    "ay",
+    "delta"
+  ],
+  "rmse_estado": [
+    0.4480820621504714,
+    1.0850119280772772,
+    0.03738163341822446,
+    0.4801775683325255,
+    0.6253196264692124,
+    0.1405077299701526,
+    0.001219040940193129
+  ],
+  "rmse_ay_medida": 0.20070644302244003,
+  "rmse_ay_estimada": 0.1405077299701526,
+  "rmse_delta_medida_rad": 0.0017161405504704825,
+  "rmse_delta_estimada_rad": 0.001219040940193129,
+  "rmse_posicion_GPS_m": 0.6916306498988994,
+  "rmse_posicion_estimada_instantes_GPS_m": 0.3575028388793163,
+  "autovalor_minimo_covarianza": 2.023020853968861e-06,
+  "asimetria_maxima_covarianza": 0,
+  "corte_GPS_s": [
+    4,
+    6
+  ],
+  "inicializacion_sin_adelanto": true,
+  "maniobra_planta_500_pasos": true,
+  "no_utiliza_sesgos_verdaderos_ni_orden_direccion": true,
+  "tipo": "Benchmark numérico plano; no validación experimental ni nuevo ensayo de circuito"
+}

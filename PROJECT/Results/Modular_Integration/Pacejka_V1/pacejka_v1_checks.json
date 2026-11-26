@@ -1,0 +1,11 @@
+{
+  "curva_impar": true,
+  "pico_slip": 0.1802,
+  "pico_normalizado": 0.9999999999204608,
+  "equivalencia_entradas": true,
+  "error_relativo_energia": 6.89832546512502e-05,
+  "error_velocidad_refinamiento_ms": 3.2738256550146616e-12,
+  "arrancada_3s_sin_TC_ms": 9.220847700749975,
+  "arrancada_3s_con_TC_ms": 20.070372256520898,
+  "bloqueo_y_perdida_direccion_verificados": true
+}
