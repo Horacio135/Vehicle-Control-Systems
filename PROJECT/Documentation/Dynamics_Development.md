@@ -37,7 +37,7 @@ X and Y are global CG coordinates, psi is heading, vx/vy are body-frame velociti
 
 The chassis equations are
 
-$$m\dot v_x=\sum_i F^c_{x,i}-R_a-\operatorname{sgn}(v_x)R_r-R_g+mv_y r,$$
+$$m\dot v_x=\sum_i F^c_{x,i}-R_a-\mathrm{sgn}(v_x)R_r-R_g+mv_y r,$$
 
 $$m\dot v_y=\sum_i F^c_{y,i}-mv_xr,\qquad I_z\dot r=\sum_i(x_iF^c_{y,i}-y_iF^c_{x,i}).$$
 
@@ -71,11 +71,11 @@ $$F^c_{x,i}=F_{x,i}\cos\delta_i-F_{y,i}\sin\delta_i,\quad F^c_{y,i}=F_{x,i}\sin\
 
 The consistent forward-motion slip-angle convention is either
 
-$$\alpha_i=\delta_i-\operatorname{atan2}(v^c_{y,i},v^c_{x,i})$$
+$$\alpha_i=\delta_i-\mathrm{atan2}(v^c_{y,i},v^c_{x,i})$$
 
 or, after rotating velocity to the wheel frame,
 
-$$\alpha_i=-\operatorname{atan2}(v^w_{y,i},v^w_{x,i}).$$
+$$\alpha_i=-\mathrm{atan2}(v^w_{y,i},v^w_{x,i}).$$
 
 One must not subtract the wheel-frame velocity angle from delta again. The traction branch regularizes its longitudinal denominator at low speed; this changes the definition near standstill and must not be confused with an exact rolling constraint.
 
@@ -184,7 +184,7 @@ $$v_{\mathrm{curve}}=\min\left(v_{\max},\sqrt{a_{y,\max}/\max(|\kappa_{\mathrm{p
 
 Forward/backward sweeps impose $v_{i+1}^2\le v_i^2+2a_{\mathrm{acc}}\Delta s$ and $v_i^2\le v_{i+1}^2+2a_{\mathrm{brake}}\Delta s$. A periodic profile query supports the closed track. Path curvature is distinct from longitudinal wheel slip despite sharing a common kappa notation in theory.
 
-Pure Pursuit uses $\delta=\operatorname{atan2}(2L\sin\alpha_{\mathrm{target}},L_d)$ and $L_d=1+0.15\max(v_x,0)$ in the active configuration. It is not a yaw/side-slip stability controller. Reducing lookahead addressed premature corner cutting, but did not add ESC.
+Pure Pursuit uses $\delta=\mathrm{atan2}(2L\sin\alpha_{\mathrm{target}},L_d)$ and $L_d=1+0.15\max(v_x,0)$ in the active configuration. It is not a yaw/side-slip stability controller. Reducing lookahead addressed premature corner cutting, but did not add ESC.
 
 V10 expanded the track to fourteen corners, including a chicane, a 90-degree R4 m corner after a 172 m straight, and a 70-degree R3.5 m corner. Rapid exponential force application exposes limits without an ideal step. The 95% application time is approximately three time constants.
 
@@ -265,7 +265,7 @@ Before Ackermann, 250 braking steps were checked against the restored historical
 
 Parallel front angles were replaced by ideal Ackermann. Delta remains the virtual front bicycle angle, not a steering-wheel angle with an identified ratio. With y positive left,
 
-$$\delta_i=\operatorname{atan2}(L\sin\delta,L\cos\delta-y_i\sin\delta),\qquad i\in\{DI,DD\}.$$
+$$\delta_i=\mathrm{atan2}(L\sin\delta,L\cos\delta-y_i\sin\delta),\qquad i\in\{DI,DD\}.$$
 
 The rear angles remain zero. Front wheels share the instantaneous turning centre on the extension of the rear axle. In a positive turn, the inside DI angle is larger. For L=1.53 m, track=1.20 m and delta=0.2 rad, the front angles are approximately 0.2168/0.1856 rad. The 0.5 rad controller limit applies to the virtual angle; no individual mechanical rack limit was invented.
 
