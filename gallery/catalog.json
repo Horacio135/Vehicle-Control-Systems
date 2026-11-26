@@ -1,0 +1,211 @@
+[
+  {
+    "id": "video-01",
+    "path": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_ABS_TC_2D.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Actual versus estimated trajectory",
+    "rationale": "The clearest current demonstration: complete sensing/estimation loop, ABS/TC on, normal speed and error plots.",
+    "poster": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
+    "detail": "47.45 s video · normal speed",
+    "size_mib": 28.57
+  },
+  {
+    "id": "video-02",
+    "path": "PROJECT/Results/Closed_Loop/Closed_loop_ABS_TC_comparison_2D_x4.mp4",
+    "include": true,
+    "group": "current",
+    "title": "ABS and TC on versus off",
+    "rationale": "Direct comparison of the current estimated loop with both force limiters enabled or disabled.",
+    "poster": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
+    "detail": "25.40 s video · playback ×4",
+    "size_mib": 3.56
+  },
+  {
+    "id": "video-03",
+    "path": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_2D.mp4",
+    "include": true,
+    "group": "diagnostic",
+    "title": "First failed complete-loop attempt",
+    "rationale": "Retain as diagnostic evidence for the inherited-Q failure. Explicitly not the current tuned result.",
+    "poster": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
+    "detail": "Inherited Q · abandoned at 6.046 s",
+    "size_mib": 2.24
+  },
+  {
+    "id": "video-04",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V9_planificador_5_velocidades.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V9 curvature-based speed planning",
+    "rationale": "Shows the planning milestone before later tyre and estimator changes.",
+    "poster": "PROJECT/Results/V9_Speed_Planner/circuito_y_trayectorias.png",
+    "detail": "Historical V9 · five speed caps",
+    "size_mib": 4.57
+  },
+  {
+    "id": "video-05",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V10_15_20_25_30_35_20261117.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V10 fourteen-corner stress circuit",
+    "rationale": "Choose the higher-cap campaign because its 35 m/s case provides the more useful comparison to later stages.",
+    "poster": "PROJECT/Results/V10_Stress/vista_previa_15_35.png",
+    "detail": "Historical V10 · 15–35 m/s caps",
+    "size_mib": 9.55
+  },
+  {
+    "id": "video-06",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V11_35ms_3D.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V11 single-car 3D view",
+    "rationale": "Retain one clear 3D presentation milestone; it is not the current estimated loop.",
+    "poster": "PROJECT/Results/V11_3D/english_preview.png",
+    "detail": "Historical V11 · planar physics in 3D",
+    "size_mib": 21.56
+  },
+  {
+    "id": "video-07",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V12_35ms_3D_Aceleracion_agresiva.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V12 aggressive acceleration in 3D",
+    "rationale": "Explains the decision to develop traction/stability control by showing an intentionally severe pre-Pacejka test.",
+    "poster": "PROJECT/Results/V12_Aggressive_Acceleration/english_preview.png",
+    "detail": "Historical V12 · extreme drive demand",
+    "size_mib": 42.04
+  },
+  {
+    "id": "video-08",
+    "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/Pacejka_V1_ABS_TC_2D.mp4",
+    "include": true,
+    "group": "history",
+    "title": "Longitudinal Pacejka V1 experiment",
+    "rationale": "Shows the rotational force–slip milestone. This branch also used rotational braking and differs from the selected hybrid.",
+    "poster": "PROJECT/Results/Modular_Integration/Pacejka_V1/Comparacion_Pacejka_ABS_TC_2D_previa.png",
+    "detail": "Historical branch · not the selected hybrid",
+    "size_mib": 3.14
+  },
+  {
+    "id": "video-09",
+    "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Discarded_Pacejka_V2_ABS_TC_2D.mp4",
+    "include": true,
+    "group": "history",
+    "title": "Discarded combined-slip V2 experiment",
+    "rationale": "Preserve the failed alternative and its design rationale; do not hide rejection or label it as the current model.",
+    "poster": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Comparacion_Pacejka_V2_ABS_TC_2D_previa.png",
+    "detail": "Discarded model configuration",
+    "size_mib": 1.76
+  },
+  {
+    "id": "video-10",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_hibrido_animado.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V8 initial hybrid tracking",
+    "rationale": "Superseded by V9 planning and the current complete-loop demonstrations.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 3.4
+  },
+  {
+    "id": "video-11",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V10_Estres_14_curvas.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V10 lower-cap stress campaign",
+    "rationale": "Overlaps the selected V10 campaign; keep in the repository archive rather than duplicating the gallery.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 14.85
+  },
+  {
+    "id": "video-12",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V11_Mapeo_limite.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V11 multiple-cap demanding map",
+    "rationale": "Same planning milestone as the selected V11 view; retain detailed speed-cap analysis in its README.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 8.3
+  },
+  {
+    "id": "video-13",
+    "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_comparison_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Initial modular ABS/TC comparison",
+    "rationale": "Earlier physics and no current EKF; the current on/off comparison is the primary presentation.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 4.92
+  },
+  {
+    "id": "video-14",
+    "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Initial modular realtime 2D",
+    "rationale": "An older single-case presentation; superseded by the current real-versus-estimated video.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 19.14
+  },
+  {
+    "id": "video-15",
+    "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_3D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Initial modular realtime 3D",
+    "rationale": "Pre-Pacejka, pre-Ackermann and pre-EKF. Omit to avoid confusing it with a current 3D full-loop result.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 40.56
+  },
+  {
+    "id": "video-16",
+    "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/ABS_TC_comparison_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Pure Pursuit adjustment comparison",
+    "rationale": "Useful specialist tracking evidence, but redundant for a compact public gallery. Preserve its README and direct archive link.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 5.16
+  },
+  {
+    "id": "video-17",
+    "path": "PROJECT/Results/V5_Slip_Tests/Animacion_derrape_skidpad.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V5 skidpad drift",
+    "rationale": "Early phenomenological loss model, superseded by later tyre experiments and the current hybrid.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 0.41
+  },
+  {
+    "id": "video-18",
+    "path": "PROJECT/Results/V5_Slip_Tests/Animacion_Eslalon.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V5 slalom",
+    "rationale": "Early manoeuvre footage; keep available in the archive without mixing it with current validation.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 1.61
+  },
+  {
+    "id": "video-19",
+    "path": "PROJECT/Results/V5_Slip_Tests/Derrape.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V5 drift demonstration",
+    "rationale": "Short early illustration already represented by later instability experiments.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 0.19
+  }
+]

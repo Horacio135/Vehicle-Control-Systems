@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vehicle Control Systems — Simulation gallery</title>
+<style>
+:root{font-family:Segoe UI,Arial,sans-serif;color:#162639;background:#f5f7fa;--blue:#1269ba;--muted:#566779;--line:#dce3eb}*{box-sizing:border-box}body{margin:0}a{color:#145d9c;text-underline-offset:3px}button,summary{cursor:pointer}header{background:#10283c;color:white}header .bar{max-width:1200px;margin:auto;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:18px;font-weight:700;letter-spacing:.4px}header a{color:#d9e7f5;font-size:14px}.proposal{background:#fff6dc;color:#725411;border-bottom:1px solid #eadba8;font-size:13px;text-align:center;padding:10px 20px}main{max-width:1200px;margin:auto;padding:42px 28px 55px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:#4c6b83;font-weight:700}h1{font-size:38px;line-height:1.16;letter-spacing:-1px;margin:12px 0 15px;font-weight:700}h2{font-size:25px;letter-spacing:-.4px;margin:0}h3{font-size:19px;margin:13px 0 9px;line-height:1.3}p{font-size:15px;line-height:1.6;margin:0 0 12px}.intro{max-width:850px;color:#4b5d70}.stats{display:flex;gap:35px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:25px 0 18px;padding:19px 0}.stat strong{font-size:25px;display:block;color:#123b5c}.stat span{font-size:12px;color:var(--muted)}nav{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;padding:8px 0 30px}section{margin-top:19px;margin-bottom:35px}.section-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:18px}.section-top p{font-size:14px;color:var(--muted);margin:6px 0 0}.count{font-size:12px;white-space:nowrap;color:#4f6477}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 3px 10px #12334b05}.card-content{padding:18px 20px 20px}.tag{font-size:10px;font-weight:700;letter-spacing:1px;color:#16629d;text-transform:uppercase}.tag.diagnostic{color:#96630c}.tag.history{color:#617183}.card-content p{font-size:14px;color:#516276;min-height:65px}.detail{font-size:12px;color:#5b6d80;display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 12px;padding-top:12px;border-top:1px solid #e7edf2}.card-content a{font-size:12px}.video-frame{background:#e8eef4;aspect-ratio:16/9;border-bottom:1px solid var(--line)}video{width:100%;height:100%;display:block;object-fit:contain;background:#e8eef4}.diagnostic-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.notes{padding:8px 5px 8px 4px}.notes h3{font-size:22px}.notes p{color:#516276}.notes ul{padding-left:20px;font-size:14px;line-height:1.65;color:#4c5f72}.notes li{margin-bottom:7px}.notes .caution{font-size:13px;color:#695728;border-top:1px solid #dfd8bf;padding-top:13px}details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0}summary{font-size:15px;font-weight:600;padding:2px 0;color:#1e4a6d}details .grid{margin-top:20px}.history-note{font-size:13px;color:#596b7d;margin-top:12px}.archive-list{display:grid;grid-template-columns:1fr 1fr;gap:17px 30px;margin-top:20px}.archive-list article{border-bottom:1px solid #e1e7ee;padding-bottom:12px}.archive-list a{font-size:14px;font-weight:600}.archive-list p{font-size:12px;color:#617285;margin:5px 0 0}.reading{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;padding:20px 0}footer{border-top:1px solid var(--line);color:#637386;font-size:12px;padding-top:20px;line-height:1.6}.mobile-note{font-size:12px;color:#68778a;margin:0 0 20px}@media(max-width:760px){main{padding:28px 18px}.grid,.diagnostic-layout,.archive-list{grid-template-columns:1fr}h1{font-size:31px}.stats{gap:22px}.stat strong{font-size:22px}.bar{padding:18px!important}.section-top{align-items:start}.count{display:none}.card-content p{min-height:0}nav{gap:16px}}
+</style><style>
+header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
+.play-button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #d5e5f2;border-radius:30px;padding:12px 22px;background:#10283ce8;color:white;font:600 14px Segoe UI,Arial,sans-serif;box-shadow:0 3px 15px #0002}
+.play-button:hover{background:#1269ba}.play-button:focus-visible{outline:3px solid #f1aa33;outline-offset:4px}
+@media(max-width:760px){.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat span{font-size:11px}}
+</style></head><body>
+<header><div class="bar"><div class="brand">VCS / Vehicle Control Systems</div><a href="https://github.com/Horacio135/Vehicle-Control-Systems" target="_blank" rel="noreferrer">Repository ↗</a></div></header>
+<div class="proposal">Simulation evidence · Current results, diagnostics and development history</div>
+<main><div class="eyebrow">Simulation evidence · Snapshot 26 November 2026</div>
+<h1>Simulation video gallery</h1>
+<p class="intro">Explore the current sensing–estimation–control loop first, then the experiments that explain how it was developed. Current results, diagnostic failures and historical models are labelled separately.</p>
+<div class="stats"><div class="stat"><strong>47.370 s</strong><span>Controlled lap time</span></div><div class="stat"><strong>0.350 m</strong><span>Maximum true path error</span></div><div class="stat"><strong>0.142 m</strong><span>Position-estimator RMSE</span></div></div>
+<p class="mobile-note">Recorded simulation results, not experimental validation. Videos load on demand; no autoplay.</p>
+<nav><a href="#current">Current results</a><a href="#diagnostic">Diagnostic evidence</a><a href="#history">Development milestones</a><a href="#archive">Full video archive</a></nav>
+<section id="current"><div class="section-top"><div><h2>Current complete loop</h2><p>Selected hybrid tyre model, Ackermann, noisy sensors and seven-state EKF.</p></div><span class="count">2 featured videos</span></div><div class="grid" id="current-grid"></div></section>
+<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is not the current tuned result.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>A controlled lap does not establish robustness during extreme uncontrolled motion.</li></ul><p class="caution">No current full-loop 3D recording exists. The 3D videos below belong to earlier development stages.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
+<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">6 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
+<section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">10 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
+<div class="reading"><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Current%20State" target="_blank" rel="noreferrer">Run the current model ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Dynamics_Development.md" target="_blank" rel="noreferrer">Read the dynamics theory ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Results" target="_blank" rel="noreferrer">Browse numeric results ↗</a></div>
+<footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters; no ESC yaw-feedback controller has been added. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
+<script>
+const mediaBase = './';
+const catalogue = [
+  {
+    "id": "video-01",
+    "path": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_ABS_TC_2D.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Actual versus estimated trajectory",
+    "rationale": "The clearest current demonstration: complete sensing/estimation loop, ABS/TC on, normal speed and error plots.",
+    "poster": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
+    "detail": "47.45 s video · normal speed",
+    "size_mib": 28.57
+  },
+  {
+    "id": "video-02",
+    "path": "PROJECT/Results/Closed_Loop/Closed_loop_ABS_TC_comparison_2D_x4.mp4",
+    "include": true,
+    "group": "current",
+    "title": "ABS and TC on versus off",
+    "rationale": "Direct comparison of the current estimated loop with both force limiters enabled or disabled.",
+    "poster": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
+    "detail": "25.40 s video · playback ×4",
+    "size_mib": 3.56
+  },
+  {
+    "id": "video-03",
+    "path": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_2D.mp4",
+    "include": true,
+    "group": "diagnostic",
+    "title": "First failed complete-loop attempt",
+    "rationale": "Retain as diagnostic evidence for the inherited-Q failure. Explicitly not the current tuned result.",
+    "poster": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
+    "detail": "Inherited Q · abandoned at 6.046 s",
+    "size_mib": 2.24
+  },
+  {
+    "id": "video-04",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V9_planificador_5_velocidades.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V9 curvature-based speed planning",
+    "rationale": "Shows the planning milestone before later tyre and estimator changes.",
+    "poster": "PROJECT/Results/V9_Speed_Planner/circuito_y_trayectorias.png",
+    "detail": "Historical V9 · five speed caps",
+    "size_mib": 4.57
+  },
+  {
+    "id": "video-05",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V10_15_20_25_30_35_20261117.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V10 fourteen-corner stress circuit",
+    "rationale": "Choose the higher-cap campaign because its 35 m/s case provides the more useful comparison to later stages.",
+    "poster": "PROJECT/Results/V10_Stress/vista_previa_15_35.png",
+    "detail": "Historical V10 · 15–35 m/s caps",
+    "size_mib": 9.55
+  },
+  {
+    "id": "video-06",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V11_35ms_3D.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V11 single-car 3D view",
+    "rationale": "Retain one clear 3D presentation milestone; it is not the current estimated loop.",
+    "poster": "PROJECT/Results/V11_3D/english_preview.png",
+    "detail": "Historical V11 · planar physics in 3D",
+    "size_mib": 21.56
+  },
+  {
+    "id": "video-07",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V12_35ms_3D_Aceleracion_agresiva.mp4",
+    "include": true,
+    "group": "history",
+    "title": "V12 aggressive acceleration in 3D",
+    "rationale": "Explains the decision to develop traction/stability control by showing an intentionally severe pre-Pacejka test.",
+    "poster": "PROJECT/Results/V12_Aggressive_Acceleration/english_preview.png",
+    "detail": "Historical V12 · extreme drive demand",
+    "size_mib": 42.04
+  },
+  {
+    "id": "video-08",
+    "path": "PROJECT/Results/Modular_Integration/Pacejka_V1/Pacejka_V1_ABS_TC_2D.mp4",
+    "include": true,
+    "group": "history",
+    "title": "Longitudinal Pacejka V1 experiment",
+    "rationale": "Shows the rotational force–slip milestone. This branch also used rotational braking and differs from the selected hybrid.",
+    "poster": "PROJECT/Results/Modular_Integration/Pacejka_V1/Comparacion_Pacejka_ABS_TC_2D_previa.png",
+    "detail": "Historical branch · not the selected hybrid",
+    "size_mib": 3.14
+  },
+  {
+    "id": "video-09",
+    "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Discarded_Pacejka_V2_ABS_TC_2D.mp4",
+    "include": true,
+    "group": "history",
+    "title": "Discarded combined-slip V2 experiment",
+    "rationale": "Preserve the failed alternative and its design rationale; do not hide rejection or label it as the current model.",
+    "poster": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Comparacion_Pacejka_V2_ABS_TC_2D_previa.png",
+    "detail": "Discarded model configuration",
+    "size_mib": 1.76
+  },
+  {
+    "id": "video-10",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_hibrido_animado.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V8 initial hybrid tracking",
+    "rationale": "Superseded by V9 planning and the current complete-loop demonstrations.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 3.4
+  },
+  {
+    "id": "video-11",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V10_Estres_14_curvas.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V10 lower-cap stress campaign",
+    "rationale": "Overlaps the selected V10 campaign; keep in the repository archive rather than duplicating the gallery.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 14.85
+  },
+  {
+    "id": "video-12",
+    "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_V11_Mapeo_limite.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V11 multiple-cap demanding map",
+    "rationale": "Same planning milestone as the selected V11 view; retain detailed speed-cap analysis in its README.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 8.3
+  },
+  {
+    "id": "video-13",
+    "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_comparison_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Initial modular ABS/TC comparison",
+    "rationale": "Earlier physics and no current EKF; the current on/off comparison is the primary presentation.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 4.92
+  },
+  {
+    "id": "video-14",
+    "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Initial modular realtime 2D",
+    "rationale": "An older single-case presentation; superseded by the current real-versus-estimated video.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 19.14
+  },
+  {
+    "id": "video-15",
+    "path": "PROJECT/Results/Modular_Integration/Initial/ABS_TC_realtime_3D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Initial modular realtime 3D",
+    "rationale": "Pre-Pacejka, pre-Ackermann and pre-EKF. Omit to avoid confusing it with a current 3D full-loop result.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 40.56
+  },
+  {
+    "id": "video-16",
+    "path": "PROJECT/Results/Modular_Integration/PurePursuit_Adjustment/ABS_TC_comparison_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "Pure Pursuit adjustment comparison",
+    "rationale": "Useful specialist tracking evidence, but redundant for a compact public gallery. Preserve its README and direct archive link.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 5.16
+  },
+  {
+    "id": "video-17",
+    "path": "PROJECT/Results/V5_Slip_Tests/Animacion_derrape_skidpad.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V5 skidpad drift",
+    "rationale": "Early phenomenological loss model, superseded by later tyre experiments and the current hybrid.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 0.41
+  },
+  {
+    "id": "video-18",
+    "path": "PROJECT/Results/V5_Slip_Tests/Animacion_Eslalon.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V5 slalom",
+    "rationale": "Early manoeuvre footage; keep available in the archive without mixing it with current validation.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 1.61
+  },
+  {
+    "id": "video-19",
+    "path": "PROJECT/Results/V5_Slip_Tests/Derrape.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "V5 drift demonstration",
+    "rationale": "Short early illustration already represented by later instability experiments.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 0.19
+  }
+]
+;
+const sourceUrl = path => 'https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/'+encodeURI(path);
+function card(item){
+ const article=document.createElement('article');article.className='card';
+ const frame=document.createElement('div');frame.className='video-frame';
+ const video=document.createElement('video');video.controls=false;video.preload='none';video.playsInline=true;
+ video.poster=mediaBase+encodeURI(item.poster);
+ const play=document.createElement('button');play.className='play-button';play.textContent='▶  Play video';play.setAttribute('aria-label','Play '+item.title);
+ play.addEventListener('click',async()=>{video.src=mediaBase+encodeURI(item.path);video.controls=true;play.remove();try{await video.play();}catch(error){video.setAttribute('aria-label',item.title+' — use the source link if playback is unavailable');}});
+ video.setAttribute('aria-label',item.title);video.append('Your browser cannot play this video. Open the source recording.');
+ video.addEventListener('play',()=>document.querySelectorAll('video').forEach(other=>{if(other!==video)other.pause();}));
+ frame.append(video,play);article.append(frame);
+ const content=document.createElement('div');content.className='card-content';
+ const badge=document.createElement('div');badge.className='tag '+item.group;badge.textContent=item.group==='current'?'Current model':item.group==='diagnostic'?'Diagnostic · previous configuration':'Historical model';
+ const title=document.createElement('h3');title.textContent=item.title;
+ const desc=document.createElement('p');desc.textContent=item.rationale;
+ const detail=document.createElement('div');detail.className='detail';detail.textContent=item.detail+' · '+item.size_mib.toFixed(2)+' MiB';
+ const link=document.createElement('a');link.href=sourceUrl(item.path);link.target='_blank';link.rel='noreferrer';link.textContent='View repository source ↗';
+ content.append(badge,title,desc,detail,link);article.append(content);return article;
+}
+for(const item of catalogue){
+ if(item.include){const parent=item.group==='current'?'current-grid':item.group==='diagnostic'?'diagnostic-card':'history-grid';document.getElementById(parent).append(card(item));}
+ else{const entry=document.createElement('article'),link=document.createElement('a'),reason=document.createElement('p');link.href=sourceUrl(item.path);link.textContent=item.title+' ↗';link.target='_blank';link.rel='noreferrer';reason.textContent=item.rationale;entry.append(link,reason);document.getElementById('archive-list').append(entry);}
+}
+</script></body></html>
