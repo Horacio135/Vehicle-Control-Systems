@@ -1,0 +1,18 @@
+[
+  {
+    "caso": "Alce_PP_02",
+    "velocidad_inicial_ms": 20,
+    "duracion_s": 3.7039999999999997,
+    "beta_max_grados": 87.95375061857018,
+    "deriva_trasera_max_grados": 88.36159185951976,
+    "deriva_delantera_max_grados": 88.09442619182757,
+    "uso_trasero_max": 0.9999999999600525,
+    "tiempo_indicio_sobreviraje_s": 0.20400000000000001,
+    "TC_intervenciones": 352,
+    "ABS_intervenciones": 0,
+    "motivo": "Abortado: velocidad longitudinal inferior a 0.5 m/s tras pérdida de control",
+    "error_rapidez_max_ms": 5.0994407736719225,
+    "error_rapidez_RMSE_ms": 1.1822264748705587,
+    "direccion_max_grados": 28.64788975654116
+  }
+]

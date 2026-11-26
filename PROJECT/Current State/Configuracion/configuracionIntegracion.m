@@ -11,9 +11,9 @@ p.direccion_sigma=deg2rad(.1);     % Desviación típica angular [rad].
 p.direccion_bias=0;               % Sesgo angular [rad].
 % med.acc_x replica med.acc; med.acc_y y med.delta son nuevos canales.
 % El EKF usa ay y dirección; ABS/TC mantienen su propia predicción interna.
-% EKF: [X Y psi vx vy]; incertidumbre residual ajustada para cerrar el lazo.
-% Residuo de modelo: el ruido IMU ya se propaga mediante G en el EKF.
-p.Q=diag([.001 .001 .00001 .003 .003].^2);
+% EKF: [X Y psi vx vy]; Q restaurada al valor previo al ajuste del lazo.
+% Restauración 26/11/2026: sensores, R, P inicial y algoritmo sin cambios.
+p.Q=diag([.02 .02 .005 .10 .10].^2);
 p.R=diag([p.gps_sigma p.gps_sigma].^2);
 % Intensidad por segundo de cambios en ay y dirección (hipótesis iniciales).
 p.estimador=struct('q_ay',25,'q_direccion',.002);

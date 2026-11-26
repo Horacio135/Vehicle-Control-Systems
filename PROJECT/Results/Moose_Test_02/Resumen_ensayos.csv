@@ -1,0 +1,2 @@
+caso,velocidad_inicial_ms,duracion_s,beta_max_grados,deriva_trasera_max_grados,deriva_delantera_max_grados,uso_trasero_max,tiempo_indicio_sobreviraje_s,TC_intervenciones,ABS_intervenciones,motivo,error_rapidez_max_ms,error_rapidez_RMSE_ms,direccion_max_grados
+Alce_PP_02,20,3.704,87.9537506185702,88.3615918595198,88.0944261918276,0.999999999960053,0.204,352,0,Abortado: velocidad longitudinal inferior a 0.5 m/s tras pérdida de control,5.09944077367192,1.18222647487056,28.6478897565412

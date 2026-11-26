@@ -12,6 +12,8 @@ MATLAB coursework and project development for Vehicle Control Systems. The repos
 
 [Watch simulation videos](https://Horacio135.github.io/Vehicle-Control-Systems/) · [Quick start](#quick-start) · [Current package](PROJECT/Current%20State/README.md) · [Theory](PROJECT/Documentation/Dynamics_Development.md) · [History](PROJECT/Documentation/Versions/README.md) · [Current videos](PROJECT/Results/Closed_Loop/README.md)
 
+**Latest update — 26 November 2026:** the active estimator configuration restores `Q = diag([.02 .02 .005 .10 .10].^2)`. Sensor-noise parameters, R, estimator equations and P0 are unchanged. The 47.370 s lap and associated full-loop videos below were recorded with the previous reduced Q; no complete-loop rerun has validated restored Q. The latest retained steering evidence is [moose-style test 02](PROJECT/Results/Moose_Test_02/README.md), a failed Pure Pursuit manoeuvre without sensors or estimation. [Decision record](PROJECT/Documentation/Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+
 ## At a glance
 
 | Implemented | Next development phase |
@@ -22,7 +24,7 @@ MATLAB coursework and project development for Vehicle Control Systems. The repos
 | Pure Pursuit, speed planning and force-based ABS/TC | ESC yaw control and combined-capacity planning |
 | Current 2D full-loop videos and historical 2D/3D evidence | A current full-loop 3D rendering |
 
-**The complete loop is connected.** Its controlled run completes the circuit in **47.370 s** with **0.350 m** maximum path error. ABS/TC remain force limiters, not physical-slip feedback regulators, and no ESC yaw controller has been added. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
+**The complete loop is connected.** Its saved reduced-Q controlled run completes the circuit in **47.370 s** with **0.350 m** maximum path error. ABS/TC remain force limiters, not physical-slip feedback regulators, and no ESC yaw controller has been added. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
 
 ## Quick start
 
@@ -40,7 +42,7 @@ open('Integracion_estado_actual.mlx')
 
 Run the entire Live Script. It compares estimated-state cases with ABS/TC off and on, plus an explicitly separate perfect-state reference. New local results go to the package's `Resultados` folder. MATLAB **R2026a** was used for verification; earlier releases have not been certified. Historical V11/V12 3D scenarios remain available in [Hybrid Tests](PROJECT/Hybrid%20Tests/README.md), but do not represent the current estimated loop.
 
-## Current full-loop results
+## Saved full-loop results with previous reduced Q
 
 | Case | Lap time [s] | Maximum path error [m] | Position-estimator RMSE [m] |
 |---|---:|---:|---:|

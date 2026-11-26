@@ -1,0 +1,58 @@
+[
+  {
+    "archivo": "PROJECT/Current State/Dinamica/angulosAckermann.m",
+    "sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c"
+  },
+  {
+    "archivo": "PROJECT/Current State/Dinamica/fuerzaTractoraPacejka.m",
+    "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c"
+  },
+  {
+    "archivo": "PROJECT/Current State/Dinamica/inicializarEstadoSoloTraccion.m",
+    "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60"
+  },
+  {
+    "archivo": "PROJECT/Current State/Dinamica/pasoDinamicoSoloTraccion.m",
+    "sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f"
+  },
+  {
+    "archivo": "PROJECT/Current State/Dinamica/pasoFrenadoAnterior.m",
+    "sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05"
+  },
+  {
+    "archivo": "PROJECT/Current State/Control/controlABS.m",
+    "sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f"
+  },
+  {
+    "archivo": "PROJECT/Current State/Control/controlEmergencia.m",
+    "sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea"
+  },
+  {
+    "archivo": "PROJECT/Current State/Control/controlLateral.m",
+    "sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c"
+  },
+  {
+    "archivo": "PROJECT/Current State/Control/controlLongitudinal.m",
+    "sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a"
+  },
+  {
+    "archivo": "PROJECT/Current State/Control/controlTotal.m",
+    "sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8"
+  },
+  {
+    "archivo": "PROJECT/Current State/Control/controlTraccion.m",
+    "sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a"
+  },
+  {
+    "archivo": "PROJECT/Current State/Configuracion/configuracionIntegracion.m",
+    "sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c"
+  },
+  {
+    "archivo": "PROJECT/Current State/Configuracion/configuracionSoloTraccion.m",
+    "sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492"
+  },
+  {
+    "archivo": "PROJECT/Current State/Configuracion/parametrosSoloTraccion.m",
+    "sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab"
+  }
+]

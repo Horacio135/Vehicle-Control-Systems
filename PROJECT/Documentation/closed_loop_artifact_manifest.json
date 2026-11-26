@@ -22,10 +22,12 @@
     {
       "path": "PROJECT/Current State/Configuracion/configuracionIntegracion.m",
       "source": "estado actual/Configuracion/configuracionIntegracion.m",
-      "sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c",
-      "source_sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c",
-      "bytes": 1668,
-      "kind": "active_source"
+      "sha256": "d0e24c330861d2294a6ca407b9d7257a716e1f3f273ea1205bfcec8ed9e219f2",
+      "source_sha256": "d0e24c330861d2294a6ca407b9d7257a716e1f3f273ea1205bfcec8ed9e219f2",
+      "bytes": 1664,
+      "kind": "active_source",
+      "previous_reduced_Q_sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c",
+      "change": "Q restored; sensor noise, R and P0 unchanged."
     },
     {
       "path": "PROJECT/Current State/Configuracion/configuracionSoloTraccion.m",
@@ -968,6 +970,126 @@
       "bytes": 2310,
       "kind": "diagnostic_replay",
       "metadata_edit": "Recorded values retained; portable LF line endings."
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_alce_seguimiento/Ejecutar_alce_seguimiento.m",
+      "sha256": "c8b832c7624ab4fb10bdd09d6f9f0323fdd27a9cd956cd2d3c38f75b6f1ada9b",
+      "bytes": 496,
+      "kind": "portable_scenario"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_alce_seguimiento/Ejecutar_alce_seguimiento.mlx",
+      "sha256": "6bd84a8321abf2e094c35201cc2a83a0c19a396fe74b9039e96a09f3acdc5067",
+      "bytes": 3139,
+      "kind": "portable_scenario"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_alce_seguimiento/README.md",
+      "sha256": "f12bde2f946736e847b0a194b16d5007b8dad812a95da348f557ff5bfa8cf059",
+      "bytes": 1281,
+      "kind": "portable_scenario"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_alce_seguimiento/renderizar_alce_seguimiento.m",
+      "sha256": "b2f01ac6b3bfa645b3f65cc3f89ec8c48de790c3ab49007cd8b3ce1ca5037dfb",
+      "bytes": 7420,
+      "kind": "portable_scenario"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_alce_seguimiento/simular_alce_seguimiento.m",
+      "sha256": "25b0744a23e5fc64bd9bb7189b18e10111063eefab4f3e9200d1ce6da8d58707",
+      "bytes": 5939,
+      "kind": "portable_scenario"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_alce_seguimiento/validar_alce_seguimiento.m",
+      "sha256": "9d5eb06f07496d30b0e18ee9f5516f31cfc78e1fdea1c31166e4529b724adb40",
+      "bytes": 4022,
+      "kind": "portable_scenario"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_2D_capacidad.mp4",
+      "sha256": "7ecc3654f74c06772606a2521cc37a158eeec8a69642cf3121190168d2acce59",
+      "bytes": 1471552,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_deriva_maxima.png",
+      "sha256": "374f29f06cde7aea8c1d884c663683723516d303e9d443ba4f617631f3f388f5",
+      "bytes": 297487,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_graficas.fig",
+      "sha256": "c58838f779099cc7cbcb9b7a47b4d87c76f011823d5a5b68f9e2f448b4bcd118",
+      "bytes": 424879,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_graficas.png",
+      "sha256": "7874e439ec84a5bb0ad3bd1b97d9fdb1d0ea81d23d335b64343b1bd817184205",
+      "bytes": 145072,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_previa.png",
+      "sha256": "ea00052e1c5120bf79296dca44a4def9c8908bc3e915f7467ab15d530cbe39f3",
+      "bytes": 313868,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Contacto_obstaculo_visual.csv",
+      "sha256": "cd9da815d69f2053c2cb621bb2f2a6d5d73683144f545dbf68cd5b8c655c0bf6",
+      "bytes": 63,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Ensayos_estabilidad.mat",
+      "sha256": "2929ce3846c45c5518666e0c2d2828e5dfacd497096a6ab87e92df022a134ef8",
+      "bytes": 596995,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Integridad_bloques.json",
+      "sha256": "8d5ec4d1e5255bfefdcb742ec3727bd4d667a384e2a132fe6134952ceb5be42e",
+      "bytes": 2266,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/README.md",
+      "sha256": "a20d0c66c5fe76b246f3a1a8d2b5c626b449fefc8702bcd490039d7f621e3bb3",
+      "bytes": 3613,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Resumen_ensayos.csv",
+      "sha256": "3f78ce82ca05613ddc4fdb3850b9e191416d2e1742b9b3dbefcc2d332f0723a2",
+      "bytes": 489,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Resumen_ensayos.json",
+      "sha256": "41c60d20cc5a31429bb11436a981868e4e8f4bf1aec73afebe510bbe4bb0c252",
+      "bytes": 651,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Resumen_trayectorias.png",
+      "sha256": "6f6ef4ae93184f981731aa2f04059808cb9df0735e21a628f20df1d52a8025fd",
+      "bytes": 46761,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Verificacion_final.json",
+      "sha256": "3fb9235a21ad0c68df2739621f216d207ce3bf1d73adf8b908803e5c32b653c6",
+      "bytes": 377,
+      "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Results/Moose_Test_02/Verificacion_videos.json",
+      "sha256": "0f87eb596a426d931d026af3f043cb7393db671175051e5704b89b0149a76c97",
+      "bytes": 196,
+      "kind": "retained_moose_evidence"
     }
   ],
   "deduplicated_files": [
@@ -991,5 +1113,17 @@
     "PROJECT/Tools/repetirEstimacionQ.m",
     "PROJECT/Tools/diagnosticarSalidaRecta.m"
   ],
-  "mat_metadata_validation": "Native MATLAB removed workstation paths in copied structs/cells. isequaln confirmed round-trip preservation of every sanitized payload; originals untouched."
+  "mat_metadata_validation": "Native MATLAB removed workstation paths in copied structs/cells. isequaln confirmed round-trip preservation of every sanitized payload; originals untouched.",
+  "latest_update": {
+    "date": "2026-11-26",
+    "active_Q": "diag([.02 .02 .005 .10 .10].^2)",
+    "P0_changed": false,
+    "sensor_noise_changed": false,
+    "closed_loop_rerun_with_restored_Q": false,
+    "retained_steering_cases": [
+      "Alce_PP_02"
+    ],
+    "historical_full_loop_evidence": "Saved full-loop lap metrics and MP4s use previous reduced Q.",
+    "publication_adaptations": "New scenario paths made portable; historical integration-Q hash excluded from manoeuvre verification because Q restoration occurred later."
+  }
 }

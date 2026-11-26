@@ -1,5 +1,7 @@
 # Current runnable state
 
+**Active configuration update:** Q is restored to `diag([.02 .02 .005 .10 .10].^2)`; sensor noise, R, P0 and estimator equations are unchanged. The lap metrics below belong to the previous reduced-Q run, not a new validation. [Retained test 02 scenario](Ensayos_alce_seguimiento/README.md) and [saved failure](../Results/Moose_Test_02/README.md) bypass sensors/EKF. [Decision record](../Documentation/Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+
 [← Project](../README.md) · [Closed-loop results](../Results/Closed_Loop/README.md) · [Theory](../Documentation/Dynamics_Development.md) · [Q and failure analysis](../Documentation/Estimator_Q_and_Failure_Analysis.md)
 
 **The sensing–estimation–control loop is connected and has completed the fourteen-corner circuit.** This is the active entry point, superseding the historical V12 and early block-extraction harnesses.
@@ -66,4 +68,4 @@ Documentation is in English. MATLAB identifiers and comments remain in Spanish a
 - The plant disallows mixed positive driving and negative braking commands across wheels.
 - The EKF does not estimate IMU bias, friction or physical tyre-memory states.
 - The plant clamps longitudinal velocity to zero; the EKF does not reproduce that constraint. Extreme uncontrolled spins expose this mismatch.
-- The Q adjustment is provisional and scenario-specific. No tyre identification or experimental validation is claimed.
+- Q has been restored; the previous reduced-Q success is historical evidence. No new full-loop validation, tyre identification or experimental validation is claimed.

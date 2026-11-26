@@ -1,5 +1,7 @@
 # Project overview
 
+**Latest state:** Q has been restored, with sensor noise and P0 unchanged. No complete-loop rerun is published for restored Q. [Retained moose test 02](Results/Moose_Test_02/README.md) bypasses sensors/EKF and is a failed manoeuvre. [Decision record](Documentation/Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+
 [← Repository](../README.md) · [Current package](Current%20State/README.md) · [Results](Results/README.md) · [Theory](Documentation/Dynamics_Development.md) · [Design history](Documentation/README.md)
 
 **A four-wheel vehicle model connected to noisy sensors, state estimation and force-based control.**

@@ -1,0 +1,13 @@
+{
+  "casos": 1,
+  "mp4": 1,
+  "fotogramas_inicio_medio_final_leidos": true,
+  "sin_frenada_solicitada": true,
+  "ABS_sin_intervencion": true,
+  "bloques_del_ensayo_verificados_SHA256": true,
+  "configuracion_Q_excluida_por_restauracion_posterior": true,
+  "sin_sensores_estimador": true,
+  "sin_ESC": true,
+  "PurePursuit_actual": true,
+  "referencia_rapidez_constante": true
+}

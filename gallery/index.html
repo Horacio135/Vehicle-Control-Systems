@@ -13,13 +13,13 @@ header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
 <div class="proposal">Simulation evidence · Current results, diagnostics and development history</div>
 <main><div class="eyebrow">Simulation evidence · Snapshot 26 November 2026</div>
 <h1>Simulation video gallery</h1>
-<p class="intro">Explore the current sensing–estimation–control loop first, then the experiments that explain how it was developed. Current results, diagnostic failures and historical models are labelled separately.</p>
-<div class="stats"><div class="stat"><strong>47.370 s</strong><span>Controlled lap time</span></div><div class="stat"><strong>0.350 m</strong><span>Maximum true path error</span></div><div class="stat"><strong>0.142 m</strong><span>Position-estimator RMSE</span></div></div>
+<p class="intro">Explore the retained Pure Pursuit moose-style test and the earlier model-development evidence. Active Q has been restored; the earlier full-loop lap videos use previous reduced Q. No new complete-loop validation is claimed.</p>
+<div class="stats"><div class="stat"><strong>20 m/s</strong><span>Fixed target, not achieved throughout</span></div><div class="stat"><strong>4 m</strong><span>Requested lane displacement</span></div><div class="stat"><strong>10 m</strong><span>Each lane-change transition</span></div></div>
 <p class="mobile-note">Recorded simulation results, not experimental validation. Videos load on demand; no autoplay.</p>
 <nav><a href="#current">Current results</a><a href="#diagnostic">Diagnostic evidence</a><a href="#history">Development milestones</a><a href="#archive">Full video archive</a></nav>
-<section id="current"><div class="section-top"><div><h2>Current complete loop</h2><p>Selected hybrid tyre model, Ackermann, noisy sensors and seven-state EKF.</p></div><span class="count">2 featured videos</span></div><div class="grid" id="current-grid"></div></section>
-<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is not the current tuned result.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>A controlled lap does not establish robustness during extreme uncontrolled motion.</li></ul><p class="caution">No current full-loop 3D recording exists. The 3D videos below belong to earlier development stages.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
-<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">6 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
+<section id="current"><div class="section-top"><div><h2>Latest retained steering test</h2><p>Failed Pure Pursuit manoeuvre. ABS/TC enabled; sensors, estimator and ESC omitted.</p></div><span class="count">1 featured video</span></div><div class="grid" id="current-grid"></div></section>
+<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is a historical run, not a new restored-Q validation.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>Active Q is restored; the saved reduced-Q lap does not establish robustness.</li></ul><p class="caution">No current full-loop 3D recording exists. The 3D videos below belong to earlier development stages.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
+<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">8 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
 <section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">10 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
 <div class="reading"><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Current%20State" target="_blank" rel="noreferrer">Run the current model ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Dynamics_Development.md" target="_blank" rel="noreferrer">Read the dynamics theory ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Results" target="_blank" rel="noreferrer">Browse numeric results ↗</a></div>
 <footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters; no ESC yaw-feedback controller has been added. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
@@ -27,12 +27,23 @@ header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
 const mediaBase = './';
 const catalogue = [
   {
+    "id": "video-20",
+    "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_2D_capacidad.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Retained moose-style test 02 — failed manoeuvre",
+    "rationale": "Pure Pursuit with a fixed 20 m/s target, ABS/TC enabled, and no sensors, estimator or ESC. Actual speed is not held exactly; recording aborts after loss of control. Only this steering case is retained.",
+    "poster": "PROJECT/Results/Moose_Test_02/Alce_PP_02_previa.png",
+    "detail": "Normal speed · fixed reference, failed tracking",
+    "size_mib": 1.4
+  },
+  {
     "id": "video-01",
     "path": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_ABS_TC_2D.mp4",
     "include": true,
-    "group": "current",
-    "title": "Actual versus estimated trajectory",
-    "rationale": "The clearest current demonstration: complete sensing/estimation loop, ABS/TC on, normal speed and error plots.",
+    "group": "history",
+    "title": "Actual versus estimated trajectory — previous reduced Q",
+    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
     "poster": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
     "detail": "47.45 s video · normal speed",
     "size_mib": 28.57
@@ -41,9 +52,9 @@ const catalogue = [
     "id": "video-02",
     "path": "PROJECT/Results/Closed_Loop/Closed_loop_ABS_TC_comparison_2D_x4.mp4",
     "include": true,
-    "group": "current",
-    "title": "ABS and TC on versus off",
-    "rationale": "Direct comparison of the current estimated loop with both force limiters enabled or disabled.",
+    "group": "history",
+    "title": "ABS and TC on versus off — previous reduced Q",
+    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
     "poster": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
     "detail": "25.40 s video · playback ×4",
     "size_mib": 3.56
@@ -54,7 +65,7 @@ const catalogue = [
     "include": true,
     "group": "diagnostic",
     "title": "First failed complete-loop attempt",
-    "rationale": "Retain as diagnostic evidence for the inherited-Q failure. Explicitly not the current tuned result.",
+    "rationale": "Historical failure using inherited Q before the temporary reduced-Q experiment. No new restored-Q complete-loop run has been published.",
     "poster": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
     "detail": "Inherited Q · abandoned at 6.046 s",
     "size_mib": 2.24
@@ -235,8 +246,7 @@ const catalogue = [
     "detail": "",
     "size_mib": 0.19
   }
-]
-;
+];
 const sourceUrl = path => 'https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/'+encodeURI(path);
 function card(item){
  const article=document.createElement('article');article.className='card';

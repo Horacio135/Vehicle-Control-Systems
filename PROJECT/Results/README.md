@@ -1,10 +1,12 @@
 # Simulation results
 
+**Latest publication:** [moose-style test 02](Moose_Test_02/README.md) is the sole retained steering test. Its fixed 20 m/s target is not maintained during loss of control. Sensors/EKF/ESC are bypassed. Q is restored in the active complete-loop configuration, but all full-loop metrics below remain saved evidence from the earlier reduced-Q configuration.
+
 [← Project](../README.md) · [Current loop and videos](Closed_Loop/README.md) · [Historical videos](Hybrid_Tests/README.md) · [Numerical archive](Numerical/README.md)
 
 **Recorded evidence, including failed attempts and degraded behaviour.** Each campaign retains its model/configuration. The latest estimated-loop videos are 2D; earlier 3D videos use older dynamics/control configurations.
 
-## Current complete loop after the Q adjustment
+## Saved complete loop with previous reduced Q
 
 | Case | Lap time [s] | Maximum path error [m] | Position-estimator RMSE [m] |
 |---|---:|---:|---:|

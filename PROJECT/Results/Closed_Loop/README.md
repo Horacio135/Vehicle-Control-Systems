@@ -1,5 +1,7 @@
 # Complete sensing and estimation loop
 
+**Historical configuration notice:** these successful lap metrics and videos were recorded with reduced Q. Active Q has since been restored to `diag([.02 .02 .005 .10 .10].^2)` with sensor noise and P0 unchanged. No new complete-loop result with restored Q is claimed. The first failed attempt remains a separate historical run. [Latest retained steering test](../Moose_Test_02/README.md).
+
 [← Results](../README.md) · [Run the package](../../Current%20State/README.md) · [Q analysis](../../Documentation/Estimator_Q_and_Failure_Analysis.md)
 
 **After the residual-Q adjustment, the estimated loop with ABS/TC completes a lap in 47.370 s with 0.350 m maximum path error.** Sensors and the EKF are active in both controlled/uncontrolled cases.
@@ -12,7 +14,7 @@
 
 The uncontrolled case leaves the corridor, despite completing the route. Its severe estimation errors must not be hidden by quoting only the successful controlled run.
 
-## Current videos
+## Saved videos with previous reduced Q
 
 [![Controlled real and estimated trajectories](Actual_vs_estimated_preview.png)](Actual_vs_estimated_ABS_TC_2D.mp4)
 
@@ -26,7 +28,7 @@ The uncontrolled case leaves the corridor, despite completing the route. Its sev
 
 [![First failed attempt](First_Failed_Attempt/First_failed_attempt_preview.png)](First_Failed_Attempt/First_failed_attempt_2D.mp4)
 
-The first controlled estimated-loop attempt used the inherited Q and crossed 10 m of path error at 6.046 s. The [video](First_Failed_Attempt/First_failed_attempt_2D.mp4), [summary](First_Failed_Attempt/summary.csv) and [histories](First_Failed_Attempt/histories.mat) preserve that failure. It is not presented as the current tuned result.
+The first controlled estimated-loop attempt used the inherited Q and crossed 10 m of path error at 6.046 s. The [video](First_Failed_Attempt/First_failed_attempt_2D.mp4), [summary](First_Failed_Attempt/summary.csv) and [histories](First_Failed_Attempt/histories.mat) preserve that failure. It remains a historical failure, not a new run of the restored-Q configuration.
 
 ## Numeric evidence
 

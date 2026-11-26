@@ -1,0 +1,8 @@
+{
+  "caso": "Alce_PP_02",
+  "estados_identicos": true,
+  "direccion_identica": true,
+  "fuerzas_identicas": true,
+  "bloques_modificados": false,
+  "scope": "Portable scenario replay matches the saved single-case states, steering and requested forces exactly. This is not a full-loop validation with restored Q."
+}

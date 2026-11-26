@@ -1,11 +1,22 @@
 [
   {
+    "id": "video-20",
+    "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_2D_capacidad.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Retained moose-style test 02 — failed manoeuvre",
+    "rationale": "Pure Pursuit with a fixed 20 m/s target, ABS/TC enabled, and no sensors, estimator or ESC. Actual speed is not held exactly; recording aborts after loss of control. Only this steering case is retained.",
+    "poster": "PROJECT/Results/Moose_Test_02/Alce_PP_02_previa.png",
+    "detail": "Normal speed · fixed reference, failed tracking",
+    "size_mib": 1.4
+  },
+  {
     "id": "video-01",
     "path": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_ABS_TC_2D.mp4",
     "include": true,
-    "group": "current",
-    "title": "Actual versus estimated trajectory",
-    "rationale": "The clearest current demonstration: complete sensing/estimation loop, ABS/TC on, normal speed and error plots.",
+    "group": "history",
+    "title": "Actual versus estimated trajectory — previous reduced Q",
+    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
     "poster": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
     "detail": "47.45 s video · normal speed",
     "size_mib": 28.57
@@ -14,9 +25,9 @@
     "id": "video-02",
     "path": "PROJECT/Results/Closed_Loop/Closed_loop_ABS_TC_comparison_2D_x4.mp4",
     "include": true,
-    "group": "current",
-    "title": "ABS and TC on versus off",
-    "rationale": "Direct comparison of the current estimated loop with both force limiters enabled or disabled.",
+    "group": "history",
+    "title": "ABS and TC on versus off — previous reduced Q",
+    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
     "poster": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
     "detail": "25.40 s video · playback ×4",
     "size_mib": 3.56
@@ -27,7 +38,7 @@
     "include": true,
     "group": "diagnostic",
     "title": "First failed complete-loop attempt",
-    "rationale": "Retain as diagnostic evidence for the inherited-Q failure. Explicitly not the current tuned result.",
+    "rationale": "Historical failure using inherited Q before the temporary reduced-Q experiment. No new restored-Q complete-loop run has been published.",
     "poster": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
     "detail": "Inherited Q · abandoned at 6.046 s",
     "size_mib": 2.24
