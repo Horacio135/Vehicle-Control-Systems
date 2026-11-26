@@ -4,6 +4,8 @@
 
 The gallery has 10 players and 10 archive links. The only latest steering result is moose-style test 02; the full-loop videos are labelled historical evidence with previous reduced Q. No complete-loop validation with restored Q has been published.
 
+The retained moose manoeuvre checks that ABS/TC do not replace the future ESC yaw-stability function: lateral instability occurs while TC limits motor demand. ABS is enabled without braking demand in this case.
+
 ## Maintenance
 
 Edit `gallery/catalog.json` and synchronize the embedded catalogue in `gallery/index.html`. Run `python gallery/build_gallery.py` from the repository root. GitHub Actions publishes selected media after a push to main. Videos are loaded only after Play is clicked.

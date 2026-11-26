@@ -22,6 +22,12 @@ The current Pure Pursuit and longitudinal modules drive the existing hybrid plan
 
 The speed **reference** is constant; actual speed is not imposed. Tracking and speed regulation fail. Recording stops when body-frame vx falls below 0.5 m/s, avoiding continued integration into the plant's vx clamp. No visual obstacle contact was recorded before termination; this does not establish successful avoidance. The obstacle and 2.0 by 1.2 m body rectangles are illustrative and no impact forces are simulated. Large slip angles are qualitative evidence within a simplified planar model, not experimental tyre validation.
 
+## Purpose: check the ABS/TC boundary with ESC
+
+The manoeuvre was designed to check that the implemented ABS and TC do not take over the lateral-stability function reserved for the future ESC. The intended behaviour is that longitudinal traction limiting remains active while an excessively demanding steering manoeuvre can still produce rear-axle saturation and loss of lateral stability.
+
+The retained test demonstrates this functional separation for this scenario: TC limits rear driving demand in 352 samples, yet the vehicle loses lateral stability. The current ABS/TC blocks do not regulate a yaw-rate error or request an ESC corrective yaw moment. ABS is enabled but receives no braking demand, so this result does not exercise its behaviour during braking. This is a check of the implemented functional boundary, not an exhaustive validation of ABS/TC/ESC interaction.
+
 ## Video and figures
 
 [![Test 02 preview](Alce_PP_02_previa.png)](Alce_PP_02_2D_capacidad.mp4)
