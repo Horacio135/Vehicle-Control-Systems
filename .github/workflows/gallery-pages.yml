@@ -31,6 +31,33 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for Pages artifact visibility
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python - <<'PY'
+          import json, os, time, urllib.request
+          url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}/artifacts?per_page=100"
+          request = urllib.request.Request(url, headers={
+              "Authorization": "Bearer " + os.environ["GITHUB_TOKEN"],
+              "Accept": "application/vnd.github+json",
+              "User-Agent": "vehicle-control-pages",
+          })
+          for attempt in range(12):
+              with urllib.request.urlopen(request) as response:
+                  artifacts = json.load(response)["artifacts"]
+              matches = [item for item in artifacts if item["name"] == os.environ["ARTIFACT_NAME"] and not item["expired"]]
+              if len(matches) == 1:
+                  print("Pages artifact is visible.")
+                  break
+              time.sleep(5)
+          else:
+              raise SystemExit("Pages artifact did not become uniquely visible within 60 seconds.")
+          PY
       - name: Deploy gallery
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
