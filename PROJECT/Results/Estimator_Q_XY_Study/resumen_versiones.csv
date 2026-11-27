@@ -1,0 +1,5 @@
+version,sigma_XY,Q_XX,Q_YY,Q_psi,Q_vx,Q_vy,vuelta_completa,tiempo_simulado_s,error_lateral_max_m,avance_pct,RMSE_posicion_m,dentro_corredor_3m,tiempo_calculo_s,motivo
+Version_XY_0_020,0.02,0.0004,0.0004,2.5e-05,0.01,0.01,0,6.046,10.015871567705,13.9662447614969,0.396352097462182,0,3.5257188,Error lateral mayor de 10 m
+Version_XY_0_015,0.015,0.000225,0.000225,2.5e-05,0.01,0.01,0,5.944,10.0178470305295,13.0010905420318,0.443338947828725,0,3.2304995,Error lateral mayor de 10 m
+Version_XY_0_010,0.01,0.0001,0.0001,2.5e-05,0.01,0.01,0,5.994,10.0008846306502,12.6182687328945,0.53789988016524,0,3.2586992,Error lateral mayor de 10 m
+Version_XY_0_005,0.005,2.5e-05,2.5e-05,2.5e-05,0.01,0.01,0,12.67,10.0091379478191,7.06742330016622,0.710630893129671,0,6.7226717,Error lateral mayor de 10 m

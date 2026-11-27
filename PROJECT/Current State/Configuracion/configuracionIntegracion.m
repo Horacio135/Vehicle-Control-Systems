@@ -11,19 +11,20 @@ p.direccion_sigma=deg2rad(.1);     % Desviación típica angular [rad].
 p.direccion_bias=0;               % Sesgo angular [rad].
 % med.acc_x replica med.acc; med.acc_y y med.delta son nuevos canales.
 % El EKF usa ay y dirección; ABS/TC mantienen su propia predicción interna.
-% EKF: [X Y psi vx vy]; Q restaurada al valor previo al ajuste del lazo.
-% Restauración 26/11/2026: sensores, R, P inicial y algoritmo sin cambios.
-p.Q=diag([.02 .02 .005 .10 .10].^2);
+% EKF: [X Y psi vx vy]; Q reducida reactivada para futuras pruebas.
+% 27/11/2026: se recupera la configuración de la vuelta de 47.370 s.
+% Sensores, R, P inicial y algoritmo permanecen sin cambios.
+p.Q=diag([.001 .001 .00001 .003 .003].^2);
 p.R=diag([p.gps_sigma p.gps_sigma].^2);
 % Intensidad por segundo de cambios en ay y dirección (hipótesis iniciales).
 p.estimador=struct('q_ay',25,'q_direccion',.002);
 cfg.usarSensoresEstimador=true;
 % Capacidad de ABS/TC predicha a partir de estimaciones y órdenes anteriores.
 % No se rellena un estado físico con memorias reales de la planta.
-cfg.compararEstadoPerfecto=true;
+cfg.compararEstadoPerfecto=false;
 % Destino común de futuras simulaciones y renderizaciones del lazo completo.
 carpetaEstadoActual=fileparts(fileparts(mfilename('fullpath')));
-cfg.carpetaResultados=fullfile(carpetaEstadoActual,'Resultados');
+cfg.carpetaResultados=fullfile(carpetaEstadoActual,'Resultados','Lazo_completo_ABS_modulado_2026-11-27');
 cfg.guardarResultados=true;
 end
 

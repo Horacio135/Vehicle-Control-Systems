@@ -6,7 +6,7 @@ for d={'Dinamica','Control','Sensores','Estimacion','Configuracion'},addpath(ful
 addpath(actual,'-begin');
 [p,cfg,~]=configuracionIntegracion;
 assert(cfg.usarSensoresEstimador&&cfg.guardarResultados);
-assert(strcmp(cfg.carpetaResultados,fullfile(actual,'Resultados')));
+assert(strcmp(cfg.carpetaResultados,fullfile(actual,'Resultados','Lazo_completo_ABS_modulado_2026-11-27')));
 datos=load(fullfile(repo,'PROJECT','Results','Closed_Loop','histories.mat'),'pista');
 pista=datos.pista;z=inicializarEstadoSoloTraccion([pista.centro(1,:)';0;0;0;0],p);
 memK=struct('xh',z(1:5),'P',eye(5)*1e-3);memC=[];memCap=[];u=zeros(5,1);

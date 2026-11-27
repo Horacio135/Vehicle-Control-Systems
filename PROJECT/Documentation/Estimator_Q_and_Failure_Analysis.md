@@ -1,10 +1,11 @@
 # Estimator uncertainty and straight-line departure analysis
 
+**Historical record:** superseded for the active configuration by the [27 November ABS/Q decision](Design_Decisions/Modulated_ABS_2026-11-27.md). Working Q is reduced again; these older recordings retain their original ABS and configuration.
 [← Documentation](README.md) · [Current implementation](../Current%20State/README.md) · [Evidence](../Results/Closed_Loop/README.md)
 
-**Current configuration, 26 November 2026:** Q has been restored to `diag([.02 .02 .005 .10 .10].^2)`. The temporary reduced-Q setting is no longer active. Sensor-noise parameters, R, the estimator equations and initial P were not changed by this restoration. The complete loop has **not** been rerun with restored Q; earlier lap metrics and videos remain evidence of the reduced-Q configuration.
+**Configuration history:** Q was restored to `diag([.02 .02 .005 .10 .10].^2)` on 26 November, without changing sensor noise, R, P0 or EKF equations. The subsequent restored-Q circuit rerun and X/Y-only study failed. The user then selected the successful reduced Q again for ongoing tests. The latest ABS comparison uses that reduced Q; this note preserves the earlier replay analysis.
 
-This note records that historical adjustment and distinguishes it from the active configuration. The recorded reduced-Q replay improved estimation on one controlled trajectory; it does not establish robustness during uncontrolled spins. See the [restoration and retained manoeuvre decision](Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+This note records that historical adjustment and distinguishes it from later configuration changes. The recorded reduced-Q replay improved estimation on one controlled trajectory; it does not establish robustness during uncontrolled spins. See the [restoration and retained manoeuvre decision](Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
 
 ## Meaning of Q and P in this implementation
 
@@ -84,7 +85,7 @@ During severe rotation the plant may activate its no-reverse clamp while the est
 
 No further estimator-internal change has been approved or implemented in this update. Keep Q and sensor noise fixed while reviewing the plant/estimator constraint mismatch, covariance consistency, time alignment, Jacobians and observability. Initial P must be reviewed separately from the covariance evolution; R must continue to describe the sensor uncertainty rather than being reduced to produce a preferred trajectory.
 
-The immediate diagnostic question is whether estimated position, heading or velocity induces harmful steering corrections **before** a straight-line spin. Recompute Pure Pursuit steering from estimated and true states on the same recorded trajectory, then compare the steering difference, force demand, rear lateral margin and onset of instability. This can separate an estimator-triggered perturbation from large estimation error that follows a plant instability. The chronology above does not absolve either the estimator or the controller, and must not be silently extrapolated to a restored-Q run that has not been performed.
+The immediate diagnostic question is whether estimated position, heading or velocity induces harmful steering corrections **before** a straight-line spin. Recompute Pure Pursuit steering from estimated and true states on the same recorded trajectory, then compare the steering difference, force demand, rear lateral margin and onset of instability. This can separate an estimator-triggered perturbation from large estimation error that follows a plant instability. The chronology above does not absolve either the estimator or the controller, and must not be silently extrapolated to other trajectories without a separate diagnostic analysis.
 
 The [retained Moose Test 02](../Results/Moose_Test_02/README.md) deliberately omits sensors and estimation. It demonstrates a separate manoeuvre failure and cannot validate or diagnose the EKF. A good controlled lap alone must not be used as validation of the full operating range.
 

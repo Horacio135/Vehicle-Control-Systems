@@ -1,0 +1,52 @@
+{
+  "datos_origen": "local-project\\estado actual\\Resultados\\Estudio_Q_XY_2026-11-27\\Version_XY_0_010\\simulacion.mat",
+  "caso": "Q XY 0.010, ABS/TC habilitados",
+  "Q": [
+    [
+      0.0001,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0.0001,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2.5e-05,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0.010000000000000002,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0.010000000000000002
+    ]
+  ],
+  "velocidad_reproduccion": 1,
+  "duracion_video_s": 6.05,
+  "fps": 20,
+  "tiempo_simulado_s": 5.994,
+  "motivo": "Error lateral mayor de 10 m",
+  "error_seguimiento_max_m": 10.0008846306502,
+  "rmse_posicion_EKF_m": 0.5378998801652398,
+  "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+  "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+  "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+  "bloques_modificados": false
+}

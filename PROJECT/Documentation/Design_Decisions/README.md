@@ -65,3 +65,6 @@ Maximum driving-force demand rises from 2500 to 5000 N and tauAcel drops from 0.
 ## Decisions still pending
 
 The next phase keeps the plant frozen and assembles the block architecture. Yaw reference, estimation signals, wheel-force allocation, actuator limits and coordination must be defined. Slip-based ABS/TCS still require wheel angular speed, radius/inertia and a force–slip law. Slip-angle convention, lock-mode assumptions and adhesion parameters need review/calibration before conclusions are extended to a real vehicle.
+
+
+[27 November: modulated ABS, working Q, research and validation](Modulated_ABS_2026-11-27.md).

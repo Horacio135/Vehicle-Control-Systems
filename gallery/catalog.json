@@ -1,9 +1,31 @@
 [
   {
+    "id": "video-21",
+    "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Modulated ABS off versus on — TC on in both",
+    "rationale": "Same fourteen-corner track, TC, noisy sensors and EKF in both cases. Only ABS changes: off versus new 0.98/0.80 release–hold–rebuild modulation. Both complete the lap.",
+    "poster": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4_previa.png",
+    "detail": "Playback ×4 · 49.250 s vs 47.294 s",
+    "size_mib": 1.87
+  },
+  {
+    "id": "video-22",
+    "path": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Modulated ABS and TC on — actual versus estimated",
+    "rationale": "Actual and estimated positions superposed, with speed and error traces. Selected working reduced Q; sensor noise, R, P0 and EKF equations unchanged. Maximum path error 0.354 m.",
+    "poster": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D_previa.png",
+    "detail": "Normal speed · 47.294 s lap",
+    "size_mib": 28.46
+  },
+  {
     "id": "video-20",
     "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_2D_capacidad.mp4",
     "include": true,
-    "group": "current",
+    "group": "history",
     "title": "Retained moose-style test 02 — failed manoeuvre",
     "rationale": "Checks the functional boundary with ESC: TC limits driving demand but lateral instability remains possible. Pure Pursuit, fixed 20 m/s target; ABS enabled without braking. Sensors, estimator and ESC omitted. Failed manoeuvre; only test 02 retained.",
     "poster": "PROJECT/Results/Moose_Test_02/Alce_PP_02_previa.png",
@@ -16,7 +38,7 @@
     "include": true,
     "group": "history",
     "title": "Actual versus estimated trajectory — previous reduced Q",
-    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
+    "rationale": "Historical full-loop evidence with the previous instantaneous ABS and reduced Q; it is not the new modulated-ABS comparison.",
     "poster": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
     "detail": "47.45 s video · normal speed",
     "size_mib": 28.57
@@ -27,7 +49,7 @@
     "include": true,
     "group": "history",
     "title": "ABS and TC on versus off — previous reduced Q",
-    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
+    "rationale": "Historical full-loop evidence with the previous instantaneous ABS and reduced Q; it is not the new modulated-ABS comparison.",
     "poster": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
     "detail": "25.40 s video · playback ×4",
     "size_mib": 3.56
@@ -38,7 +60,7 @@
     "include": true,
     "group": "diagnostic",
     "title": "First failed complete-loop attempt",
-    "rationale": "Historical failure using inherited Q before the temporary reduced-Q experiment. No new restored-Q complete-loop run has been published.",
+    "rationale": "Historical failed attempt with inherited Q; later restored-Q and X/Y-only tests also fail. The selected reduced-Q configuration is documented separately.",
     "poster": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
     "detail": "Inherited Q · abandoned at 6.046 s",
     "size_mib": 2.24

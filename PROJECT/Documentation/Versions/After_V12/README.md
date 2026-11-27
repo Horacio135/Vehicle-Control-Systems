@@ -18,4 +18,6 @@ These are named integration milestones, not invented V13–V20 releases. V1–V1
 | EKF, 26 Nov | Extend to seven states; preserve prediction/GPS-correction method | [Estimator checks](../../../Results/Estimator/README.md) |
 | Full loop, 26 Nov | External adapters keep all thirteen block functions unchanged; tune residual Q; 47.370 s controlled lap | [Full-loop results](../../../Results/Closed_Loop/README.md) |
 
+| Modulated ABS, 27 Nov | Independent release/hold/rebuild; TC on in both comparison cases; 47.294 s controlled lap | [New evidence](../../../Results/Modulated_ABS/README.md) |
+
 Physical limits and rejected alternatives are retained explicitly. Current full-loop videos must not be relabelled as evidence for earlier tyre models, and earlier 3D videos do not imply a new 3D estimated-loop run.

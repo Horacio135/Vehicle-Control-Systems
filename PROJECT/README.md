@@ -1,12 +1,12 @@
 # Project overview
 
-**Latest state:** Q has been restored, with sensor noise and P0 unchanged. No complete-loop rerun is published for restored Q. [Retained moose test 02](Results/Moose_Test_02/README.md) bypasses sensors/EKF and is a failed manoeuvre. [Decision record](Documentation/Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+**Latest state — 27 November:** modulated ABS is active and working Q returns to the reduced configuration. The ABS off/on comparison keeps TC on in both: 49.250 s versus 47.294 s. [Current results](Results/Modulated_ABS/README.md) · [Decision record](Documentation/Design_Decisions/Modulated_ABS_2026-11-27.md).
 
 [← Repository](../README.md) · [Current package](Current%20State/README.md) · [Results](Results/README.md) · [Theory](Documentation/Dynamics_Development.md) · [Design history](Documentation/README.md)
 
 **A four-wheel vehicle model connected to noisy sensors, state estimation and force-based control.**
 
-The snapshot dated **26 November 2026** includes the complete sensing–estimation loop, rear traction-only Pacejka, historical braking, Ackermann geometry and force-based ABS/TC. The long-term objective remains coordinated stability control: an ESC yaw controller and physical-slip ABS/TCS are not yet implemented. V1–V12 remain historical development stages, with later milestones documented separately.
+The snapshot dated **27 November 2026** includes the complete sensing–estimation loop, rear traction-only Pacejka, historical braking, Ackermann geometry and force-based ABS/TC. The long-term objective remains coordinated stability control: an ESC yaw controller and physical-slip ABS/TCS are not yet implemented. V1–V12 remain historical development stages, with later milestones documented separately.
 
 ## Project layout
 

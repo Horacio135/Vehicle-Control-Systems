@@ -10,9 +10,9 @@
 
 MATLAB coursework and project development for Vehicle Control Systems. The repository records how the physical model evolved, why design decisions were made, and what each simulation actually demonstrated.
 
-[Watch simulation videos](https://Horacio135.github.io/Vehicle-Control-Systems/) · [Quick start](#quick-start) · [Current package](PROJECT/Current%20State/README.md) · [Theory](PROJECT/Documentation/Dynamics_Development.md) · [History](PROJECT/Documentation/Versions/README.md) · [Current videos](PROJECT/Results/Closed_Loop/README.md)
+[Watch simulation videos](https://Horacio135.github.io/Vehicle-Control-Systems/) · [Quick start](#quick-start) · [Current package](PROJECT/Current%20State/README.md) · [Theory](PROJECT/Documentation/Dynamics_Development.md) · [History](PROJECT/Documentation/Versions/README.md) · [Current videos](PROJECT/Results/Modulated_ABS/README.md)
 
-**Latest update — 26 November 2026:** the active estimator configuration restores `Q = diag([.02 .02 .005 .10 .10].^2)`. Sensor-noise parameters, R, estimator equations and P0 are unchanged. The 47.370 s lap and associated full-loop videos below were recorded with the previous reduced Q; no complete-loop rerun has validated restored Q. The latest retained steering evidence is [moose-style test 02](PROJECT/Results/Moose_Test_02/README.md), a failed Pure Pursuit manoeuvre without sensors or estimation. [Decision record](PROJECT/Documentation/Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+**Latest update — 27 November 2026:** wheel-by-wheel modulated ABS is active, with TC on in both comparison cases. The new controlled lap takes **47.294 s** versus **49.250 s** with ABS off. Working Q returns to the successful reduced configuration; sensor noise, R, P0 and estimator equations are unchanged. [Results and videos](PROJECT/Results/Modulated_ABS/README.md) · [Design rationale and calibration assumptions](PROJECT/Documentation/Design_Decisions/Modulated_ABS_2026-11-27.md).
 
 ## At a glance
 
@@ -24,7 +24,7 @@ MATLAB coursework and project development for Vehicle Control Systems. The repos
 | Pure Pursuit, speed planning and force-based ABS/TC | ESC yaw control and combined-capacity planning |
 | Current 2D full-loop videos and historical 2D/3D evidence | A current full-loop 3D rendering |
 
-**The complete loop is connected.** Its saved reduced-Q controlled run completes the circuit in **47.370 s** with **0.350 m** maximum path error. ABS/TC remain force limiters, not physical-slip feedback regulators, and no ESC yaw controller has been added. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
+**The complete loop is connected.** Its saved reduced-Q controlled run completes the circuit in **47.294 s** with **0.354 m** maximum path error. ABS/TC remain force limiters, not physical-slip feedback regulators, and no ESC yaw controller has been added. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
 
 ## Quick start
 
@@ -40,17 +40,16 @@ cd(fullfile('PROJECT','Current State'))
 open('Integracion_estado_actual.mlx')
 ```
 
-Run the entire Live Script. It compares estimated-state cases with ABS/TC off and on, plus an explicitly separate perfect-state reference. New local results go to the package's `Resultados` folder. MATLAB **R2026a** was used for verification; earlier releases have not been certified. Historical V11/V12 3D scenarios remain available in [Hybrid Tests](PROJECT/Hybrid%20Tests/README.md), but do not represent the current estimated loop.
+Run the entire Live Script. It compares ABS off/on with TC, sensors and estimation enabled in both cases. The optional perfect-state reference is disabled by default. New local results go to the package's `Resultados` folder. MATLAB **R2026a** was used for verification; earlier releases have not been certified. Historical V11/V12 3D scenarios remain available in [Hybrid Tests](PROJECT/Hybrid%20Tests/README.md), but do not represent the current estimated loop.
 
-## Saved full-loop results with previous reduced Q
+## Current full-loop results
 
 | Case | Lap time [s] | Maximum path error [m] | Position-estimator RMSE [m] |
 |---|---:|---:|---:|
-| Estimated loop, ABS/TC on | 47.370 | 0.350 | 0.142 |
-| Estimated loop, ABS/TC off | 101.228 | 7.258 | 3.145 |
-| Perfect-state reference, ABS/TC on | 47.132 | 0.329 | — |
+| ABS off, TC on | 49.250 | 2.016 | 0.14452 |
+| Modulated ABS on, TC on | 47.294 | 0.35427 | 0.14233 |
 
-The uncontrolled case completes the route but leaves the corridor. A failed first attempt, the provisional Q adjustment and same-measurement estimator replays are retained in [the results](PROJECT/Results/Closed_Loop/README.md) and [failure analysis](PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md). A successful lap is not experimental validation or proof of robustness during severe spins.
+[Watch the ABS comparison](https://horacio135.github.io/Vehicle-Control-Systems/#current). Both complete the route with the selected reduced Q. The restored-Q rerun and four X/Y-only covariance experiments fail and remain documented as failures. A successful lap is not a robustness or full-body cone-clearance guarantee. [Current evidence](PROJECT/Results/Modulated_ABS/README.md) · [Q study](PROJECT/Results/Estimator_Q_XY_Study/README.md) · [Earlier full-loop results](PROJECT/Results/Closed_Loop/README.md).
 
 ## Historical result: more requested force can mean a worse lap
 

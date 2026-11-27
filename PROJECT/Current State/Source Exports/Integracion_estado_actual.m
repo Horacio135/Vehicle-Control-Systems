@@ -1,3 +1,6 @@
+%% Lazo completo actual: ABS off/on, con TC activo en ambos
+% Sensores y estimador activos; Q reducida mantenida. Física y TC intactos.
+% La comparación modifica únicamente p.abs.habilitado.
 carpeta=fileparts(mfilename('fullpath'));
 for sub={'Dinamica','Control','Sensores','Estimacion','Configuracion'}
     addpath(fullfile(carpeta,sub{1}),'-begin');
@@ -9,10 +12,13 @@ assert(strcmpi(which('adaptarEntradaControl'),fullfile(carpeta,'adaptarEntradaCo
 [p,cfg,plan]=configuracionIntegracion;
 pista=generarCircuitoHibrido(cfg);
 perfil=planificarVelocidad(pista,cfg.velocidadMaxima,plan);
-sinControl=simularLazo(false,p,pista,perfil,cfg);
-conControl=simularLazo(true,p,pista,perfil,cfg);
+% Comparación aislada del ABS: TC permanece habilitado en ambos casos.
+pSinABS=p;pSinABS.abs.habilitado=false;
+pConABS=p;pConABS.abs.habilitado=true;
+sinControl=simularLazo(true,pSinABS,pista,perfil,cfg);
+conControl=simularLazo(true,pConABS,pista,perfil,cfg);
 casos={sinControl,conControl};
-nombres={'Lazo estimado sin ABS/TC','Lazo estimado con ABS/TC'};
+nombres={'ABS desactivado, TC activado','ABS y TC activados'};
 referenciaPerfecta=[];
 if cfg.compararEstadoPerfecto
     cfgPerfecta=cfg;cfgPerfecta.usarSensoresEstimador=false;
@@ -35,7 +41,7 @@ disp(resumen);
 if cfg.guardarResultados
     if ~isfolder(cfg.carpetaResultados),mkdir(cfg.carpetaResultados);end
     save(fullfile(cfg.carpetaResultados,'lazo_completo.mat'), ...
-        'sinControl','conControl','referenciaPerfecta','p','cfg','plan','pista','perfil','resumen');
+        'sinControl','conControl','referenciaPerfecta','p','pSinABS','pConABS','cfg','plan','pista','perfil','resumen');
     writetable(resumen,fullfile(cfg.carpetaResultados,'resumen.csv'));
 end
 fig=figure('Visible','off','Color','w','Position',[50 50 1300 850]);tiledlayout(2,2);
@@ -135,7 +141,7 @@ for k=1:N
     diferencia=[est.X;est.Y;est.psi;est.vx;est.vy;est.r]-z(1:6);
     diferencia(3)=atan2(sin(diferencia(3)),cos(diferencia(3)));
     h.error_estimacion(k,:)=diferencia.';
-    if mod(k,5000)==0,fprintf('Estimado %d, ABS/TC %d: %.1f s, avance %.1f %%, error %.2f m\n',cfg.usarSensoresEstimador,activar,h.t(k),100*avance/pista.longitud,errorReal);end
+    if mod(k,5000)==0,fprintf('Estimado %d, TC activo, ABS %d: %.1f s, avance %.1f %%, error %.2f m\n',cfg.usarSensoresEstimador,p.abs.habilitado,h.t(k),100*avance/pista.longitud,errorReal);end
     if avance>=pista.longitud&&distancia>.9*pista.longitud,h.motivo='Vuelta completada';break;end
     if abs(errorReal)>cfg.errorAbandono,h.motivo='Error lateral mayor de 10 m';break;end
     if cfg.usarSensoresEstimador,med=sensores(siguiente,tele,p,k+1);end
@@ -145,7 +151,7 @@ end
 for nombre=fieldnames(h)'
     if isnumeric(h.(nombre{1})),h.(nombre{1})=h.(nombre{1})(1:k,:);end
 end
-fprintf('Estimado %d, ABS/TC %d: %s, %.3f s, error máximo %.3f m.\n',cfg.usarSensoresEstimador,activar,h.motivo,h.t(end),max(abs(h.error)));
+fprintf('Estimado %d, TC activo, ABS %d: %s, %.3f s, error máximo %.3f m.\n',cfg.usarSensoresEstimador,p.abs.habilitado,h.motivo,h.t(end),max(abs(h.error)));
 end
 
 function pista=generarCircuitoHibrido(cfg)

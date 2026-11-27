@@ -53,6 +53,9 @@ p.kRoll = 0.5;
 %% Configuración editable
 p.Kp_v=800;p.Ki_v=200;p.Ld0=1;p.kLd=.15;p.delta_max=.5;
 p.dt=.002;p.tc_factor=.98;p.ttc_umbral=2;
+% ABS por fuerza: parámetros iniciales de modulación, no calibración de fabricante.
+p.abs=struct('habilitado',true,'factorActivacion',.98,'factorDescarga',.80, ...
+    'tiempoDescarga',.030,'tiempoMantenimiento',.010,'tiempoRecarga',.060);
 p.conductor=struct('tauAcel',.010,'tauFreno',.020,'errorActivar',.35,'errorSoltar',.05);
 cfg=struct('ancho',3,'pasoTrayectoria',.25,'pasoConos',3, ...
     'velocidadMaxima',35,'tiempoMaximo',180,'errorAbandono',10);

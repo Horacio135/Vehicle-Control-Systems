@@ -1,10 +1,10 @@
 # Documentation
 
-[Latest decision: Q restoration and retained moose test](Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+[Latest decision: modulated ABS and working Q](Design_Decisions/Modulated_ABS_2026-11-27.md).
 
 [← Project](../README.md) · [Versions](Versions/README.md) · [Design decisions](Design_Decisions/README.md) · [Results](../Results/README.md)
 
-**Design rationale, theory and evidence from V1 through the complete estimated loop.** The current milestone is dated **26 November 2026**; the original V1–V12 archival snapshot remains dated 22 November. Figures and runs retain their own model/configuration rather than being relabelled as current evidence.
+**Design rationale, theory and evidence from V1 through the complete estimated loop.** The current milestone is dated **27 November 2026**; the original V1–V12 archival snapshot remains dated 22 November. Figures and runs retain their own model/configuration rather than being relabelled as current evidence.
 
 ## Reading paths
 

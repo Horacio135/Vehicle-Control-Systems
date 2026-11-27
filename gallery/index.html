@@ -11,15 +11,15 @@ header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
 </style></head><body>
 <header><div class="bar"><div class="brand">VCS / Vehicle Control Systems</div><a href="https://github.com/Horacio135/Vehicle-Control-Systems" target="_blank" rel="noreferrer">Repository ↗</a></div></header>
 <div class="proposal">Simulation evidence · Current results, diagnostics and development history</div>
-<main><div class="eyebrow">Simulation evidence · Snapshot 26 November 2026</div>
+<main><div class="eyebrow">Simulation evidence · Snapshot 27 November 2026</div>
 <h1>Simulation video gallery</h1>
-<p class="intro">Explore the retained Pure Pursuit moose-style test and the earlier model-development evidence. Active Q has been restored; the earlier full-loop lap videos use previous reduced Q. No new complete-loop validation is claimed.</p>
-<div class="stats"><div class="stat"><strong>20 m/s</strong><span>Fixed target, not achieved throughout</span></div><div class="stat"><strong>4 m</strong><span>Requested lane displacement</span></div><div class="stat"><strong>10 m</strong><span>Each lane-change transition</span></div></div>
+<p class="intro">Compare the new modulated ABS with braking control disabled, while TC stays on in both runs. Follow actual and estimated motion, then explore failed estimator tests and earlier design milestones. The selected working Q is reduced again; sensor noise is unchanged.</p>
+<div class="stats"><div class="stat"><strong>47.294 s</strong><span>Modulated ABS on · TC on</span></div><div class="stat"><strong>49.250 s</strong><span>ABS off · TC on</span></div><div class="stat"><strong>0.354 m</strong><span>Controlled maximum path error</span></div></div>
 <p class="mobile-note">Recorded simulation results, not experimental validation. Videos load on demand; no autoplay.</p>
 <nav><a href="#current">Current results</a><a href="#diagnostic">Diagnostic evidence</a><a href="#history">Development milestones</a><a href="#archive">Full video archive</a></nav>
-<section id="current"><div class="section-top"><div><h2>Latest retained steering test</h2><p>Failed Pure Pursuit manoeuvre. ABS/TC enabled; sensors, estimator and ESC omitted.</p></div><span class="count">1 featured video</span></div><div class="grid" id="current-grid"></div></section>
-<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is a historical run, not a new restored-Q validation.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>Active Q is restored; the saved reduced-Q lap does not establish robustness.</li></ul><p class="caution">No current full-loop 3D recording exists. The 3D videos below belong to earlier development stages.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
-<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">8 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
+<section id="current"><div class="section-top"><div><h2>Current modulated ABS results</h2><p>Fourteen-corner circuit with sensors and estimation. TC enabled in both comparison cases.</p></div><span class="count">2 featured videos</span></div><div class="grid" id="current-grid"></div></section>
+<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is historical evidence, distinct from the current modulated-ABS runs.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>Working Q is reduced again; a successful lap does not establish robustness.</li></ul><p class="caution">No current full-loop 3D recording exists. The 3D videos below belong to earlier development stages.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
+<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">9 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
 <section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">10 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
 <div class="reading"><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Current%20State" target="_blank" rel="noreferrer">Run the current model ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Dynamics_Development.md" target="_blank" rel="noreferrer">Read the dynamics theory ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Results" target="_blank" rel="noreferrer">Browse numeric results ↗</a></div>
 <footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters; no ESC yaw-feedback controller has been added. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
@@ -27,10 +27,32 @@ header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
 const mediaBase = './';
 const catalogue = [
   {
+    "id": "video-21",
+    "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Modulated ABS off versus on — TC on in both",
+    "rationale": "Same fourteen-corner track, TC, noisy sensors and EKF in both cases. Only ABS changes: off versus new 0.98/0.80 release–hold–rebuild modulation. Both complete the lap.",
+    "poster": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4_previa.png",
+    "detail": "Playback ×4 · 49.250 s vs 47.294 s",
+    "size_mib": 1.87
+  },
+  {
+    "id": "video-22",
+    "path": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Modulated ABS and TC on — actual versus estimated",
+    "rationale": "Actual and estimated positions superposed, with speed and error traces. Selected working reduced Q; sensor noise, R, P0 and EKF equations unchanged. Maximum path error 0.354 m.",
+    "poster": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D_previa.png",
+    "detail": "Normal speed · 47.294 s lap",
+    "size_mib": 28.46
+  },
+  {
     "id": "video-20",
     "path": "PROJECT/Results/Moose_Test_02/Alce_PP_02_2D_capacidad.mp4",
     "include": true,
-    "group": "current",
+    "group": "history",
     "title": "Retained moose-style test 02 — failed manoeuvre",
     "rationale": "Checks the functional boundary with ESC: TC limits driving demand but lateral instability remains possible. Pure Pursuit, fixed 20 m/s target; ABS enabled without braking. Sensors, estimator and ESC omitted. Failed manoeuvre; only test 02 retained.",
     "poster": "PROJECT/Results/Moose_Test_02/Alce_PP_02_previa.png",
@@ -43,7 +65,7 @@ const catalogue = [
     "include": true,
     "group": "history",
     "title": "Actual versus estimated trajectory — previous reduced Q",
-    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
+    "rationale": "Historical full-loop evidence with the previous instantaneous ABS and reduced Q; it is not the new modulated-ABS comparison.",
     "poster": "PROJECT/Results/Closed_Loop/Actual_vs_estimated_preview.png",
     "detail": "47.45 s video · normal speed",
     "size_mib": 28.57
@@ -54,7 +76,7 @@ const catalogue = [
     "include": true,
     "group": "history",
     "title": "ABS and TC on versus off — previous reduced Q",
-    "rationale": "Historical full-loop evidence with reduced Q. Active Q has been restored; this is not a validation of that restored configuration.",
+    "rationale": "Historical full-loop evidence with the previous instantaneous ABS and reduced Q; it is not the new modulated-ABS comparison.",
     "poster": "PROJECT/Results/Closed_Loop/Closed_loop_comparison_preview.png",
     "detail": "25.40 s video · playback ×4",
     "size_mib": 3.56
@@ -65,7 +87,7 @@ const catalogue = [
     "include": true,
     "group": "diagnostic",
     "title": "First failed complete-loop attempt",
-    "rationale": "Historical failure using inherited Q before the temporary reduced-Q experiment. No new restored-Q complete-loop run has been published.",
+    "rationale": "Historical failed attempt with inherited Q; later restored-Q and X/Y-only tests also fail. The selected reduced-Q configuration is documented separately.",
     "poster": "PROJECT/Results/Closed_Loop/First_Failed_Attempt/First_failed_attempt_preview.png",
     "detail": "Inherited Q · abandoned at 6.046 s",
     "size_mib": 2.24

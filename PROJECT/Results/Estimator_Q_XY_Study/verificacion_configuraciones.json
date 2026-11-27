@@ -1,0 +1,58 @@
+[
+  {
+    "version": "Version_XY_0_020",
+    "sigma_XY": 0.02,
+    "Q_diagonal": [
+      0.0004,
+      0.0004,
+      2.5e-05,
+      0.010000000000000002,
+      0.010000000000000002
+    ],
+    "otros_bloques_identicos": true,
+    "semilla": 1,
+    "P0_R_sensores_q_ay_q_direccion_sin_cambios": true
+  },
+  {
+    "version": "Version_XY_0_015",
+    "sigma_XY": 0.015,
+    "Q_diagonal": [
+      0.000225,
+      0.000225,
+      2.5e-05,
+      0.010000000000000002,
+      0.010000000000000002
+    ],
+    "otros_bloques_identicos": true,
+    "semilla": 1,
+    "P0_R_sensores_q_ay_q_direccion_sin_cambios": true
+  },
+  {
+    "version": "Version_XY_0_010",
+    "sigma_XY": 0.01,
+    "Q_diagonal": [
+      0.0001,
+      0.0001,
+      2.5e-05,
+      0.010000000000000002,
+      0.010000000000000002
+    ],
+    "otros_bloques_identicos": true,
+    "semilla": 1,
+    "P0_R_sensores_q_ay_q_direccion_sin_cambios": true
+  },
+  {
+    "version": "Version_XY_0_005",
+    "sigma_XY": 0.005,
+    "Q_diagonal": [
+      2.5e-05,
+      2.5e-05,
+      2.5e-05,
+      0.010000000000000002,
+      0.010000000000000002
+    ],
+    "otros_bloques_identicos": true,
+    "semilla": 1,
+    "P0_R_sensores_q_ay_q_direccion_sin_cambios": true
+  }
+]

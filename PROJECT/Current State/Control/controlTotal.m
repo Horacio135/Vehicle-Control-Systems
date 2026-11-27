@@ -2,9 +2,8 @@ function [FxFinales, deltaFinal, mem, info] = controlTotal(est, ref, trayectoria
 % Coordinación de los bloques de control, sin modificar la dinámica.
 % Entradas:
 %   est: salida del estimador (X,Y,psi,vx) y est.zControl, estado estimado
-%        de 20 componentes compatible con ABS y TC. El estimador actual
-%        aún no genera zControl: debe ampliarse antes de cerrar este lazo.
-%        No se debe sustituir silenciosamente por el estado físico real.
+%        de 20 componentes compatible con ABS y TC. La plantilla lo forma
+%        con el adaptador y la capacidad predicha, sin leer memorias reales.
 %   ref.v_set: velocidad solicitada [m/s]; trayectoria: puntos Nx2 [m].
 %   obstaculo: estructura X,Y; [] indica que no hay un obstáculo detectado.
 %   p: parámetros de los bloques; mem: memorias de la llamada anterior,
@@ -18,12 +17,13 @@ function [FxFinales, deltaFinal, mem, info] = controlTotal(est, ref, trayectoria
 % existente. Para reiniciarlo se debe reiniciar mem.emergencia.
 % Tracción igual en ambas traseras: se usa el menor límite de las dos.
 % Frenada nominal [.3 .3 .2 .2], corregida individualmente por el ABS.
-% La salida por rueda no puede conectarse directamente a la entrada escalar
-% de pasoDinamico sin adaptar explícitamente esa interfaz en otra fase.
+% La plantilla conecta u=[FxFinales(:);deltaFinal] con la dinámica vigente.
+% mem.abs conserva las fases de modulación entre llamadas de frenada.
 
 if nargin<6 || isempty(mem), mem=struct(); end
 if ~isfield(mem,'lateral'), mem.lateral=[]; end
 if ~isfield(mem,'longitudinal'), mem.longitudinal=[]; end
+if ~isfield(mem,'abs'), mem.abs=[]; end
 if ~isfield(mem,'emergencia'), mem.emergencia=struct('latched',false); end
 validateattributes(dt,{'numeric'},{'real','finite','scalar','positive'});
 
@@ -48,22 +48,35 @@ if emergenciaActiva
     % La orden de emergencia es la única que llega a la salida.
     FxFinales=repartirFuerza(FxEmergencia);
     deltaFinal=deltaEmergencia;
+    mem.abs=[]; % La emergencia tiene prioridad; no reanudar un ciclo antiguo.
     info.modo='emergencia';
     return
 end
 
 FxFinales=repartirFuerza(FxSolicitada);
-if FxSolicitada==0, return; end
+if FxSolicitada==0, mem.abs=[]; return; end
 if ~isfield(est,'zControl')
     error('controlTotal:EstadoEstimadoIncompleto', ...
         ['ABS y TC necesitan est.zControl (20 componentes). El estimador ' ...
          'actual no proporciona las cargas y memorias de adherencia necesarias.']);
 end
 if FxSolicitada<0
-    [FxFinales,info.ABS]=controlABS(FxFinales,est.zControl,p);
-    info.ABSActivo=true;
-    info.modo='frenada';
+    habilitarABS=true;
+    if isfield(p,'abs') && isfield(p.abs,'habilitado')
+        validateattributes(p.abs.habilitado,{'logical','numeric'},{'real','finite','scalar'});
+        assert(p.abs.habilitado==0 || p.abs.habilitado==1,'controlTotal:InterruptorABS','p.abs.habilitado debe ser lógico.');
+        habilitarABS=logical(p.abs.habilitado);
+    end
+    if habilitarABS
+        [FxFinales,info.ABS,mem.abs]=controlABS(FxFinales,est.zControl,p,mem.abs,dt);
+        info.ABSActivo=true;
+        info.modo='frenada';
+    else
+        mem.abs=[];
+        info.modo='frenada_sin_ABS';
+    end
 else
+    mem.abs=[]; % La tracción cancela la memoria del ciclo de frenada.
     [FxFinales(3:4),info.TC]=controlTraccion(FxFinales(3:4),est.zControl,p,dt);
     % El motor entrega la misma fuerza a ambas ruedas motrices.
     % La rueda de menor capacidad determina la reducción común de potencia.

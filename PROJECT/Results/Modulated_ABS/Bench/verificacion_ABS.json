@@ -1,0 +1,25 @@
+{
+  "perfil_098_a_080_verificado": true,
+  "descarga_ms": 30,
+  "mantenimiento_ms": 10,
+  "recarga_ms": 60,
+  "periodo_nominal_ms": 100,
+  "pendiente_descarga_normalizada_s_1": -6,
+  "pendiente_recarga_normalizada_s_1": 3,
+  "independencia_ruedas": true,
+  "invariancia_dt_1_y_2_ms": true,
+  "sin_intervencion_en_traccion": true,
+  "memoria_integrada_en_controlTotal": true,
+  "reinicio_al_soltar_traccion_emergencia": true,
+  "memoria_explicita_exigida": true,
+  "frenada_nueva": {
+    "tiempo_hasta_01_ms_s": 1.8800000000000001,
+    "distancia_hasta_01_ms_m": 23.164069038355411,
+    "fuerza_frenada_max_N": 1159.6170749667469
+  },
+  "frenada_anterior": {
+    "tiempo_hasta_01_ms_s": 1.672,
+    "distancia_hasta_01_ms_m": 20.696010868040972,
+    "fuerza_frenada_max_N": 1201.9200308897543
+  }
+}

@@ -183,10 +183,37 @@ def main() -> int:
         if not video.is_file() or video.stat().st_size == 0:
             errors.append(f"Required closed-loop video missing or empty: {name}")
 
+    # Keep historical checks above and verify the selected modulated-ABS run
+    # separately. Legacy MAT names do not mean that TC is disabled.
+    current_metrics = {}
+    try:
+        current = ROOT / "PROJECT/Results/Modulated_ABS/Circuit_14"
+        with (current / "resumen.csv").open(encoding="utf-8-sig", newline="") as stream:
+            rows = list(csv.DictReader(stream))
+        expected = [("ABS desactivado, TC activado", 49.250), ("ABS y TC activados", 47.294)]
+        for label, duration in expected:
+            row = next(row for row in rows if row["Caso"] == label)
+            if not math.isclose(float(row["Tiempo_s"]), duration, abs_tol=1e-9):
+                errors.append(f"Current ABS comparison duration mismatch: {label}")
+            if row["Finalizacion"] != "Vuelta completada":
+                errors.append(f"Current ABS comparison did not complete: {label}")
+        current_metrics = {
+            "modulated_abs_lap_time_s": float(rows[1]["Tiempo_s"]),
+            "abs_off_tc_on_lap_time_s": float(rows[0]["Tiempo_s"]),
+            "modulated_abs_maximum_path_error_m": float(rows[1]["ErrorMax_m"]),
+        }
+        for name in ["Comparacion_ABS_off_on_TC_on_2D_x4.mp4", "ABS_TC_on_real_estimado_2D.mp4"]:
+            counts["required_videos_checked"] += 1
+            if not (current / name).is_file() or (current / name).stat().st_size == 0:
+                errors.append(f"Current ABS video missing or empty: {name}")
+    except (OSError, ValueError, KeyError, StopIteration) as error:
+        errors.append(f"Cannot verify current ABS summary: {type(error).__name__}")
+
     report = {
         "snapshot_date": manifest.get("snapshot_date"),
         **counts,
         **recorded_metrics,
+        **current_metrics,
         "success": not errors,
         "errors": errors,
         "scope": (

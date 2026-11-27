@@ -1,6 +1,6 @@
 # Current runnable state
 
-**Active configuration update:** Q is restored to `diag([.02 .02 .005 .10 .10].^2)`; sensor noise, R, P0 and estimator equations are unchanged. The lap metrics below belong to the previous reduced-Q run, not a new validation. [Retained test 02 scenario](Ensayos_alce_seguimiento/README.md) and [saved failure](../Results/Moose_Test_02/README.md) bypass sensors/EKF. [Decision record](../Documentation/Design_Decisions/Q_Restoration_and_Moose_Test_2026-11-26.md).
+**Active update — 27 November 2026:** stateful modulated ABS is installed. Working Q is `diag([.001 .001 .00001 .003 .003].^2)`; sensor noise, R, P0, EKF equations, TC and physical dynamics are unchanged. [New results and videos](../Results/Modulated_ABS/README.md) · [Decision and research](../Documentation/Design_Decisions/Modulated_ABS_2026-11-27.md) · [Previous package](../Archive/2026-11-27_Before_Modulated_ABS/README.md).
 
 [← Project](../README.md) · [Closed-loop results](../Results/Closed_Loop/README.md) · [Theory](../Documentation/Dynamics_Development.md) · [Q and failure analysis](../Documentation/Estimator_Q_and_Failure_Analysis.md)
 
@@ -16,15 +16,14 @@ MATLAB R2026a was used. Do not recursively add every historical model or Source 
 
 ## What runs
 
-The default configuration compares the complete noisy/estimated loop with ABS/TC off and on, plus an explicitly separate perfect-state reference with ABS/TC on. It preserves the same track, driver, force limits, tyre parameters and speed plan. The reference maximum is 35 m/s; this is a cap, not a promise that every case achieves it.
+The default configuration compares ABS off/on with TC enabled in both complete noisy/estimated loops. The optional perfect-state reference is disabled by default. It preserves the same track, driver, force limits, tyre parameters and speed plan. The reference maximum is 35 m/s; this is a cap, not a promise that every case achieves it.
 
 | Case | Lap time | Maximum path error | Position-estimator RMSE |
 |---|---:|---:|---:|
-| Estimated loop, ABS/TC on | 47.370 s | 0.350 m | 0.142 m |
-| Estimated loop, ABS/TC off | 101.228 s | 7.258 m | 3.145 m |
-| Perfect-state reference, ABS/TC on | 47.132 s | 0.329 m | Not applicable |
+| Estimated loop, ABS off / TC on | 49.250 s | 2.016 m | 0.14452 m |
+| Estimated loop, modulated ABS on / TC on | 47.294 s | 0.35427 m | 0.14233 m |
 
-These are the saved seed-1 run, not a robustness claim. The uncontrolled case completes the route but leaves the corridor. Lap completion does not certify cone clearance by the full vehicle body.
+These are seed-1 simulation results, not a robustness claim or a full-body cone-clearance check. The `.m` and `.mlx` entry points contain the same integration source.
 
 ## Block connections
 
@@ -52,7 +51,7 @@ The estimator does not receive true plant states or tyre memories. True position
 | [Legacy-input adapter](adaptarEntradaControl.m) | Converts estimated signals and controller calculations to the unchanged controller input layout |
 | [Configuration](Configuracion/configuracionIntegracion.m) | Sensor errors, EKF uncertainty, run options and output destination |
 
-The thirteen existing block functions were kept byte-for-byte intact when the full loop was connected. The new connection is external. `zControl` in the adapter is a compatibility vector, **not** a reconstructed true tyre state: its unused slots are documented in the source. Controller memories are calculated internally; they are not sensors and receive no additional random noise. The nominal friction coefficient is assumed known, not identified online.
+The original full-loop connection preserved thirteen existing block functions. This later approved update changes ABS and its coordinator memory/configuration; the other blocks remain byte-exact. The new connection is external. `zControl` in the adapter is a compatibility vector, **not** a reconstructed true tyre state: its unused slots are documented in the source. Controller memories are calculated internally; they are not sensors and receive no additional random noise. The nominal friction coefficient is assumed known, not identified online.
 
 ## Output and language policy
 
@@ -68,4 +67,4 @@ Documentation is in English. MATLAB identifiers and comments remain in Spanish a
 - The plant disallows mixed positive driving and negative braking commands across wheels.
 - The EKF does not estimate IMU bias, friction or physical tyre-memory states.
 - The plant clamps longitudinal velocity to zero; the EKF does not reproduce that constraint. Extreme uncontrolled spins expose this mismatch.
-- Q has been restored; the previous reduced-Q success is historical evidence. No new full-loop validation, tyre identification or experimental validation is claimed.
+- Working Q returns to the reduced configuration. Restored-Q and X/Y-only failures are documented separately; no experimental validation or robustness claim follows from the successful lap.

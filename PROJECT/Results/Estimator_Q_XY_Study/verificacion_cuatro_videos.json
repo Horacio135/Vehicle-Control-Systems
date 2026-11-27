@@ -1,0 +1,218 @@
+[
+  {
+    "datos_origen": "local-project\\estado actual\\Resultados\\Estudio_Q_XY_2026-11-27\\Version_XY_0_020\\simulacion.mat",
+    "caso": "Q XY 0.020, ABS/TC habilitados",
+    "Q": [
+      [
+        0.0004,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.0004,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2.5e-05,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0.010000000000000002,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0.010000000000000002
+      ]
+    ],
+    "velocidad_reproduccion": 1,
+    "duracion_video_s": 6.1,
+    "fps": 20,
+    "tiempo_simulado_s": 6.046,
+    "motivo": "Error lateral mayor de 10 m",
+    "error_seguimiento_max_m": 10.015871567705025,
+    "rmse_posicion_EKF_m": 0.39635209746218186,
+    "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+    "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+    "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+    "bloques_modificados": false,
+    "fotogramas_inicio_medio_final_verificados": true,
+    "datos_originales_sin_cambios": true
+  },
+  {
+    "datos_origen": "local-project\\estado actual\\Resultados\\Estudio_Q_XY_2026-11-27\\Version_XY_0_015\\simulacion.mat",
+    "caso": "Q XY 0.015, ABS/TC habilitados",
+    "Q": [
+      [
+        0.000225,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.000225,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2.5e-05,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0.010000000000000002,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0.010000000000000002
+      ]
+    ],
+    "velocidad_reproduccion": 1,
+    "duracion_video_s": 6,
+    "fps": 20,
+    "tiempo_simulado_s": 5.944,
+    "motivo": "Error lateral mayor de 10 m",
+    "error_seguimiento_max_m": 10.017847030529547,
+    "rmse_posicion_EKF_m": 0.44333894782872535,
+    "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+    "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+    "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+    "bloques_modificados": false,
+    "fotogramas_inicio_medio_final_verificados": true,
+    "datos_originales_sin_cambios": true
+  },
+  {
+    "datos_origen": "local-project\\estado actual\\Resultados\\Estudio_Q_XY_2026-11-27\\Version_XY_0_010\\simulacion.mat",
+    "caso": "Q XY 0.010, ABS/TC habilitados",
+    "Q": [
+      [
+        0.0001,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.0001,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2.5e-05,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0.010000000000000002,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0.010000000000000002
+      ]
+    ],
+    "velocidad_reproduccion": 1,
+    "duracion_video_s": 6.05,
+    "fps": 20,
+    "tiempo_simulado_s": 5.994,
+    "motivo": "Error lateral mayor de 10 m",
+    "error_seguimiento_max_m": 10.0008846306502,
+    "rmse_posicion_EKF_m": 0.5378998801652398,
+    "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+    "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+    "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+    "bloques_modificados": false,
+    "fotogramas_inicio_medio_final_verificados": true,
+    "datos_originales_sin_cambios": true
+  },
+  {
+    "datos_origen": "local-project\\estado actual\\Resultados\\Estudio_Q_XY_2026-11-27\\Version_XY_0_005\\simulacion.mat",
+    "caso": "Q XY 0.005, ABS/TC habilitados",
+    "Q": [
+      [
+        2.5e-05,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2.5e-05,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2.5e-05,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0.010000000000000002,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0.010000000000000002
+      ]
+    ],
+    "velocidad_reproduccion": 1,
+    "duracion_video_s": 12.75,
+    "fps": 20,
+    "tiempo_simulado_s": 12.67,
+    "motivo": "Error lateral mayor de 10 m",
+    "error_seguimiento_max_m": 10.009137947819122,
+    "rmse_posicion_EKF_m": 0.7106308931296714,
+    "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+    "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+    "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+    "bloques_modificados": false,
+    "fotogramas_inicio_medio_final_verificados": true,
+    "datos_originales_sin_cambios": true
+  }
+]

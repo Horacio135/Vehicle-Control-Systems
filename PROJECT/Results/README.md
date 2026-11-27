@@ -1,8 +1,8 @@
 # Simulation results
 
-**Latest publication:** [moose-style test 02](Moose_Test_02/README.md) is the sole retained steering test. Its fixed 20 m/s target is not maintained during loss of control. Sensors/EKF/ESC are bypassed. Q is restored in the active complete-loop configuration, but all full-loop metrics below remain saved evidence from the earlier reduced-Q configuration.
+**Latest publication — 27 November:** [modulated ABS comparison](Modulated_ABS/README.md), with TC on in both cases, plus actual/estimated position video. Both complete the fourteen-corner circuit. [Restored-Q failure](Estimator_Q_Restored/README.md) and [X/Y-only sweep](Estimator_Q_XY_Study/README.md) remain separately labelled historical experiments.
 
-[← Project](../README.md) · [Current loop and videos](Closed_Loop/README.md) · [Historical videos](Hybrid_Tests/README.md) · [Numerical archive](Numerical/README.md)
+[← Project](../README.md) · [Current loop and videos](Modulated_ABS/README.md) · [Historical videos](Hybrid_Tests/README.md) · [Numerical archive](Numerical/README.md)
 
 **Recorded evidence, including failed attempts and degraded behaviour.** Each campaign retains its model/configuration. The latest estimated-loop videos are 2D; earlier 3D videos use older dynamics/control configurations.
 

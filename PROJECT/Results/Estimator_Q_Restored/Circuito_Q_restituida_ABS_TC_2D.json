@@ -1,0 +1,15 @@
+{
+  "datos_origen": "local-project\\estado actual\\Resultados\\Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26\\lazo_completo.mat",
+  "caso": "Q restituida con ABS/TC: fallo de seguimiento",
+  "velocidad_reproduccion": 1,
+  "duracion_video_s": 6.1,
+  "fps": 20,
+  "tiempo_simulado_s": 6.046,
+  "motivo": "Error lateral mayor de 10 m",
+  "error_seguimiento_max_m": 10.015871567705025,
+  "rmse_posicion_EKF_m": 0.39635209746218186,
+  "definicion_error_seguimiento": "Distancia lateral con signo de la posición real al circuito",
+  "definicion_error_percibido": "Distancia lateral con signo de la posición estimada al circuito",
+  "definicion_error_estimacion": "Norma de la diferencia entre posición estimada y real",
+  "bloques_modificados": false
+}

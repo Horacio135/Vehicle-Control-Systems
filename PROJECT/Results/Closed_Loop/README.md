@@ -1,6 +1,7 @@
 # Complete sensing and estimation loop
 
-**Historical configuration notice:** these successful lap metrics and videos were recorded with reduced Q. Active Q has since been restored to `diag([.02 .02 .005 .10 .10].^2)` with sensor noise and P0 unchanged. No new complete-loop result with restored Q is claimed. The first failed attempt remains a separate historical run. [Latest retained steering test](../Moose_Test_02/README.md).
+**Historical record:** superseded for the active configuration by the [27 November ABS/Q decision](../../Documentation/Design_Decisions/Modulated_ABS_2026-11-27.md). Working Q is reduced again; these older recordings retain their original ABS and configuration.
+**Historical configuration:** these lap metrics and videos use reduced Q and the previous instantaneous ABS. A later restored-Q rerun failed; the current package returns to reduced Q with modulated ABS. See the [current comparison](../Modulated_ABS/README.md).
 
 [← Results](../README.md) · [Run the package](../../Current%20State/README.md) · [Q analysis](../../Documentation/Estimator_Q_and_Failure_Analysis.md)
 

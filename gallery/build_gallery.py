@@ -8,7 +8,7 @@ repo = base.parent
 dest = repo / "_site"
 items = json.loads((base / "catalog.json").read_text(encoding="utf-8"))
 assert len({item["path"] for item in items}) == len(items)
-assert sum(item["group"] == "current" and item["include"] for item in items) == 1
+assert sum(item["group"] == "current" and item["include"] for item in items) == 2
 embedded = re.search(r"const catalogue = (\[.*?\])\s*;", (base / "index.html").read_text(encoding="utf-8"), re.S)
 assert embedded and json.loads(embedded.group(1)) == items, "HTML/catalogue mismatch"
 for item in items:

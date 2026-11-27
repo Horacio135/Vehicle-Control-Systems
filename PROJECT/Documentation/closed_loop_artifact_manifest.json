@@ -1,11 +1,11 @@
 {
-  "snapshot_date": "2026-11-26",
+  "snapshot_date": "2026-11-27",
   "source_language": "Spanish MATLAB identifiers and comments by user request",
   "documentation_language": "English",
   "files": [
     {
       "path": "PROJECT/Current State/adaptarEntradaControl.m",
-      "source": "estado actual/adaptarEntradaControl.m",
+      "source": "local-project/estado actual/adaptarEntradaControl.m",
       "sha256": "40b158eb9096ecf786f651ae11ca64879758eab52316cd4a3111b198a44467c1",
       "source_sha256": "40b158eb9096ecf786f651ae11ca64879758eab52316cd4a3111b198a44467c1",
       "bytes": 835,
@@ -13,7 +13,7 @@
     },
     {
       "path": "PROJECT/Current State/estimarCapacidadControl.m",
-      "source": "estado actual/estimarCapacidadControl.m",
+      "source": "local-project/estado actual/estimarCapacidadControl.m",
       "sha256": "579b49130897498816cf89ed4319c6e97fcfbffc74ce1a697b856ca80bd78949",
       "source_sha256": "579b49130897498816cf89ed4319c6e97fcfbffc74ce1a697b856ca80bd78949",
       "bytes": 2638,
@@ -21,25 +21,24 @@
     },
     {
       "path": "PROJECT/Current State/Configuracion/configuracionIntegracion.m",
-      "source": "estado actual/Configuracion/configuracionIntegracion.m",
-      "sha256": "d0e24c330861d2294a6ca407b9d7257a716e1f3f273ea1205bfcec8ed9e219f2",
-      "source_sha256": "d0e24c330861d2294a6ca407b9d7257a716e1f3f273ea1205bfcec8ed9e219f2",
-      "bytes": 1664,
+      "source": "local-project/estado actual/Configuracion/configuracionIntegracion.m",
+      "sha256": "afb57719097f8d69135165fb7e3adb9f41c8ffb5c8460d5311918ef3692e8eb8",
+      "source_sha256": "afb57719097f8d69135165fb7e3adb9f41c8ffb5c8460d5311918ef3692e8eb8",
+      "bytes": 1762,
       "kind": "active_source",
-      "previous_reduced_Q_sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c",
-      "change": "Q restored; sensor noise, R and P0 unchanged."
+      "previous_reduced_Q_sha256": "1f65791311daea8c91dbc10baee853bd91662c2b36ba856f86e48802ad1db27c"
     },
     {
       "path": "PROJECT/Current State/Configuracion/configuracionSoloTraccion.m",
-      "source": "estado actual/Configuracion/configuracionSoloTraccion.m",
-      "sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492",
-      "source_sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492",
-      "bytes": 1697,
+      "source": "local-project/estado actual/Configuracion/configuracionSoloTraccion.m",
+      "sha256": "216ff12aeea335e14410b61da5731798d640008dc4500a1ea59eed3e2f6bcbd4",
+      "source_sha256": "216ff12aeea335e14410b61da5731798d640008dc4500a1ea59eed3e2f6bcbd4",
+      "bytes": 1943,
       "kind": "active_source"
     },
     {
       "path": "PROJECT/Current State/Configuracion/parametrosSoloTraccion.m",
-      "source": "estado actual/Configuracion/parametrosSoloTraccion.m",
+      "source": "local-project/estado actual/Configuracion/parametrosSoloTraccion.m",
       "sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab",
       "source_sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab",
       "bytes": 938,
@@ -47,15 +46,15 @@
     },
     {
       "path": "PROJECT/Current State/Control/controlABS.m",
-      "source": "estado actual/Control/controlABS.m",
-      "sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f",
-      "source_sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f",
-      "bytes": 2434,
+      "source": "local-project/estado actual/Control/controlABS.m",
+      "sha256": "f5a51b33feab01c77e17ff1018b271872c88fa2c4bc7717485adea31c8d5e1b5",
+      "source_sha256": "f5a51b33feab01c77e17ff1018b271872c88fa2c4bc7717485adea31c8d5e1b5",
+      "bytes": 7013,
       "kind": "active_source"
     },
     {
       "path": "PROJECT/Current State/Control/controlEmergencia.m",
-      "source": "estado actual/Control/controlEmergencia.m",
+      "source": "local-project/estado actual/Control/controlEmergencia.m",
       "sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea",
       "source_sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea",
       "bytes": 960,
@@ -63,7 +62,7 @@
     },
     {
       "path": "PROJECT/Current State/Control/controlLateral.m",
-      "source": "estado actual/Control/controlLateral.m",
+      "source": "local-project/estado actual/Control/controlLateral.m",
       "sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c",
       "source_sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c",
       "bytes": 1451,
@@ -71,7 +70,7 @@
     },
     {
       "path": "PROJECT/Current State/Control/controlLongitudinal.m",
-      "source": "estado actual/Control/controlLongitudinal.m",
+      "source": "local-project/estado actual/Control/controlLongitudinal.m",
       "sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a",
       "source_sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a",
       "bytes": 1793,
@@ -79,15 +78,15 @@
     },
     {
       "path": "PROJECT/Current State/Control/controlTotal.m",
-      "source": "estado actual/Control/controlTotal.m",
-      "sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8",
-      "source_sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8",
-      "bytes": 3685,
+      "source": "local-project/estado actual/Control/controlTotal.m",
+      "sha256": "aed27967d97000f9b7e451a20c4645e2acdb88acca7e659106eb09cdebf4b54d",
+      "source_sha256": "aed27967d97000f9b7e451a20c4645e2acdb88acca7e659106eb09cdebf4b54d",
+      "bytes": 4392,
       "kind": "active_source"
     },
     {
       "path": "PROJECT/Current State/Control/controlTraccion.m",
-      "source": "estado actual/Control/controlTraccion.m",
+      "source": "local-project/estado actual/Control/controlTraccion.m",
       "sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a",
       "source_sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a",
       "bytes": 3132,
@@ -95,7 +94,7 @@
     },
     {
       "path": "PROJECT/Current State/Dinamica/angulosAckermann.m",
-      "source": "estado actual/Dinamica/angulosAckermann.m",
+      "source": "local-project/estado actual/Dinamica/angulosAckermann.m",
       "sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c",
       "source_sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c",
       "bytes": 1487,
@@ -103,7 +102,7 @@
     },
     {
       "path": "PROJECT/Current State/Dinamica/fuerzaTractoraPacejka.m",
-      "source": "estado actual/Dinamica/fuerzaTractoraPacejka.m",
+      "source": "local-project/estado actual/Dinamica/fuerzaTractoraPacejka.m",
       "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
       "source_sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
       "bytes": 395,
@@ -111,7 +110,7 @@
     },
     {
       "path": "PROJECT/Current State/Dinamica/inicializarEstadoSoloTraccion.m",
-      "source": "estado actual/Dinamica/inicializarEstadoSoloTraccion.m",
+      "source": "local-project/estado actual/Dinamica/inicializarEstadoSoloTraccion.m",
       "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
       "source_sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
       "bytes": 489,
@@ -119,7 +118,7 @@
     },
     {
       "path": "PROJECT/Current State/Dinamica/pasoDinamicoSoloTraccion.m",
-      "source": "estado actual/Dinamica/pasoDinamicoSoloTraccion.m",
+      "source": "local-project/estado actual/Dinamica/pasoDinamicoSoloTraccion.m",
       "sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f",
       "source_sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f",
       "bytes": 6462,
@@ -127,7 +126,7 @@
     },
     {
       "path": "PROJECT/Current State/Dinamica/pasoFrenadoAnterior.m",
-      "source": "estado actual/Dinamica/pasoFrenadoAnterior.m",
+      "source": "local-project/estado actual/Dinamica/pasoFrenadoAnterior.m",
       "sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05",
       "source_sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05",
       "bytes": 7674,
@@ -135,7 +134,7 @@
     },
     {
       "path": "PROJECT/Current State/Estimacion/estimadorEstado.m",
-      "source": "estado actual/Estimacion/estimadorEstado.m",
+      "source": "local-project/estado actual/Estimacion/estimadorEstado.m",
       "sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d",
       "source_sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d",
       "bytes": 5179,
@@ -143,7 +142,7 @@
     },
     {
       "path": "PROJECT/Current State/Sensores/sensores.m",
-      "source": "estado actual/Sensores/sensores.m",
+      "source": "local-project/estado actual/Sensores/sensores.m",
       "sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692",
       "source_sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692",
       "bytes": 4277,
@@ -151,18 +150,19 @@
     },
     {
       "path": "PROJECT/Current State/Integracion_estado_actual.mlx",
-      "source": "estado actual/Integracion_estado_actual.mlx",
-      "sha256": "4a39bda689ffccb647ae735afc4f7ee789fefc2d1111b819c030e2a97a19d1ff",
-      "source_sha256": "4a39bda689ffccb647ae735afc4f7ee789fefc2d1111b819c030e2a97a19d1ff",
-      "bytes": 8077,
+      "source": "local-project/estado actual/Integracion_estado_actual.mlx",
+      "sha256": "20a353eeae65b99c228ece69f1687667a57c4d3d946efcd4082b15b8087b0bc8",
+      "source_sha256": "20a353eeae65b99c228ece69f1687667a57c4d3d946efcd4082b15b8087b0bc8",
+      "bytes": 8145,
       "kind": "active_source"
     },
     {
       "path": "PROJECT/Current State/Source Exports/Integracion_estado_actual.m",
-      "source": "Native MATLAB export of the active Live Script",
-      "sha256": "e7544837f677e0c17db1b001a84494389358c0ab4bee3a9c319734322c9df301",
-      "bytes": 14854,
-      "kind": "source_export"
+      "source": "local-project/estado actual/Integracion_estado_actual.m",
+      "sha256": "1e36b7b5868fd50a2601cee6465e28432f213b315649bde0110fcd361511cbbb",
+      "bytes": 15268,
+      "kind": "active_source",
+      "source_sha256": "1e36b7b5868fd50a2601cee6465e28432f213b315649bde0110fcd361511cbbb"
     },
     {
       "path": "PROJECT/Dynamic Model/Archived Models/Pacejka_V1/fuerzaPacejka.m",
@@ -1090,6 +1090,581 @@
       "sha256": "0f87eb596a426d931d026af3f043cb7393db671175051e5704b89b0149a76c97",
       "bytes": 196,
       "kind": "retained_moose_evidence"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Dinamica/angulosAckermann.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Dinamica/angulosAckermann.m",
+      "bytes": 1487,
+      "sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c",
+      "kind": "archived_source",
+      "source_sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Dinamica/fuerzaTractoraPacejka.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Dinamica/fuerzaTractoraPacejka.m",
+      "bytes": 395,
+      "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "kind": "archived_source",
+      "source_sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Dinamica/inicializarEstadoSoloTraccion.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Dinamica/inicializarEstadoSoloTraccion.m",
+      "bytes": 489,
+      "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "kind": "archived_source",
+      "source_sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Dinamica/pasoDinamicoSoloTraccion.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Dinamica/pasoDinamicoSoloTraccion.m",
+      "bytes": 6462,
+      "sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f",
+      "kind": "archived_source",
+      "source_sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Dinamica/pasoFrenadoAnterior.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Dinamica/pasoFrenadoAnterior.m",
+      "bytes": 7674,
+      "sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05",
+      "kind": "archived_source",
+      "source_sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Control/controlABS.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Control/controlABS.m",
+      "bytes": 2434,
+      "sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f",
+      "kind": "archived_source",
+      "source_sha256": "96d75e82206bf3f8b19ec2e6313087047a3fb7f08b005d4ea2894e3adc386b1f"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Control/controlEmergencia.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Control/controlEmergencia.m",
+      "bytes": 960,
+      "sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea",
+      "kind": "archived_source",
+      "source_sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Control/controlLateral.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Control/controlLateral.m",
+      "bytes": 1451,
+      "sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c",
+      "kind": "archived_source",
+      "source_sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Control/controlLongitudinal.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Control/controlLongitudinal.m",
+      "bytes": 1793,
+      "sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a",
+      "kind": "archived_source",
+      "source_sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Control/controlTotal.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Control/controlTotal.m",
+      "bytes": 3685,
+      "sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8",
+      "kind": "archived_source",
+      "source_sha256": "3ae88f660d12ba34698476aa46116c3b09823df6795273c3ded2806cf41882d8"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Control/controlTraccion.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Control/controlTraccion.m",
+      "bytes": 3132,
+      "sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a",
+      "kind": "archived_source",
+      "source_sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Configuracion/configuracionIntegracion.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Configuracion/configuracionIntegracion.m",
+      "bytes": 1721,
+      "sha256": "ba59940c0cc41140ee2b73f3e4f18e985e68bd7cf6df83eb5685a455271748ec",
+      "kind": "archived_source",
+      "source_sha256": "ba59940c0cc41140ee2b73f3e4f18e985e68bd7cf6df83eb5685a455271748ec"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Configuracion/configuracionSoloTraccion.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Configuracion/configuracionSoloTraccion.m",
+      "bytes": 1697,
+      "sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492",
+      "kind": "archived_source",
+      "source_sha256": "27e3940ffb95d9bbc541aed95d14bc544e94623fa898296bfb5c3d5da982d492"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Configuracion/parametrosSoloTraccion.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Configuracion/parametrosSoloTraccion.m",
+      "bytes": 938,
+      "sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab",
+      "kind": "archived_source",
+      "source_sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Sensores/sensores.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Sensores/sensores.m",
+      "bytes": 4277,
+      "sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692",
+      "kind": "archived_source",
+      "source_sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Estimacion/estimadorEstado.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Estimacion/estimadorEstado.m",
+      "bytes": 5179,
+      "sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d",
+      "kind": "archived_source",
+      "source_sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/adaptarEntradaControl.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/adaptarEntradaControl.m",
+      "bytes": 835,
+      "sha256": "40b158eb9096ecf786f651ae11ca64879758eab52316cd4a3111b198a44467c1",
+      "kind": "archived_source",
+      "source_sha256": "40b158eb9096ecf786f651ae11ca64879758eab52316cd4a3111b198a44467c1"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/estimarCapacidadControl.m",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/estimarCapacidadControl.m",
+      "bytes": 2638,
+      "sha256": "579b49130897498816cf89ed4319c6e97fcfbffc74ce1a697b856ca80bd78949",
+      "kind": "archived_source",
+      "source_sha256": "579b49130897498816cf89ed4319c6e97fcfbffc74ce1a697b856ca80bd78949"
+    },
+    {
+      "path": "PROJECT/Archive/2026-11-27_Before_Modulated_ABS/Integracion_estado_actual.mlx",
+      "source": "local-project/histórico/2026-11-27_Antes_ABS_modulado/Integracion_estado_actual.mlx",
+      "bytes": 8077,
+      "sha256": "4a39bda689ffccb647ae735afc4f7ee789fefc2d1111b819c030e2a97a19d1ff",
+      "kind": "archived_source",
+      "source_sha256": "4a39bda689ffccb647ae735afc4f7ee789fefc2d1111b819c030e2a97a19d1ff"
+    },
+    {
+      "path": "PROJECT/Current State/Integracion_estado_actual.m",
+      "source": "local-project/estado actual/Integracion_estado_actual.m",
+      "bytes": 15268,
+      "sha256": "1e36b7b5868fd50a2601cee6465e28432f213b315649bde0110fcd361511cbbb",
+      "kind": "active_source",
+      "source_sha256": "1e36b7b5868fd50a2601cee6465e28432f213b315649bde0110fcd361511cbbb"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Bench/controlABSAnterior.m",
+      "source": "local-project/estado actual/Resultados/ABS_modulado_2026-11-27/controlABSAnterior.m",
+      "bytes": 2442,
+      "sha256": "1c2cbd048636288bfd9d27f1fd93894dace1057ba8b94ff62332d2f7137f0dad",
+      "kind": "recorded_evidence",
+      "source_sha256": "1c2cbd048636288bfd9d27f1fd93894dace1057ba8b94ff62332d2f7137f0dad"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Bench/Perfil_ABS_modulado.fig",
+      "source": "local-project/estado actual/Resultados/ABS_modulado_2026-11-27/Perfil_ABS_modulado.fig",
+      "bytes": 84830,
+      "sha256": "4a027abcbfda7e7f0bf8450cd88db018a647e11a84718237bb6b33a534d9edf3",
+      "kind": "recorded_evidence",
+      "source_sha256": "ca5c9a0e4250f50c5356ba16c95abb0111370b23b680cfe743c655fd0e16ac7a"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Bench/Perfil_ABS_modulado.png",
+      "source": "local-project/estado actual/Resultados/ABS_modulado_2026-11-27/Perfil_ABS_modulado.png",
+      "bytes": 173378,
+      "sha256": "14422b4c8c3eb71554fd58ede60f1fae645745a548d9eea0de0eabdeb93174b2",
+      "kind": "recorded_evidence",
+      "source_sha256": "43cf8b27b42c324d3abbb8e37031eba68bb7d9a2efae942abe7c0225b25bde44"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Bench/verificacion_ABS.json",
+      "source": "local-project/estado actual/Resultados/ABS_modulado_2026-11-27/verificacion_ABS.json",
+      "bytes": 796,
+      "sha256": "bb1b45f189b7b3416e358d60c94291a786730d4bcd01db827d5b95c98b13dfd5",
+      "kind": "recorded_evidence",
+      "source_sha256": "bb1b45f189b7b3416e358d60c94291a786730d4bcd01db827d5b95c98b13dfd5",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Bench/verificacion_ABS.mat",
+      "source": "local-project/estado actual/Resultados/ABS_modulado_2026-11-27/verificacion_ABS.mat",
+      "bytes": 83523,
+      "sha256": "99b82c86dba02fe5e5b0cfb6c89b310df2d0560080470fce46d238cdfb3a71e4",
+      "kind": "recorded_evidence",
+      "source_sha256": "0a98ef694773962b9ad995f172b5a84da896a95ecd47aac7325fb6ff20e87fb7"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Bench/verificar_abs_modulado.m",
+      "source": "local-project/estado actual/Resultados/ABS_modulado_2026-11-27/verificar_abs_modulado.m",
+      "bytes": 5836,
+      "sha256": "754714e38e8124a8eabc8d7aeaa6030b0bbf5b5d27c14643a6735d544d0d3ce4",
+      "kind": "recorded_evidence",
+      "source_sha256": "e2936d12d530587116b6d3daceb13afbd30a7a05f191dae2d60613c7dfb616e1",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D.json",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/ABS_TC_on_real_estimado_2D.json",
+      "bytes": 788,
+      "sha256": "45d4a68262fa8e928ddb2a54a8b3b26e554f43d79660c68d7e46fcddb8e72769",
+      "kind": "recorded_evidence",
+      "source_sha256": "f9b6e4b13015b11f6aaa5de676293859c4dfa0110363e8c278a9e096b67dbe88",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D.mp4",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/ABS_TC_on_real_estimado_2D.mp4",
+      "bytes": 29839793,
+      "sha256": "6a7be9d5c03214ef202e9afc36ff069a69ae5c3392bcb45f333e194f300e042f",
+      "kind": "recorded_evidence",
+      "source_sha256": "6a7be9d5c03214ef202e9afc36ff069a69ae5c3392bcb45f333e194f300e042f"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D_previa.png",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/ABS_TC_on_real_estimado_2D_previa.png",
+      "bytes": 352486,
+      "sha256": "6734b844ac88d93e5a10ec74eee5f6f0745d224b47534484128bde326f817169",
+      "kind": "recorded_evidence",
+      "source_sha256": "6734b844ac88d93e5a10ec74eee5f6f0745d224b47534484128bde326f817169"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
+      "bytes": 1965010,
+      "sha256": "68034a273352a35eca5785d145a70c937056cc445ab04a16ec4d9c1aac340264",
+      "kind": "recorded_evidence",
+      "source_sha256": "68034a273352a35eca5785d145a70c937056cc445ab04a16ec4d9c1aac340264"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4_previa.png",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/Comparacion_ABS_off_on_TC_on_2D_x4_previa.png",
+      "bytes": 112344,
+      "sha256": "820a0de05441045bc3f24b94675457b743c0cf05f21393e113d217e9b0990767",
+      "kind": "recorded_evidence",
+      "source_sha256": "820a0de05441045bc3f24b94675457b743c0cf05f21393e113d217e9b0990767"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/comparacion_lazo.png",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/comparacion_lazo.png",
+      "bytes": 212865,
+      "sha256": "0e8b60f525176510fa2830017482ddded837af9d3368a2bbbf04ec4a92ec2cd5",
+      "kind": "recorded_evidence",
+      "source_sha256": "0e8b60f525176510fa2830017482ddded837af9d3368a2bbbf04ec4a92ec2cd5"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/estimacion_y_capacidad.png",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/estimacion_y_capacidad.png",
+      "bytes": 231034,
+      "sha256": "05d159bd4b9636295d91268ef3e53a6b5114e878bc350dbd8af83909e454883f",
+      "kind": "recorded_evidence",
+      "source_sha256": "05d159bd4b9636295d91268ef3e53a6b5114e878bc350dbd8af83909e454883f"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/lazo_completo.mat",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/lazo_completo.mat",
+      "bytes": 24847824,
+      "sha256": "1b9b1c2b442ea7d4aca33d75f14b6ae5970c3dbe787953b0ad9122d21067ecf8",
+      "kind": "recorded_evidence",
+      "source_sha256": "1b9b1c2b442ea7d4aca33d75f14b6ae5970c3dbe787953b0ad9122d21067ecf8"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/renderizar_comparacion.m",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/renderizar_comparacion.m",
+      "bytes": 3997,
+      "sha256": "ec72053636a1f5e6abd9e5f023504009357a66da679eb0c5dddb49e567686fe0",
+      "kind": "recorded_evidence",
+      "source_sha256": "b71ec930f93a57cc38b1ac2141b2aeaef7847a446871dfcb29aa9e7009171ab2",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/renderizar_nuevo_estimado.m",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/renderizar_nuevo_estimado.m",
+      "bytes": 4849,
+      "sha256": "eb41c5051c482b03e628eec704186cf04564b0b513739c871216cc261447aff7",
+      "kind": "recorded_evidence",
+      "source_sha256": "eb8cfc0e412f68ed2da1592cecd76cd0fb7e6ff5221795db276dcb68306b18e2",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/resumen.csv",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/resumen.csv",
+      "bytes": 499,
+      "sha256": "ba9ea85af5133b9f88930ee050b092f2de4d3dae77545c66de5b125d6ed6e316",
+      "kind": "recorded_evidence",
+      "source_sha256": "ba9ea85af5133b9f88930ee050b092f2de4d3dae77545c66de5b125d6ed6e316"
+    },
+    {
+      "path": "PROJECT/Results/Modulated_ABS/Circuit_14/verificar_resultados.m",
+      "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/verificar_resultados.m",
+      "bytes": 1022,
+      "sha256": "f2badce42b1c49234d72d8033a45621c8a56a5985643d2ed820488c0b2a06d56",
+      "kind": "recorded_evidence",
+      "source_sha256": "04ce0767d2fc04236fbbf7f2388941128296786fa68b7fbcde7d8149d37f853f",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/Circuito_Q_restituida_ABS_TC_2D.json",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/Circuito_Q_restituida_ABS_TC_2D.json",
+      "bytes": 769,
+      "sha256": "bc09cce8b66f0a3d7748aa4469b9c30d09f7dcc22ec6dc04e689ab721dd990ae",
+      "kind": "recorded_evidence",
+      "source_sha256": "ae3aafa4c2eb4060d726d66db348ff184bcc1694d9192a24057d4c5ef6ef9e44",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/Circuito_Q_restituida_ABS_TC_2D.mp4",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/Circuito_Q_restituida_ABS_TC_2D.mp4",
+      "bytes": 2831362,
+      "sha256": "d981b5608be16f3bc6afd790a253f831a17f41eded200643b06a33e8f21b445c",
+      "kind": "recorded_evidence",
+      "source_sha256": "d981b5608be16f3bc6afd790a253f831a17f41eded200643b06a33e8f21b445c"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/Circuito_Q_restituida_ABS_TC_2D_previa.png",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/Circuito_Q_restituida_ABS_TC_2D_previa.png",
+      "bytes": 212229,
+      "sha256": "4391fa3fb235740214191f4cf9ffb469d92a1161ec4014f0b2d9285bc53e219e",
+      "kind": "recorded_evidence",
+      "source_sha256": "4391fa3fb235740214191f4cf9ffb469d92a1161ec4014f0b2d9285bc53e219e"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/diagnostico.csv",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/diagnostico.csv",
+      "bytes": 393420,
+      "sha256": "9b2df3406d5f628b29e574d8b5555cf29d64cda03c884efcf66adafd58672f65",
+      "kind": "recorded_evidence",
+      "source_sha256": "9b2df3406d5f628b29e574d8b5555cf29d64cda03c884efcf66adafd58672f65"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/Diagnostico_Q_restituida.fig",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/Diagnostico_Q_restituida.fig",
+      "bytes": 544056,
+      "sha256": "90c8ea7b9ba7fd4c3ae0ce5ef6f1cd91d34a72ece1be9c0296647c6ea2f8a641",
+      "kind": "recorded_evidence",
+      "source_sha256": "90c8ea7b9ba7fd4c3ae0ce5ef6f1cd91d34a72ece1be9c0296647c6ea2f8a641"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/Diagnostico_Q_restituida.png",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/Diagnostico_Q_restituida.png",
+      "bytes": 164639,
+      "sha256": "cdf851e23d4246d792b555f948a96d09812a98ed3ddd2975100194cb4ca6de0a",
+      "kind": "recorded_evidence",
+      "source_sha256": "cdf851e23d4246d792b555f948a96d09812a98ed3ddd2975100194cb4ca6de0a"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/lazo_completo.mat",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/lazo_completo.mat",
+      "bytes": 1986964,
+      "sha256": "03df0b6c1b59d548c409527554bbe2cea8f4973aa7e072adee79d1b23959ba7f",
+      "kind": "recorded_evidence",
+      "source_sha256": "03df0b6c1b59d548c409527554bbe2cea8f4973aa7e072adee79d1b23959ba7f"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/renderizar_Q_restituida.m",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/renderizar_Q_restituida.m",
+      "bytes": 4973,
+      "sha256": "68bb62817cb5341fe99543ad4b054145a811d65ec75ac25f3b24a341d54979be",
+      "kind": "recorded_evidence",
+      "source_sha256": "b9157dbcaadad5d3e072d6fe2d1515cbb784c109b13c8acd3d57710b524bbae1"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/resumen.csv",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/resumen.csv",
+      "bytes": 266,
+      "sha256": "a561984b051556ff76cc2209fcc186b1b451a3cbaeb832b45b9b7465efdb94c8",
+      "kind": "recorded_evidence",
+      "source_sha256": "a561984b051556ff76cc2209fcc186b1b451a3cbaeb832b45b9b7465efdb94c8"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_Restored/verificacion.json",
+      "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/verificacion.json",
+      "bytes": 794,
+      "sha256": "20666154922177fe10569ea354a76d2eff52a45f040496166a35e0b92cc2547a",
+      "kind": "recorded_evidence",
+      "source_sha256": "77d5c3bee03783749c4b0f03f3f037a2a559fa231676b3d11e7d6b946358f785",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/estudio_completo.mat",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/estudio_completo.mat",
+      "bytes": 8138530,
+      "sha256": "25c34825cd3d5672344a101da612b317934df6f5db1677bc1430541a924928f4",
+      "kind": "recorded_evidence",
+      "source_sha256": "25c34825cd3d5672344a101da612b317934df6f5db1677bc1430541a924928f4"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Renderizar_estudio_Q_XY.m",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Renderizar_estudio_Q_XY.m",
+      "bytes": 6408,
+      "sha256": "0f6ae6eae6433ae71bfdffe2b7d8b64fdab0642b85c6f64319241c7a9737ace6",
+      "kind": "recorded_evidence",
+      "source_sha256": "0f6ae6eae6433ae71bfdffe2b7d8b64fdab0642b85c6f64319241c7a9737ace6"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/resumen_versiones.csv",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/resumen_versiones.csv",
+      "bytes": 794,
+      "sha256": "11731448287f70b2c095f030a9eac21885c2dabfbb9dad504b0c985ea63e9b82",
+      "kind": "recorded_evidence",
+      "source_sha256": "11731448287f70b2c095f030a9eac21885c2dabfbb9dad504b0c985ea63e9b82"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/resumen_versiones.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/resumen_versiones.json",
+      "bytes": 2072,
+      "sha256": "dbc4b2772ce91a4a89f99a7a3c4fdba2305b11f5195884c43f53dff56af9b74b",
+      "kind": "recorded_evidence",
+      "source_sha256": "9438148398d7da2537a2d551d27ec9892ba2f8f2a594400fbd580655f5f76581",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/verificacion_configuraciones.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/verificacion_configuraciones.json",
+      "bytes": 1273,
+      "sha256": "644ae8b2cdfd8f2d1cf01f72e05c7c8e1a5a4ef6c305fa46bf4819c43ada7c34",
+      "kind": "recorded_evidence",
+      "source_sha256": "8e85193e657ebef54c6f1bac170871363a1a0a001930418a9cfd940bf822d046",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/verificacion_cuatro_videos.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/verificacion_cuatro_videos.json",
+      "bytes": 5352,
+      "sha256": "216200e81b1af1afae0d95306aaa02d083d09996d55e1c56f709da15b796f1bb",
+      "kind": "recorded_evidence",
+      "source_sha256": "7bf5fa161dc863df76e2011db803eb50083466fbe72fdb284d2b895a81b14ed7",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "bytes": 1135,
+      "sha256": "8b2ef4d331eba6c112ce0270216ed39ff23f29f8c630ed4ee6c063135d60f6f7",
+      "kind": "recorded_evidence",
+      "source_sha256": "b23b88dce7750bf5e72ca50b4b6886cc583bc0084edbb09188e2c28fbc9e03ce",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "bytes": 6903197,
+      "sha256": "8cba28a4a0ea38e8157ec45a5b3a6a540fa58bcd92bad387bf30f86838c51b23",
+      "kind": "recorded_evidence",
+      "source_sha256": "8cba28a4a0ea38e8157ec45a5b3a6a540fa58bcd92bad387bf30f86838c51b23"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "bytes": 223480,
+      "sha256": "81853869875aae04971f0f33ac80f51e6d25dba73e6896098f56853f0aa3ac93",
+      "kind": "recorded_evidence",
+      "source_sha256": "81853869875aae04971f0f33ac80f51e6d25dba73e6896098f56853f0aa3ac93"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_005/simulacion.mat",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_005/simulacion.mat",
+      "bytes": 3535581,
+      "sha256": "9fea3691f6a5fce630a2a827426375aec9658695474689e9ce10307e3417f48f",
+      "kind": "recorded_evidence",
+      "source_sha256": "9fea3691f6a5fce630a2a827426375aec9658695474689e9ce10307e3417f48f"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "bytes": 1130,
+      "sha256": "d644e73db5643e9613fc77a98e210770eec75feccc2b0123e07f113ad0fa5249",
+      "kind": "recorded_evidence",
+      "source_sha256": "477422f1a90c5aa703ccebb0813688166e2fd5edb887d791d140bde5b63faa2e",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "bytes": 2912243,
+      "sha256": "621540a49b49725e0b53a7a95165caeb924ddb1a5191791188a48486a1ae235f",
+      "kind": "recorded_evidence",
+      "source_sha256": "621540a49b49725e0b53a7a95165caeb924ddb1a5191791188a48486a1ae235f"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "bytes": 209564,
+      "sha256": "fdaf8298f7a809cc8254e6df71a3dd136a749df0f8ab84c74e087b230cece28e",
+      "kind": "recorded_evidence",
+      "source_sha256": "fdaf8298f7a809cc8254e6df71a3dd136a749df0f8ab84c74e087b230cece28e"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_010/simulacion.mat",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_010/simulacion.mat",
+      "bytes": 1911118,
+      "sha256": "31feda97dc2e5a8aa4dee9f694cd9a0c0c00cdc0348b0db34a9176f30ef47cb8",
+      "kind": "recorded_evidence",
+      "source_sha256": "31feda97dc2e5a8aa4dee9f694cd9a0c0c00cdc0348b0db34a9176f30ef47cb8"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "bytes": 1134,
+      "sha256": "a9ca360e802b58517fc72a1470b4f2ae32c11debe498df1ca2f9391af38d0f76",
+      "kind": "recorded_evidence",
+      "source_sha256": "630f959d4eaf71cdb06f0ea703db368579f5656cf667744f6027abf6ea9f14bb",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "bytes": 2760323,
+      "sha256": "51fa9035fca103a5c2c8b0a96c53826505fc2c6e75ba140969edec05cdd5bfc6",
+      "kind": "recorded_evidence",
+      "source_sha256": "51fa9035fca103a5c2c8b0a96c53826505fc2c6e75ba140969edec05cdd5bfc6"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "bytes": 212803,
+      "sha256": "4e390136bfc76aa188752d75a8a4b00bf11239e8abdc395a0949079f7f2343e8",
+      "kind": "recorded_evidence",
+      "source_sha256": "4e390136bfc76aa188752d75a8a4b00bf11239e8abdc395a0949079f7f2343e8"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_015/simulacion.mat",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_015/simulacion.mat",
+      "bytes": 1899721,
+      "sha256": "97d6218ed67abe2d26ba6207610a1bc8800801eb52efda74b2ab32d26a4f48fa",
+      "kind": "recorded_evidence",
+      "source_sha256": "97d6218ed67abe2d26ba6207610a1bc8800801eb52efda74b2ab32d26a4f48fa"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
+      "bytes": 1132,
+      "sha256": "ec7a4062d066e406f229b79ab47d266aa316f5161885bc5a0788339d09887e59",
+      "kind": "recorded_evidence",
+      "source_sha256": "fb65418b1fafc36d9a6727ea5fc5f9b2bf28c3ddcbde9e055b70c45a112b6569",
+      "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D.mp4",
+      "bytes": 2868477,
+      "sha256": "b1d786a88c12cf2915d3bd7dbef2db28fb8afaf5508a0bb8c0b1a7b27b24cdd3",
+      "kind": "recorded_evidence",
+      "source_sha256": "b1d786a88c12cf2915d3bd7dbef2db28fb8afaf5508a0bb8c0b1a7b27b24cdd3"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D_previa.png",
+      "bytes": 211064,
+      "sha256": "7e931227f02b4c5c3d7c2976ade39c07b56da19e618e95d8b6ebf1dae5d523a2",
+      "kind": "recorded_evidence",
+      "source_sha256": "7e931227f02b4c5c3d7c2976ade39c07b56da19e618e95d8b6ebf1dae5d523a2"
+    },
+    {
+      "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_020/simulacion.mat",
+      "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_020/simulacion.mat",
+      "bytes": 1927619,
+      "sha256": "e3b4bf4900857030e9d9f98cad225a46e9cd1e79463a7884213eaf6197b5610e",
+      "kind": "recorded_evidence",
+      "source_sha256": "e3b4bf4900857030e9d9f98cad225a46e9cd1e79463a7884213eaf6197b5610e"
     }
   ],
   "deduplicated_files": [
@@ -1107,23 +1682,24 @@
     }
   ],
   "excluded_large_audit_mat": "CSV, figures and study source published instead of the 53 MB audit MAT.",
-  "local_blocks_modified": false,
+  "local_blocks_modified": "Approved ABS/coordinator/configuration update only; dynamics, TC, sensors and estimator retained.",
   "reproduction_tools": [
     "PROJECT/Tools/verificarLazoPublicado.m",
     "PROJECT/Tools/repetirEstimacionQ.m",
     "PROJECT/Tools/diagnosticarSalidaRecta.m"
   ],
-  "mat_metadata_validation": "Native MATLAB removed workstation paths in copied structs/cells. isequaln confirmed round-trip preservation of every sanitized payload; originals untouched.",
+  "mat_metadata_validation": "Historical publication metadata was sanitized and round-trip checked. New MAT files preserve native numeric histories and run configuration; portable replay sources do not depend on stored workstation paths.",
   "latest_update": {
-    "date": "2026-11-26",
-    "active_Q": "diag([.02 .02 .005 .10 .10].^2)",
+    "date": "2026-11-27",
+    "active_Q": "diag([.001 .001 .00001 .003 .003].^2)",
     "P0_changed": false,
     "sensor_noise_changed": false,
-    "closed_loop_rerun_with_restored_Q": false,
+    "closed_loop_rerun_with_restored_Q": true,
     "retained_steering_cases": [
       "Alce_PP_02"
     ],
     "historical_full_loop_evidence": "Saved full-loop lap metrics and MP4s use previous reduced Q.",
-    "publication_adaptations": "New scenario paths made portable; historical integration-Q hash excluded from manoeuvre verification because Q restoration occurred later."
+    "publication_adaptations": "New scenario paths made portable; historical integration-Q hash excluded from manoeuvre verification because Q restoration occurred later.",
+    "current_update": "Modulated ABS, TC on in both comparison cases; working reduced Q restored by user decision."
   }
 }

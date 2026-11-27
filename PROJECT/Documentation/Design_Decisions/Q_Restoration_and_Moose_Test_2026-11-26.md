@@ -1,5 +1,6 @@
 # Q restoration and retained Moose Test 02
 
+**Historical record:** superseded for the active configuration by the [27 November ABS/Q decision](Modulated_ABS_2026-11-27.md). Working Q is reduced again; these older recordings retain their original ABS and configuration.
 [← Estimator analysis](../Estimator_Q_and_Failure_Analysis.md) · [Moose Test 02 evidence](../../Results/Moose_Test_02/README.md) · [Runnable scenario](../../Current%20State/Ensayos_alce_seguimiento/)
 
 ## Restore uncertainty assumptions before further estimator work
@@ -14,7 +15,7 @@ The temporary `diag([.001 .001 .00001 .003 .003].^2)` setting is no longer the a
 
 Sensor noise, R, initial P, the EKF equations, `q_ay` and `q_direccion` remain unchanged. The initial five-state covariance is `eye(5)*1e-3`; the seven-state estimator appends ay and steering variances before assimilating measurements. Future P0 work must reflect actual initial-state uncertainty and distinguish initialization effects from persistent estimation errors. No P0 adjustment has been implemented.
 
-**No new complete-loop simulation has been performed after restoring Q.** Existing full-loop MP4s, replay CSVs and lap/error metrics remain labelled as historical reduced-Q results. They must not be presented as validation of the active restored-Q package.
+**At this 26 November decision point, no restored-Q rerun had yet been published.** Later work recorded its failure and the X/Y-only study, then returned to reduced Q for the modulated-ABS package. Earlier full-loop MP4s retain their original configuration.
 
 The next diagnostic priority is the straight-line spin: compare steering requested from estimated versus true states on the same recorded vehicle trajectory, together with force demand and rear lateral-capacity margin. Small estimation errors can initiate harmful corrections near the plant's limit, while large errors after a spin do not prove that estimator divergence caused the initial event. No unreviewed estimator-internal fix was applied.
 

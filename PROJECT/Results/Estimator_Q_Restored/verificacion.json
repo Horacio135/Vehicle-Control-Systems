@@ -1,0 +1,51 @@
+{
+  "Q": [
+    [
+      0.0004,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0.0004,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2.5e-05,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0.010000000000000002,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0.010000000000000002
+    ]
+  ],
+  "sensores_activos": true,
+  "estimador_activo": true,
+  "ABS_TC_habilitados": true,
+  "semilla": 1,
+  "bloques_sin_cambios": true,
+  "P0_sin_cambios": true,
+  "sensores_ruido_sin_cambios": true,
+  "motivo": "Error lateral mayor de 10 m",
+  "tiempo_s": 6.046,
+  "error_trayectoria_max_m": 10.015871567705025,
+  "RMSE_posicion_m": 0.39635209746218186,
+  "avance_pct": 13.966244761496869
+}
