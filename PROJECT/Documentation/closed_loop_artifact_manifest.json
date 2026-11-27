@@ -1304,8 +1304,8 @@
     {
       "path": "PROJECT/Results/Modulated_ABS/Circuit_14/ABS_TC_on_real_estimado_2D.json",
       "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/ABS_TC_on_real_estimado_2D.json",
-      "bytes": 788,
-      "sha256": "45d4a68262fa8e928ddb2a54a8b3b26e554f43d79660c68d7e46fcddb8e72769",
+      "bytes": 770,
+      "sha256": "a54740a59b0d7cc42f5fd2c1971355ac95d9087476e2551c7fb3170cff2bf1a7",
       "kind": "recorded_evidence",
       "source_sha256": "f9b6e4b13015b11f6aaa5de676293859c4dfa0110363e8c278a9e096b67dbe88",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1387,8 +1387,8 @@
     {
       "path": "PROJECT/Results/Modulated_ABS/Circuit_14/resumen.csv",
       "source": "local-project/estado actual/Resultados/Lazo_completo_ABS_modulado_2026-11-27/resumen.csv",
-      "bytes": 499,
-      "sha256": "ba9ea85af5133b9f88930ee050b092f2de4d3dae77545c66de5b125d6ed6e316",
+      "bytes": 496,
+      "sha256": "134fde73565b0870104de22afce7308d188cc428885279f31fc58e1f60dfcbe7",
       "kind": "recorded_evidence",
       "source_sha256": "ba9ea85af5133b9f88930ee050b092f2de4d3dae77545c66de5b125d6ed6e316"
     },
@@ -1404,8 +1404,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_Restored/Circuito_Q_restituida_ABS_TC_2D.json",
       "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/Circuito_Q_restituida_ABS_TC_2D.json",
-      "bytes": 769,
-      "sha256": "bc09cce8b66f0a3d7748aa4469b9c30d09f7dcc22ec6dc04e689ab721dd990ae",
+      "bytes": 754,
+      "sha256": "1b816b22c6fe0437838e57ad5c3727ec16b34ec3b86743e77c66914f95324e21",
       "kind": "recorded_evidence",
       "source_sha256": "ae3aafa4c2eb4060d726d66db348ff184bcc1694d9192a24057d4c5ef6ef9e44",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1429,8 +1429,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_Restored/diagnostico.csv",
       "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/diagnostico.csv",
-      "bytes": 393420,
-      "sha256": "9b2df3406d5f628b29e574d8b5555cf29d64cda03c884efcf66adafd58672f65",
+      "bytes": 390395,
+      "sha256": "d92d84bf03672644005c42541d3c53ccff784980a15855df3459cdc22c5e8682",
       "kind": "recorded_evidence",
       "source_sha256": "9b2df3406d5f628b29e574d8b5555cf29d64cda03c884efcf66adafd58672f65"
     },
@@ -1469,16 +1469,16 @@
     {
       "path": "PROJECT/Results/Estimator_Q_Restored/resumen.csv",
       "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/resumen.csv",
-      "bytes": 266,
-      "sha256": "a561984b051556ff76cc2209fcc186b1b451a3cbaeb832b45b9b7465efdb94c8",
+      "bytes": 264,
+      "sha256": "49b5d7567e2c968381f540ca89c317d34a4fc45616259f95a4ae0f2391712a0a",
       "kind": "recorded_evidence",
       "source_sha256": "a561984b051556ff76cc2209fcc186b1b451a3cbaeb832b45b9b7465efdb94c8"
     },
     {
       "path": "PROJECT/Results/Estimator_Q_Restored/verificacion.json",
       "source": "local-project/estado actual/Resultados/Circuito_14_curvas_Q_restituida_ABS_TC_2026-11-26/verificacion.json",
-      "bytes": 794,
-      "sha256": "20666154922177fe10569ea354a76d2eff52a45f040496166a35e0b92cc2547a",
+      "bytes": 743,
+      "sha256": "b88ede60a248f93f8ea01a672bd38eb0c2bedb9c53fb3054f572c72f2d093456",
       "kind": "recorded_evidence",
       "source_sha256": "77d5c3bee03783749c4b0f03f3f037a2a559fa231676b3d11e7d6b946358f785",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1502,16 +1502,16 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/resumen_versiones.csv",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/resumen_versiones.csv",
-      "bytes": 794,
-      "sha256": "11731448287f70b2c095f030a9eac21885c2dabfbb9dad504b0c985ea63e9b82",
+      "bytes": 789,
+      "sha256": "cbb3676f0cc8f0711b53e454f3fc4f851e568cefafd39677dc16a23203f05547",
       "kind": "recorded_evidence",
       "source_sha256": "11731448287f70b2c095f030a9eac21885c2dabfbb9dad504b0c985ea63e9b82"
     },
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/resumen_versiones.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/resumen_versiones.json",
-      "bytes": 2072,
-      "sha256": "dbc4b2772ce91a4a89f99a7a3c4fdba2305b11f5195884c43f53dff56af9b74b",
+      "bytes": 2002,
+      "sha256": "6e3c03f300751d5555f225bb02081ba5a279fe6fff61f6486d7b601b1cb469df",
       "kind": "recorded_evidence",
       "source_sha256": "9438148398d7da2537a2d551d27ec9892ba2f8f2a594400fbd580655f5f76581",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1519,8 +1519,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/verificacion_configuraciones.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/verificacion_configuraciones.json",
-      "bytes": 1273,
-      "sha256": "644ae8b2cdfd8f2d1cf01f72e05c7c8e1a5a4ef6c305fa46bf4819c43ada7c34",
+      "bytes": 1215,
+      "sha256": "180e987c53fb1266a3a851b980d3f08048efc71d27578e1f5fa7d9bf61d6f5ba",
       "kind": "recorded_evidence",
       "source_sha256": "8e85193e657ebef54c6f1bac170871363a1a0a001930418a9cfd940bf822d046",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1528,8 +1528,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/verificacion_cuatro_videos.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/verificacion_cuatro_videos.json",
-      "bytes": 5352,
-      "sha256": "216200e81b1af1afae0d95306aaa02d083d09996d55e1c56f709da15b796f1bb",
+      "bytes": 5134,
+      "sha256": "37da3ae8958e31354443ef53b4e3af71df98ee09f06e8882eca2eb5365d2e12a",
       "kind": "recorded_evidence",
       "source_sha256": "7bf5fa161dc863df76e2011db803eb50083466fbe72fdb284d2b895a81b14ed7",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1537,8 +1537,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_005/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
-      "bytes": 1135,
-      "sha256": "8b2ef4d331eba6c112ce0270216ed39ff23f29f8c630ed4ee6c063135d60f6f7",
+      "bytes": 1083,
+      "sha256": "8650a51a4c3b1138bddff16109b3e206cd3ce6bcbdf76d3933ca7ef67cb4b685",
       "kind": "recorded_evidence",
       "source_sha256": "b23b88dce7750bf5e72ca50b4b6886cc583bc0084edbb09188e2c28fbc9e03ce",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1570,8 +1570,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_010/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
-      "bytes": 1130,
-      "sha256": "d644e73db5643e9613fc77a98e210770eec75feccc2b0123e07f113ad0fa5249",
+      "bytes": 1078,
+      "sha256": "7de92c27099f6ad4b5501f41214d904566a5d39e40733229701810fb5d777dbe",
       "kind": "recorded_evidence",
       "source_sha256": "477422f1a90c5aa703ccebb0813688166e2fd5edb887d791d140bde5b63faa2e",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1603,8 +1603,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_015/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
-      "bytes": 1134,
-      "sha256": "a9ca360e802b58517fc72a1470b4f2ae32c11debe498df1ca2f9391af38d0f76",
+      "bytes": 1082,
+      "sha256": "0f785b779730be14e45611516ec70cbc8615f7730be8096ee17fda79e17fbbdb",
       "kind": "recorded_evidence",
       "source_sha256": "630f959d4eaf71cdb06f0ea703db368579f5656cf667744f6027abf6ea9f14bb",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
@@ -1636,8 +1636,8 @@
     {
       "path": "PROJECT/Results/Estimator_Q_XY_Study/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
       "source": "local-project/estado actual/Resultados/Estudio_Q_XY_2026-11-27/Version_XY_0_020/Circuito_Q_XY_ABS_TC_real_estimado_2D.json",
-      "bytes": 1132,
-      "sha256": "ec7a4062d066e406f229b79ab47d266aa316f5161885bc5a0788339d09887e59",
+      "bytes": 1080,
+      "sha256": "768bce31b6b803792856a1842c034cd85fcc52cc719db730bdcfd1c98f9c8cfc",
       "kind": "recorded_evidence",
       "source_sha256": "fb65418b1fafc36d9a6727ea5fc5f9b2bf28c3ddcbde9e055b70c45a112b6569",
       "publication_transform": "Relative paths or workstation-path redaction only; numeric evidence and controller equations retained."
