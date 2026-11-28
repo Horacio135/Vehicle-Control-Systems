@@ -1,10 +1,10 @@
 # Documentation
 
-[Latest decision: modulated ABS and working Q](Design_Decisions/Modulated_ABS_2026-11-27.md).
+[Latest implementation: ESC V1 theory, wheel selection and scope](ESC_V1.md).
 
 [← Project](../README.md) · [Versions](Versions/README.md) · [Design decisions](Design_Decisions/README.md) · [Results](../Results/README.md)
 
-**Design rationale, theory and evidence from V1 through the complete estimated loop.** The current milestone is dated **27 November 2026**; the original V1–V12 archival snapshot remains dated 22 November. Figures and runs retain their own model/configuration rather than being relabelled as current evidence.
+**Design rationale, theory and evidence from V1 through the complete estimated loop.** The current milestone is dated **28 November 2026**; the original V1–V12 archival snapshot remains dated 22 November. Figures and runs retain their own model/configuration rather than being relabelled as current evidence.
 
 ## Reading paths
 
@@ -27,7 +27,7 @@
 
 The [English presentation transcript](Intermediate_Presentation_English.md) covers all thirteen slides. The [original presentation](SCV_Evaluaci%C3%B3n_Intermedia_Proyecto_HHRB.pptx) retains the intermediate milestone: understeer/oversteer, ESC choice, future ABS/TCS coordination, tyre forces and transfer of load. Its pending-work list is historical, not a description of the current package.
 
-The current loop includes force-based ABS/TC and seven-state estimation; an ESC yaw law and physical-slip regulators remain pending. Neither the old slides nor the current successful lap establish experimental validity.
+The current loop includes force-based ABS/TC and seven-state estimation; ESC V1 is evaluated separately with perfect state; integration with estimation and physical-slip regulators remain pending. Neither the old slides nor the current successful lap establish experimental validity.
 
 ## Archive and language policy
 

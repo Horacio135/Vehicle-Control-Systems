@@ -21,3 +21,6 @@ These are named integration milestones, not invented V13–V20 releases. V1–V1
 | Modulated ABS, 27 Nov | Independent release/hold/rebuild; TC on in both comparison cases; 47.294 s controlled lap | [New evidence](../../../Results/Modulated_ABS/README.md) |
 
 Physical limits and rejected alternatives are retained explicitly. Current full-loop videos must not be relabelled as evidence for earlier tyre models, and earlier 3D videos do not imply a new 3D estimated-loop run.
+
+
+**ESC V1, 28 November:** selective-braking control evaluated in a 13 m-transition manoeuvre, with 1.88° maximum controlled sideslip and three cone contacts. [Evidence](../../../Results/ESC_V1_13m/README.md).

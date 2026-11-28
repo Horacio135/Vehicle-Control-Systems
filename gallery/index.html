@@ -11,21 +11,32 @@ header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
 </style></head><body>
 <header><div class="bar"><div class="brand">VCS / Vehicle Control Systems</div><a href="https://github.com/Horacio135/Vehicle-Control-Systems" target="_blank" rel="noreferrer">Repository ↗</a></div></header>
 <div class="proposal">Simulation evidence · Current results, diagnostics and development history</div>
-<main><div class="eyebrow">Simulation evidence · Snapshot 27 November 2026</div>
+<main><div class="eyebrow">Simulation evidence · Snapshot 28 November 2026</div>
 <h1>Simulation video gallery</h1>
-<p class="intro">Compare the new modulated ABS with braking control disabled, while TC stays on in both runs. Follow actual and estimated motion, then explore failed estimator tests and earlier design milestones. The selected working Q is reduced again; sensor noise is unchanged.</p>
-<div class="stats"><div class="stat"><strong>47.294 s</strong><span>Modulated ABS on · TC on</span></div><div class="stat"><strong>49.250 s</strong><span>ABS off · TC on</span></div><div class="stat"><strong>0.354 m</strong><span>Controlled maximum path error</span></div></div>
+<p class="intro">Explore ESC V1 in a fixed-orientation 3D view: the blue car is controlled and the translucent orange car shows the baseline skid. This perfect-state manoeuvre is separate from the noisy estimated-loop ABS comparisons. Stabilization improves, but the controlled car still contacts three cones.</p>
+<div class="stats"><div class="stat"><strong>1.88°</strong><span>Maximum sideslip with ESC V1</span></div><div class="stat"><strong>87.88°</strong><span>Maximum sideslip without ESC</span></div><div class="stat"><strong>13 m</strong><span>Lane-change transition length</span></div></div>
 <p class="mobile-note">Recorded simulation results, not experimental validation. Videos load on demand; no autoplay.</p>
 <nav><a href="#current">Current results</a><a href="#diagnostic">Diagnostic evidence</a><a href="#history">Development milestones</a><a href="#archive">Full video archive</a></nav>
-<section id="current"><div class="section-top"><div><h2>Current modulated ABS results</h2><p>Fourteen-corner circuit with sensors and estimation. TC enabled in both comparison cases.</p></div><span class="count">2 featured videos</span></div><div class="grid" id="current-grid"></div></section>
-<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is historical evidence, distinct from the current modulated-ABS runs.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>Working Q is reduced again; a successful lap does not establish robustness.</li></ul><p class="caution">No current full-loop 3D recording exists. The 3D videos below belong to earlier development stages.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
-<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">9 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
-<section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">10 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
+<section id="current"><div class="section-top"><div><h2>Current ESC and ABS results</h2><p>ESC manoeuvre with perfect state; fourteen-corner ABS comparisons with sensors and estimation.</p></div><span class="count">3 featured videos</span></div><div class="grid" id="current-grid"></div></section>
+<section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is historical evidence, distinct from the current modulated-ABS runs.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>Working Q is reduced again; a successful lap does not establish robustness.</li></ul><p class="caution">The featured ESC 3D view uses perfect state. It is separate from the sensing/EKF full-loop recordings.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
+<section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">8 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
+<section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">11 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
 <div class="reading"><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Current%20State" target="_blank" rel="noreferrer">Run the current model ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Dynamics_Development.md" target="_blank" rel="noreferrer">Read the dynamics theory ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Results" target="_blank" rel="noreferrer">Browse numeric results ↗</a></div>
-<footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters; no ESC yaw-feedback controller has been added. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
+<footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters. ESC V1 is tested in a dedicated perfect-state manoeuvre. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
 <script>
 const mediaBase = './';
 const catalogue = [
+  {
+    "id": "video-23",
+    "path": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto.mp4",
+    "include": true,
+    "group": "current",
+    "title": "ESC V1 — moose manoeuvre in 3D",
+    "rationale": "Blue: ESC; translucent orange: no ESC. Perfect-state test, 13 m transitions and a 20 m/s reference; nominal braking is suppressed. ESC reduces maximum sideslip to 1.88° and completes, with three cone contacts.",
+    "poster": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto_previa.png",
+    "detail": "Normal speed · fixed-orientation tracking camera · 25 fps",
+    "size_mib": 2.91
+  },
   {
     "id": "video-21",
     "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
@@ -148,17 +159,6 @@ const catalogue = [
     "size_mib": 3.14
   },
   {
-    "id": "video-09",
-    "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Discarded_Pacejka_V2_ABS_TC_2D.mp4",
-    "include": true,
-    "group": "history",
-    "title": "Discarded combined-slip V2 experiment",
-    "rationale": "Preserve the failed alternative and its design rationale; do not hide rejection or label it as the current model.",
-    "poster": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Comparacion_Pacejka_V2_ABS_TC_2D_previa.png",
-    "detail": "Discarded model configuration",
-    "size_mib": 1.76
-  },
-  {
     "id": "video-10",
     "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_hibrido_animado.mp4",
     "include": false,
@@ -267,6 +267,17 @@ const catalogue = [
     "poster": "",
     "detail": "",
     "size_mib": 0.19
+  },
+  {
+    "id": "video-24",
+    "path": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_02_sin_con_ESC_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "ESC V1 — matching 2D manoeuvre view",
+    "rationale": "The same saved trajectories and metrics as the featured 3D comparison; available for planar inspection on the results page.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 3.23
   }
 ];
 const sourceUrl = path => 'https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/'+encodeURI(path);

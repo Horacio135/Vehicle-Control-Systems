@@ -1,12 +1,12 @@
 # Project overview
 
-**Latest state — 27 November:** modulated ABS is active and working Q returns to the reduced configuration. The ABS off/on comparison keeps TC on in both: 49.250 s versus 47.294 s. [Current results](Results/Modulated_ABS/README.md) · [Decision record](Documentation/Design_Decisions/Modulated_ABS_2026-11-27.md).
+**Latest state — 28 November:** selective-braking ESC V1 is implemented in a separate 13 m-transition manoeuvre. [Results and approved 3D video](Results/ESC_V1_13m/README.md) · [Control theory](Documentation/ESC_V1.md).
 
 [← Repository](../README.md) · [Current package](Current%20State/README.md) · [Results](Results/README.md) · [Theory](Documentation/Dynamics_Development.md) · [Design history](Documentation/README.md)
 
 **A four-wheel vehicle model connected to noisy sensors, state estimation and force-based control.**
 
-The snapshot dated **27 November 2026** includes the complete sensing–estimation loop, rear traction-only Pacejka, historical braking, Ackermann geometry and force-based ABS/TC. The long-term objective remains coordinated stability control: an ESC yaw controller and physical-slip ABS/TCS are not yet implemented. V1–V12 remain historical development stages, with later milestones documented separately.
+The snapshot dated **28 November 2026** includes the complete sensing–estimation loop, rear traction-only Pacejka, historical braking, Ackermann geometry and force-based ABS/TC. The long-term objective remains coordinated stability control: ESC V1 is now tested separately with perfect state; integration into the estimated loop and physical-slip ABS/TCS remain future work. V1–V12 remain historical development stages, with later milestones documented separately.
 
 ## Project layout
 
@@ -96,6 +96,6 @@ V11 changed planning assumptions. V12 doubled the maximum requested driving forc
 
 Completing a lap does not establish track containment or physical validity. Historical track-exit statistics use the centre of gravity, not the body envelope; lock statistics refer to the relevant model's approximation. A speed cap may never be reached.
 
-Next, review extreme-motion plant/estimator consistency, test ABS and TC separately and across additional noise seeds, and design the missing ESC yaw controller. Lower Q cannot repair missing dynamics or unestimated bias. Internal block changes require review; the current loop was connected externally.
+Next, review extreme-motion plant/estimator consistency, test ABS and TC separately and across additional noise seeds, and connect the tested ESC V1 to the estimated loop. Lower Q cannot repair missing dynamics or unestimated bias. Internal block changes require review; the current loop was connected externally.
 
 The [earlier Blocks package](Blocks/README.md) and [plant-only Modular Architecture template](Modular%20Architecture/README.md) remain historical snapshots. Their four-state EKF and total-force plant do not describe the current runnable package. [History](Documentation/Versions/README.md) preserves V1–V12 and [later milestones](Documentation/Versions/After_V12/README.md) without inventing additional version numbers.

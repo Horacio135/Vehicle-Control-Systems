@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-11-27",
+  "snapshot_date": "2026-11-28",
   "source_language": "Spanish MATLAB identifiers and comments by user request",
   "documentation_language": "English",
   "files": [
@@ -1665,6 +1665,152 @@
       "sha256": "e3b4bf4900857030e9d9f98cad225a46e9cd1e79463a7884213eaf6197b5610e",
       "kind": "recorded_evidence",
       "source_sha256": "e3b4bf4900857030e9d9f98cad225a46e9cd1e79463a7884213eaf6197b5610e"
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlESC.m",
+      "source": "local-state/Control/controlESC.m",
+      "sha256": "5c9fd3a9d3123611b62754ac5333342055599cf087c19f183fdcc65a925d6c28",
+      "source_sha256": "5c9fd3a9d3123611b62754ac5333342055599cf087c19f183fdcc65a925d6c28",
+      "bytes": 2464,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/configuracionESC.m",
+      "source": "local-state/Configuracion/configuracionESC.m",
+      "sha256": "9430621a1ae8a4ab0af8cc2db359994c22100f98fe9e00204d9c15fe1016a7e8",
+      "source_sha256": "9430621a1ae8a4ab0af8cc2db359994c22100f98fe9e00204d9c15fe1016a7e8",
+      "bytes": 394,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_ESC/simular_alce_ESC.m",
+      "source": "local-state/Ensayos_ESC/simular_alce_ESC.m",
+      "sha256": "b2b1bb5476cd9fa777f8baa5d3bfda7e4a00dce2471bd604052131be23c02147",
+      "source_sha256": "b2b1bb5476cd9fa777f8baa5d3bfda7e4a00dce2471bd604052131be23c02147",
+      "bytes": 7037,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_ESC/renderizar_alce_ESC.m",
+      "source": "local-state/Ensayos_ESC/renderizar_alce_ESC.m",
+      "sha256": "058ccc26e270b6bb3d32c554d00533fbc1243a0487d03115341d9e90e8736e6d",
+      "source_sha256": "058ccc26e270b6bb3d32c554d00533fbc1243a0487d03115341d9e90e8736e6d",
+      "bytes": 4308,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_ESC/Ejecutar_alce_ESC.m",
+      "source": "local-state/Ensayos_ESC/Ejecutar_alce_ESC.m",
+      "sha256": "74ed229aea702e88387ecfeaaf836f19a6731702aa6411439fa48a7a61f40e08",
+      "source_sha256": "74ed229aea702e88387ecfeaaf836f19a6731702aa6411439fa48a7a61f40e08",
+      "bytes": 153,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_ESC/Ejecutar_alce_ESC.mlx",
+      "source": "local-state/Ensayos_ESC/Ejecutar_alce_ESC.mlx",
+      "sha256": "893252be4e99f54cb6279fa175f6ca7d9b4e1ffdaa9ed534a05002ef35e65146",
+      "source_sha256": "893252be4e99f54cb6279fa175f6ca7d9b4e1ffdaa9ed534a05002ef35e65146",
+      "bytes": 2925,
+      "kind": "active_source"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto.mp4",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "5eb440ca2aa8fa816b7e6871335f1fb1627ed364f8e1daf6dde9ffde5b44cd3e",
+      "bytes": 3052400,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto_previa.png",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "ae26fc3c28a66a46fb1bd7215475c7271ffd01f9ca7882ac0faaf776f17942eb",
+      "bytes": 78408,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_02_sin_con_ESC_2D.mp4",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "7e3ce49e2a16755c8858d3f26409ff21d41ae6393edb0b2b529443ed586c5c88",
+      "bytes": 3382637,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_ESC_previa.png",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "a4a963be2cfb17b9eaae969866465cc3f47a6e67eb96a3325afc397b2e0725fa",
+      "bytes": 91251,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Ensayos_estabilidad.mat",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "ff04a4936b4baa48dfda46b4c6f3227107e4407084a81c9d0b30a50d3ac9515f",
+      "bytes": 3620876,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/README.md",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "a5d6d8ccb8547246901ba0e8326032c4a2c967b5e6c7ea59a083408fbba19304",
+      "bytes": 3891,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Renderizar_alce_ESC_V1_13m_3D_naranja_giro15_opuesto.m",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "dfc55412fed2737937a9bf7768cef69f9382cf56d7b717fc19c63b6971bc5038",
+      "bytes": 9851,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Resumen_ensayos.csv",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "d420b6e9337aa9d072d3c55bf95796d1805c15162044d5b393ddbf390825cf09",
+      "bytes": 831,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Resumen_ensayos.json",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "3773b95e0a7d99fe0e186430c357dab6cbb7abecab7ab92a23595d9437760f1f",
+      "bytes": 1524,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Verificacion_corredor.json",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "a48ba68d6d0914eea4b85e7ff07e4e35e38d4c62675b9b95fcfea1dca4554a2f",
+      "bytes": 778,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Verificacion_render_3D_naranja_giro15_opuesto.json",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "87a6d390e579ee47ddc31ac4ac0c2c6e4c1119257056dd513408a7f2e21634b4",
+      "bytes": 782,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/verificar.m",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "580fe798b802f8799d0f5fe0893673f04fb5927c66b97c97accad8430f611088",
+      "bytes": 2260,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Visualizacion_3D_ESC_V1_13m.m",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "4e33cee91263d4443817543073a28de636e42a7b23c456b58bc7fdba7b283d5f",
+      "bytes": 275,
+      "kind": "recorded_evidence"
+    },
+    {
+      "path": "PROJECT/Results/ESC_V1_13m/Visualizacion_3D_ESC_V1_13m.mlx",
+      "source": "selected ESC V1 13m evidence",
+      "sha256": "c4e71a3b24e68409d6cc9f65a065669a23f85634b30b9e8c8795bcccf7bb7d10",
+      "bytes": 3032,
+      "kind": "recorded_evidence"
     }
   ],
   "deduplicated_files": [
@@ -1690,7 +1836,7 @@
   ],
   "mat_metadata_validation": "Historical publication metadata was sanitized and round-trip checked. New MAT files preserve native numeric histories and run configuration; portable replay sources do not depend on stored workstation paths.",
   "latest_update": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "active_Q": "diag([.001 .001 .00001 .003 .003].^2)",
     "P0_changed": false,
     "sensor_noise_changed": false,
@@ -1700,6 +1846,7 @@
     ],
     "historical_full_loop_evidence": "Saved full-loop lap metrics and MP4s use previous reduced Q.",
     "publication_adaptations": "New scenario paths made portable; historical integration-Q hash excluded from manoeuvre verification because Q restoration occurred later.",
-    "current_update": "Modulated ABS, TC on in both comparison cases; working reduced Q restored by user decision."
+    "current_update": "ESC V1 dedicated perfect-state manoeuvre and approved 3D recording; full estimated loop unchanged.",
+    "ESC_integrated_into_estimated_loop": false
   }
 }

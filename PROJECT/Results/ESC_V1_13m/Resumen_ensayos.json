@@ -1,0 +1,42 @@
+[
+  {
+    "caso": "Alce_PP_02_ESC_0",
+    "velocidad_inicial_ms": 20,
+    "duracion_s": 3.81,
+    "beta_max_grados": 87.8843231624717,
+    "deriva_trasera_max_grados": 88.349329039561113,
+    "deriva_delantera_max_grados": 88.112857160354821,
+    "uso_trasero_max": 0.9999999998647725,
+    "tiempo_indicio_sobreviraje_s": 0.064,
+    "TC_intervenciones": 366,
+    "ABS_intervenciones": 0,
+    "motivo": "Abortado: velocidad longitudinal inferior a 0.5 m/s tras pérdida de control",
+    "error_rapidez_max_ms": 5.0855240341055055,
+    "error_rapidez_RMSE_ms": 1.1634980313228707,
+    "direccion_max_grados": 28.647889756541161,
+    "intervencion_ESC_s": 0,
+    "X_final_m": 73.162104060269058,
+    "Y_final_m": 5.3214337262760676,
+    "rapidez_final_ms": 14.914475965894495
+  },
+  {
+    "caso": "Alce_PP_02_ESC_1",
+    "velocidad_inicial_ms": 20,
+    "duracion_s": 7.0520000000000005,
+    "beta_max_grados": 1.8808543734006689,
+    "deriva_trasera_max_grados": 2.7074318132154289,
+    "deriva_delantera_max_grados": 20.133591036709124,
+    "uso_trasero_max": 1.0000000000000002,
+    "tiempo_indicio_sobreviraje_s": 0,
+    "TC_intervenciones": 574,
+    "ABS_intervenciones": 0,
+    "motivo": "Finalizado: alcanzados 120 m",
+    "error_rapidez_max_ms": 8.5633253606334776,
+    "error_rapidez_RMSE_ms": 4.1242510073421554,
+    "direccion_max_grados": 18.548315959496023,
+    "intervencion_ESC_s": 2.992,
+    "X_final_m": 119.99768863113808,
+    "Y_final_m": -1.6268081861479795E-5,
+    "rapidez_final_ms": 21.1357835398787
+  }
+]

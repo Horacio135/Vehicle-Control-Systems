@@ -209,11 +209,40 @@ def main() -> int:
     except (OSError, ValueError, KeyError, StopIteration) as error:
         errors.append(f"Cannot verify current ABS summary: {type(error).__name__}")
 
+    esc_metrics = {}
+    try:
+        esc = ROOT / "PROJECT/Results/ESC_V1_13m"
+        checks = json.loads((esc / "Verificacion_corredor.json").read_text(encoding="utf-8-sig"))
+        baseline, controlled_esc = checks
+        if baseline["finalizado"] or not controlled_esc["finalizado"]:
+            errors.append("ESC manoeuvre termination differs from recorded evidence")
+        if not math.isclose(controlled_esc["beta_max_grados"], 1.8808543734006689, abs_tol=1e-10):
+            errors.append("ESC controlled sideslip differs from recorded evidence")
+        if controlled_esc["conos_contactados"] != 3 or controlled_esc["dentroCorredor"]:
+            errors.append("ESC cone-contact limitation must remain explicit")
+        render = json.loads((esc / "Verificacion_render_3D_naranja_giro15_opuesto.json").read_text(encoding="utf-8-sig"))
+        if render["simulacion_repetida"] or not render["camara_rotacion_constante"]:
+            errors.append("Approved 3D recording metadata is inconsistent")
+        if render["camara_desplazamiento"][2] != 12:
+            errors.append("Approved camera height differs from 12 m")
+        for name in ["Alce_ESC_V1_13m_3D_naranja_giro15_opuesto.mp4", "Comparacion_alce_02_sin_con_ESC_2D.mp4"]:
+            counts["required_videos_checked"] += 1
+            if not (esc / name).is_file() or (esc / name).stat().st_size == 0:
+                errors.append(f"Required ESC video missing: {name}")
+        esc_metrics = {
+            "ESC_V1_maximum_sideslip_deg": controlled_esc["beta_max_grados"],
+            "ESC_V1_cone_contacts": controlled_esc["conos_contactados"],
+            "ESC_V1_perfect_state_test": True,
+        }
+    except (OSError, ValueError, KeyError, IndexError) as error:
+        errors.append(f"Cannot verify ESC V1 evidence: {type(error).__name__}")
+
     report = {
         "snapshot_date": manifest.get("snapshot_date"),
         **counts,
         **recorded_metrics,
         **current_metrics,
+        **esc_metrics,
         "success": not errors,
         "errors": errors,
         "scope": (

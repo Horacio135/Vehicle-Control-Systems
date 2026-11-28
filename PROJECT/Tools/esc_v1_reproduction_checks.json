@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-28",
+  "native_MATLAB_check": true,
+  "histories_and_parameters_preserved_during_path_sanitization": true,
+  "reproduced_trajectories_exactly": true,
+  "reproduced_final_wheel_forces_exactly": true,
+  "reproduced_summary_exactly": true,
+  "nominal_longitudinal_force_nonnegative": true,
+  "all_braking_commands_generated_by_ESC": true,
+  "perfect_state_test": true,
+  "ESC_cone_contacts": 3,
+  "scope": "Two-case reproduction of the published ESC V1 13m manoeuvre; not an estimated-loop or real-vehicle validation."
+}

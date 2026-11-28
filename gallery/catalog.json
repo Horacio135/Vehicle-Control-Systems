@@ -1,5 +1,16 @@
 [
   {
+    "id": "video-23",
+    "path": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto.mp4",
+    "include": true,
+    "group": "current",
+    "title": "ESC V1 — moose manoeuvre in 3D",
+    "rationale": "Blue: ESC; translucent orange: no ESC. Perfect-state test, 13 m transitions and a 20 m/s reference; nominal braking is suppressed. ESC reduces maximum sideslip to 1.88° and completes, with three cone contacts.",
+    "poster": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto_previa.png",
+    "detail": "Normal speed · fixed-orientation tracking camera · 25 fps",
+    "size_mib": 2.91
+  },
+  {
     "id": "video-21",
     "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
     "include": true,
@@ -121,17 +132,6 @@
     "size_mib": 3.14
   },
   {
-    "id": "video-09",
-    "path": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Discarded_Pacejka_V2_ABS_TC_2D.mp4",
-    "include": true,
-    "group": "history",
-    "title": "Discarded combined-slip V2 experiment",
-    "rationale": "Preserve the failed alternative and its design rationale; do not hide rejection or label it as the current model.",
-    "poster": "PROJECT/Results/Modular_Integration/Discarded_Pacejka_V2/Comparacion_Pacejka_V2_ABS_TC_2D_previa.png",
-    "detail": "Discarded model configuration",
-    "size_mib": 1.76
-  },
-  {
     "id": "video-10",
     "path": "PROJECT/Results/Hybrid_Tests/Seguimiento_hibrido_animado.mp4",
     "include": false,
@@ -240,5 +240,16 @@
     "poster": "",
     "detail": "",
     "size_mib": 0.19
+  },
+  {
+    "id": "video-24",
+    "path": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_02_sin_con_ESC_2D.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "ESC V1 — matching 2D manoeuvre view",
+    "rationale": "The same saved trajectories and metrics as the featured 3D comparison; available for planar inspection on the results page.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 3.23
   }
 ]

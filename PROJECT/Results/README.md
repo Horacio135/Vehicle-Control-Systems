@@ -1,6 +1,6 @@
 # Simulation results
 
-**Latest publication — 27 November:** [modulated ABS comparison](Modulated_ABS/README.md), with TC on in both cases, plus actual/estimated position video. Both complete the fourteen-corner circuit. [Restored-Q failure](Estimator_Q_Restored/README.md) and [X/Y-only sweep](Estimator_Q_XY_Study/README.md) remain separately labelled historical experiments.
+**Latest publication — 28 November:** [ESC V1 with 13 m transitions](ESC_V1_13m/README.md), including the approved normal-speed 3D comparison, full histories and cone-contact verification. Maximum sideslip is 87.88° without ESC and 1.88° with ESC; the controlled run completes but contacts three cones.
 
 [← Project](../README.md) · [Current loop and videos](Modulated_ABS/README.md) · [Historical videos](Hybrid_Tests/README.md) · [Numerical archive](Numerical/README.md)
 

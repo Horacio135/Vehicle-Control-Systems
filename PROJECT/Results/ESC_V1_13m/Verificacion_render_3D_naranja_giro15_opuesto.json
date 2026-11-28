@@ -1,0 +1,26 @@
+{
+  "simulacion_repetida": false,
+  "coche_sin_ESC_3D": true,
+  "opacidad_coche_sin_ESC": 0.32,
+  "reduccion_altura_camara_pct": 40,
+  "reduccion_distancia_horizontal_pct": 12,
+  "hash_datos_origen": "3453367204d107ae96b10429cf9d4eb5cceac79d2db83c995cca0b45df2de0b8",
+  "datos_sin_modificar": true,
+  "camara_rotacion_constante": true,
+  "camara_altura_constante": true,
+  "camara_desplazamiento": [
+    -8.6058514077810333,
+    -8.68323220622328,
+    12
+  ],
+  "giro_vertical_antihorario_grados": 15,
+  "objetivo_altura_m": 0.3,
+  "angulo_vision_grados": 48,
+  "fps": 25,
+  "duracion_video_s": 7.12,
+  "ancho": 1600,
+  "alto": 900,
+  "tiempo_aborto_sin_ESC_s": 3.81,
+  "coche_sin_ESC_congelado_tras_aborto": true,
+  "fisica": "Dinámica plana original; 3D solo de visualización"
+}
