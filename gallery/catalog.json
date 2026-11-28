@@ -1,5 +1,16 @@
 [
   {
+    "id": "video-25",
+    "path": "PROJECT/Results/Temporary_Preview_33_Corners/Full_loop_33_corners_2D_actual_estimated.mp4",
+    "include": true,
+    "group": "current",
+    "title": "Temporary preview — 33-corner complete loop",
+    "rationale": "Noisy sensors and EKF feed the planner, Pure Pursuit, longitudinal control, ABS, TC and ESC. Blue: actual car; orange dotted outline: estimated pose. Lap: 191.074 s; maximum path error: 0.505 m; position estimation RMSE: 0.154 m. Selected reduced Q is unchanged.",
+    "poster": "PROJECT/Results/Temporary_Preview_33_Corners/Preview.png",
+    "detail": "Temporary access copy · normal speed · actual and estimated pose · 20 fps",
+    "size_mib": 86.9
+  },
+  {
     "id": "video-23",
     "path": "PROJECT/Results/ESC_V1_13m/Alce_ESC_V1_13m_3D_naranja_giro15_opuesto.mp4",
     "include": true,

@@ -6,6 +6,10 @@ The featured ESC V1 recording shows the controlled blue car and an orange semitr
 
 The test has 13 m lane-change transitions, perfect state and a constant 20 m/s reference, with nominal braking suppressed. ESC limits maximum sideslip to 1.88° and completes, but still contacts three cones. This is not an estimated-loop result or a cone-clearance pass. [Evidence and reproduction](../PROJECT/Results/ESC_V1_13m/README.md).
 
-There are 13 players: four current recordings, one diagnostic and eight historical milestones, plus 10 archive links. The current ABS comparisons retain their own sensing/EKF configuration. The matching 2D ESC comparison is embedded next to the 3D recording and shows trajectories, sideslip, yaw rate and speed.
+There are 14 players: five current recordings, one diagnostic and eight historical milestones, plus 10 archive links. The current ABS comparisons retain their own sensing/EKF configuration. The matching 2D ESC comparison is embedded next to the 3D recording and shows trajectories, sideslip, yaw rate and speed.
 
 Edit `catalog.json` and synchronize the embedded catalogue in `index.html`; run `python gallery/build_gallery.py`. The existing workflow validates and deploys media to GitHub Pages. Videos load only after Play is clicked.
+
+## Temporary complete-loop preview
+
+The first current card temporarily provides mobile access to the 33-corner complete-loop video, including noisy sensors, EKF, ABS, TC and ESC. The orange dotted outline is the estimated pose of the blue actual car. This is separate from the perfect-state ESC manoeuvre. [Scope and removal](../PROJECT/Results/Temporary_Preview_33_Corners/README.md).
