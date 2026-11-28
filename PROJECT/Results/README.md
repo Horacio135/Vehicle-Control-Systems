@@ -1,6 +1,8 @@
 # Simulation results
 
-**Latest publication — 28 November:** [ESC V1 with 13 m transitions](ESC_V1_13m/README.md), including the approved normal-speed 3D comparison, full histories and cone-contact verification. Maximum sideslip is 87.88° without ESC and 1.88° with ESC; the controlled run completes but contacts three cones.
+**Latest official result — 28 November:** [33-corner complete loop](Extreme_33_Corners/README.md) with sensors, EKF, ABS, TC and ESC: 191.074 s lap, 0.505 m maximum actual path error and 0.154 m position-estimation RMSE. The perfect-state reference takes 190.006 s. The campaign also retains the four-case aid test, whole-track recovery comparison and explicitly perfect-state telemetry videos.
+
+**Separate manoeuvre benchmark — 28 November:** [ESC V1 with 13 m transitions](ESC_V1_13m/README.md), including the approved normal-speed 3D comparison, full histories and cone-contact verification. Maximum sideslip is 87.88° without ESC and 1.88° with ESC; the controlled run completes but contacts three cones.
 
 [← Project](../README.md) · [Current loop and videos](Modulated_ABS/README.md) · [Historical videos](Hybrid_Tests/README.md) · [Numerical archive](Numerical/README.md)
 

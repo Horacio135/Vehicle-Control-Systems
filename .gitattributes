@@ -33,3 +33,6 @@ Base_Model/Base_Model.m text eol=lf
 "PROJECT/Results/Estimator_Q_XY_Study/*.m" -text whitespace=-trailing-space,-blank-at-eof
 
 "PROJECT/Results/ESC_V1_13m/*.m" -text whitespace=-trailing-space,-blank-at-eof
+
+"PROJECT/Current State/Ensayos_circuito_extremo/**/*.m" -text whitespace=-trailing-space,-blank-at-eof
+"PROJECT/Current State/Ensayos_circuito_extremo/*.m" -text whitespace=-trailing-space,-blank-at-eof

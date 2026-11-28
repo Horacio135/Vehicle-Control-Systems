@@ -1,6 +1,6 @@
 # Documentation
 
-[Latest implementation: ESC V1 theory, wheel selection and scope](ESC_V1.md).
+[Latest integration: 33-corner complete loop, comparison and academic scope](Design_Decisions/Extreme_33_Corners_2026-11-28.md) · [ESC V1 control theory](ESC_V1.md).
 
 [← Project](../README.md) · [Versions](Versions/README.md) · [Design decisions](Design_Decisions/README.md) · [Results](../Results/README.md)
 
@@ -27,7 +27,7 @@
 
 The [English presentation transcript](Intermediate_Presentation_English.md) covers all thirteen slides. The [original presentation](SCV_Evaluaci%C3%B3n_Intermedia_Proyecto_HHRB.pptx) retains the intermediate milestone: understeer/oversteer, ESC choice, future ABS/TCS coordination, tyre forces and transfer of load. Its pending-work list is historical, not a description of the current package.
 
-The current loop includes force-based ABS/TC and seven-state estimation; ESC V1 is evaluated separately with perfect state; integration with estimation and physical-slip regulators remain pending. Neither the old slides nor the current successful lap establish experimental validity.
+The dedicated 33-corner loop now includes seven-state estimation and coordinated force-based ABS/TC/ESC. Production slip regulation and experimental tyre identification are outside the academic scope. [Integration decisions and defensible conclusion](Design_Decisions/Extreme_33_Corners_2026-11-28.md). Neither the old slides nor the current successful lap establish experimental validity.
 
 ## Archive and language policy
 

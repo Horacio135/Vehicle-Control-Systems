@@ -24,3 +24,6 @@ Physical limits and rejected alternatives are retained explicitly. Current full-
 
 
 **ESC V1, 28 November:** selective-braking control evaluated in a 13 m-transition manoeuvre, with 1.88° maximum controlled sideslip and three cone contacts. [Evidence](../../../Results/ESC_V1_13m/README.md).
+
+
+**33-corner complete loop, 28 November:** sensors/EKF and ABS/TC/ESC complete in 191.074 s; +0.56% versus perfect state. [Integration, results and academic scope](../../Design_Decisions/Extreme_33_Corners_2026-11-28.md).

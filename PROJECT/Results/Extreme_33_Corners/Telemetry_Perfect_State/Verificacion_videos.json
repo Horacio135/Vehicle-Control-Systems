@@ -1,0 +1,31 @@
+{
+  "fecha": "2026-11-28",
+  "origen_sha256": "8be5f9c87bef9d8abd21654c6c01e18e49641326bdfdc4f23a6c1057b0befc0d",
+  "simulacion_recalculada": false,
+  "reproduccion": 1,
+  "dt_datos_s": 0.002,
+  "ayudas": [
+    "ABS",
+    "TC",
+    "ESC"
+  ],
+  "sensores_estimador": false,
+  "videos": [
+    {
+      "archivo": "ESC_ABS_TC_2D_telemetria_x1.mp4",
+      "duracion_s": 190.1,
+      "fps": 20,
+      "ancho": 1800,
+      "alto": 1126,
+      "lectura_verificada": true
+    },
+    {
+      "archivo": "ESC_ABS_TC_3D_telemetria_x1.mp4",
+      "duracion_s": 190.1,
+      "fps": 20,
+      "ancho": 1800,
+      "alto": 1126,
+      "lectura_verificada": true
+    }
+  ]
+}

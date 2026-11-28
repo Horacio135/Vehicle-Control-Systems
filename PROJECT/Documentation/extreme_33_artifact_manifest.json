@@ -1,0 +1,376 @@
+{
+  "snapshot_date": "2026-11-28",
+  "source_language": "Spanish MATLAB identifiers and comments",
+  "documentation_language": "English",
+  "unchanged_core": [
+    {
+      "path": "PROJECT/Current State/Control/controlABS.m",
+      "sha256": "f5a51b33feab01c77e17ff1018b271872c88fa2c4bc7717485adea31c8d5e1b5",
+      "bytes": 7013
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlEmergencia.m",
+      "sha256": "b9a863cb41f0f116f049888abcc24357d6b9bb9ea2d04a00e18edcc30dbdecea",
+      "bytes": 960
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlESC.m",
+      "sha256": "5c9fd3a9d3123611b62754ac5333342055599cf087c19f183fdcc65a925d6c28",
+      "bytes": 2464
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlLateral.m",
+      "sha256": "f2edbdb95ef2bfb54b83a09f6eff097ecaea09f93ade68ccaf6ab49154222a1c",
+      "bytes": 1451
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlLongitudinal.m",
+      "sha256": "d9f8dc75ba519c5e870b7297f8f9d6a3061bc5691c1b246db6dd013410a4664a",
+      "bytes": 1793
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlTotal.m",
+      "sha256": "aed27967d97000f9b7e451a20c4645e2acdb88acca7e659106eb09cdebf4b54d",
+      "bytes": 4392
+    },
+    {
+      "path": "PROJECT/Current State/Control/controlTraccion.m",
+      "sha256": "056e7b9ddbe8600704ba6b624ab8700b82b015ac8ad41e79cececc72fb222d2a",
+      "bytes": 3132
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/angulosAckermann.m",
+      "sha256": "ff8a4ea8eea29e3e2139a16211683a2a5f752f5e4f3d96dddca63887e7ec407c",
+      "bytes": 1487
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/fuerzaTractoraPacejka.m",
+      "sha256": "eb9f3dd8b14b2c52ea4155803bd9ad0a6f9d77dbbf850a2887368b048f0e184c",
+      "bytes": 395
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/inicializarEstadoSoloTraccion.m",
+      "sha256": "c0dea0f3613a6725905a1177256aa2066d5c397f0beca825679db5b8225d4a60",
+      "bytes": 489
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/pasoDinamicoSoloTraccion.m",
+      "sha256": "90a1aafd9994d84403624a5c6c3de3e9d07bdea584d29bc04e94338aa8db542f",
+      "bytes": 6462
+    },
+    {
+      "path": "PROJECT/Current State/Dinamica/pasoFrenadoAnterior.m",
+      "sha256": "cbc60e441ba2ab5135d22ebdde37f2eb63eb763e63e54bb591f1d814526b6e05",
+      "bytes": 7674
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/configuracionESC.m",
+      "sha256": "9430621a1ae8a4ab0af8cc2db359994c22100f98fe9e00204d9c15fe1016a7e8",
+      "bytes": 394
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/configuracionIntegracion.m",
+      "sha256": "afb57719097f8d69135165fb7e3adb9f41c8ffb5c8460d5311918ef3692e8eb8",
+      "bytes": 1762
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/configuracionSoloTraccion.m",
+      "sha256": "216ff12aeea335e14410b61da5731798d640008dc4500a1ea59eed3e2f6bcbd4",
+      "bytes": 1943
+    },
+    {
+      "path": "PROJECT/Current State/Configuracion/parametrosSoloTraccion.m",
+      "sha256": "00f01e9db0387a3ba03f8ae59790e61de4d32037a847c8b1e05c60b366dc1cab",
+      "bytes": 938
+    },
+    {
+      "path": "PROJECT/Current State/Sensores/sensores.m",
+      "sha256": "1bb885c55b1fffb11703da36f9cde8ba92e63812366a3ca9f885f802b08ff692",
+      "bytes": 4277
+    },
+    {
+      "path": "PROJECT/Current State/Estimacion/estimadorEstado.m",
+      "sha256": "255ad046a2054a34e9e021bb9fa419a0c1c4bbe6a001802dfdc05ec37a6f5a5d",
+      "bytes": 5179
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Comparacion_cenital_ESC/Ejecutar_circuito_extremo.m",
+      "sha256": "d919cc776bca04d77911d3bfe9c23720c6f90ec232754b13cd61a4de21200c0f",
+      "bytes": 9337
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Comparacion_cenital_ESC/Graficas_telemetria_ESC.m",
+      "sha256": "4d0a13ce6bc110d6fa4ebff50631ee5ecefeeabd1ed50aefbabdabbdb436a7f2",
+      "bytes": 1536
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Comparacion_cenital_ESC/Renderizar_cenital.m",
+      "sha256": "46944061f81baf96ed9047388b9a0c54b2ac7e443327a9f8df0f3734188646d5",
+      "bytes": 3212
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Comparacion_cenital_ESC/Renderizar_telemetria_ESC.m",
+      "sha256": "5412bfb5c7c078b56aacd14ea02e72120da47fab624a823b9b3a97eb56f3029b",
+      "bytes": 9344
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Comparacion_cenital_ESC/Verificar_videos_telemetria_ESC.m",
+      "sha256": "80c66d66a90339e7f44e8e532a2a7a14d98125dc08d8f2ca1fda95a607d6e84c",
+      "bytes": 1231
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Comparacion_cenital_ESC/Verificar_y_graficar_cenital.m",
+      "sha256": "3fd0e69824cf67a0398769c3bd54f7f5905a6916de3a47ccbf50f872c6dcc42a",
+      "bytes": 1914
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/coordinarAyudasExtremo.m",
+      "sha256": "abfb6e9b3ccdb8dd1896cf2ff615494351a5711c009cd988770721f4f9a12933",
+      "bytes": 1010
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Ejecutar_circuito_extremo.m",
+      "sha256": "ec2859f6eb83a9c13333940c56ba55dea6269fd9fd8721b00f3bd6aab95110e0",
+      "bytes": 8203
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/generarCircuitoExtremo.m",
+      "sha256": "110b299da56b229c0c53b1edf2f38d1e564f6e98fb4b1712bab32c599c69762c",
+      "bytes": 3765
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Lazo_completo_sensores_estimador/Ejecutar_lazo_completo_33.m",
+      "sha256": "b3b390fd3bbb949a02559f46ed204bc10355570d0128287786f9d44519f9e57b",
+      "bytes": 5787
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Lazo_completo_sensores_estimador/Renderizar_lazo_completo_33_2D.m",
+      "sha256": "86508858e744a69d20468a6b82f27407b6cbe5efd45dc875f170eb703e373912",
+      "bytes": 4558
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Lazo_completo_sensores_estimador/Verificar_lazo_completo_33.m",
+      "sha256": "9c4dbfa87a7c7bfa4a85fcd2807876151f6a8022cdfc7d9d99c257676530ead2",
+      "bytes": 1645
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Mapa_circuito_extremo.m",
+      "sha256": "3b064bc820bffb6454b45864754515f9878aacbdf575a7103e7271ede328db77",
+      "bytes": 1073
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/README.md",
+      "sha256": "ac8cce7730c535ce194c3ef2e31b4da75983ffb1257b8b80427104148c4db87c",
+      "bytes": 3289
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Renderizar_comparacion_extrema.m",
+      "sha256": "f8bbdce56647f1aa76cc9c0cf50c23b01da349770e55591e444d49661f472156",
+      "bytes": 3202
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/solicitarCorreccionESC.m",
+      "sha256": "bc1907863ef0f5c35686607ec0762b9ce49505e17fa341ed32ed56ece52a8472",
+      "bytes": 2198
+    },
+    {
+      "path": "PROJECT/Current State/Ensayos_circuito_extremo/Verificar_circuito_extremo.m",
+      "sha256": "1964739aaf6db3280741660dfac6e78557da99972739caf102a0333731164218",
+      "bytes": 1498
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Full_loop_33_corners_2D_actual_estimated.mp4",
+      "sha256": "fb96e4a9fc9f277e51b2c2b3d41082ff4123d10372f111ce35ae0f3154382b06",
+      "bytes": 91125213
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Lazo_completo_33_curvas.mat",
+      "sha256": "8382a67d14269d5825aa7bd9aeac2c77e0890dfa40e72ce41bc1a97258dc750e",
+      "bytes": 35435765
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Preview.png",
+      "sha256": "89e4b505e0dc40dce926e6c1bca94dd640cf07e82cac9a226a0488f4c7b80c53",
+      "bytes": 78798
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/README.md",
+      "sha256": "f4b0769416c9ac012ec81e3c524d578a8a1c7fa22c4c7866d6048e492a085268",
+      "bytes": 1992
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Resumen.json",
+      "sha256": "5f5d8fca4e16420df54455cf742e329734c699133f7776a6e597af0c40e6cabf",
+      "bytes": 280
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Verificacion_lazo.json",
+      "sha256": "f059ed0b65251f5e824c89e457f034123404e388f7af69a5957ae4abcb867d59",
+      "bytes": 1422
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Verificacion_video.json",
+      "sha256": "2de21ff12484ea0bf9b1080ec002af025d3319d4430593e4bb9fc1953b046c29",
+      "bytes": 467
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Caso_1.mat",
+      "sha256": "b27b26ac9dc5db5205495694bc4785b83238804c2d2093a0d8064017313ae59a",
+      "bytes": 94610514
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Caso_2.mat",
+      "sha256": "8be5f9c87bef9d8abd21654c6c01e18e49641326bdfdc4f23a6c1057b0befc0d",
+      "bytes": 25165472
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Cenital_completa_ABS_TC_con_y_sin_ESC_x8.mp4",
+      "sha256": "9cc812642381a685c7f83bab0235afb575a0a3603a1c299a4d0055f45527bffd",
+      "bytes": 10485278
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Contexto_comparacion.mat",
+      "sha256": "710201fd30ef93b472b04a157a7e2f14c29c30eed238170dc0d2a75d6911e155",
+      "bytes": 648094
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/README.md",
+      "sha256": "a5c50b532c1df4692c539d6cd62db6de7e03a14b97d9dd3ae963fcb2f7922f64",
+      "bytes": 2085
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Resumen.csv",
+      "sha256": "3d46e80f859ef65b39d7ff1ea41c037f16e7ea8803af52fb25a918ef1978bec0",
+      "bytes": 528
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Velocidad_y_recuperaciones.png",
+      "sha256": "5b53e7d519af5487cbdda713c2bbf8ba5e7a24fb76f79997d0fd389c6d984570",
+      "bytes": 179020
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Vista_cenital.png",
+      "sha256": "620e18377be0eb0ca14f2235395e6501d1f063e41034ed8598a5e48dec17b8d3",
+      "bytes": 76451
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Capacidad_y_utilizacion_por_rueda.png",
+      "sha256": "49326b3431d2ad49656dd7c7ccafb9b764049d0504229c82c9dfc3f65fa25728",
+      "bytes": 279954
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Circuito_y_perfil.png",
+      "sha256": "3532186a3ee37797db07022d1d861e211c4f80e9a1e89501de128387beaba795",
+      "bytes": 110381
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Comparacion_4_coches_2D_x4.mp4",
+      "sha256": "c7940063f75da997fe0851a16e0f970b59ab3c52e8615b4898baf1957be12a7c",
+      "bytes": 18191801
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Comparacion_completa.mat",
+      "sha256": "3d41303094b57dbc56fd953e35232474c57a663280a4c567b8ff65529f6c4af1",
+      "bytes": 28321748
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Comparacion_cuatro_casos.png",
+      "sha256": "0e487d45ec2ecf9d6a1aa028850449326e0d77a25f39063450a4658426092076",
+      "bytes": 163137
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Inventario_33_curvas.csv",
+      "sha256": "954e552f70eb995f3e9896d598cf5cef6bb9fadb34b5b1e247206d8a86ee2726",
+      "bytes": 2294
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Mapa_circuito.png",
+      "sha256": "24b9199f85e0188e35b3333fcb7bc0d49d3257b031b5891adeed191388060237",
+      "bytes": 93863
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/README.md",
+      "sha256": "34e3122737fc6ffdd8bb95e442f244f08f250db23f53253ccb4f1a2eda65564f",
+      "bytes": 1170
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Resumen.csv",
+      "sha256": "a6f9149f5e6fd0cecb5ffb958068de088b854b4aa1bd7acec3d18af6b4083faf",
+      "bytes": 899
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Sectores.csv",
+      "sha256": "fd851fdd1f7ac2af06dc88ef2ea79c12d5aca9b4d97e9be93e426c83eebaff1c",
+      "bytes": 3507
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Perfect_vs_estimated.csv",
+      "sha256": "d1590e2968da4d843dca03ff47f09a738da173b235a2e6e9e6c0f82bb3a813e1",
+      "bytes": 219
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/README.md",
+      "sha256": "c06b0762bc8162ec90b1145709a83a774d94c2c5a48e50ce966de895e297dae7",
+      "bytes": 4360
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/Activacion_y_fuerza_vuelta_completa.png",
+      "sha256": "092dc2ab581acd58146f4bdca542c6685c1e21c8620cbf28e6d28af41d3800b8",
+      "bytes": 106899
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/ESC_ABS_TC_2D_telemetria_x1.mp4",
+      "sha256": "1392d48e4ecb24b19558dac88e74c2579850b9acff619dba015d32c1336ee99f",
+      "bytes": 80640674
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/ESC_ABS_TC_3D_telemetria_x1.mp4",
+      "sha256": "af6862ac0d017f332443f7a7127e8bb7373de32e586e725101f60182fb5b77db",
+      "bytes": 62831793
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/Fuerzas_por_rueda.png",
+      "sha256": "34e9265b259bf16c21961891f50ba85510a8b6365b0f70b42974894606ccbd3b",
+      "bytes": 300484
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/Previa_2D.png",
+      "sha256": "87cc2254a42602ba0e209d19920886408d47c76e37995ed3a8b8bc4e0a34a945",
+      "bytes": 130335
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/Previa_3D.png",
+      "sha256": "6c05592bb46c43292074192c007c272afe15e78da5653f2f244abccaeba4c783",
+      "bytes": 145270
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/README.md",
+      "sha256": "20c6f84d357b54960e8dce26a29ca001d6e6d9d0d11701ca4f344548607d19f7",
+      "bytes": 1866
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/Verificacion_videos.json",
+      "sha256": "dbad5682e405b642d8f2775fc7ac2f56a044a81372afa3bec1478e8186c12386",
+      "bytes": 658
+    },
+    {
+      "path": "PROJECT/Results/Extreme_33_Corners/Verificacion_portabilidad.json",
+      "sha256": "244dd52773b6eb35e2428df073bc5571507b910b20c08553ad099a606b35d0cc",
+      "bytes": 385
+    },
+    {
+      "path": "PROJECT/Documentation/Design_Decisions/Extreme_33_Corners_2026-11-28.md",
+      "sha256": "2f5645559c36b5e18f4f52f7db47af04294492355fabf70c7a5eecaf0cd2ad36",
+      "bytes": 5237
+    }
+  ],
+  "transformations": [
+    "Harness paths adapted to the repository layout; core equations unchanged.",
+    "Published MAT fallback readers added so saved videos can be reproduced without rerunning physics.",
+    "Recovery context split from two byte-exact histories; isequaln equality verified in MATLAB.",
+    "Temporary full-loop video promoted byte-exactly to the official campaign path."
+  ],
+  "scope": "Artifact provenance; recorded single-seed simulations do not establish experimental model accuracy."
+}

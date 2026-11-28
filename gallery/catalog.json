@@ -1,13 +1,13 @@
 [
   {
     "id": "video-25",
-    "path": "PROJECT/Results/Temporary_Preview_33_Corners/Full_loop_33_corners_2D_actual_estimated.mp4",
+    "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Full_loop_33_corners_2D_actual_estimated.mp4",
     "include": true,
     "group": "current",
-    "title": "Temporary preview — 33-corner complete loop",
+    "title": "33-corner complete loop — ABS, TC and ESC",
     "rationale": "Noisy sensors and EKF feed the planner, Pure Pursuit, longitudinal control, ABS, TC and ESC. Blue: actual car; orange dotted outline: estimated pose. Lap: 191.074 s; maximum path error: 0.505 m; position estimation RMSE: 0.154 m. Selected reduced Q is unchanged.",
-    "poster": "PROJECT/Results/Temporary_Preview_33_Corners/Preview.png",
-    "detail": "Temporary access copy · normal speed · actual and estimated pose · 20 fps",
+    "poster": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Preview.png",
+    "detail": "Official complete-loop result · normal speed · actual and estimated pose · 20 fps",
     "size_mib": 86.9
   },
   {
@@ -262,5 +262,49 @@
     "poster": "",
     "detail": "",
     "size_mib": 0.19
+  },
+  {
+    "id": "video-26",
+    "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Comparacion_4_coches_2D_x4.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — four perfect-state aid configurations",
+    "rationale": "Perfect state; three early failures and a 190.006 s controlled lap. Separate from the sensing/EKF recording.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 17.35
+  },
+  {
+    "id": "video-27",
+    "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Cenital_completa_ABS_TC_con_y_sin_ESC_x8.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — whole-track ESC comparison with recovery",
+    "rationale": "Perfect state, ABS+TC in both; temporary ordinary-driver recovery without pose resets. Original aggressive driving resumes. Times are not equivalent-demand lap scores.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 10.0
+  },
+  {
+    "id": "video-28",
+    "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/ESC_ABS_TC_2D_telemetria_x1.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — controlled 2D telemetry, perfect state",
+    "rationale": "Aid intervention, nominal/corrected/transmitted force, wheel capacity and steering; no sensors/EKF.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 76.9
+  },
+  {
+    "id": "video-29",
+    "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/ESC_ABS_TC_3D_telemetria_x1.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — controlled 3D telemetry, perfect state",
+    "rationale": "Same perfect-state history and panels in a fixed-orientation chase view; planar physics, no sensors/EKF.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 59.92
   }
 ]

@@ -10,21 +10,21 @@
 
 MATLAB coursework and project development for Vehicle Control Systems. The repository records how the physical model evolved, why design decisions were made, and what each simulation actually demonstrated.
 
-[Watch simulation videos](https://Horacio135.github.io/Vehicle-Control-Systems/) · [Quick start](#quick-start) · [Current package](PROJECT/Current%20State/README.md) · [Theory](PROJECT/Documentation/Dynamics_Development.md) · [History](PROJECT/Documentation/Versions/README.md) · [Current videos](PROJECT/Results/ESC_V1_13m/README.md)
+[Watch simulation videos](https://Horacio135.github.io/Vehicle-Control-Systems/) · [Quick start](#quick-start) · [Current package](PROJECT/Current%20State/README.md) · [Theory](PROJECT/Documentation/Dynamics_Development.md) · [History](PROJECT/Documentation/Versions/README.md) · [Current videos](PROJECT/Results/Extreme_33_Corners/README.md)
 
-**Latest update — 28 November 2026:** selective-braking **ESC V1** is implemented in a dedicated perfect-state moose-style test with **13 m transitions**. Maximum sideslip falls from **87.88° to 1.88°**; the controlled car completes but still contacts three cones. [Watch the approved 3D comparison](https://horacio135.github.io/Vehicle-Control-Systems/#current) · [Results](PROJECT/Results/ESC_V1_13m/README.md) · [Theory and implementation](PROJECT/Documentation/ESC_V1.md).
+**Latest update — 28 November 2026:** the **33-corner complete loop now includes noisy sensors, EKF, ABS, TC and ESC V1**. It completes in **191.074 s**, with **0.505 m** maximum actual path error and **0.154 m** position-estimation RMSE. Time increases **0.56%** versus the 190.006 s perfect-state reference. [Official 2D video](https://horacio135.github.io/Vehicle-Control-Systems/#current) · [Evidence and comparison](PROJECT/Results/Extreme_33_Corners/README.md) · [Run the scenario](PROJECT/Current%20State/Ensayos_circuito_extremo/README.md).
 
 ## At a glance
 
 | Implemented | Next development phase |
 |---|---|
-| Four-wheel plant, load transfer and ideal Ackermann steering | Experimental identification and operating-range validation |
+| Four-wheel plant, load transfer and ideal Ackermann steering | Reference-based operating-range checks; experimental identification is outside the academic scope |
 | Rear traction-only Pacejka with wheel rotation; historical braking | Review extreme-motion plant/estimator consistency |
 | GPS/IMU/steering measurements and seven-state EKF | Bias estimation, covariance consistency and robustness tests |
-| Pure Pursuit, speed planning, force-based ABS/TC and a separate ESC V1 test | Integrate ESC with estimated signals and combined-capacity coordination |
+| Pure Pursuit, planning and coordinated force-based ABS/TC/ESC in the estimated loop | Targeted aid ablations, multiple noise seeds and emergency scenarios |
 | Current 2D full-loop videos and historical 2D/3D evidence | A current full-loop 3D rendering |
 
-**The complete loop is connected.** Its saved reduced-Q controlled run completes the circuit in **47.294 s** with **0.354 m** maximum path error. ABS/TC remain force limiters, not physical-slip feedback regulators, with ESC V1 evaluated separately from this estimated loop. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
+**The complete loop is connected and has completed the new 33-corner circuit with ESC.** The retained fourteen-corner ABS/TC benchmark completes in **47.294 s** with **0.354 m** maximum path error. ABS/TC deliberately remain force-based controllers within the academic scope; the new dedicated harness connects ESC to estimated signals without changing the core blocks. Rear wheel rotation is dynamic during traction; braking retains the earlier approximate model. All 3D scenes still display planar physics.
 
 ## Quick start
 
@@ -51,7 +51,16 @@ open('Ejecutar_alce_ESC.mlx')
 
 This separate test bypasses sensors/EKF, uses the original Pure Pursuit, and suppresses nominal braking. Only ESC can brake. It does not change or replace the default fourteen-corner estimated-loop scenario. [Scenario details](PROJECT/Current%20State/Ensayos_ESC/README.md).
 
-## Current full-loop results
+## Run the 33-corner complete loop
+
+```matlab
+run(fullfile('PROJECT','Current State','Ensayos_circuito_extremo', ...
+    'Lazo_completo_sensores_estimador','Ejecutar_lazo_completo_33.m'));
+```
+
+This recommended dedicated scenario includes sensors, EKF and all three aids. It preserves working Q and sensor noise; the orange dotted video outline uses estimated position and yaw. [Exact settings and comparison](PROJECT/Results/Extreme_33_Corners/README.md). The existing fourteen-corner Live Script remains unchanged.
+
+## Retained fourteen-corner full-loop results
 
 | Case | Lap time [s] | Maximum path error [m] | Position-estimator RMSE [m] |
 |---|---:|---:|---:|

@@ -13,28 +13,28 @@ header a{white-space:nowrap;flex-shrink:0}.video-frame{position:relative}
 <div class="proposal">Simulation evidence · Current results, diagnostics and development history</div>
 <main><div class="eyebrow">Simulation evidence · Snapshot 28 November 2026</div>
 <h1>Simulation video gallery</h1>
-<p class="intro">Explore ESC V1 in a fixed-orientation 3D view: the blue car is controlled and the translucent orange car shows the baseline skid. A temporary 33-corner sensing/EKF preview with ABS, TC and ESC is now first in Current results. The perfect-state manoeuvre remains separate from the estimated-loop recordings. Stabilization improves, but the controlled car still contacts three cones.</p>
-<div class="stats"><div class="stat"><strong>1.88°</strong><span>Maximum sideslip with ESC V1</span></div><div class="stat"><strong>87.88°</strong><span>Maximum sideslip without ESC</span></div><div class="stat"><strong>13 m</strong><span>Lane-change transition length</span></div></div>
+<p class="intro">The official 33-corner complete-loop recording includes noisy sensors, state estimation, ABS, TC and ESC. Compare the actual blue car with its orange dotted estimated footprint. Separate perfect-state moose and fourteen-corner ABS benchmarks retain their own configurations.</p>
+<div class="stats"><div class="stat"><strong>191.074 s</strong><span>33-corner estimated-loop lap</span></div><div class="stat"><strong>0.154 m</strong><span>Position estimation RMSE</span></div><div class="stat"><strong>+0.56%</strong><span>Lap time versus perfect state</span></div></div>
 <p class="mobile-note">Recorded simulation results, not experimental validation. Videos load on demand; no autoplay.</p>
 <nav><a href="#current">Current results</a><a href="#diagnostic">Diagnostic evidence</a><a href="#history">Development milestones</a><a href="#archive">Full video archive</a></nav>
-<section id="current"><div class="section-top"><div><h2>Current ESC and ABS results</h2><p>Temporary 33-corner complete-loop preview with sensors, EKF, ABS, TC and ESC; plus the retained ESC and ABS comparisons.</p></div><span class="count">5 featured videos</span></div><div class="grid" id="current-grid"></div></section>
+<section id="current"><div class="section-top"><div><h2>Current ESC and ABS results</h2><p>Official 33-corner sensing/EKF loop with ABS, TC and ESC; retained benchmarks below use their stated configurations.</p></div><span class="count">5 featured videos</span></div><div class="grid" id="current-grid"></div></section>
 <section id="diagnostic"><div class="section-top"><div><h2>Diagnostic evidence</h2><p>A failed run remains visible alongside the improvement it motivated.</p></div><span class="count">1 diagnostic video</span></div><div class="diagnostic-layout"><div id="diagnostic-card"></div><div class="notes"><div class="eyebrow">Before the residual-Q adjustment</div><h3>Why keep a failed attempt?</h3><p>The first complete-loop run with ABS/TC crossed 10 m of path error at 6.046 s. This recording shows real and estimated motion during that failure.</p><ul><li>It is historical evidence, distinct from the current modulated-ABS runs.</li><li>The later Q adjustment improved a same-measurement estimator replay.</li><li>Working Q is reduced again; a successful lap does not establish robustness.</li></ul><p class="caution">The featured ESC 3D view uses perfect state. It is separate from the sensing/EKF full-loop recordings.</p><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Estimator_Q_and_Failure_Analysis.md" target="_blank" rel="noreferrer">Read the Q and failure analysis ↗</a></div></div></section>
 <section id="history"><div class="section-top"><div><h2>Development milestones</h2><p>Historical evidence explaining model and controller decisions.</p></div><span class="count">8 historical videos</span></div><details><summary>Explore the development archive</summary><p class="history-note">These recordings use different configurations. They must not be interpreted as additional runs of the current estimated loop. The 3D scenes still display planar vehicle physics.</p><div class="grid" id="history-grid"></div></details></section>
-<section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">10 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
+<section id="archive"><div class="section-top"><div><h2>Remaining repository recordings</h2><p>Kept in GitHub for traceability; not embedded in this compact gallery.</p></div><span class="count">14 archive links</span></div><details><summary>View all remaining recordings and exclusion reasons</summary><div class="archive-list" id="archive-list"></div></details></section>
 <div class="reading"><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Current%20State" target="_blank" rel="noreferrer">Run the current model ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/PROJECT/Documentation/Dynamics_Development.md" target="_blank" rel="noreferrer">Read the dynamics theory ↗</a><a href="https://github.com/Horacio135/Vehicle-Control-Systems/tree/main/PROJECT/Results" target="_blank" rel="noreferrer">Browse numeric results ↗</a></div>
-<footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters. ESC V1 is tested in a dedicated perfect-state manoeuvre. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
+<footer>Public page content is English. Original recorded labels are retained. ABS and TC are force-based limiters. ESC V1 is evaluated in the official 33-corner estimated loop and a separate perfect-state manoeuvre. Recordings are identified by development stage; the gallery does not change the simulation models.</footer></main>
 <script>
 const mediaBase = './';
 const catalogue = [
   {
     "id": "video-25",
-    "path": "PROJECT/Results/Temporary_Preview_33_Corners/Full_loop_33_corners_2D_actual_estimated.mp4",
+    "path": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Full_loop_33_corners_2D_actual_estimated.mp4",
     "include": true,
     "group": "current",
-    "title": "Temporary preview — 33-corner complete loop",
+    "title": "33-corner complete loop — ABS, TC and ESC",
     "rationale": "Noisy sensors and EKF feed the planner, Pure Pursuit, longitudinal control, ABS, TC and ESC. Blue: actual car; orange dotted outline: estimated pose. Lap: 191.074 s; maximum path error: 0.505 m; position estimation RMSE: 0.154 m. Selected reduced Q is unchanged.",
-    "poster": "PROJECT/Results/Temporary_Preview_33_Corners/Preview.png",
-    "detail": "Temporary access copy · normal speed · actual and estimated pose · 20 fps",
+    "poster": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Preview.png",
+    "detail": "Official complete-loop result · normal speed · actual and estimated pose · 20 fps",
     "size_mib": 86.9
   },
   {
@@ -289,6 +289,50 @@ const catalogue = [
     "poster": "",
     "detail": "",
     "size_mib": 0.19
+  },
+  {
+    "id": "video-26",
+    "path": "PROJECT/Results/Extreme_33_Corners/Perfect_State/Comparacion_4_coches_2D_x4.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — four perfect-state aid configurations",
+    "rationale": "Perfect state; three early failures and a 190.006 s controlled lap. Separate from the sensing/EKF recording.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 17.35
+  },
+  {
+    "id": "video-27",
+    "path": "PROJECT/Results/Extreme_33_Corners/ESC_Recovery/Cenital_completa_ABS_TC_con_y_sin_ESC_x8.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — whole-track ESC comparison with recovery",
+    "rationale": "Perfect state, ABS+TC in both; temporary ordinary-driver recovery without pose resets. Original aggressive driving resumes. Times are not equivalent-demand lap scores.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 10.0
+  },
+  {
+    "id": "video-28",
+    "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/ESC_ABS_TC_2D_telemetria_x1.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — controlled 2D telemetry, perfect state",
+    "rationale": "Aid intervention, nominal/corrected/transmitted force, wheel capacity and steering; no sensors/EKF.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 76.9
+  },
+  {
+    "id": "video-29",
+    "path": "PROJECT/Results/Extreme_33_Corners/Telemetry_Perfect_State/ESC_ABS_TC_3D_telemetria_x1.mp4",
+    "include": false,
+    "group": "archive",
+    "title": "33 corners — controlled 3D telemetry, perfect state",
+    "rationale": "Same perfect-state history and panels in a fixed-orientation chase view; planar physics, no sensors/EKF.",
+    "poster": "",
+    "detail": "",
+    "size_mib": 59.92
   }
 ];
 const sourceUrl = path => 'https://github.com/Horacio135/Vehicle-Control-Systems/blob/main/'+encodeURI(path);

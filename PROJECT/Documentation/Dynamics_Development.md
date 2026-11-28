@@ -291,7 +291,7 @@ The new ay and delta measurements receive Kalman corrections with process uncert
 
 ## External loop closure and force control
 
-TC acts only on positive rear requests, limiting each to $0.98F_{\max,i}$; the coordinator then applies the smaller corrected value equally to both rear wheels. ABS acts only on negative demands and uses $-\min(|F^{\mathrm{req}}_{x,i}|,F_{\max,i})$. These are model-based force limiters, not slip regulators, and they do not independently request steering correction.
+TC acts only on positive rear requests, limiting each to $0.98F_{\max,i}$; the coordinator then applies the smaller corrected value equally to both rear wheels. The earlier instantaneous ABS acted only on negative demands and used $-\min(|F^{\mathrm{req}}_{x,i}|,F_{\max,i})$. The current ABS instead modulates its factor from 0.98 toward 0.80 with release/hold/rebuild memory. Both generations are model-based force controls, not slip regulators, and do not independently request steering correction.
 
 The existing TTC emergency branch has priority and bypasses the ordinary ABS/TC branches as originally specified. Its angle is the nominal steering angle, not an evasive-trajectory law. That priority is preserved, not endorsed as the final safety architecture. The normal saved circuit has no obstacle configured; emergency priority was checked separately at the interface level.
 
@@ -299,7 +299,7 @@ To preserve all thirteen existing block functions, [external capacity prediction
 
 Both tracking and speed-profile lookup use estimated position. True state is retained only for sensing, the declared known initial condition and evaluation. An explicitly separate perfect-state reference checks integration without becoming an invisible fallback.
 
-## Current results and unresolved limits
+## Retained earlier results and unresolved limits
 
 The complete-loop controlled run completes in 47.370 s with 0.350 m maximum path error. The uncontrolled run completes in 101.228 s with 7.258 m maximum error; completion does not imply lane or cone clearance. The perfect-state controlled reference reproduces 47.132 s and 0.329 m. [Recorded histories and videos](../Results/Closed_Loop/README.md) retain all three cases and the failed first attempt.
 
@@ -316,3 +316,10 @@ The frozen current physics omits suspension dynamics, pitch/roll, camber, therma
 - [Archived alternatives](../Dynamic%20Model/Archived%20Models/README.md), [modular results](../Results/Modular_Integration/README.md) and [slip-model audit](../Results/Tire_Model_Study/README.md).
 - [Publication artifact hashes](closed_loop_artifact_manifest.json), distinguishing original recorded evidence from current source.
 - [MathWorks longitudinal Magic Formula](https://www.mathworks.com/help/sdl/ref/tireroadinteractionmagicformula.html), [steering geometry](https://www.mathworks.com/help/vdynblks/ref/steeringsystem.html) and [EKF algorithms](https://www.mathworks.com/help/control/ug/extended-and-unscented-kalman-filter-algorithms-for-online-state-estimation.html).
+
+
+## Latest 33-corner integration and defensible conclusion
+
+The fixed physical model now runs with sensing, seven-state estimation and ABS/TC/ESC in the dedicated [33-corner harness](../Current%20State/Ensayos_circuito_extremo/README.md). The full loop completes in 191.074 s versus 190.006 s with perfect state; maximum actual path error is 0.504636 m and position-estimator RMSE is 0.153999 m. Sensor noise, Q and the core block equations are unchanged. [Evidence and design interpretation](Design_Decisions/Extreme_33_Corners_2026-11-28.md).
+
+The model qualitatively reproduces the main adhesion-loss phenomena and coordinated driving-aid action, with physically plausible results within its assumptions. Quantitative agreement with a particular vehicle would require identification and experimental validation. That distinction does not make experimental tyre identification or production slip regulators required unfinished work: force-comparison ABS/TC are the stated academic scope. Further evidence should target robustness, individual aids, emergency scenarios and report reproducibility.

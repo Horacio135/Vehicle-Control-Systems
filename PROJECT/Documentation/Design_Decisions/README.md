@@ -68,3 +68,6 @@ The next phase keeps the plant frozen and assembles the block architecture. Yaw 
 
 
 [27 November: modulated ABS, working Q, research and validation](Modulated_ABS_2026-11-27.md).
+
+
+**33-corner complete loop, 28 November:** sensors/EKF and ABS/TC/ESC complete in 191.074 s; +0.56% versus perfect state. [Integration, results and academic scope](Extreme_33_Corners_2026-11-28.md).

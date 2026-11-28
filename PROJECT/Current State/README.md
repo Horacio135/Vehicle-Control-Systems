@@ -1,12 +1,14 @@
 # Current runnable state
 
-**ESC V1 — 28 November:** [run the dedicated moose-style comparison](Ensayos_ESC/README.md) or [watch its approved 3D recording](../Results/ESC_V1_13m/README.md). It uses perfect state, original Pure Pursuit and a constant 20 m/s reference with nominal braking suppressed. ESC stabilizes but still contacts three cones. The default estimated-loop entry below remains a separate scenario.
+**Official 33-corner complete loop — 28 November:** [run the dedicated sensing/EKF + ABS/TC/ESC scenario](Ensayos_circuito_extremo/README.md), [review its 191.074 s result](../Results/Extreme_33_Corners/README.md), or [watch the official video](https://horacio135.github.io/Vehicle-Control-Systems/#current). The eighteen core block files remain unchanged.
+
+**Separate ESC manoeuvre — 28 November:** [run the dedicated moose-style comparison](Ensayos_ESC/README.md) or [watch its approved 3D recording](../Results/ESC_V1_13m/README.md). It uses perfect state, original Pure Pursuit and a constant 20 m/s reference with nominal braking suppressed. ESC stabilizes but still contacts three cones. The default estimated-loop entry below remains a separate scenario.
 
 **Active update — 27 November 2026:** stateful modulated ABS is installed. Working Q is `diag([.001 .001 .00001 .003 .003].^2)`; sensor noise, R, P0, EKF equations, TC and physical dynamics are unchanged. [New results and videos](../Results/Modulated_ABS/README.md) · [Decision and research](../Documentation/Design_Decisions/Modulated_ABS_2026-11-27.md) · [Previous package](../Archive/2026-11-27_Before_Modulated_ABS/README.md).
 
 [← Project](../README.md) · [Closed-loop results](../Results/Closed_Loop/README.md) · [Theory](../Documentation/Dynamics_Development.md) · [Q and failure analysis](../Documentation/Estimator_Q_and_Failure_Analysis.md)
 
-**The sensing–estimation–control loop is connected and has completed the fourteen-corner circuit.** This is the active entry point, superseding the historical V12 and early block-extraction harnesses.
+**The sensing–estimation–control loop has completed both the fourteen-corner ABS/TC benchmark and the new 33-corner ABS/TC/ESC scenario.** The commands below describe the retained fourteen-corner entry; use the new dedicated harness linked above for all three aids.
 
 ```matlab
 cd(fullfile('PROJECT','Current State'))
@@ -16,7 +18,7 @@ open('Integracion_estado_actual.mlx')
 
 MATLAB R2026a was used. Do not recursively add every historical model or Source Exports folder to the path. The Live Script checks that it resolves the functions from this package.
 
-## What runs
+## What the retained fourteen-corner entry runs
 
 The default configuration compares ABS off/on with TC enabled in both complete noisy/estimated loops. The optional perfect-state reference is disabled by default. It preserves the same track, driver, force limits, tyre parameters and speed plan. The reference maximum is 35 m/s; this is a cap, not a promise that every case achieves it.
 
@@ -63,7 +65,7 @@ Documentation is in English. MATLAB identifiers and comments remain in Spanish a
 
 ## Important limits
 
-- ESC V1 is connected only to its dedicated perfect-state manoeuvre; the default estimated loop does not yet call it. ABS/TC do not directly correct steering.
+- ESC V1 is connected to estimated signals in the dedicated 33-corner harness. The default fourteen-corner Live Script remains an ABS/TC benchmark and does not call ESC. None of these aids directly corrects steering.
 - ABS/TC limit force demands; they are not wheel-slip feedback regulators.
 - Rear wheel rotation is dynamic during traction. Front wheels are kinematic; all wheel speeds are diagnostic reconstructions during historical braking.
 - The plant disallows mixed positive driving and negative braking commands across wheels.

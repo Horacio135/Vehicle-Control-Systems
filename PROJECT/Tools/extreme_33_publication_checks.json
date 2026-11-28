@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "errors": [],
+  "artifacts_checked": 54,
+  "unchanged_core_checked": 18,
+  "official_video": "PROJECT/Results/Extreme_33_Corners/Complete_Loop/Full_loop_33_corners_2D_actual_estimated.mp4",
+  "perfect_lap_s": 190.006,
+  "estimated_lap_s": 191.074,
+  "lap_time_change_percent": 0.5620875130259106,
+  "scope": "Artifact integrity, recorded metrics, unchanged core and official gallery metadata; no new simulation or experimental validation."
+}

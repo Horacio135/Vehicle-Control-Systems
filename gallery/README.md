@@ -2,14 +2,8 @@
 
 [Watch the gallery](https://horacio135.github.io/Vehicle-Control-Systems/#current).
 
-The featured ESC V1 recording shows the controlled blue car and an orange semitransparent baseline car in 3D. The fixed-orientation camera follows the controlled car's X/Y position at 12 m height. Playback is normal speed, 25 fps. The baseline freezes when its recorded run aborts.
+The first official recording is the **33-corner complete loop with noisy sensors, EKF, ABS, TC and ESC**: 191.074 s lap, 0.505 m maximum actual path error and 0.154 m position estimation RMSE. Blue is the actual vehicle and the orange dotted outline is its estimated pose. This is the same video previously offered for temporary access, now promoted to official evidence. [Scope, data and reproduction](../PROJECT/Results/Extreme_33_Corners/README.md).
 
-The test has 13 m lane-change transitions, perfect state and a constant 20 m/s reference, with nominal braking suppressed. ESC limits maximum sideslip to 1.88° and completes, but still contacts three cones. This is not an estimated-loop result or a cone-clearance pass. [Evidence and reproduction](../PROJECT/Results/ESC_V1_13m/README.md).
+There are 14 players: five current recordings, one diagnostic and eight historical milestones, plus 14 archive links. The perfect-state ESC moose test and fourteen-corner ABS comparisons retain their own configurations. The four additional extreme-circuit videos are linked in the archive rather than expanding the compact featured grid; their captions identify perfect-state inputs explicitly.
 
-There are 14 players: five current recordings, one diagnostic and eight historical milestones, plus 10 archive links. The current ABS comparisons retain their own sensing/EKF configuration. The matching 2D ESC comparison is embedded next to the 3D recording and shows trajectories, sideslip, yaw rate and speed.
-
-Edit `catalog.json` and synchronize the embedded catalogue in `index.html`; run `python gallery/build_gallery.py`. The existing workflow validates and deploys media to GitHub Pages. Videos load only after Play is clicked.
-
-## Temporary complete-loop preview
-
-The first current card temporarily provides mobile access to the 33-corner complete-loop video, including noisy sensors, EKF, ABS, TC and ESC. The orange dotted outline is the estimated pose of the blue actual car. This is separate from the perfect-state ESC manoeuvre. [Scope and removal](../PROJECT/Results/Temporary_Preview_33_Corners/README.md).
+Edit `catalog.json` and synchronize the embedded catalogue in `index.html`; run `python gallery/build_gallery.py`. The existing workflow validates and deploys media to GitHub Pages. Videos load only after Play is clicked. Publishing or rendering does not alter any dynamics/controller equations.

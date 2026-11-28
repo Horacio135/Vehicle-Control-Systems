@@ -1,0 +1,12 @@
+{
+  "verificacion_cuatro_casos": true,
+  "equivalencia_ley_ESC": true,
+  "verificacion_lazo_completo": true,
+  "verificacion_recuperacion": true,
+  "reproduccion_contexto_dividido": true,
+  "previsualizacion_portable_2D_3D": true,
+  "archivos_MATLAB_analizados": 16,
+  "avisos_estilo_analizador": 6,
+  "bloques_fisicos_o_control_modificados": false,
+  "simulacion_recalculada": false
+}

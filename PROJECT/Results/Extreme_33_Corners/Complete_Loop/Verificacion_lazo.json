@@ -1,0 +1,101 @@
+{
+  "lazo_sensores_estimador_activo": true,
+  "estado_perfecto_en_control": false,
+  "Q": [
+    [
+      1E-6,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1E-6,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1.0000000000000002E-10,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      9E-6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      9E-6
+    ]
+  ],
+  "P0": [
+    [
+      0.001,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0.001,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0.001,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0.001,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0.001
+    ]
+  ],
+  "semilla": 1,
+  "dt_s": 0.002,
+  "GPS_cada_pasos": 25,
+  "sigma_ax_configurada": 0.2,
+  "sigma_ay_configurada": 0.2,
+  "sigma_GPS_observada": [
+    0.50582514477343521,
+    0.506668647840396
+  ],
+  "residuo_medida_ax_frente_estado_std": 0.20121696682366583,
+  "residuo_medida_ay_frente_estado_std": 0.20048396185863729,
+  "ruido_giro_std_observado": 0.010004479700968212,
+  "resumen": {
+    "finalizacion": "Vuelta completada",
+    "tiempo_s": 191.074,
+    "avance_pct": 100.00085328311958,
+    "error_lateral_max_m": 0.50463565846258973,
+    "rmse_posicion_estimador_m": 0.15399924598975304,
+    "ABS_s": 17.54,
+    "TC_s": 118.03,
+    "ESC_s": 25.042,
+    "proyecciones_carga": 0
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "archivo": "Full_loop_33_corners_2D_actual_estimated.mp4",
+  "sha256": "FB96E4A9FC9F277E51B2C2B3D41082FF4123D10372F111CE35AE0F3154382B06",
+  "duracion_video_s": 191.15,
+  "fps": 20,
+  "reproduccion": 1,
+  "lectura_inicio_mitad_final_verificada": true,
+  "sensores_estimador_activos": true,
+  "ABS_TC_ESC_activos": true,
+  "contorno_estimador": "Naranja punteado, pose X Y psi estimada",
+  "archivo_original": "Lazo_completo_33_curvas_2D_real_y_estimado_x1.mp4"
+}
