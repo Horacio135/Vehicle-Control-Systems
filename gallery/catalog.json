@@ -11,6 +11,17 @@
     "size_mib": 2.91
   },
   {
+    "id": "video-24",
+    "path": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_02_sin_con_ESC_2D.mp4",
+    "include": true,
+    "group": "current",
+    "title": "ESC V1 — 2D manoeuvre comparison",
+    "rationale": "The same 13 m-transition perfect-state test as the 3D recording. Compare both trajectories, sideslip, yaw rate and speed. ESC stabilizes and completes but still contacts three cones.",
+    "poster": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_ESC_previa.png",
+    "detail": "Normal speed · simultaneous ESC on/off · 20 fps",
+    "size_mib": 3.23
+  },
+  {
     "id": "video-21",
     "path": "PROJECT/Results/Modulated_ABS/Circuit_14/Comparacion_ABS_off_on_TC_on_2D_x4.mp4",
     "include": true,
@@ -240,16 +251,5 @@
     "poster": "",
     "detail": "",
     "size_mib": 0.19
-  },
-  {
-    "id": "video-24",
-    "path": "PROJECT/Results/ESC_V1_13m/Comparacion_alce_02_sin_con_ESC_2D.mp4",
-    "include": false,
-    "group": "archive",
-    "title": "ESC V1 — matching 2D manoeuvre view",
-    "rationale": "The same saved trajectories and metrics as the featured 3D comparison; available for planar inspection on the results page.",
-    "poster": "",
-    "detail": "",
-    "size_mib": 3.23
   }
 ]
